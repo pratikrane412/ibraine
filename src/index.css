@@ -1,0 +1,92 @@
+/* 1. GOOGLE FONTS IMPORT - MUST BE ON LINE 1 */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Poppins:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@500;800;900&display=swap');
+@import "tailwindcss";
+
+/* 2. THEME BLOCK */
+@theme {
+  --font-lora: "Lora", serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-brand-yellow: #FFED4E;
+  --color-brand-black: #000000;
+  --color-primary-blue: #4d66f0;
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes markerDraw { from { width: 0; } to { width: 100%; } }
+
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-marker-draw: markerDraw 0.8s ease-out forwards;
+}
+
+/* 3. COMPONENT STYLES */
+@layer components {
+  .nav-link {
+    @apply relative text-[16px] font-medium text-black transition-all hover:text-brand-yellow font-poppins;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-5px] left-0 w-0 h-[2px] bg-brand-yellow transition-all duration-300;
+  }
+  .nav-link:hover::after { @apply w-full; }
+
+  .quote-btn {
+    @apply bg-brand-yellow text-black px-6 py-2.5 rounded-[5px] font-bold transition-all duration-300 font-poppins text-[17px];
+  }
+
+  /* Reveal Logic */
+  .reveal-item { opacity: 0; }
+  .reveal-active .reveal-item { @apply animate-fade-in-up; }
+
+  /* Yellow Highlight */
+  .text-marker { @apply relative inline-block z-10; }
+  .text-marker::after {
+    content: "";
+    @apply absolute left-0 bottom-[8px] h-[12px] bg-brand-yellow -z-10 w-0;
+  }
+  .reveal-active .text-marker::after {
+    animation: markerDraw 0.8s ease-out forwards 0.6s;
+  }
+}
+
+/* 4. BASE STYLES (Cleaned up to prevent "Leaking") */
+@layer base {
+  body {
+    font-family: var(--font-poppins);
+    background-color: #ffffff;
+    color: #1a1a1a; /* Default body text color */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-lora);
+    font-weight: 400;
+    color: inherit; /* Headlines take the color of their section */
+  }
+
+  /* Match your sizes */
+  h1 { font-size: 72px; line-height: 1.1; }
+  h2 { font-size: 48px; line-height: 1.2; }
+
+  p {
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    line-height: 1.6;
+    color: inherit; /* CRITICAL: Paragraphs now take the color of their section */
+  }
+
+  /* --- DARK SECTION FIX --- */
+  /* If a section has 'bg-[#0a0f1d]', everything inside it turns light */
+  .bg-\[\#0a0f1d\] p {
+    color: #d1d5db !important; /* gray-300 */
+  }
+  
+  .bg-\[\#0a0f1d\] h2 {
+    color: #ffffff !important;
+  }
+}
+
+/* background-lines.css pattern */
+.bg-grid-lines {
+  background-size: 80px 100%; /* Spacing between the vertical lines */
+  background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px);
+}
