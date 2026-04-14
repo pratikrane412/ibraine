@@ -23,7 +23,7 @@ const teamMembers = [
   },
   { 
     name: 'Avantika', 
-    role: 'Graphic Designer', 
+    role: 'Senior Graphic Designer', 
     image: '/images/Avantikaa.png', 
     bio: 'Avantika brings brands to life through bold visual identities. Her designs are the bridge between strategy and aesthetics.' 
   },
@@ -35,7 +35,7 @@ const teamMembers = [
   },
   { 
     name: 'Nishi More', 
-    role: 'Full Time Pass', 
+    role: 'Social Media Executive', 
     image: '/images/Nishi.png', 
     bio: 'Nishi excels at data-driven marketing, ensuring every campaign is optimized for maximum ROI and visibility.' 
   },

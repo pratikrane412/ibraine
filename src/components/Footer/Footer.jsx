@@ -1,117 +1,148 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Youtube, ArrowUpRight, Mail } from 'lucide-react';
+import React from "react";
+import { ArrowUpRight, Globe, Mail, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full bg-[#030712] text-white pt-24 pb-12 overflow-hidden selection:bg-indigo-500 selection:text-white">
-      {/* Background Decor - Subtle Gradient */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <footer className="relative bg-[#030712] text-white px-6 pt-24 pb-12 overflow-hidden font-sans">
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* --- TOP SECTION: NEWSLETTER & BRAND --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
-          
-          <div className="lg:col-span-5">
-            <h3 className="font-lora text-4xl md:text-5xl font-medium leading-tight mb-6">
-              Let’s build the <br /> 
-              <span className="italic text-indigo-400">future of your brand.</span>
+      {/* Premium Glow */}
+      <div className="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-[#1872BA]/20 blur-[150px] rounded-full" />
+      <div className="absolute bottom-[-150px] right-[-150px] w-[400px] h-[400px] bg-[#FB8C32]/20 blur-[150px] rounded-full" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 mb-20">
+
+          {/* BRAND */}
+          <div>
+            <h3 className="text-3xl md:text-4xl font-semibold leading-tight mb-5">
+              Let’s build your <br />
+              <span className="bg-gradient-to-r from-[#FB8C32] to-[#1872BA] bg-clip-text text-transparent">
+                digital growth.
+              </span>
             </h3>
-            <p className="font-jakarta text-slate-400 text-lg max-w-md mb-8">
-              A full-spectrum digital powerhouse engineering success through neural marketing.
+
+            <p className="text-white/60 text-base leading-relaxed mb-7 max-w-sm">
+              We help brands scale with performance-driven marketing and data-backed strategies.
             </p>
-            
-            {/* Newsletter Input */}
-            <div className="relative max-w-md group">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-6 pr-16 font-jakarta text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+
+            {/* Newsletter */}
+            <div className="relative flex items-center rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <input
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 text-base bg-transparent outline-none placeholder:text-white/40"
               />
-              <button className="absolute right-2 top-2 bottom-2 px-4 bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors flex items-center justify-center">
-                <ArrowUpRight size={20} />
+              <button className="px-5 py-3 bg-gradient-to-r from-[#FB8C32] to-[#1872BA] hover:scale-105 transition">
+                <ArrowUpRight size={18} />
               </button>
             </div>
-            <p className="text-[10px] uppercase tracking-widest text-slate-500 mt-4 font-bold ml-2">
-              Join 5k+ readers for weekly digital strategy tips.
-            </p>
           </div>
 
-          <div className="hidden lg:block lg:col-span-1 border-r border-white/10 h-full mx-auto" />
+          {/* LINKS */}
+          <div>
+            <h4 className="text-sm tracking-widest text-white/40 uppercase mb-6">
+              Links
+            </h4>
 
-          {/* Links Grid */}
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-2 gap-12">
-            <div>
-              <h4 className="font-jakarta text-[11px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-8">Core Services</h4>
-              <ul className="space-y-4">
-                {["Performance Marketing", "SEO Optimization", "Social Media Strategy", "UI/UX Design"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="font-jakarta text-[15px] font-medium text-slate-300 hover:text-indigo-400 transition-colors flex items-center group">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-jakarta text-[11px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-8">Quick Navigation</h4>
-              <ul className="space-y-4">
-                {["Case Studies", "Our Blog", "About iBraine", "Job Application"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="font-jakarta text-[15px] font-medium text-slate-300 hover:text-indigo-400 transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <ul className="space-y-4 text-base">
+              {[
+                "About Us",
+                "Careers",
+                "Blog",
+                "Case Studies",
+                "Contact",
+              ].map((item, i) => (
+                <li
+                  key={i}
+                  className="text-white/70 hover:text-white transition-all duration-300 cursor-pointer relative group"
+                >
+                  {item}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gradient-to-r from-[#FB8C32] to-[#1872BA] group-hover:w-full transition-all duration-300" />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* SERVICES */}
+          <div>
+            <h4 className="text-sm tracking-widest text-white/40 uppercase mb-6">
+              Services
+            </h4>
+
+            <ul className="space-y-4 text-base">
+              {[
+                "Performance Marketing",
+                "SEO Services",
+                "Social Media",
+                "Influencer Marketing",
+                "Web Development",
+              ].map((item, i) => (
+                <li
+                  key={i}
+                  className="text-white/70 hover:text-white transition-all duration-300 cursor-pointer relative group"
+                >
+                  {item}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gradient-to-r from-[#FB8C32] to-[#1872BA] group-hover:w-full transition-all duration-300" />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="text-sm tracking-widest text-white/40 uppercase mb-6">
+              Contact
+            </h4>
+
+            <div className="space-y-5 text-base text-white/70">
+
+              <div className="flex items-center gap-3 hover:text-white transition">
+                <Mail size={18} />
+                hello@ibraine.com
+              </div>
+
+              <div className="flex items-center gap-3 hover:text-white transition">
+                <Phone size={18} />
+                +91 98765 43210
+              </div>
+
+              <div className="flex items-center gap-3 hover:text-white transition">
+                <Globe size={18} />
+                www.ibraine.com
+              </div>
+
             </div>
           </div>
+
         </div>
 
-        {/* --- MIDDLE SECTION: BIG LOGO WATERMARK --- */}
-        {/* <div className="border-t border-white/5 pt-12 mb-12 overflow-hidden">
-           <h2 className="text-[18vw] font-black text-white/[0.02] leading-none tracking-tighter select-none font-jakarta pointer-events-none">
-             iBraine
-           </h2>
-        </div> */}
+        {/* DIVIDER */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
 
-        {/* --- BOTTOM SECTION: LEGAL & SOCIAL --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
-          
-          {/* Socials */}
-          <div className="flex items-center gap-6">
-            {[
-              { icon: <Facebook size={20} />, link: "#" },
-              { icon: <Instagram size={20} />, link: "#" },
-              { icon: <Linkedin size={20} />, link: "#" },
-              { icon: <Youtube size={20} />, link: "#" }
-            ].map((social, i) => (
-              <a 
-                key={i} 
-                href={social.link} 
-                className="text-slate-500 hover:text-white transition-colors p-2 bg-white/5 rounded-full hover:bg-indigo-600"
+          {/* Social */}
+          <div className="flex gap-4">
+            {[Globe, Mail, Phone].map((Icon, i) => (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                key={i}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-gradient-to-r hover:from-[#FB8C32] hover:to-[#1872BA] transition cursor-pointer"
               >
-                {social.icon}
-              </a>
+                <Icon size={18} />
+              </motion.div>
             ))}
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-1">
-            <div className="flex items-center gap-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-2">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            </div>
-            <p className="text-slate-500 text-xs text-center md:text-right">
-              © {currentYear} iBraine Digital. Proudly created in India. <br className="md:hidden" />
-              All Right Reserved, All Wrong Reversed.
-            </p>
-          </div>
+          {/* Copyright */}
+          <p className="text-white/40 text-sm text-center">
+            © {year} iBraine. Crafted with precision.
+          </p>
 
         </div>
+
       </div>
     </footer>
   );

@@ -1,45 +1,82 @@
-/* 1. GOOGLE FONTS IMPORT - MUST BE ON LINE 1 */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400&family=Poppins:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:wght@500;800;900&display=swap');
+/* 1. GOOGLE FONTS IMPORT - Lora & Jakarta Only */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@500;800;900&display=swap");
 @import "tailwindcss";
 
 /* 2. THEME BLOCK */
 @theme {
   --font-lora: "Lora", serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
 
-  --color-brand-yellow: #FFED4E;
+  --color-brand-yellow: #ffed4e;
   --color-brand-black: #000000;
   --color-primary-blue: #4d66f0;
 
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes markerDraw { from { width: 0; } to { width: 100%; } }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes markerDraw {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
 
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
   --animate-marker-draw: markerDraw 0.8s ease-out forwards;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* 3. COMPONENT STYLES */
 @layer components {
   .nav-link {
-    @apply relative text-[16px] font-medium text-black transition-all hover:text-brand-yellow font-poppins;
+    @apply relative text-[16px] font-medium text-black transition-all hover:text-brand-yellow font-lora;
   }
   .nav-link::after {
-    content: '';
+    content: "";
     @apply absolute bottom-[-5px] left-0 w-0 h-[2px] bg-brand-yellow transition-all duration-300;
   }
-  .nav-link:hover::after { @apply w-full; }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
 
   .quote-btn {
-    @apply bg-brand-yellow text-black px-6 py-2.5 rounded-[5px] font-bold transition-all duration-300 font-poppins text-[17px];
+    @apply bg-brand-yellow text-black px-6 py-2.5 rounded-[5px] font-bold transition-all duration-300 font-lora text-[17px];
   }
 
   /* Reveal Logic */
-  .reveal-item { opacity: 0; }
-  .reveal-active .reveal-item { @apply animate-fade-in-up; }
+  .reveal-item {
+    opacity: 0;
+  }
+  .reveal-active .reveal-item {
+    @apply animate-fade-in-up;
+  }
 
   /* Yellow Highlight */
-  .text-marker { @apply relative inline-block z-10; }
+  .text-marker {
+    @apply relative inline-block z-10;
+  }
   .text-marker::after {
     content: "";
     @apply absolute left-0 bottom-[8px] h-[12px] bg-brand-yellow -z-10 w-0;
@@ -49,44 +86,54 @@
   }
 }
 
-/* 4. BASE STYLES (Cleaned up to prevent "Leaking") */
+/* 4. BASE STYLES */
 @layer base {
   body {
-    font-family: var(--font-poppins);
+    font-family: var(--font-lora);
     background-color: #ffffff;
-    color: #1a1a1a; /* Default body text color */
+    color: #1a1a1a;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-lora);
-    font-weight: 400;
-    color: inherit; /* Headlines take the color of their section */
+    font-weight: 500; /* Slightly heavier for Lora headings */
+    color: inherit;
   }
 
   /* Match your sizes */
-  h1 { font-size: 72px; line-height: 1.1; }
-  h2 { font-size: 48px; line-height: 1.2; }
+  h1 {
+    font-size: 72px;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
 
   p {
-    font-family: var(--font-poppins);
-    font-size: 20px;
-    line-height: 1.6;
-    color: inherit; /* CRITICAL: Paragraphs now take the color of their section */
+    font-family: var(--font-lora);
+    font-size: 18px; /* Reduced slightly as serif fonts feel larger */
+    line-height: 1.7;
+    color: inherit;
   }
 
   /* --- DARK SECTION FIX --- */
-  /* If a section has 'bg-[#0a0f1d]', everything inside it turns light */
   .bg-\[\#0a0f1d\] p {
     color: #d1d5db !important; /* gray-300 */
   }
-  
+
   .bg-\[\#0a0f1d\] h2 {
     color: #ffffff !important;
   }
 }
 
-/* background-lines.css pattern */
+/* background-lines pattern */
 .bg-grid-lines {
-  background-size: 80px 100%; /* Spacing between the vertical lines */
+  background-size: 80px 100%;
   background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px);
 }
