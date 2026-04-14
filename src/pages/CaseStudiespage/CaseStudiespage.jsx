@@ -9,7 +9,7 @@ import ContactSection from '../../components/CaseStudiespage/ContactSection/Cont
 
 const CaseStudiespage = () => {
     return (
-      <main className="w-full min-h-screen pt-24 bg-gray-50">
+      <main >
         <CaseStudiesHero />
         <CaseStudiesGrid />
         <GrowthElements/>

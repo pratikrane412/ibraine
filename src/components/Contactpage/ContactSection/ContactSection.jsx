@@ -1,112 +1,99 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { FiArrowUpRight, FiPhone, FiMail } from 'react-icons/fi';
 
 const ContactSection = () => {
   return (
-    <section className="bg-gray-50 py-20 lg:py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        
-        {/* ════ LEFT SIDE: CONTACT FORM ════ */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl shadow-gray-200 border border-gray-100"
-        >
-          <span className="text-[#fdb813] font-bold text-xs tracking-widest uppercase mb-4 block">
-            GET IN TOUCH
-          </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-10 font-serif" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Send us a message
-          </h2>
+    <section className="w-full bg-white min-h-screen font-sans">
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12">
 
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input type="text" placeholder="Your name *" className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium" />
-              <input type="email" placeholder="Your email *" className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium" />
+        {/* ════ LEFT: THE FORM (High Contrast Line Design) ════ */}
+        <div className="lg:col-span-7 p-6 md:p-12 lg:p-20 border-r border-slate-100">
+          <div className="mb-16">
+            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#f59e0b] mb-4">Step 01</p>
+            <h2 className="text-3xl md:text-5xl font-serif text-slate-950" style={{ fontFamily: "'Lora', serif" }}>Project Brief</h2>
+          </div>
+
+          <form className="space-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+              <div className="group space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Full Name</label>
+                <input type="text" className="w-full bg-transparent border-b-2 border-slate-200 py-3 outline-none focus:border-slate-900 transition-colors text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="Required" />
+              </div>
+              <div className="group space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Email Address</label>
+                <input type="email" className="w-full bg-transparent border-b-2 border-slate-200 py-3 outline-none focus:border-slate-900 transition-colors text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="Required" />
+              </div>
+              <div className="group space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Phone</label>
+                <input type="tel" className="w-full bg-transparent border-b-2 border-slate-200 py-3 outline-none focus:border-slate-900 transition-colors text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="Optional" />
+              </div>
+              <div className="group space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Goal</label>
+                <select className="w-full bg-transparent border-b-2 border-slate-200 py-3 outline-none focus:border-slate-900 transition-colors text-xl font-serif text-slate-900 cursor-pointer appearance-none">
+                  <option>Performance Marketing</option>
+                  <option>SEO Growth</option>
+                  <option>Creative Strategy</option>
+                </select>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input type="tel" placeholder="Your phone *" className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium" />
-              <input type="text" placeholder="Company Website" className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium" />
+
+            <div className="group space-y-4">
+              <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Message</label>
+              <textarea rows="2" className="w-full bg-transparent border-b-2 border-slate-200 py-3 outline-none focus:border-slate-900 transition-colors text-xl font-serif text-slate-900 placeholder:text-slate-300 resize-none" placeholder="How can we help?"></textarea>
             </div>
-            <select className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium text-gray-500 appearance-none">
-                <option>Monthly Budget</option>
-                <option>$500 - $1,000</option>
-                <option>$1,000 - $5,000</option>
-                <option>$5,000+</option>
-            </select>
-            <textarea placeholder="Your Message" rows="5" className="w-full px-6 py-4 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#fdb813] transition-all text-sm font-medium resize-none"></textarea>
-            
-            <button className="w-full bg-[#0a2647] hover:bg-[#144272] text-white font-bold py-5 rounded-xl shadow-lg transition-all active:scale-[0.98] uppercase tracking-widest text-sm flex items-center justify-center gap-3">
-              SEND MESSAGE
-              <Send size={16} />
-            </button>
+
+            <motion.button
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-6 group mt-12 cursor-pointer"
+            >
+              <div className="w-16 h-16 rounded-full bg-slate-950 flex items-center justify-center text-white group-hover:bg-[#2c66f6] transition-all duration-300 shadow-xl shadow-slate-200">
+                <FiArrowUpRight size={24} />
+              </div>
+              <span className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-950 group-hover:text-[#2c66f6] transition-colors">Send Inquiry</span>
+            </motion.button>
           </form>
-        </motion.div>
+        </div>
 
-        {/* ════ RIGHT SIDE: CONTACT DETAILS ════ */}
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex flex-col space-y-8"
-        >
-          <div>
-            <span className="text-[#fdb813] font-bold text-xs tracking-widest uppercase mb-4 block">
-                FIND US
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-10 font-serif" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Our contact details
-            </h2>
+        {/* ════ RIGHT: TECHNICAL INFO ════ */}
+        <div className="lg:col-span-5 flex flex-col justify-between bg-[#fafafa]">
+
+          <div className="p-6 md:p-12 lg:p-20 space-y-24">
+            <div className="space-y-6">
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Headquarters</p>
+              <h3 className="text-2xl md:text-3xl font-serif leading-[1.1] text-slate-950" style={{ fontFamily: "'Lora', serif" }}>
+                Office No. 2, Chandra Niwas CHS, <br />
+                Off Old Police Lane, Andheri East, <br />
+                Mumbai – 400069
+              </h3>
+            </div>
+
+            <div className="space-y-8">
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Direct Contact</p>
+              <div className="space-y-6">
+                <a href="tel:+919892854892" className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
+                  <FiPhone size={20} className="text-[#2c66f6]" /> +91 9892 854 892
+                </a>
+                <a href="mailto:info@ibraine.com" className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
+                  <FiMail size={20} className="text-[#2c66f6]" /> info@ibraine.com
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Address Card */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 flex items-start gap-6 group hover:-translate-y-1 transition-transform">
-             <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <MapPin size={28} />
-             </div>
-             <div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">Our Address</h4>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-                  Office No. 2, Chandra Niwas CHS, Off Old Police Lane, Andheri East, Mumbai – 400069
-                </p>
-             </div>
+          {/* Social Ecosystem (Solid Text) */}
+          <div className="border-t border-slate-200 p-6 md:p-12 lg:p-20">
+            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-8">Follow Ecosystem</p>
+            <div className="flex flex-wrap gap-x-12 gap-y-6">
+              {['Instagram', 'LinkedIn', 'Twitter', 'Facebook'].map((social) => (
+                <a key={social} href="#" className="text-sm font-extrabold text-slate-700 hover:text-[#2c66f6] transition-colors uppercase tracking-[0.2em]">
+                  {social}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Phone Card */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 flex items-start gap-6 group hover:-translate-y-1 transition-transform">
-             <div className="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                <Phone size={28} />
-             </div>
-             <div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">Contact Info</h4>
-                <p className="text-gray-400 text-xs mb-3 font-semibold uppercase tracking-wider">Reach out via WhatsApp, Call or Message:</p>
-                <div className="space-y-1">
-                    <a href="tel:+919892854892" className="block text-gray-900 font-bold hover:text-[#fdb813] transition-colors">+91 9892 854 892</a>
-                    <a href="tel:+919619032791" className="block text-gray-900 font-bold hover:text-[#fdb813] transition-colors">+91 9619 032 791</a>
-                    <a href="tel:+919819494162" className="block text-gray-900 font-bold hover:text-[#fdb813] transition-colors">+91 9819 494 162</a>
-                </div>
-             </div>
-          </div>
-
-          {/* Email Card */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 flex items-start gap-6 group hover:-translate-y-1 transition-transform">
-             <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                <Mail size={28} />
-             </div>
-             <div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">Reach us via Email</h4>
-                <p className="text-gray-400 text-xs mb-3 font-semibold uppercase tracking-wider">We eagerly await your thoughts.</p>
-                <div className="space-y-1">
-                    <a href="mailto:info@ibraine.com" className="block text-gray-900 font-bold hover:text-[#fdb813] transition-colors">info@ibraine.com</a>
-                    <a href="mailto:ibraine@gmail.com" className="block text-gray-900 font-bold hover:text-[#fdb813] transition-colors">ibraine@gmail.com</a>
-                </div>
-             </div>
-          </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

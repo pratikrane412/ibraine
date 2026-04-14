@@ -1,86 +1,92 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { MessageSquare } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FiMessageSquare, FiArrowDown } from 'react-icons/fi';
 
 const ContactHero = () => {
-  // Animation Variants for staggered entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  const { scrollY } = useScroll();
+  // Subtle parallax for background elements
+  const orbY = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
-    <section className="relative w-full py-24 md:py-40 px-6 overflow-hidden flex flex-col items-center justify-center text-center select-none font-sans">
-      
-      {/* ════ BACKGROUND GRADIENT GLOW ════ */}
-      <div className="absolute inset-0 -z-10 bg-[#fdfdfd]">
-        {/* Sky blue glow left */}
-        <div className="absolute top-0 left-0 w-[50%] h-full bg-[radial-gradient(circle_at_20%_30%,#e0f2fe_0%,transparent_50%)] opacity-70"></div>
-        {/* Warm amber glow right */}
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-[radial-gradient(circle_at_80%_40%,#fef3c7_0%,transparent_50%)] opacity-60"></div>
+    <section className="relative w-full py-32 md:py-10 px-6 overflow-hidden flex flex-col items-center justify-center text-center bg-[#fdfdfd]">
+
+      {/* ════ LIVELY BACKGROUND SYSTEM ════ */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* 1. Moving Mesh Orbs */}
+        <motion.div
+          style={{ y: orbY }}
+          className="absolute top-[-10%] left-[-10%] w-[60%] h-[70%] bg-[#2c66f6]/5 rounded-full blur-[120px]"
+        />
+        <motion.div
+          style={{ y: orbY }}
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-[#fdb813]/5 rounded-full blur-[100px]"
+        />
+
+        {/* 2. Professional Grain Texture */}
+        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+        {/* 3. Subtle Technical Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px)] bg-[size:10%_100%]" />
       </div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-5xl mx-auto space-y-10"
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 max-w-6xl mx-auto"
       >
+
         
-        {/* 1. Pill Badge */}
-        <motion.div 
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border border-[#fde68a] bg-[#fffbeb] text-[#d97706] text-xs md:text-sm font-bold shadow-sm"
-        >
-          <MessageSquare size={14} className="fill-current" />
-          <span>Contact us</span>
-        </motion.div>
 
-        {/* 2. Main Heading */}
-        <motion.h1 
-          variants={itemVariants}
-          className="text-4xl md:text-7xl lg:text-[84px] font-bold text-[#0f172a] leading-[1.1] font-serif"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+        {/* 2. Massive Editorial Heading */}
+        <h1
+          className="text-5xl md:text-8xl lg:text-[100px] font-medium text-[#0f172a] leading-[0.9] tracking-tighter font-serif"
+          style={{ fontFamily: "'Lora', serif" }}
         >
-          Let's Start a <br className="md:hidden" />
-          <span className="relative inline-block text-[#2c66f6] ml-2">
+          Let's Start a <br />
+          <span className="relative inline-block italic text-[#2c66f6]">
             Conversation
-            {/* Animated Yellow Underline */}
-            <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="absolute -bottom-2 left-0 h-1.5 bg-[#fdb813] rounded-full"
-            ></motion.div>
-          </span> 
-        </motion.h1>
+            {/* Animated SVG Hand-drawn Scribble */}
+            <svg className="absolute -bottom-4 left-0 w-full h-6 text-[#fdb813]/40" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <motion.path
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ delay: 1, duration: 1.2, ease: "easeInOut" }}
+                d="M5 15 Q 30 5 50 15 T 95 10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        </h1>
 
-        {/* 3. Subtext */}
-        <motion.p 
-          variants={itemVariants}
-          className="text-gray-500 text-base md:text-xl font-medium tracking-tight"
+        {/* 3. Subtext with better pacing */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="mt-16 text-slate-600 text-base md:text-xl font-medium max-w-md mx-auto italic leading-relaxed"
         >
-          We are not your agency, we are your partner.
+          We bridge the gap between business vision and digital execution. We are your growth partner.
         </motion.p>
+
+        {/* 4. Editorial Vertical Anchor */}
+        <motion.div
+          animate={{ y: [0, 15, 0] }}
+          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+          className="mt-20 flex flex-col items-center gap-4 opacity-20"
+        >
+          <div className="w-px h-16 bg-gradient-to-b from-slate-900 to-transparent" />
+          <FiArrowDown size={14} />
+        </motion.div>
       </motion.div>
 
-      {/* Decorative background blurs for extra depth */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-amber-100/40 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* Font Import in component for safety */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+      `}</style>
     </section>
   );
 };

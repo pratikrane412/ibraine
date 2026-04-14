@@ -87,7 +87,7 @@ const UIUX = () => {
                             <span className="font-bold text-xs uppercase tracking-[0.3em] opacity-60">UI/UX Design for Growing Products</span>
                         </motion.div>
 
-                        <motion.h1 variants={revealVariant} className="text-6xl md:text-[100px] font-black leading-[0.85] mb-12 tracking-tighter">
+                        <motion.h1 variants={revealVariant} className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] mb-12 tracking-tighter">
                             We design <br />
                             <span className="flex items-center gap-4">
                                 iconic <motion.div
@@ -165,7 +165,7 @@ const UIUX = () => {
                     variants={revealVariant} className="max-w-5xl mx-auto"
                 >
                     <span className="bg-[#f9b91b] px-6 py-2 rounded-full text-xs font-black uppercase text-white mb-8 inline-block shadow-lg">Our DNA</span>
-                    <h2 className="text-5xl md:text-8xl font-black mb-10 leading-[0.9]">Thoughtful UX design that feels <span className="italic underline decoration-[#f9b91b]">natural</span> and drives action.</h2>
+                    <h2 className="text-5xl md:text-6xl font-black mb-10 leading-[0.9]">Thoughtful UX design that feels <span className="italic underline decoration-[#f9b91b]">natural</span> and drives action.</h2>
                     <p className="text-2xl text-gray-400 leading-relaxed font-medium">
                         We do more than visual polish. Every screen, interaction, and content block is designed to help users decide faster and complete key actions with confidence.
                     </p>
@@ -184,7 +184,7 @@ const UIUX = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-6xl md:text-[80px] font-black leading-[0.9] tracking-tighter mb-4">
+                                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tighter mb-4">
                                     Signature <br />
                                     <span className="text-[#f9b91b]">Capabilities.</span>
                                 </h2>
@@ -260,7 +260,7 @@ const UIUX = () => {
             <section className="py-28 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14">
                     <div className="lg:col-span-5">
-                        <h3 className="text-5xl md:text-7xl font-black leading-[0.9] mb-8">
+                        <h3 className="text-3xl md:text-5xl font-black leading-[0.9] mb-8">
                             A practical process that turns complex journeys into clear experiences.
                         </h3>
                         <p className="text-xl text-gray-600 max-w-xl">
@@ -306,7 +306,7 @@ const UIUX = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div>
                         <Headphones size={60} className="text-[#39a14f] mb-10" />
-                        <h2 className="text-6xl md:text-8xl font-black mb-10 leading-tight">
+                        <h2 className="text-2xl md:text-4xl font-black mb-10 leading-tight">
                             Ready to improve your <br /> <span className="text-[#f9b91b]">UI/UX</span> experience?
                         </h2>
                         <p className="text-2xl text-gray-400 mb-12">Share your current product challenge and we will map a focused UX plan tailored to your users, business goals, and delivery timeline.</p>

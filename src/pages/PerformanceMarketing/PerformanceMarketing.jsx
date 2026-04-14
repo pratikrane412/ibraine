@@ -8,7 +8,7 @@ import SmartScalingBlock from '../../components/PerfComp/SmartScalingBlock';
 import CreativeExcellence from '../../components/PerfComp/CreativeExcellence';
 import AnalyticsReporting from '../../components/PerfComp/AnalyticsReporting';
 import FoundersWall from '../../components/PerfComp/FoundersWall';
-import PerfContactForm from '../../components/PerfComp/PerfContactForm';
+
 
 
 const PerformanceMarketing = () => {
@@ -50,8 +50,9 @@ const PerformanceMarketing = () => {
             <CreativeExcellence />
             <AnalyticsReporting />
             <FoundersWall />
-            <PerfContactForm />
+
          </div>
+         
 
       </main>
    );

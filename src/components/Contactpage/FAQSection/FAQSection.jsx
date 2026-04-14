@@ -1,117 +1,99 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { FiPlus, FiMinus, FiArrowUpRight } from 'react-icons/fi'; // Using Fi for stability
 
 const faqData = [
   {
-    question: "What services does your digital marketing agency provide?",
-    answer: "We offer a comprehensive range of digital marketing services including social media marketing, SEO, PPC advertising, content creation, email marketing, and more."
+    q: "What services does your digital marketing agency provide?",
+    a: "We provide a comprehensive ecosystem of digital growth services: Performance Marketing, SEO, Social Media Engineering, and High-Conversion UI/UX Design. We focus on mathematical ROI, not just traffic."
   },
   {
-    question: "How do your digital marketing strategies align with our business goals?",
-    answer: "We start with a deep dive into your business objectives. Every campaign is custom-built to hit your specific KPIs, whether it's lead generation, brand awareness, or direct sales."
+    q: "How do your strategies align with our business goals?",
+    a: "We start with a technical audit of your business objectives. Every campaign is custom-mapped to your specific KPIs, ensuring that digital metrics translate directly into bottom-line revenue."
   },
   {
-    question: "What is your agency's approach to measuring and reporting on campaign performance?",
-    answer: "We provide transparent, real-time dashboards and monthly deep-dive reports. We focus on 'North Star' metrics that actually impact your bottom line, not just vanity numbers."
+    q: "What is your agency's approach to reporting?",
+    a: "Total transparency. We provide real-time dashboards and monthly editorial deep-dives. We focus on 'North Star' metrics—data that actually drives decision-making."
   },
   {
-    question: "Do you have experience working with businesses in our industry?",
-    answer: "With over 10+ years in the market, we have worked across E-commerce, Real Estate, Tech, and Healthcare. Chances are, we already know what works for your niche."
-  },
-  {
-    question: "How do you determine the budget and pricing for your digital marketing services?",
-    answer: "Our pricing is modular and based on the scope of work. We offer custom plans to ensure you get the maximum ROI without paying for services you don't need."
+    q: "Do you have experience in our specific industry?",
+    a: "With over a decade in the market, our expertise spans E-commerce, Real Estate, and Fintech. Our frameworks are industry-agnostic but execution-specific."
   }
 ];
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0); // First one open by default like the image
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="bg-white py-20 lg:py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        
-        {/* ════ LEFT SIDE: TEXT CONTENT ════ */}
-        <div className="lg:col-span-5 lg:sticky lg:top-32">
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="text-[#fdb813] font-bold text-xs tracking-[0.3em] uppercase mb-6 block"
-          >
-            FAQ
-          </motion.span>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8 font-serif"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Have a question <br /> in mind?
-          </motion.h2>
-          
-          <div className="space-y-2 mb-10">
-            <p className="text-gray-400 font-semibold text-lg">Confused?</p>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Can't find your answers here? Send us a message.
-            </p>
+    <section className="w-full bg-white py-24 md:py-32 border-t border-slate-100 font-sans">
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0">
+
+        {/* ════ LEFT: EDITORIAL CONTEXT ════ */}
+        <div className="lg:col-span-5 p-6 md:p-12 lg:p-20 lg:sticky lg:top-0 h-fit">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1.5 h-1.5 bg-[#f59e0b] rounded-full" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">Knowledge Base v1.0</span>
           </div>
 
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-[#0a2647] hover:bg-[#144272] text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg group"
+          <h2
+            className="text-4xl md:text-6xl font-medium text-slate-950 leading-[1] tracking-tighter font-serif mb-10"
+            style={{ fontFamily: "'Lora', serif" }}
           >
-            Contact us
-            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-          </motion.button>
+            Common <br />
+            <span className="italic text-slate-400">Curiosities.</span>
+          </h2>
+
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed italic mb-12 max-w-xs">
+            Everything you need to know about our partnership dynamics and growth frameworks.
+          </p>
+
+          <button className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.3em] text-[#2c66f6] group">
+            Full Help Center <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </button>
         </div>
 
-        {/* ════ RIGHT SIDE: ACCORDION ════ */}
-        <div className="lg:col-span-7 space-y-4">
-          {faqData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`border-2 rounded-xl overflow-hidden transition-all duration-300 
-                ${openIndex === index ? 'border-[#0a2647] shadow-lg' : 'border-gray-100 hover:border-gray-200'}`}
-            >
-              {/* Question Trigger */}
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                className="w-full p-6 text-left flex justify-between items-center gap-4 bg-white"
-              >
-                <span className={`font-bold text-sm md:text-base lg:text-lg transition-colors
-                  ${openIndex === index ? 'text-[#0a2647]' : 'text-gray-700'}`}>
-                  {item.question}
-                </span>
-                <div className={`shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-[#0a2647]' : 'text-gray-400'}`}>
-                  <ChevronDown size={20} />
-                </div>
-              </button>
+        {/* ════ RIGHT: TECHNICAL ACCORDION (Line-Based) ════ */}
+        <div className="lg:col-span-7 border-l border-slate-100">
+          <div className="divide-y divide-slate-100 border-b border-slate-100">
+            {faqData.map((item, index) => (
+              <div key={index} className="group overflow-hidden bg-white hover:bg-slate-50/50 transition-colors">
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+                  className="w-full p-8 md:p-12 text-left flex justify-between items-start gap-8"
+                >
+                  <div className="flex gap-6 md:gap-10">
+                    <span className="text-[10px] font-mono font-bold text-slate-300 mt-1">0{index + 1}</span>
+                    <span className={`text-xl md:text-2xl font-medium tracking-tight transition-colors font-serif
+                      ${openIndex === index ? 'text-[#2c66f6]' : 'text-slate-900'}`}
+                      style={{ fontFamily: "'Lora', serif" }}
+                    >
+                      {item.q}
+                    </span>
+                  </div>
+                  <div className={`mt-2 shrink-0 transition-transform duration-500 ${openIndex === index ? 'rotate-180 text-[#2c66f6]' : 'text-slate-300'}`}>
+                    {openIndex === index ? <FiMinus size={20} /> : <FiPlus size={20} />}
+                  </div>
+                </button>
 
-              {/* Answer Area */}
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <div className="px-6 pb-6 text-gray-500 text-sm md:text-base leading-relaxed border-t border-gray-50 pt-4 bg-blue-50/30">
-                      {item.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="px-8 md:px-12 pb-12 ml-12 md:ml-20 max-w-xl">
+                        <p className="text-slate-500 text-sm md:text-base leading-relaxed italic font-medium">
+                          {item.a}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
