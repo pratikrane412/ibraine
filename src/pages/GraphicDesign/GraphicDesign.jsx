@@ -1,512 +1,278 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-    Palette, Star, MousePointer2, CheckCircle2,
-    Zap, Smartphone, Layout, PenTool,
-    ArrowRight, Headphones, Globe, Sparkles, Trophy, Layers, Brush, BadgeCheck
+    Play, CheckCircle2, ChevronDown, ChevronUp
 } from 'lucide-react';
+import { Headphones } from 'lucide-react';
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
 
 const GraphicDesign = () => {
-    // Animation Variants
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
-    };
+    const [openFaq, setOpenFaq] = useState(0);
 
-    const staggerContainer = {
-        visible: { transition: { staggerChildren: 0.15 } }
-    };
-
-    const achievements = [
-        { value: '250+', label: 'Brands transformed' },
-        { value: '4.9/5', label: 'Client satisfaction rating' },
-        { value: '24hr', label: 'First concept turnaround' },
-        { value: '12+', label: 'Industries served globally' }
-    ];
-
-    const servicePillars = [
+    const faqs = [
         {
-            title: 'Brand Identity Systems',
-            description: 'Build memorable, ownable identities with logo families, typography systems, and brand playbooks.',
-            icon: <BadgeCheck className="text-emerald-500" />
+            title: "Brand Identity & Logo Design",
+            content: "We craft timeless logos and full brand identity systems — colour palettes, typography, iconography, and brand guidelines — that make your business instantly recognisable and memorable across every touchpoint."
         },
         {
-            title: 'Campaign & Social Creatives',
-            description: 'Drive clicks and engagement with high-performing creatives tailored to every platform.',
-            icon: <Sparkles className="text-orange-500" />
+            title: "Social Media & Digital Graphics",
+            content: "From Instagram posts and story templates to LinkedIn banners and YouTube thumbnails, we design scroll-stopping social graphics that are consistent with your brand and optimised for engagement."
         },
         {
-            title: 'Packaging & Print',
-            description: 'From shelf-impact packaging to premium brochures, we convert attention into trust.',
-            icon: <Layers className="text-violet-500" />
+            title: "Print & Marketing Collateral",
+            content: "We design everything your business needs in print — brochures, flyers, business cards, banners, packaging, and more — ensuring your offline presence is just as powerful as your online one."
         },
         {
-            title: 'UI Visual Design',
-            description: 'Clean, conversion-focused interfaces that blend visual depth with usability principles.',
-            icon: <Brush className="text-blue-500" />
+            title: "UI/UX & Web Graphics",
+            content: "Our designers create beautiful, conversion-focused UI elements, landing page graphics, infographics, and web assets that elevate your digital experience and keep visitors engaged."
         }
     ];
 
-    const processSteps = [
-        { title: 'Discovery Workshop', copy: 'We map your audience, positioning, and goals before any pixel is designed.' },
-        { title: 'Creative Direction', copy: 'Moodboards, visual territories, and concept routes align your brand voice with design style.' },
-        { title: 'Execution & Iteration', copy: 'We produce high-quality assets with rapid feedback loops and strategic revision rounds.' },
-        { title: 'Launch & Scale', copy: 'Final files, usage guidelines, and ongoing creative support keep your brand consistent.' }
-    ];
-
-    const creativeLabModes = [
-        {
-            mode: 'Quiet Luxury',
-            insight: 'Minimal, high-trust visuals for premium brands with long buying cycles.',
-            metric: '+31% landing page scroll depth',
-            color: 'bg-[#f8f3ea]'
-        },
-        {
-            mode: 'Bold Disruptor',
-            insight: 'High-contrast composition and kinetic typography built for fast attention markets.',
-            metric: '+44% social thumb-stop rate',
-            color: 'bg-[#eef4ff]'
-        },
-        {
-            mode: 'Human Story',
-            insight: 'Emotion-first visuals that combine narrative photography with authentic copy.',
-            metric: '+28% ad engagement',
-            color: 'bg-[#eefaf3]'
-        }
-    ];
-
-    const testimonials = [
-        {
-            name: 'Nikita Sharma',
-            company: 'Velora Skincare',
-            quote: 'Their visuals lifted our ad CTR by 38% in six weeks. Every design felt intentional and premium.',
-            rating: 5
-        },
-        {
-            name: 'Rohan Patel',
-            company: 'Northbeam Interiors',
-            quote: 'From logo to social kits, the team delivered consistency and polish that instantly elevated our brand.',
-            rating: 5
-        },
-        {
-            name: 'Sana Merchant',
-            company: 'BrightLeaf Foods',
-            quote: 'Fast, responsive, and creatively sharp. Our packaging redesign became our strongest sales asset.',
-            rating: 5
-        }
+    const brandLogos = [
+        "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
+        "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
+        "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
+        "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
+        "https://brandwitty.com/media/2023/08/Speakwell-2.png",
+        "https://brandwitty.com/media/2023/08/askon-1-2.png",
+        "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
+        "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
     ];
 
     return (
-        <div className="w-full bg-[#fdfdfb] text-[#1a1a1a] font-sans overflow-hidden selection:bg-[#f9b91b] selection:text-white">
+        <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
 
-            {/* ════ 1. HERO SECTION (Brand Witty Layout) ════ */}
-            <section className="relative pt-32 pb-24 px-6 min-h-[95vh] flex items-center bg-[#0f0f14] text-white overflow-hidden">
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -top-32 -left-24 w-[26rem] h-[26rem] rounded-full border border-white/10"
-                />
-                <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -bottom-40 -right-32 w-[34rem] h-[34rem] rounded-full border border-[#f9b91b]/20"
-                />
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(249,185,27,0.2),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(80,212,115,0.18),transparent_45%)]" />
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                    <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="relative z-10">
-                        <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-6">
-                            <span className="text-[#f9b91b] font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                                Graphic Design Services <Star size={16} fill="currentColor" />
-                            </span>
-                        </motion.div>
+            {/* ════ 1. HERO SECTION ════ */}
+            <section className="relative bg-[#fff5f0] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
+                <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp" className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-50" />
+                <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp" className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-50" />
 
-                        <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black leading-[0.86] mb-10 tracking-tight">
-                            Not normal. <br />
-                            <span className="flex items-center gap-3">
-                                Just <div className="w-20 h-10 md:w-32 md:h-14 border-2 border-white rounded-full flex items-center justify-center overflow-hidden">
-                                    <motion.div
-                                        animate={{ x: [-20, 20, -20] }} transition={{ duration: 3, repeat: Infinity }}
-                                        className="w-full h-full bg-[#39a14f] rounded-full scale-75"
-                                    />
-                                </div> &
-                            </span>
-                            magnetic visuals <br />
-                            for bold brands
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
+                    <div className="lg:w-1/2">
+                        <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
+                            We design{" "}
+                            <span className="relative inline-block z-10">
+                                stunning visuals
+                                <span className="absolute left-0 bottom-2 w-full h-3 bg-[#f97316]/40 -z-10 rounded-sm"></span>
+                            </span>{" "}
+                            that make your brand impossible to ignore.
                         </motion.h1>
 
-                        <motion.p variants={fadeInUp} className="text-lg md:text-xl text-white/75 mb-10 max-w-lg leading-relaxed font-medium">
-                            We build attention-first brand systems, ad creatives, and campaign worlds that feel instantly recognizable and impossible to scroll past.
+                        <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
+                            Great graphic design is more than aesthetics — it's communication. Every colour, shape, and layout choice tells your brand's story and influences how people feel about your business. From logos to full brand identities, our designers craft visuals that captivate, convert, and leave a lasting impression.
                         </motion.p>
 
-                        <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-                                className="bg-[#f9b91b] text-white px-10 py-5 rounded-xl font-black text-lg shadow-[0_20px_40px_-10px_rgba(249,185,27,0.4)] hover:bg-black transition-all"
-                            >
-                                Get a free design consultation
-                            </motion.button>
-                            <button className="border border-white/40 hover:border-white px-8 py-5 rounded-xl font-bold tracking-wide hover:bg-white hover:text-black transition-all">
-                                View creative portfolio
+                        <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+                            <button className="bg-[#f97316] text-white font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
+                                Talk to our Design Expert Now
+                            </button>
+                            <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
+                                <Play size={20} className="fill-black" /> Watch a Demo
                             </button>
                         </motion.div>
-                    </motion.div>
-
-                    {/* Overlapping Floating Shapes Visual */}
-                    <div className="relative h-[500px] flex items-center justify-center">
-                        {/* Orange Circle (Web Design) */}
-                        <motion.div
-                            animate={{ y: [0, -20, 0], rotate: [0, 4, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute top-0 right-10 w-64 h-64 bg-[#ff7a45] rounded-full flex flex-col items-center justify-center p-8 shadow-2xl z-30 text-black"
-                        >
-                            <MousePointer2 size={40} className="mb-2" />
-                            <h3 className="text-3xl font-black text-center leading-tight uppercase">Web <br /> Design</h3>
-                        </motion.div>
-
-                        {/* Yellow Circle (Social Media) */}
-                        <motion.div
-                            animate={{ x: [0, 20, 0], rotate: [0, -3, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute bottom-20 right-20 w-56 h-56 bg-[#ffc842] rounded-full rounded-tr-none flex flex-col items-center justify-center p-6 shadow-xl z-20 text-black"
-                        >
-                            <Smartphone size={32} className="mb-2" />
-                            <h3 className="text-2xl font-black text-center leading-tight uppercase">Social <br /> Media</h3>
-                        </motion.div>
-
-                        {/* Green Square (UIX Design) */}
-                        <motion.div
-                            animate={{ rotate: [-6, 6, -6], y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute bottom-0 left-20 w-48 h-48 bg-[#39a14f] rounded-2xl flex flex-col items-center justify-center p-6 shadow-xl z-10 text-white"
-                        >
-                            <Palette size={32} className="mb-2" />
-                            <h3 className="text-3xl font-black text-center leading-tight uppercase font-serif italic">UIX <br /> Design</h3>
-                        </motion.div>
+                        <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
+                            We can deliver your first design concepts within 48 hours — ready to impress.
+                        </motion.p>
                     </div>
+
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
+                        <img src="https://img.freepik.com/free-vector/graphic-designer-concept-illustration_114360-1292.jpg" className="absolute right-0 top-0 w-[85%] object-contain z-10" alt="Graphic Design Hero" />
+                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/19.png" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
+                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/images.png" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
+                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Return-on-Investment-1-1.png" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
+                    </motion.div>
                 </div>
             </section>
 
-            <div className="bg-[#f9b91b] py-4 overflow-hidden">
-                <motion.div
-                    animate={{ x: [0, -900] }}
-                    transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
-                    className="flex whitespace-nowrap gap-8 text-black text-xl font-black uppercase tracking-[0.2em]"
-                >
-                    {[
-                        'Out of box design thinking',
-                        'Creative systems not templates',
-                        'Campaign-ready visual identity',
-                        'Out of box design thinking',
-                        'Creative systems not templates',
-                        'Campaign-ready visual identity'
-                    ].map((item, i) => (
-                        <span key={i}>{item} ✦</span>
-                    ))}
-                </motion.div>
-            </div>
-
-            {/* ════ 2. ACHIEVEMENT STRIP ════ */}
-            <section className="px-6 -mt-10 relative z-20">
-                <div className="max-w-7xl mx-auto bg-white rounded-[2rem] shadow-[0_30px_80px_-35px_rgba(0,0,0,0.25)] border border-black/5 p-8 md:p-10">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {achievements.map((item, i) => (
-                            <motion.div
-                                key={item.label}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1, duration: 0.6 }}
-                                className="text-center"
-                            >
-                                <p className="text-3xl md:text-5xl font-black mb-2">{item.value}</p>
-                                <p className="text-gray-500 font-semibold text-sm uppercase tracking-wide">{item.label}</p>
-                            </motion.div>
+            {/* ════ 2. BRANDS SLIDER ════ */}
+            <section className="py-20 px-6 border-b border-gray-100 bg-white">
+                <div className="max-w-7xl mx-auto text-center">
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Designed For Over the Last Few Years</h2>
+                    <p className="text-gray-500 mb-12 text-lg">Diverse industries. Distinctive visuals. Memorable brands. Your identity, crafted with purpose. Join us now.</p>
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                        {brandLogos.map((logo, index) => (
+                            <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ════ 2. CONTINUOUS LOGO MARQUEE (Ticker) ════ */}
-            <div className="bg-black py-8 overflow-hidden flex whitespace-nowrap">
-                {[1, 2].map((loop) => (
-                    <motion.div
-                        key={loop} animate={{ x: [0, -1000] }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                        className="flex items-center gap-10 text-white text-2xl font-black uppercase tracking-tighter pr-10"
-                    >
-                        <span>Start Your Project Today</span> <span className="text-[#f9b91b]"> — </span>
-                        <span>Request A Quote</span> <span className="text-[#f9b91b]"> + </span>
-                        <span>Join Our Creative Community</span> <span className="text-[#f9b91b]"> — </span>
-                        <span>Discover Our Design Process</span> <span className="text-[#f9b91b]"> — </span>
+            {/* ════ 3. FEATURE: MAKE YOUR BRAND UNFORGETTABLE ════ */}
+            <section className="py-24 px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] w-full">
+                        <img src="https://img.freepik.com/free-vector/branding-concept-illustration_114360-627.jpg" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Branding" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Home-5-SEO-Audit-Image.png" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="Design Tools" />
                     </motion.div>
-                ))}
-            </div>
 
-            {/* ════ 3. INTRO SECTION ════ */}
-            <section className="py-24 px-6 text-center">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="max-w-4xl mx-auto">
-                    <span className="bg-[#f9b91b] px-4 py-1 rounded-full text-xs font-bold uppercase text-white mb-6 inline-block">Intro</span>
-                    <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Creative Graphic Design Company in Mumbai</h2>
-                    <p className="text-lg text-gray-500 leading-relaxed font-medium">
-                        Brandwitty, a leading <span className="font-bold text-black italic">graphic design company in Mumbai</span>, blends art, psychology, and conversion strategy to create visuals that build trust and drive measurable growth.
-                    </p>
-                </motion.div>
-            </section>
-
-            {/* ════ 3.5 CREATIVE LAB (OUT-OF-THE-BOX) ════ */}
-            <section className="pb-24 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="rounded-[3rem] bg-[#131313] text-white p-8 md:p-12 lg:p-14 overflow-hidden relative"
-                    >
-                        <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#f9b91b]/20 rounded-full blur-3xl" />
-                        <div className="absolute -bottom-24 -left-20 w-72 h-72 bg-[#50d473]/15 rounded-full blur-3xl" />
-
-                        <div className="relative z-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
-                            <div className="max-w-3xl">
-                                <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.24em] text-[#f9b91b] mb-5">
-                                    <Zap size={14} /> Creative Lab
-                                </p>
-                                <h3 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight mb-5">
-                                    Different brands need different visual physics.
-                                </h3>
-                                <p className="text-white/70 text-lg leading-relaxed">
-                                    Instead of forcing one style, we test and shape distinct creative directions that match your buyer behavior, category pressure, and content velocity.
-                                </p>
-                            </div>
-                            <div className="bg-white/10 border border-white/15 rounded-2xl px-6 py-5">
-                                <p className="text-xs uppercase tracking-[0.2em] text-white/60 font-bold mb-1">Design Sprint Promise</p>
-                                <p className="text-2xl font-black">3 concepts in 7 days</p>
-                            </div>
-                        </div>
-
-                        <div className="grid md:grid-cols-3 gap-5 mb-10 relative z-10">
-                            {creativeLabModes.map((item, i) => (
-                                <motion.div
-                                    key={item.mode}
-                                    initial={{ opacity: 0, y: 24 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.08, duration: 0.55 }}
-                                    whileHover={{ y: -8, rotate: i === 1 ? 0 : i === 0 ? -1.2 : 1.2 }}
-                                    className={`${item.color} text-black rounded-3xl p-7 shadow-lg`}
-                                >
-                                    <p className="text-xs uppercase tracking-[0.2em] font-black text-black/50 mb-3">Mode 0{i + 1}</p>
-                                    <h4 className="text-3xl font-black mb-4">{item.mode}</h4>
-                                    <p className="text-black/70 leading-relaxed mb-5">{item.insight}</p>
-                                    <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] bg-black text-white px-3 py-2 rounded-full">
-                                        <CheckCircle2 size={14} /> {item.metric}
-                                    </div>
-                                </motion.div>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Make your brand unforgettable with logos, branding, social graphics, print, and UI design.</h2>
+                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">In a world flooded with content, great design is what makes people stop, look, and remember you. A powerful visual identity builds trust instantly — before a single word is read. But creating consistently great design across every channel takes expertise, creativity, and strategy.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">Our graphic design service delivers pixel-perfect, brand-aligned visuals ready for every platform. From initial concepts to final files, we handle the entire creative process so your brand always looks its absolute best.</p>
+                        <ul className="space-y-4 mb-10">
+                            {["Award-Winning Creative Designers", "Unlimited Revision Rounds", "Fast Turnaround & Transparent Process"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                                    <CheckCircle2 className="text-[#f97316] shrink-0" size={24} /> {item}
+                                </li>
                             ))}
-                        </div>
-
-                        <motion.div
-                            animate={{ x: [0, -760] }}
-                            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-                            className="flex whitespace-nowrap gap-8 text-white/80 text-sm md:text-base uppercase tracking-[0.25em] font-black border-y border-white/10 py-4"
-                        >
-                            {[
-                                'No template thinking',
-                                'Category-aware creativity',
-                                'Visual systems that scale',
-                                'Design + conversion mindset',
-                                'Bold ideas backed by data',
-                                'No template thinking',
-                                'Category-aware creativity',
-                                'Visual systems that scale',
-                                'Design + conversion mindset',
-                                'Bold ideas backed by data'
-                            ].map((line, idx) => (
-                                <span key={idx} className="inline-flex items-center gap-3">
-                                    {line} <span className="text-[#f9b91b]">✦</span>
-                                </span>
-                            ))}
-                        </motion.div>
+                        </ul>
+                        <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#f97316] hover:text-white transition-all shadow-lg">Get a free design consultation</button>
                     </motion.div>
                 </div>
             </section>
 
-            {/* ════ 4. VALUES GRID (Illustrations) ════ */}
-            <section className="pb-32 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[
-                        { title: "Creativity", sub: "Unleashing the Power of Imagination", img: "https://cdn-icons-png.flaticon.com/512/3067/3067451.png" },
-                        { title: "Expertise", sub: "Crafting Designs with Precision and Skill", img: "https://cdn-icons-png.flaticon.com/512/1055/1055666.png" },
-                        { title: "Timely Delivery", sub: "On-Time, Every Time!", img: "https://cdn-icons-png.flaticon.com/512/2972/2972131.png" }
-                    ].map((item, i) => (
-                        <motion.div
-                            whileHover={{ y: -10 }} key={i}
-                            className="bg-white p-12 rounded-[2.5rem] text-center border border-gray-100 shadow-sm group hover:shadow-xl transition-all"
-                        >
-                            <h4 className="text-[#f9b91b] font-bold uppercase text-xs mb-4">{item.title}</h4>
-                            <h3 className="text-2xl font-black mb-8 leading-tight h-16">{item.sub}</h3>
-                            <img src={item.img} alt={item.title} className="w-40 h-40 mx-auto object-contain mb-10 grayscale group-hover:grayscale-0 transition-all duration-500" />
-                            <button className="text-sm font-bold border-b-2 border-black pb-1 hover:text-[#f9b91b] hover:border-[#f9b91b] transition-all">Get in touch now</button>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-
-            {/* ════ 5. SERVICES SPLIT SECTION ════ */}
-            <section className="py-24 px-6 bg-white rounded-t-[5rem]">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[0.9] tracking-tighter">
-                            Our Graphic Design <br /> Services Bring Your <br /> Vision to <span className="text-[#f9b91b] italic underline">Life</span>
-                        </h2>
-                        <p className="text-gray-500 text-xl mb-12 leading-relaxed font-medium">
-                            As a best graphic design agency in Mumbai, our creative team offers diverse design and branding solutions for your company. Enjoy unlimited revisions!
-                        </p>
-                        <button className="bg-black text-white px-10 py-5 rounded-xl font-bold flex items-center gap-3 hover:bg-[#f9b91b] transition-all shadow-xl group">
-                            Get Started Now <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                        </button>
-                    </div>
-
-                    <div className="space-y-6">
-                        {[
-                            { title: "Expert Logo Design", color: "bg-red-50", icon: <Palette className="text-red-500" /> },
-                            { title: "Stationery Design", color: "bg-blue-50", icon: <Layout className="text-blue-500" /> },
-                            { title: "Social Media Designs", color: "bg-green-50", icon: <Smartphone className="text-green-500" /> },
-                            { title: "Visual Storytelling", color: "bg-purple-50", icon: <PenTool className="text-purple-500" /> }
-                        ].map((srv, i) => (
-                            <motion.div
-                                key={i} whileHover={{ x: 10 }}
-                                className={`${srv.color} p-8 rounded-3xl flex gap-6 items-center border border-transparent hover:border-black/5 cursor-pointer shadow-sm`}
-                            >
-                                <div className="bg-white p-4 rounded-2xl shadow-sm">{srv.icon}</div>
-                                <div>
-                                    <h4 className="font-black text-2xl mb-1">{srv.title}</h4>
-                                    <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest">Premium Design Service</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ════ 6. AWARD WINNING PILLARS ════ */}
-            <section className="py-24 px-6 bg-[#f7f7f3]">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="text-center mb-14"
-                    >
-                        <span className="inline-flex items-center gap-2 text-xs font-black bg-black text-white px-4 py-2 rounded-full uppercase tracking-widest mb-5">
-                            <Trophy size={14} /> Award-Winning Design Standards
-                        </span>
-                        <h3 className="text-4xl md:text-6xl font-black leading-tight mb-4">What makes our work stand out</h3>
-                        <p className="text-gray-500 max-w-3xl mx-auto text-lg">
-                            Every project is crafted with strategy-first thinking, global design trends, and conversion-centric execution.
-                        </p>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 gap-7">
-                        {servicePillars.map((pillar, i) => (
-                            <motion.div
-                                key={pillar.title}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: i * 0.08 }}
-                                whileHover={{ y: -8 }}
-                                className="bg-white p-8 rounded-3xl border border-black/5 shadow-sm hover:shadow-xl transition-all"
-                            >
-                                <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center mb-5">
-                                    {pillar.icon}
-                                </div>
-                                <h4 className="text-2xl font-black mb-3">{pillar.title}</h4>
-                                <p className="text-gray-500 leading-relaxed">{pillar.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ════ 7. PROCESS TIMELINE ════ */}
+            {/* ════ 4. FEATURE: DESIGN THAT CONVERTS ════ */}
             <section className="py-24 px-6 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-                        <div className="max-w-2xl">
-                            <span className="text-[#f9b91b] font-black text-xs tracking-[0.2em] uppercase">Our Process</span>
-                            <h3 className="text-4xl md:text-6xl font-black leading-tight mt-3">From idea to iconic visual system</h3>
+                <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn creative vision into measurable business impact</h2>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Graphic Design Agency in Mumbai</b>, we create visuals that do far more than look good — they communicate your value, build brand loyalty, and drive conversions. With 10+ years of design expertise across industries, our agency delivers creative that resonates with your audience and produces real, measurable results across every platform.</p>
+                        <ul className="space-y-4 mb-10">
+                            {["Logo & Brand Identity Design", "Social Media Graphics & Templates", "Brochures, Flyers & Print Design", "Packaging & Product Design", "UI/UX & Web Graphics"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                                    <CheckCircle2 className="text-[#f97316] shrink-0" size={24} /> {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <button className="bg-[#f97316] text-white font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our Design Expert Now</button>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
+                        <img src="https://img.freepik.com/free-vector/design-process-concept-illustration_114360-928.jpg" className="absolute top-0 right-0 w-[90%] z-10" alt="Design Process" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats.svg" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ════ 5. ACCORDION / FAQ SECTION ════ */}
+            <section className="py-24 px-6 bg-[#fff5f0]">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[600px] w-full">
+                        <img src="https://img.freepik.com/free-vector/creative-agency-concept-illustration_114360-630.jpg" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Creative Agency" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/case-1.png" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Case" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats2.svg" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
+                    </motion.div>
+
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Graphic Design Company in Mumbai</h2>
+                        <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Supercharge your brand with our expert graphic design services! Stand out from the competition, create a lasting visual impression, and build the kind of brand recognition that money can't buy. Let's make design magic happen — contact us now!</p>
+
+                        <div className="space-y-4">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                                    <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                                        <span className={`font-bold text-lg ${openFaq === index ? 'text-[#f97316]' : 'text-black'}`}>{faq.title}</span>
+                                        {openFaq === index ? <ChevronUp className="text-[#f97316]" /> : <ChevronDown className="text-gray-400" />}
+                                    </button>
+                                    <AnimatePresence>
+                                        {openFaq === index && (
+                                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="px-6 pb-6 text-gray-500 text-[15px]">
+                                                {faq.content}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            ))}
                         </div>
-                        <p className="text-gray-500 max-w-md font-medium">
-                            A transparent process designed to keep your team aligned and your brand moving fast.
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ════ 6. GRADIENT STATS SECTION ════ */}
+            <section className="py-24 px-6 bg-gradient-to-r from-orange-900 to-orange-600 text-white text-center">
+                <div className="max-w-5xl mx-auto mb-16">
+                    <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-lora text-4xl lg:text-5xl mb-6">We are a Graphic Design Agency</motion.h2>
+                    <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-orange-100 text-lg">Experience brand-transforming design with one of the <b>best graphic design agencies in Mumbai</b>! We begin with deep discovery, strategic creative direction, and pixel-perfect execution.</motion.p>
+                </div>
+
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-orange-700/50">
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#fde68a] mb-2">5,000+</h3>
+                        <p className="text-orange-100 text-lg">Design projects delivered!</p>
+                    </div>
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#fde68a] mb-2">98%</h3>
+                        <p className="text-orange-100 text-lg">Client satisfaction rate</p>
+                    </div>
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#fde68a] mb-2">200+</h3>
+                        <p className="text-orange-100 text-lg">Brands built from scratch!</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ════ 7. VIDEO BANNER ════ */}
+            <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+                <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer" className="relative z-10 w-24 h-24 bg-[#f97316] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(249,115,22,0.5)]">
+                    <Play size={40} className="fill-white text-white ml-2" />
+                </a>
+            </section>
+
+            {/* ════ 8. TESTIMONIALS ════ */}
+            <section className="py-24 px-6 bg-white text-black">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-16 text-center max-w-3xl mx-auto">
+                        <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
+                            What people <span className="italic text-[#f97316]">say</span>
+                        </h2>
+                        <p className="text-gray-500 text-lg leading-relaxed">
+                            Hear from clients whose brands were transformed by the power of great design.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {processSteps.map((step, i) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            {
+                                name: "Vikram Nair",
+                                role: "Aura Interiors - Founder",
+                                img: "https://brandwitty.com/media/2023/09/testimonial2.png",
+                                text: "The team redesigned our entire brand identity and the results were immediate. Clients started commenting on how professional and premium we looked. We saw a 40% increase in enquiries within two months. Absolutely brilliant!"
+                            },
+                            {
+                                name: "Neha Kapoor",
+                                role: "FreshBite Foods - CMO",
+                                img: "https://brandwitty.com/media/2023/09/testimonial13.png",
+                                text: "Our packaging design was completely transformed. Brandwitty understood our target audience perfectly and created visuals that genuinely stand out on the shelf. Our retail sales jumped significantly after the rebrand. Exceptional work!"
+                            },
+                            {
+                                name: "Arjun Malhotra",
+                                role: "SwiftLaunch - Co-Founder",
+                                img: "https://brandwitty.com/media/2023/09/testimonial11.png",
+                                text: "From our logo to our entire pitch deck design, the team delivered beyond expectations every single time. The quality, speed, and attention to detail is unmatched. We look like a Fortune 500 company now. Highly recommended!"
+                            }
+                        ].map((review, i) => (
                             <motion.div
-                                key={step.title}
-                                initial={{ opacity: 0, y: 26 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: i * 0.08 }}
-                                className="relative p-7 rounded-3xl border border-black/10 bg-gradient-to-b from-white to-[#fff8e8] overflow-hidden"
+                                key={i}
+                                whileHover={{ y: -10 }}
+                                className="bg-[#fff5f0] p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
                             >
-                                <div className="text-[11px] font-black uppercase tracking-[0.2em] text-black/40 mb-4">Step {i + 1}</div>
-                                <h4 className="text-2xl font-black mb-3 leading-tight">{step.title}</h4>
-                                <p className="text-gray-500 leading-relaxed">{step.copy}</p>
-                                <motion.div
-                                    animate={{ x: [0, 20, 0] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
-                                    className="absolute -bottom-10 -right-8 w-24 h-24 rounded-full bg-[#f9b91b]/20"
-                                />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ════ 8. PORTFOLIO CTA BAR (Green) ════ */}
-            <div className="bg-[#50d473] py-12 px-6">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                    <h3 className="text-3xl font-black uppercase text-white tracking-tighter">Check out our latest work</h3>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-black text-white px-10 py-5 rounded-full font-black flex items-center gap-4 hover:bg-white hover:text-black transition-all shadow-2xl"
-                    >
-                        VIEW OUR PORTFOLIO <div className="bg-[#ff4081] rounded-full p-2"><ArrowRight size={18} className="text-white" /></div>
-                    </motion.button>
-                </div>
-            </div>
-
-            {/* ════ 9. TESTIMONIALS ════ */}
-            <section className="py-24 px-6 bg-[#111111] text-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <span className="inline-flex items-center gap-2 text-xs font-bold bg-white/10 px-4 py-2 rounded-full uppercase tracking-[0.18em]">
-                            <Globe size={14} /> Trusted by growing brands
-                        </span>
-                        <h3 className="text-4xl md:text-6xl font-black mt-5 leading-tight">Clients love the creative impact</h3>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {testimonials.map((item, i) => (
-                            <motion.div
-                                key={item.name}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: i * 0.1 }}
-                                whileHover={{ y: -8 }}
-                                className="bg-white/5 border border-white/10 rounded-3xl p-8"
-                            >
-                                <div className="flex gap-1 mb-5">
-                                    {[...Array(item.rating)].map((_, idx) => (
-                                        <Star key={idx} className="w-4 h-4 text-[#f9b91b] fill-[#f9b91b]" />
-                                    ))}
+                                <div>
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <img
+                                            src={review.img}
+                                            alt={review.name}
+                                            className="w-16 h-16 rounded-full object-cover border-2 border-[#f97316] shadow-md"
+                                        />
+                                        <div>
+                                            <h4 className="font-bold text-lg text-[#1a162d] leading-tight">{review.name}</h4>
+                                            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">{review.role}</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-600 text-[16px] leading-relaxed italic">
+                                        "{review.text}"
+                                    </p>
                                 </div>
-                                <p className="text-white/80 leading-relaxed mb-8">"{item.quote}"</p>
-                                <div className="border-t border-white/10 pt-5">
-                                    <p className="font-black text-xl">{item.name}</p>
-                                    <p className="text-[#f9b91b] font-semibold">{item.company}</p>
+
+                                <div className="mt-8 pt-6 border-t border-gray-200/50">
+                                    <div className="flex text-[#f97316] gap-1 text-sm">
+                                        {"★★★★★".split("").map((star, idx) => <span key={idx}>{star}</span>)}
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -514,79 +280,111 @@ const GraphicDesign = () => {
                 </div>
             </section>
 
-            {/* ════ 10. CONTACT SECTION (Design Consultant) ════ */}
-            <section className="py-32 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <Headphones size={60} className="text-[#50d473] mb-10" />
-                        <h2 className="text-4xl md:text-[85px] font-black mb-10 leading-[0.85] tracking-tighter">
-                            Let's talk with <br /> <span className="border-b-8 border-orange-100 italic">experienced</span> <br /> Design Consultant
+            {/* ════ 9. MINI CTA ════ */}
+            <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
+                    <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Unlock the full visual potential of your brand with Ibraine</h2>
+                    <p className="text-gray-600 text-lg mb-10">Partner with Ibraine, the graphic design experts, to build a brand identity that commands attention and trust. Our tailored design strategies will elevate your visual presence, captivate your target audience, and drive real business growth.</p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#f97316] hover:text-white transition-all shadow-lg">Call Now</button>
+                        <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">View Portfolio</button>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* ════ 10. CONTACT FORM SECTION ════ */}
+            <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
+
+                {/* Orange Puzzle Piece (Top Right) */}
+                <div className="absolute top-10 right-10 lg:right-32 rotate-12 opacity-90 hidden md:block animate-floating">
+                    <div className="w-24 h-24 lg:w-32 lg:h-32 text-orange-400">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 12c0-1.1-.9-2-2-2V7c0-1.1-.9-2-2-2h-3c0-1.1-.9-2-2-2s-2 .9-2 2H7c-1.1 0-2 .9-2 2v3c-1.1 0-2 .9-2 2s.9 2 2 2v3c0 1.1.9 2 2 2h3c0 1.1.9 2 2 2s2-.9 2-2h3c1.1 0 2-.9 2-2v-3c1.1 0 2-.9 2-2z" />
+                        </svg>
+                    </div>
+                </div>
+
+                {/* Floating Dots */}
+                <div className="absolute top-4 left-[45%] w-6 h-6 bg-orange-400 rounded-full opacity-80 hidden lg:block"></div>
+                <div className="absolute right-[10%] top-1/2 w-3 h-3 bg-yellow-400 rounded-full opacity-60 hidden lg:block"></div>
+
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 reveal-active">
+
+                    {/* --- LEFT SIDE: TEXT CONTENT --- */}
+                    <div className="space-y-8 reveal-item">
+                        <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-400 shadow-sm">
+                            <Headphones size={24} />
+                        </div>
+
+                        <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
+                            Let's Talk with <br />
+                            Experienced <br />
+                            <span className="text-marker">Graphic Design</span> <br />
+                            Consultants
                         </h2>
-                        <p className="text-gray-400 text-xl max-w-md font-black uppercase tracking-widest">Ready to take your brand to the top?</p>
+
+                        <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">
+                            Ready to transform your brand's visual identity? Our team of expert designers is here to help! Fill out the form, and let's start creating visuals that make your business truly unforgettable.
+                        </p>
+
+                        <div className="pt-4">
+                            <p className="text-[#f97316] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
+                                <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
+                                +91 9892 854 892
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="relative">
-                        {/* Hand Drawn Arrow Decoration */}
-                        <div className="absolute -top-16 left-10 hidden lg:block">
-                            <p className="font-serif italic text-sm mb-2 opacity-50">Fill the <br /> form</p>
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="black" strokeWidth="2">
-                                <motion.path
-                                    initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} transition={{ duration: 1 }}
-                                    d="M10 10 Q30 10 40 50 M40 50 L30 40 M40 50 L50 40"
-                                    strokeLinecap="round" strokeLinejoin="round"
-                                />
+                    {/* --- RIGHT SIDE: FORM --- */}
+                    <div className="relative reveal-item delay-1">
+
+                        <div className="absolute -top-16 -left-16 hidden xl:block pointer-events-none">
+                            <p className="font-serif italic text-gray-400 text-sm mb-1 -rotate-12">Fill the form</p>
+                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="2" className="opacity-40">
+                                <path d="M10,10 Q50,10 50,60 T90,90" strokeLinecap="round" />
+                                <path d="M85,90 L95,95 L95,85" strokeLinecap="round" />
                             </svg>
                         </div>
 
-                        <div className="bg-white p-14 rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] border border-gray-50">
+                        <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
                             <form className="space-y-6">
-                                <input type="text" placeholder="Your name" className="w-full bg-[#f8f8f8] p-5 rounded-xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold" />
-                                <input type="email" placeholder="Your email" className="w-full bg-[#f8f8f8] p-5 rounded-xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold" />
-                                <textarea placeholder="Tell us about your project" rows="4" className="w-full bg-[#f8f8f8] p-5 rounded-xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold resize-none"></textarea>
-                                <button className="w-full bg-black text-white py-6 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-[#f9b91b] transition-all shadow-xl">
-                                    Send Strategy Message
+                                <input
+                                    type="text"
+                                    placeholder="Your name"
+                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-orange-400 transition-colors shadow-sm"
+                                />
+                                <input
+                                    type="email"
+                                    placeholder="Your email"
+                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-orange-400 transition-colors shadow-sm"
+                                />
+                                <input
+                                    type="tel"
+                                    placeholder="Your phone"
+                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-orange-400 transition-colors shadow-sm"
+                                />
+                                <textarea
+                                    placeholder="Tell us about your design project..."
+                                    rows="5"
+                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-orange-400 transition-colors shadow-sm resize-none"
+                                ></textarea>
+
+                                <button className="w-full sm:w-auto border-2 border-[#f97316] text-[#f97316] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#f97316] hover:text-white transition-all duration-300">
+                                    Send Message
                                 </button>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* ════ 11. FAQ STRIP ════ */}
-            <section className="pb-24 px-6">
-                <div className="max-w-7xl mx-auto bg-black text-white rounded-[2.5rem] p-8 md:p-12">
-                    <div className="flex flex-col lg:flex-row justify-between gap-10">
-                        <div className="max-w-xl">
-                            <p className="text-[#f9b91b] font-black text-xs uppercase tracking-[0.18em] mb-3">Quick Answers</p>
-                            <h3 className="text-3xl md:text-5xl font-black leading-tight mb-4">Frequently asked design questions</h3>
-                            <p className="text-white/70 leading-relaxed">
-                                Need something specific? We can customize timelines, team structure, and deliverables based on your business stage.
+                            <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
+                                Let's Build Your <span className="text-[#1a162d] font-black">Visual Identity!</span>
                             </p>
                         </div>
-                        <div className="space-y-4 w-full max-w-2xl">
-                            {[
-                                'How quickly can you start a project?',
-                                'Do you offer revision rounds?',
-                                'Can you handle both social and branding design?'
-                            ].map((faq, i) => (
-                                <motion.div
-                                    key={faq}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.45, delay: i * 0.08 }}
-                                    className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center justify-between"
-                                >
-                                    <span className="font-semibold">{faq}</span>
-                                    <ArrowRight size={18} className="text-[#f9b91b]" />
-                                </motion.div>
-                            ))}
-                        </div>
                     </div>
+
                 </div>
             </section>
 
-        </div>
+        </main>
     );
 };
 
