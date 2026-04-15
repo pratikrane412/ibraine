@@ -386,10 +386,10 @@ const SEOExperts = () => {
          <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
                <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                  Unlock the full organic potential of your business with Brandwitty
+                  Unlock the full organic potential of your business with Ibraine
                </h2>
                <p className="text-gray-600 text-lg mb-10">
-                  Partner with Brandwitty, the SEO experts, to dominate search engines and grow organically. Our proven strategies will elevate your website's authority, attract your ideal audience, and deliver compounding long-term results.
+                  Partner with Ibraine, the SEO experts, to dominate search engines and grow organically. Our proven strategies will elevate your website's authority, attract your ideal audience, and deliver compounding long-term results.
                </p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>

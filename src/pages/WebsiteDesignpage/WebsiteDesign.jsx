@@ -1,436 +1,376 @@
 import React, { useState } from 'react';
-import { 
-  MonitorSmartphone, 
-  Rocket, 
-  Code2, 
-  Headset, 
-  CheckCircle2, 
-  ArrowRight,
-  Search,
-  PenTool,
-  Settings,
-  Star,
-  Quote,
-  Zap,
-  Phone,
-  Mail,
-  Check
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Play, CheckCircle2, PhoneCall, ChevronDown, ChevronUp
 } from 'lucide-react';
+import { Headphones, Puzzle } from 'lucide-react';
 
-const WebsiteDesign = () => {
-  // --- Form State ---
-  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' });
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
 
-  const handleInputChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+const WebDevelopment = () => {
+  const [openFaq, setOpenFaq] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thanks ${form.name}! Your request has been sent successfully.`);
-    setForm({ name: '', email: '', phone: '', company: '', message: '' });
-  };
-
-  // --- Combined Data from Snippets ---
-  const features = [
-    { title: "Bespoke Customization", desc: "Tailor-made solutions that reflect your brand identity and resonate with your target audience.", icon: <PenTool /> },
-    { title: "User Experience (UX) Focus", desc: "Prioritizing intuitive navigation and seamless interactions for a delightful user experience.", icon: <MonitorSmartphone /> },
-    { title: "Cutting-edge Technology", desc: "Leveraging the latest tools and frameworks to build modern, fast, responsive websites.", icon: <Code2 /> },
-    { title: "Result-Driven Approach", desc: "Committed to delivering tangible results, improved SEO, and increased conversions.", icon: <Rocket /> },
+  const faqs = [
+    { title: "Plan & Strategize", content: "We begin with in-depth discovery sessions to understand your business goals, target audience, and competitive landscape — crafting a roadmap that ensures every line of code serves a purpose." },
+    { title: "Design & Prototype", content: "Our designers create stunning UI/UX wireframes and interactive prototypes, giving you a clear visual of your website before a single line of code is written." },
+    { title: "Develop & Build", content: "Our expert developers bring designs to life using the latest technologies — React, Next.js, Node.js, and more — building fast, scalable, and secure web solutions." },
+    { title: "Launch & Optimise", content: "After rigorous testing across devices and browsers, we launch your site and continue to monitor performance, making data-driven improvements to maximise results." }
   ];
 
-  const processSteps = [
-    { title: "Information Gathering", desc: "Shaping a strategy that aligns perfectly with your objectives.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Planning & Ideation", desc: "Creativity meets strategy as we conceptualize your digital masterpiece.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Selecting Technology", desc: "Delving into the digital toolbox to identify the perfect technologies.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Interface Designing", desc: "Ensuring every pixel aligns with your brand and enhances interaction.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Backend Development", desc: "Laying the robust foundation for functionality and performance.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Content Integration", desc: "Seamlessly weaving your captivating content into the framework.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Testing & Optimization", desc: "Scrutinizing every aspect to ensure peak performance.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-    { title: "Deployment & Maintenance", desc: "Launching your website into the digital stratosphere with care.", img: "https://ibraine.com/wp-content/uploads/2024/03/sale-report.png" },
-  ];
-
-  const industries = [
-    { name: "Education", img: "https://ibraine.com/wp-content/uploads/2024/03/learning.png" },
-    { name: "Health Care", img: "https://ibraine.com/wp-content/uploads/2024/03/protection.png" },
-    { name: "E-commerce", img: "https://ibraine.com/wp-content/uploads/2024/03/ecommerce.png" },
-    { name: "Financial Services", img: "https://ibraine.com/wp-content/uploads/2024/03/invesment.png" },
-    { name: "Business", img: "https://ibraine.com/wp-content/uploads/2024/03/stats-1.png" },
-    { name: "Tourism", img: "https://ibraine.com/wp-content/uploads/2024/03/tourism.png" },
-    { name: "Logistics", img: "https://ibraine.com/wp-content/uploads/2024/03/logistics-1.png" },
-    { name: "Real Estate", img: "https://ibraine.com/wp-content/uploads/2024/03/developer.png" },
-  ];
-
-  const portfolio = [
-    "https://brandwitty.com/media/2023/08/demo-5-img.png",
-    "https://brandwitty.com/media/2023/08/Startup-Product-Development.png",
-    "https://ibraine.com/wp-content/uploads/2024/05/screencapture-fitxfatloss-2024-03-19-12_20_03-1-scaled.webp",
-    "https://ibraine.com/wp-content/uploads/2024/05/screencapture-chilterneventplanners-co-uk-ramadan-kareem-2024-03-19-12_20_51-scaled.webp"
-  ];
-
-  const testimonials = [
-    { name: "Mukta Tolani", company: "Radiant Health", rating: 5, text: "I would give them 10 stars for the absolutely marvelous job! The team exceeded my expectations. Thank you for a splendid website!" },
-    { name: "Priyanka Chavan", company: "Body & Beyond", rating: 5, text: "Extremely professional. Timely delivery in tight deadlines and beautiful creations. Overall coordination is excellent. I am very happy with their service." },
-    { name: "Bhavi Merchant", company: "Signatures Smiles", rating: 5, text: "They seamlessly translated our ethos into a captivating online platform. The functionality creates an enjoyable browsing experience for our patients." },
+  const brandLogos = [
+    "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
+    "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
+    "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
+    "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
+    "https://brandwitty.com/media/2023/08/Speakwell-2.png",
+    "https://brandwitty.com/media/2023/08/askon-1-2.png",
+    "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
+    "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 selection:bg-blue-500 selection:text-white overflow-hidden">
-      
-      {/* Custom Keyframes for Animations */}
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
-        .animate-marquee { display: flex; width: 200%; animation: marquee 30s linear infinite; }
-        .animate-marquee:hover { animation-play-state: paused; }
-      `}</style>
+    <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
 
-      {/* --- NAVBAR --- */}
-      <nav className="fixed w-full z-50 top-0 transition-all duration-300 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <img src="https://ibraine.com/wp-content/uploads/2024/07/Ibraine-Registered-Logo-Transparent.png" alt="Logo" className="h-10" />
-          </div>
-          <div className="hidden lg:flex space-x-8 text-sm font-semibold text-slate-600">
-            <a href="#" className="hover:text-blue-600 transition-colors">Home</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">About Us</a>
-            <a href="#" className="text-blue-600 transition-colors">Services</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">Portfolio</a>
-          </div>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-bold transition-all hover:shadow-lg hover:shadow-blue-500/30">
-            Get a Quote
-          </button>
-        </div>
-      </nav>
+      {/* ════ 1. HERO SECTION ════ */}
+      <section className="relative bg-[#fcfaf2] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
+        <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp" className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-50" />
+        <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp" className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-50" />
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-gradient-to-br from-blue-100 to-orange-50 rounded-full blur-[100px] opacity-70 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
+          <div className="lg:w-1/2">
+            <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
+              We build <span className="relative inline-block z-10">
+                stunning websites
+                <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
+              </span> that convert visitors into loyal customers.
+            </motion.h1>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="space-y-8">
-            <div className="inline-flex items-center space-x-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm text-blue-600 font-bold shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-              <span>Professional Agency in Mumbai</span>
-            </div>
-            
-            <h1 className="text-5xl lg:text-7xl font-extrabold leading-[1.15] text-slate-900 tracking-tight">
-              Website Design & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
-                Development
-              </span>
-            </h1>
-            
-            <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
-              Accelerate your digital presence. With a transparent process and cutting-edge tech, our expert developers create seamless, custom websites that delight your customers and startle your competition.
-            </p>
-            
-            <div className="flex flex-wrap gap-4 pt-4">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold flex items-center group transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30">
-                Discuss Your Project
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
+              A powerful website is the foundation of your digital presence. We craft fast, responsive, and visually compelling websites tailored to your brand — designed to engage your audience and drive real business growth from day one.
+            </motion.p>
+
+            <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+              <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
+                Talk to our Web Expert Now
               </button>
-            </div>
-
-            {/* Social Proof */}
-            <div className="mt-12 flex items-center space-x-4 border-t border-slate-200 pt-8">
-              <div className="flex -space-x-4">
-                {[1,2,3,4].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-slate-200 overflow-hidden shadow-sm">
-                    <img src={`https://i.pravatar.cc/100?img=${i+40}`} alt="Client" />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="text-2xl font-black text-slate-900">750+</div>
-                <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">Worldwide Clients</div>
-              </div>
-            </div>
+              <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
+                <Play size={20} className="fill-black" /> Watch a Demo
+              </button>
+            </motion.div>
+            <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
+              We can have your new website live and driving results faster than you think.
+            </motion.p>
           </div>
 
-          {/* Hero Visual Composition */}
-          <div className="relative mt-12 lg:mt-0">
-            {/* Floating Icons from user snippet */}
-            <img src="https://ibraine.com/wp-content/uploads/2024/03/wordpress.png" alt="WP" className="absolute -top-10 left-10 w-24 h-24 animate-float z-20 drop-shadow-2xl" />
-            <img src="https://ibraine.com/wp-content/uploads/2024/03/cloud.png" alt="Cloud" className="absolute top-1/2 -right-12 w-28 h-28 animate-float-delayed z-20 drop-shadow-2xl" />
-            <img src="https://ibraine.com/wp-content/uploads/2024/03/social.png" alt="Social" className="absolute -bottom-8 left-1/4 w-20 h-20 animate-float z-20 drop-shadow-2xl" />
-
-            {/* Main Image */}
-            <div className="relative z-10 rounded-[2.5rem] p-4 bg-white/50 backdrop-blur-xl border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]">
-              <img 
-                src="https://brandwitty.com/media/2023/07/Web-Design-Agency-Hero-Image-1.webp" 
-                alt="Web Development Agency" 
-                className="rounded-[2rem] w-full h-auto object-cover"
-              />
-            </div>
-          </div>
+          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80" className="absolute right-0 top-0 w-[85%] object-contain z-10 rounded-2xl shadow-xl" alt="Web Development Hero" />
+            <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/19.png" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
+            <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/images.png" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
+            <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Return-on-Investment-1-1.png" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
+          </motion.div>
         </div>
       </section>
 
-      {/* --- WHY OPT FOR US --- */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Why Opt for Us for Your <br/><span className="text-blue-600">Designing Needs?</span></h2>
-              <p className="text-slate-600 text-lg leading-relaxed">Drawing from a decade of expertise, we elevate clients to online prominence with award-winning website designs, seamless consumer experiences, and custom solutions.</p>
-            </div>
-            <button className="shrink-0 bg-orange-100 text-orange-600 hover:bg-orange-200 px-6 py-3 rounded-full font-bold transition-colors">
-              Read More
-            </button>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feat, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 group hover:-translate-y-2">
-                <div className="w-14 h-14 bg-white shadow-sm rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                  {feat.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900">{feat.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{feat.desc}</p>
-              </div>
+      {/* ════ 2. BRANDS SLIDER ════ */}
+      <section className="py-20 px-6 border-b border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands Whose Digital Presence We've Transformed</h2>
+          <p className="text-gray-500 mb-12 text-lg">Diverse industries. Custom-built websites. Measurable growth. Your vision, our code. Let's build together.</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            {brandLogos.map((logo, index) => (
+              <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- THE PROCESS (Timeline Grid) --- */}
-      <section className="py-24 relative bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">The Process of <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">Website Development</span></h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">Putting you first: the core of our custom-centric web development process. We ensure every step is transparent and perfectly aligned with your goals.</p>
-          </div>
+      {/* ════ 3. FEATURE: STUNNING DESIGN ════ */}
+      <section className="py-24 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] w-full">
+            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Web Design" />
+            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="Coding" />
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            {processSteps.map((step, index) => (
-              <div key={index} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 relative group hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-                <div className="absolute -top-5 -right-5 w-16 h-16 bg-gradient-to-br from-blue-100 to-orange-50 rounded-full flex items-center justify-center text-xl font-black text-slate-800 shadow-sm border border-white">
-                  {index + 1}
-                </div>
-                <div className="mb-6">
-                  <img src={step.img} alt={step.title} className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <h4 className="text-xl font-bold mb-3 text-slate-900">{step.title}</h4>
-                <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Stunning design meets flawless functionality — websites built to impress and perform.</h2>
+            <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Your website is often the first impression a customer has of your brand. A slow, outdated, or confusing site can cost you business every single day. We create modern, high-performance websites that make your brand stand out and keep visitors engaged.</p>
+            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">From landing pages to complex web applications, we combine beautiful design with clean, scalable code — so your website grows with your business and delivers results from launch day.</p>
+            <ul className="space-y-4 mb-10">
+              {["Certified Web Development Experts", "Assured Code Quality & Security", "Transparent Milestone Reporting"].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                  <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
+                </li>
+              ))}
+            </ul>
+            <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Get a free consultation now</button>
+          </motion.div>
         </div>
       </section>
 
-      {/* --- INDUSTRIES (Grid) --- */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Industries We Serve</h2>
-            <p className="text-slate-600 text-lg">We Provide Dedicated Services For The Following Industries</p>
-          </div>
+      {/* ════ 4. FEATURE: ACTIONABLE INSIGHTS ════ */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn your ideas into powerful digital experiences</h2>
+            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Website Development Agency in Mumbai</b>, we build custom websites that are fast, mobile-friendly, and optimised for search engines. Whether you need a brand-new website or a complete redesign, our team of 10+ years of web development expertise delivers solutions that drive real business growth and a measurable return on your investment.</p>
+            <ul className="space-y-4 mb-10">
+              {["Pixel-Perfect Responsive Design", "Lightning-Fast Page Speeds", "SEO-Ready Architecture", "Scalable & Secure Codebase", "Fully Custom & Brand-Aligned"].map((item, i) => (
+                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                  <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
+                </li>
+              ))}
+            </ul>
+            <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our Web Expert Now</button>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {industries.map((ind, i) => (
-              <div key={i} className="flex flex-col items-center justify-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-blue-500 hover:bg-blue-50 cursor-pointer transition-all duration-300 group">
-                <img src={ind.img} alt={ind.name} className="w-16 h-16 mb-4 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                <h3 className="font-bold text-slate-800 text-center">{ind.name}</h3>
-              </div>
-            ))}
-          </div>
+          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=80" className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl" alt="Web Development Process" />
+            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats.svg" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
+          </motion.div>
         </div>
       </section>
 
-      {/* --- PORTFOLIO MARQUEE --- */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div className="text-center mb-16 relative z-10 px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Unveiling Our Success Stories</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-8">Take a look at some of the amazing digital platforms we have built for our clients.</p>
-          <button className="bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-blue-500 hover:text-white transition-colors shadow-lg">
-            View Full Portfolio
-          </button>
-        </div>
+      {/* ════ 5. ACCORDION / FAQ SECTION ════ */}
+      <section className="py-24 px-6 bg-[#fcfaf2]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[600px] w-full">
+            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=700&q=80" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Web Development Agency" />
+            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Code" />
+            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats2.svg" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
+          </motion.div>
 
-        {/* Marquee Container */}
-        <div className="relative flex items-center">
-          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-slate-900 to-transparent z-10"></div>
-          
-          <div className="animate-marquee flex gap-8 shrink-0 items-start">
-            {[...portfolio, ...portfolio, ...portfolio].map((src, i) => (
-              <div key={i} className="w-[300px] md:w-[400px] shrink-0 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl h-[400px] relative group">
-                <img src={src} alt="Portfolio item" className="w-full object-cover object-top transition-transform duration-[10s] ease-linear group-hover:-translate-y-[20%]" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
+            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Website Development Company in Mumbai</h2>
+            <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Supercharge your brand with a world-class website! Increase credibility, attract floods of visitors, and leave your competitors behind. Let's build something extraordinary — contact us now!</p>
 
-      {/* --- TESTIMONIALS --- */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-slate-900">
-            Clients Rave About Their <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600">Experience!</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((test, i) => (
-              <div key={i} className="bg-white p-10 rounded-[2rem] border border-slate-100 shadow-sm relative hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
-                <Quote className="absolute top-8 right-8 w-10 h-10 text-slate-100" />
-                <div className="flex space-x-1 mb-6">
-                  {[...Array(test.rating)].map((_, s) => <Star key={s} className="w-5 h-5 fill-orange-400 text-orange-400" />)}
-                </div>
-                <p className="text-slate-600 leading-relaxed mb-8 relative z-10 text-lg">"{test.text}"</p>
-                <div className="flex items-center space-x-4 border-t border-slate-100 pt-6">
-                  <div className="w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-full flex items-center justify-center font-bold text-xl text-white shadow-md">
-                    {test.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-lg">{test.name}</h4>
-                    <span className="text-sm font-semibold text-orange-500">{test.company}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- CONTACT / CTA (With Working State) --- */}
-      <section className="py-24 relative overflow-hidden bg-white" id="contact">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="bg-slate-900 rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
-            {/* Inner Glow */}
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/30 rounded-full blur-[100px]"></div>
-            
-            <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
-              {/* Left Info */}
-              <div>
-                <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 text-sm text-blue-300 font-medium mb-6">
-                  <Zap className="w-4 h-4 text-orange-400" />
-                  <span>Fast Response Time</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-white leading-tight">
-                  Ready to make your mark online?
-                </h2>
-                <p className="text-slate-400 mb-12 text-lg">Reach out to us today and let’s turn your digital dreams into reality!</p>
-                
-                <div className="space-y-8">
-                  <div className="flex items-center space-x-6">
-                    <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-blue-400">
-                      <Phone className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-500 font-medium mb-1">Call Us At</p>
-                      <a href="tel:+919892854892" className="text-2xl font-bold text-white hover:text-blue-400 transition-colors">+91 98928 54892</a>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-6">
-                    <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-orange-400">
-                      <Mail className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-500 font-medium mb-1">Email Our Team</p>
-                      <a href="mailto:info@ibraine.com" className="text-2xl font-bold text-white hover:text-orange-400 transition-colors">info@ibraine.com</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Working Form */}
-              <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-xl">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Send a Message</h3>
-                <form className="space-y-5" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Full Name *</label>
-                      <input 
-                        type="text" 
-                        name="name"
-                        value={form.name}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="John Doe" 
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-slate-900" 
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Email Address *</label>
-                      <input 
-                        type="email" 
-                        name="email"
-                        value={form.email}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="john@company.com" 
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-slate-900" 
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Phone Number *</label>
-                      <input 
-                        type="tel" 
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="+91 98765 43210" 
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-slate-900" 
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700">Company Name</label>
-                      <input 
-                        type="text" 
-                        name="company"
-                        value={form.company}
-                        onChange={handleInputChange}
-                        placeholder="Your Company" 
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-slate-900" 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Project Details *</label>
-                    <textarea 
-                      name="message"
-                      value={form.message}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Share a brief of your requirements..." 
-                      rows="4" 
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-slate-900 resize-none"
-                    ></textarea>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>Submit Request</span>
-                    <ArrowRight className="w-5 h-5" />
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                  <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                    <span className={`font-bold text-lg ${openFaq === index ? 'text-[#FDB813]' : 'text-black'}`}>{faq.title}</span>
+                    {openFaq === index ? <ChevronUp className="text-[#FDB813]" /> : <ChevronDown className="text-gray-400" />}
                   </button>
-                </form>
-              </div>
-
+                  <AnimatePresence>
+                    {openFaq === index && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="px-6 pb-6 text-gray-500 text-[15px]">
+                        {faq.content}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════ 6. GRADIENT STATS SECTION ════ */}
+      <section className="py-24 px-6 bg-gradient-to-r from-teal-900 to-teal-700 text-white text-center">
+        <div className="max-w-5xl mx-auto mb-16">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-lora text-4xl lg:text-5xl mb-6">We are a Premium Website Development Agency</motion.h2>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-gray-300 text-lg">Experience results-driven web development with one of the <b>best website development agencies in Mumbai</b>! We begin with meticulous planning, design, and precision engineering.</motion.p>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-teal-600/50">
+          <div className="pt-6 md:pt-0">
+            <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">200+</h3>
+            <p className="text-gray-300 text-lg">Websites successfully delivered!</p>
+          </div>
+          <div className="pt-6 md:pt-0">
+            <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">300%</h3>
+            <p className="text-gray-300 text-lg">Average increase in online leads</p>
+          </div>
+          <div className="pt-6 md:pt-0">
+            <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">10+</h3>
+            <p className="text-gray-300 text-lg">Years of web development expertise!</p>
           </div>
         </div>
       </section>
 
+      {/* ════ 7. VIDEO BANNER ════ */}
+      <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+        <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer" className="relative z-10 w-24 h-24 bg-[#FDB813] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(253,184,19,0.5)]">
+          <Play size={40} className="fill-black text-black ml-2" />
+        </a>
+      </section>
 
-    </div>
+      {/* ════ 8. TESTIMONIALS ════ */}
+      <section className="py-24 px-6 bg-white text-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
+              What people <span className="italic text-[#FDB813]">say</span>
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Hear from clients who transformed their digital presence through our expert web development services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Aman Chowdary",
+                role: "Luxulo - Founder",
+                img: "https://brandwitty.com/media/2023/09/testimonial2.png",
+                text: "Ibraine built us a stunning e-commerce website that completely transformed our online business. Our conversion rate doubled within the first month of launch. The team was professional, fast, and truly understood our vision!"
+              },
+              {
+                name: "Salman Khan",
+                role: "RewardPort - Business Head",
+                img: "https://brandwitty.com/media/2023/09/testimonial13.png",
+                text: "Our new website is not just beautiful — it's a lead generation machine. Ibraine delivered a fast, SEO-optimised site that has consistently brought in high-quality enquiries. After trying other agencies, these guys truly raised the bar."
+              },
+              {
+                name: "Rahul Pandey",
+                role: "Synk Salon - Founder",
+                img: "https://brandwitty.com/media/2023/09/testimonial11.png",
+                text: "The website they built for us is everything we dreamed of and more. It looks amazing on all devices, loads instantly, and our clients constantly compliment how professional it looks. Thank you Puja and the entire team — outstanding work!"
+              }
+            ].map((review, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="bg-[#fcfaf2] p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-4 mb-8">
+                    <img
+                      src={review.img}
+                      alt={review.name}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-[#FDB813] shadow-md"
+                    />
+                    <div>
+                      <h4 className="font-bold text-lg text-[#1a162d] leading-tight">{review.name}</h4>
+                      <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">{review.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-[16px] leading-relaxed italic">
+                    "{review.text}"
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-gray-200/50">
+                  <div className="flex text-[#FDB813] gap-1 text-sm">
+                    {"★★★★★".split("").map((star, idx) => <span key={idx}>{star}</span>)}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════ 9. MINI CTA ════ */}
+      <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
+          <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Unlock the full potential of your business with Ibraine's Web Experts</h2>
+          <p className="text-gray-600 text-lg mb-10">Partner with Ibraine, the website development experts, to build a powerful digital presence. Our custom-built websites are engineered to attract visitors, build trust, and convert them into paying customers.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+            <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Our Portfolio</button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ════ 10. CONTACT FORM SECTION ════ */}
+      <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
+
+        {/* Blue Puzzle Piece (Top Right) */}
+        <div className="absolute top-10 right-10 lg:right-32 rotate-12 opacity-90 hidden md:block animate-floating">
+          <div className="w-24 h-24 lg:w-32 lg:h-32 text-blue-500">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 12c0-1.1-.9-2-2-2V7c0-1.1-.9-2-2-2h-3c0-1.1-.9-2-2-2s-2 .9-2 2H7c-1.1 0-2 .9-2 2v3c-1.1 0-2 .9-2 2s.9 2 2 2v3c0 1.1.9 2 2 2h3c0 1.1.9 2 2 2s2-.9 2-2h3c1.1 0 2-.9 2-2v-3c1.1 0 2-.9 2-2z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Floating Dots */}
+        <div className="absolute top-4 left-[45%] w-6 h-6 bg-blue-500 rounded-full opacity-80 hidden lg:block"></div>
+        <div className="absolute right-[10%] top-1/2 w-3 h-3 bg-orange-400 rounded-full opacity-60 hidden lg:block"></div>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 reveal-active">
+
+          {/* --- LEFT SIDE: TEXT CONTENT --- */}
+          <div className="space-y-8 reveal-item">
+            <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-400 shadow-sm">
+              <Headphones size={24} />
+            </div>
+
+            <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
+              Let's Talk with <br />
+              Experienced <br />
+              <span className="text-marker">Web Development</span> <br />
+              Consultant
+            </h2>
+
+            <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">
+              Ready to build a website that truly works for your business? Our team of experts is here to help! Fill out the form, and let's start creating your digital success story today.
+            </p>
+
+            <div className="pt-4">
+              <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+              <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
+                <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
+                +91 9892 854 892
+              </p>
+            </div>
+          </div>
+
+          {/* --- RIGHT SIDE: FORM --- */}
+          <div className="relative reveal-item delay-1">
+
+            <div className="absolute -top-16 -left-16 hidden xl:block pointer-events-none">
+              <p className="font-serif italic text-gray-400 text-sm mb-1 -rotate-12">Fill the form</p>
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="2" className="opacity-40">
+                <path d="M10,10 Q50,10 50,60 T90,90" strokeLinecap="round" />
+                <path d="M85,90 L95,95 L95,85" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
+              <form className="space-y-6">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-brand-yellow transition-colors shadow-sm"
+                />
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-brand-yellow transition-colors shadow-sm"
+                />
+                <input
+                  type="tel"
+                  placeholder="Your phone"
+                  className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-brand-yellow transition-colors shadow-sm"
+                />
+                <textarea
+                  placeholder="Message..."
+                  rows="5"
+                  className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-brand-yellow transition-colors shadow-sm resize-none"
+                ></textarea>
+
+                <button className="w-full sm:w-auto border-2 border-brand-yellow text-brand-yellow px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-brand-yellow hover:text-white transition-all duration-300">
+                  Send Message
+                </button>
+              </form>
+
+              <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
+                Let's Build Your <span className="text-[#1a162d] font-black">Dream Website!</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
   );
 };
 
-export default WebsiteDesign;
+export default WebDevelopment;

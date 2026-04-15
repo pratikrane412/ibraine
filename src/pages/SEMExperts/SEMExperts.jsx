@@ -273,8 +273,8 @@ const SEMExperts = () => {
          {/* ════ 9. MINI CTA ════ */}
          <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
-               <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Get the full potential of your business with Brandwitty</h2>
-               <p className="text-gray-600 text-lg mb-10">Partner with Brandwitty, the SEM experts, to unlock the full potential of your business. Our tailored marketing strategies will elevate your brand’s visibility, engage your target audience, and drive results.</p>
+               <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Get the full potential of your business with Ibraine</h2>
+               <p className="text-gray-600 text-lg mb-10">Partner with Ibraine, the SEM experts, to unlock the full potential of your business. Our tailored marketing strategies will elevate your brand’s visibility, engage your target audience, and drive results.</p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
                   <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>

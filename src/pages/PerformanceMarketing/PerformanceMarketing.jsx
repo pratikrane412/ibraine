@@ -392,10 +392,10 @@ const PerformanceMarketing = () => {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                className="max-w-4xl mx-auto">
                <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                  Unlock the full growth potential of your brand with Brandwitty
+                  Unlock the full growth potential of your brand with Ibraine
                </h2>
                <p className="text-gray-600 text-lg mb-10">
-                  Partner with Brandwitty, the performance marketing specialists, to transform your ad spend into measurable, scalable revenue. Our outcome-first campaigns are engineered for one thing — your profitable growth.
+                  Partner with Ibraine, the performance marketing specialists, to transform your ad spend into measurable, scalable revenue. Our outcome-first campaigns are engineered for one thing — your profitable growth.
                </p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>

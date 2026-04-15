@@ -427,7 +427,7 @@ const SocialMediaMarketing = () => {
                                 name: "Priya Kapoor",
                                 role: "The Bloom Store — Founder",
                                 img: "https://brandwitty.com/media/2023/09/testimonial2.png",
-                                text: "Brandwitty took our Instagram from 900 followers to 28,000 in just 3 months. The reels they create are absolutely stunning and we get DMs from potential customers every single day. Best investment ever!"
+                                text: "Ibraine took our Instagram from 900 followers to 28,000 in just 3 months. The reels they create are absolutely stunning and we get DMs from potential customers every single day. Best investment ever!"
                             },
                             {
                                 name: "Arjun Malhotra",
@@ -479,10 +479,10 @@ const SocialMediaMarketing = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                        Get the full potential of your brand on social media with Brandwitty
+                        Get the full potential of your brand on social media with Ibraine
                     </h2>
                     <p className="text-gray-600 text-lg mb-10">
-                        Partner with Brandwitty, the social media experts, to build a brand people follow, trust, and buy from. Our tailored social media strategies will grow your audience, deepen engagement, and consistently drive real business results.
+                        Partner with Ibraine, the social media experts, to build a brand people follow, trust, and buy from. Our tailored social media strategies will grow your audience, deepen engagement, and consistently drive real business results.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>

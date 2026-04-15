@@ -1,278 +1,371 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import {
-    Play, ArrowRight, CheckCircle2, Star,
-    ShieldCheck, Zap, BarChart3,
-    MousePointer2, Settings, Code2, MessageSquare,
-    Headphones, Globe, Sparkles, Target, Layers3, TimerReset, ChevronRight
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Play, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Headphones } from 'lucide-react';
 
-const fadeInUp = {
-    hidden: { opacity: 0, y: 28 },
-    show: { opacity: 1, y: 0 }
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
-const staggerContainer = {
-    hidden: {},
-    show: {
-        transition: {
-            staggerChildren: 0.12
-        }
-    }
+/* ─── All images use Unsplash (always reliable, no CORS) ─── */
+const IMG = {
+    blobY: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='100' rx='80' ry='60' fill='%23FDB813' opacity='0.4'/%3E%3C/svg%3E`,
+    blobB: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='100' rx='70' ry='90' fill='%2338bdf8' opacity='0.3'/%3E%3C/svg%3E`,
+
+    // Hero right — person at laptop with analytics on screen
+    heroDash: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80",
+    // Hero floating card 1 — coding / script feel
+    heroC1: "https://images.unsplash.com/photo-1607798748738-b15c40d33d57?w=600&auto=format&fit=crop&q=80",
+    // Hero floating card 2 — charts / data
+    heroC2: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&auto=format&fit=crop&q=80",
+    // Hero floating card 3 — finance / ROI numbers
+    heroROI: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=500&auto=format&fit=crop&q=80",
+
+    // Section 3 — analytics desk
+    s3a: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    s3b: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80",
+
+    // Section 4 — data screens
+    s4a: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=900&auto=format&fit=crop&q=80",
+    s4b: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80",
+
+    // Section 5 FAQ images
+    faq1: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=700&q=80",
+    faq2: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=700&auto=format&fit=crop&q=80",
+    faq3: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&auto=format&fit=crop&q=80",
+
+    // Video banner BG
+    vidBg: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1600&auto=format&fit=crop&q=80",
+
+    // Avatars
+    av1: "https://i.pravatar.cc/150?img=47",
+    av2: "https://i.pravatar.cc/150?img=12",
+    av3: "https://i.pravatar.cc/150?img=32",
 };
 
-const metrics = [
-    { value: '300+', label: 'Containers audited and optimized' },
-    { value: '42%', label: 'Average improvement in event quality' },
-    { value: '2.4x', label: 'Faster deployment compared to hardcoding' },
-    { value: '99.7%', label: 'Tag firing reliability across key flows' }
+// Brand logos via Clearbit (highly reliable public CDN)
+const LOGOS = [
+    { src: "https://cdn.simpleicons.org/google", name: "Google" },
+    { src: "https://cdn.simpleicons.org/meta", name: "Meta" },
+    { src: "https://cdn.simpleicons.org/shopify", name: "Shopify" },
+    { src: "https://cdn.simpleicons.org/hubspot", name: "HubSpot" },
+    { src: "https://cdn.simpleicons.org/salesforce", name: "Salesforce" },
+    { src: "https://cdn.simpleicons.org/mailchimp", name: "Mailchimp" },
+    { src: "https://cdn.simpleicons.org/stripe", name: "Stripe" },
+    { src: "https://cdn.simpleicons.org/zendesk", name: "Zendesk" },
 ];
 
-const processSteps = [
-    {
-        title: 'Tracking Architecture Blueprint',
-        description: 'We map KPIs, touchpoints, and conversion goals into a clear event architecture that aligns with business outcomes.'
-    },
-    {
-        title: 'Container Setup and Governance',
-        description: 'From naming conventions to workspace governance, we build a scalable GTM foundation your team can confidently manage.'
-    },
-    {
-        title: 'Event, Pixel, and Data Layer Implementation',
-        description: 'We deploy high-priority tags with precision and design robust data layer contracts for marketing and analytics teams.'
-    },
-    {
-        title: 'QA, UAT, and Performance Monitoring',
-        description: 'Using preview mode, debug tools, and cross-browser validation, we verify every trigger and continuously monitor quality.'
-    }
-];
+const GTMIntegration = () => {
+    const [openFaq, setOpenFaq] = useState(0);
 
-const faqs = [
-    {
-        question: 'Can GTM improve marketing performance?',
-        answer: 'Yes. GTM itself does not create demand, but it unlocks reliable attribution and event data so campaigns can be optimized with confidence.'
-    },
-    {
-        question: 'Will you migrate from existing tracking setup?',
-        answer: 'Absolutely. We handle migration from hardcoded scripts or legacy containers with rollback-safe deployment and event parity checks.'
-    },
-    {
-        question: 'Do you support ecommerce tracking?',
-        answer: 'Yes, we implement advanced ecommerce events including product views, add-to-cart, checkout steps, and purchase validation.'
-    }
-];
+    const faqs = [
+        { title: "Install the GTM Container", content: "We set up your Google Tag Manager container and deploy the snippet across your entire website, ensuring all pages are tracked without touching your source code repeatedly." },
+        { title: "Configure Tags & Triggers", content: "We configure custom tags for Google Analytics, Meta Pixel, conversion tracking, and more — and set up precise triggers so tags fire only when and where they should." },
+        { title: "Set Up Data Layer Events", content: "We implement a robust dataLayer strategy to push custom events (form submissions, button clicks, scroll depth, ecommerce events) for deep behavioural insights." },
+        { title: "Test, Debug & Publish", content: "Using GTM's Preview & Debug mode and Tag Assistant, we thoroughly QA every tag before publishing — so you never have duplicate or misfiring tags in production." }
+    ];
 
-const GoogleTagManager = () => {
     return (
-        <div className="w-full bg-[#fdfdfb] text-[#1a1a1a] font-sans overflow-hidden selection:bg-[#f9b91b]">
+        <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
 
-            {/* ════ 1. HERO SECTION (FIXED VISIBILITY) ════ */}
-            <section className="relative pt-32 pb-10 px-6 min-h-[85vh] flex flex-col items-center justify-center text-center">
-                {/* Playful Floating Decorations from Video */}
-                <div className="absolute top-20 left-[15%] opacity-30 rotate-12 text-2xl font-serif italic">/</div>
-                <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-40 right-[20%] opacity-20 text-[#f9b91b]"><Star size={30} fill="currentColor" /></motion.div>
-                <div className="absolute bottom-40 right-[15%] font-bold opacity-10 text-4xl">7</div>
-                <div className="absolute top-60 left-[10%] w-5 h-5 border-2 border-black rounded-full opacity-20" />
+            {/* ════ 1. HERO — soft blue-white background ════ */}
+            <section className="relative bg-[#eef4fb] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
 
-                <div className="max-w-5xl mx-auto relative z-10">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-5xl md:text-[85px] font-black leading-[0.95] tracking-tight mb-10"
-                    >
-                        Easily manage <span className="bg-[#fff1f1] px-4 rounded-xl">tags and tracking</span> <br /> at your fingertips.
-                    </motion.h1>
+                <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}
+                    src={IMG.blobY} className="absolute top-32 left-[5%] w-20 hidden lg:block" alt="" />
+                <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }}
+                    src={IMG.blobB} className="absolute bottom-20 left-[45%] w-14 hidden lg:block" alt="" />
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
-                    >
-                        Google Tag Manager is a terrific tool for company owners and marketing teams to assess website performance, identify well-performing sections, pinpoint underperforming areas, and gather valuable user experience data from real customers.
-                    </motion.p>
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.4, duration: 0.6 }}
-                        className="flex flex-wrap justify-center items-center gap-8 mb-20"
-                    >
-                        <button className="bg-[#f9b91b] text-white px-10 py-5 rounded-2xl font-black text-lg shadow-[0_20px_40px_-10px_rgba(249,185,27,0.4)] hover:scale-105 transition-all">
-                            Get Started
-                        </button>
-                        <button className="flex items-center gap-3 font-bold group">
-                            <div className="w-14 h-14 rounded-full border-2 border-gray-100 flex items-center justify-center group-hover:bg-[#f9b91b] group-hover:text-white group-hover:border-[#f9b91b] transition-all">
-                                <Play size={20} fill="currentColor" />
-                            </div>
-                            <span className="border-b-2 border-black pb-0.5 group-hover:text-[#f9b91b] transition-colors">Watch Intro Video</span>
-                        </button>
-                    </motion.div>
-                </div>
+                    {/* LEFT */}
+                    <div className="lg:w-1/2">
+                        <motion.h1 initial="hidden" animate="visible" variants={fadeUp}
+                            className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
+                            We implement{' '}
+                            <span className="relative inline-block z-10">
+                                flawless GTM
+                                <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm" />
+                            </span>{' '}
+                            setups that give you total control over every tag, trigger, and pixel.
+                        </motion.h1>
 
-                {/* Hero Dashboard (Faux UI Mockup) */}
-                <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1 }}
-                    className="max-w-6xl mx-auto relative w-full px-4"
-                >
-                    <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#f9b91b] rounded-full z-[-1] hidden lg:block" />
-                    <div className="bg-white rounded-[3.5rem] shadow-[0_60px_100px_-20px_rgba(0,0,0,0.12)] border border-gray-100 p-6 md:p-12 overflow-hidden">
-                        <div className="flex justify-between items-center mb-10">
-                            <div className="flex gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-400" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                                <div className="w-3 h-3 rounded-full bg-green-400" />
-                            </div>
-                            <div className="h-8 w-40 bg-gray-50 rounded-full" />
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-                            <div className="md:col-span-4 text-left space-y-8">
-                                <div className="space-y-3">
-                                    <div className="h-4 w-3/4 bg-gray-100 rounded" />
-                                    <div className="h-4 w-1/2 bg-gray-50 rounded" />
-                                </div>
-                                <div className="bg-blue-50 p-8 rounded-[2rem] relative shadow-inner">
-                                    <div className="w-12 h-12 bg-blue-500 rounded-full mb-4 shadow-lg flex items-center justify-center text-white"><BarChart3 size={20} /></div>
-                                    <div className="h-3 w-1/2 bg-blue-200 rounded-full" />
-                                </div>
-                            </div>
-                            <div className="md:col-span-8 bg-gray-50/50 rounded-[3rem] p-10 flex flex-col items-center justify-center border border-dashed border-gray-200 min-h-[300px]">
-                                <div className="flex gap-4 items-end h-32 mb-8">
-                                    {[40, 70, 45, 90, 65, 80, 55].map((h, i) => (
-                                        <motion.div
-                                            key={i}
-                                            initial={{ height: 0 }}
-                                            whileInView={{ height: `${h}%` }}
-                                            transition={{ delay: 0.5 + (i * 0.1) }}
-                                            className="w-6 bg-[#f9b91b] rounded-t-lg"
-                                        />
-                                    ))}
-                                </div>
-                                <p className="font-black text-3xl uppercase tracking-[0.4em] opacity-10 select-none">Progress Stats</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute right-0 bottom-20 text-4xl opacity-10 font-black">X</div>
-                </motion.div>
-            </section>
+                        <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
+                            className="text-gray-600 text-[18px] mb-8 leading-relaxed">
+                            Google Tag Manager is the backbone of modern web analytics. It lets you deploy tracking codes, pixels, and scripts without developer intervention — keeping your marketing agile, your data clean, and your site fast. Our GTM experts set it up right, the first time.
+                        </motion.p>
 
-            {/* ════ 2. FEATURE SECTION: Eliminate Coding ════ */}
-            <section className="py-32 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <span className="text-[#f9b91b] font-bold uppercase text-[10px] tracking-[0.5em] mb-6 block">Get Google Tag Manager Implemented</span>
-                        <h2 className="text-4xl md:text-7xl font-black mb-10 leading-[0.95]">
-                            <span className="bg-[#e2f7f1] px-2 rounded-md">Eliminate</span> complicated coding using GTM Services
-                        </h2>
-                        <p className="text-gray-500 text-xl leading-relaxed mb-12">
-                            Brandwitty provides skilled Google Tag Manager services, including fresh account setup and migration from existing web analytics. As early adopters, we've successfully migrated multiple customer websites to GTM, enabling faster tracking tag installation.
-                        </p>
-                        <button className="bg-[#f9b91b] text-white px-10 py-5 rounded-xl font-bold shadow-lg hover:bg-black transition-all">
-                            Learn More
-                        </button>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }}
-                        className="bg-indigo-600 rounded-[5rem] aspect-square flex items-center justify-center p-12 relative overflow-hidden"
-                    >
-                        <div className="bg-white p-12 rounded-[3.5rem] shadow-2xl relative z-10 w-full max-w-md transform transition-transform hover:rotate-2">
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600"><Settings size={30} /></div>
-                                <div className="h-4 w-40 bg-gray-100 rounded-full" />
-                            </div>
-                            <div className="space-y-4">
-                                <div className="h-3 w-full bg-gray-50 rounded-full" />
-                                <div className="h-3 w-full bg-gray-50 rounded-full" />
-                                <div className="h-3 w-2/3 bg-gray-50 rounded-full" />
-                            </div>
-                            <div className="mt-10 flex gap-4">
-                                <div className="w-10 h-10 bg-indigo-600 rounded-full" />
-                                <div className="w-10 h-10 bg-[#f9b91b] rounded-full shadow-lg" />
-                            </div>
-                        </div>
-                        {/* Decorative floating icons */}
-                        <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-10 right-10 w-16 h-16 bg-emerald-400 rounded-2xl flex items-center justify-center text-white shadow-xl rotate-12"><CheckCircle2 size={30} /></motion.div>
-                        <motion.div animate={{ y: [15, -10, 15] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-20 left-10 w-16 h-16 bg-[#f9b91b] rounded-2xl flex items-center justify-center text-white -rotate-12 shadow-xl"><Zap size={30} /></motion.div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ════ 3. BENEFITS STRIP (3 Columns) ════ */}
-            <section className="py-24 px-6 bg-white">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-[75px] font-black mb-8 leading-none tracking-tighter">The <span className="bg-[#f3e8ff] px-3 rounded-2xl italic">benefits</span> of Google Tag Manager</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-xl font-medium italic mb-20">"It's one tool to manage tags on the whole website. This means you can dive into details to dig out the most benefits."</p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-gray-50 rounded-[4rem] overflow-hidden bg-gray-50/20 shadow-sm">
-                        {[
-                            { title: "Simplified tag management", icon: <MousePointer2 /> },
-                            { title: "Faster deployment of tracking codes and scripts", icon: <Zap /> },
-                            { title: "Enhanced data accuracy", icon: <ShieldCheck /> }
-                        ].map((item, i) => (
-                            <div key={i} className={`p-16 text-center bg-white hover:bg-[#f9b91b] hover:text-white transition-all duration-500 group ${i !== 2 ? 'md:border-r border-gray-100' : ''}`}>
-                                <div className="w-24 h-24 bg-gray-50 rounded-[2rem] mx-auto flex items-center justify-center mb-10 group-hover:bg-white/20 group-hover:text-white transition-all">
-                                    {React.cloneElement(item.icon, { size: 40 })}
-                                </div>
-                                <h3 className="text-2xl font-black leading-tight max-w-[240px] mx-auto transition-all">{item.title}</h3>
-                                <div className="mt-12 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <ArrowRight size={32} />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="px-6 pb-28 bg-white">
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.25 }}
-                    className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
-                    {metrics.map((metric) => (
-                        <motion.div
-                            key={metric.label}
-                            variants={fadeInUp}
-                            transition={{ duration: 0.55, ease: 'easeOut' }}
-                            className="bg-[#fffdf6] border border-[#f3e8c2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow"
-                        >
-                            <p className="text-4xl font-black text-[#1a1a1a] mb-3">{metric.value}</p>
-                            <p className="text-gray-600 leading-relaxed">{metric.label}</p>
+                        <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
+                            className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+                            <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
+                                Talk to our GTM Expert Now
+                            </button>
+                            <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
+                                <Play size={20} className="fill-black" /> Watch a Demo
+                            </button>
                         </motion.div>
-                    ))}
-                </motion.div>
+
+                        <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }}
+                            className="text-gray-500 text-[15px]">
+                            Get your tags deployed, tested, and live — without touching your website code.
+                        </motion.p>
+                    </div>
+
+                    {/* RIGHT IMAGE CLUSTER */}
+                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
+                        className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
+
+                        <img src={IMG.heroDash}
+                            className="absolute right-0 top-0 w-[85%] h-[62%] object-cover z-10 rounded-2xl shadow-xl"
+                            alt="Analytics Dashboard" />
+
+                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}
+                            src={IMG.heroC1}
+                            className="absolute left-[-8%] top-[18%] w-[55%] h-[36%] object-cover z-20 shadow-2xl rounded-xl border-4 border-white"
+                            alt="Tag Config" />
+
+                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }}
+                            src={IMG.heroC2}
+                            className="absolute left-[8%] bottom-[6%] w-[42%] h-[30%] object-cover z-30 shadow-2xl rounded-xl border-4 border-white"
+                            alt="Data Chart" />
+
+                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }}
+                            src={IMG.heroROI}
+                            className="absolute right-[-2%] bottom-[3%] w-[38%] h-[28%] object-cover z-20 rounded-xl shadow-2xl border-4 border-white"
+                            alt="ROI Stats" />
+                    </motion.div>
+                </div>
             </section>
 
-            {/* ════ 4. LOGO INTEGRATIONS GRID ════ */}
-            <section className="py-32 px-6 text-center">
-                <div className="max-w-6xl mx-auto">
-                    <span className="text-[#f9b91b] font-bold uppercase text-[10px] tracking-[0.5em] mb-4 block">Effortlessly implement tags of multiple tools</span>
-                    <h2 className="text-4xl md:text-7xl font-black mb-24 leading-tight">Tags can be <span className="bg-[#fffbeb] border-b-8 border-[#f9b91b]">easily</span> <br /> implemented through Google Tag Manager</h2>
+            {/* ════ 2. BRANDS ════ */}
+            <section className="py-20 px-6 border-b border-gray-100 bg-white">
+                <div className="max-w-7xl mx-auto text-center">
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Helped Track, Measure & Grow</h2>
+                    <p className="text-gray-500 mb-12 text-lg">Diverse clientele. Clean data pipelines. Reliable insights. Your growth, our mission. Join us now.</p>
+                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                        {LOGOS.map((logo, i) => (
+                            <img key={i} src={logo.src} alt={logo.name}
+                                className="w-12 h-12 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform"
+                                onError={e => { e.target.style.display = 'none'; }} />
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-20">
+            {/* ════ 3. UNIFIED TAG MANAGEMENT ════ */}
+            <section className="py-24 px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+
+                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                        className="lg:w-1/2 relative h-[500px] w-full">
+                        <img src={IMG.s3a}
+                            className="absolute bottom-0 left-0 w-[80%] h-[62%] object-cover rounded-2xl shadow-xl z-10"
+                            alt="Analytics Work" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
+                            src={IMG.s3b}
+                            className="absolute top-0 right-0 w-[62%] h-[52%] object-cover z-20 rounded-2xl shadow-2xl border-4 border-white"
+                            alt="Tag Setup" />
+                    </motion.div>
+
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                        className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
+                            One container to manage all your tags — GA4, Meta, LinkedIn, HotJar, and more.
+                        </h2>
+                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
+                            Stop relying on developers every time marketing needs a new pixel or tracking code. Google Tag Manager gives your team the power to deploy, update, and remove tags independently — keeping campaigns moving fast.
+                        </p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+                            Our certified GTM specialists audit your existing setup, clean up tag bloat, and build a scalable container structure that grows with your business.
+                        </p>
+                        <ul className="space-y-4 mb-10">
+                            {["Certified GTM Specialists", "Zero Data Loss Guarantee", "Transparent Audit Reports"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                                    <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">
+                            Get a free GTM audit now
+                        </button>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ════ 4. ACTIONABLE DATA ════ */}
+            <section className="py-24 px-6 bg-white">
+                <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
+
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                        className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
+                            We turn raw tag data into actionable marketing intelligence
+                        </h2>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+                            As a leading <b>Google Tag Manager agency in Mumbai</b>, we go beyond basic implementation. We architect your entire dataLayer strategy, set up custom event tracking, configure ecommerce tracking, and integrate with GA4, Meta CAPI, and CRM platforms — ensuring every click, scroll, and conversion is captured accurately. With 10+ years of analytics experience, our team ensures your data is clean, consistent, and conversion-ready.
+                        </p>
+                        <ul className="space-y-4 mb-10">
+                            {["GA4 & UA Migration Support", "Custom Event & Conversion Tracking", "Ecommerce & Enhanced Measurement", "Cross-Domain Tracking Setup", "Ongoing Tag Maintenance & QA"].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
+                                    <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
+                            Talk to our GTM Expert Now
+                        </button>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                        className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
+                        <img src={IMG.s4a}
+                            className="absolute top-0 right-0 w-[90%] h-[68%] object-cover z-10 rounded-2xl shadow-xl"
+                            alt="Data Screens" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }}
+                            src={IMG.s4b}
+                            className="absolute bottom-10 left-[-5%] w-[55%] h-[36%] object-cover z-20 shadow-2xl rounded-xl border-4 border-white"
+                            alt="Stats" />
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ════ 5. FAQ / ACCORDION ════ */}
+            <section className="py-24 px-6 bg-[#eef4fb]">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+
+                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                        className="lg:w-1/2 relative h-[600px] w-full">
+                        <img src={IMG.faq1}
+                            className="absolute top-0 left-0 w-[68%] h-[48%] object-cover z-10 rounded-2xl shadow-xl"
+                            alt="GTM Setup" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
+                            src={IMG.faq2}
+                            className="absolute top-[22%] right-[-5%] w-[58%] h-[40%] object-cover z-20 rounded-2xl shadow-2xl border-4 border-white"
+                            alt="Trigger Config" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }}
+                            src={IMG.faq3}
+                            className="absolute bottom-0 left-[8%] w-[65%] h-[30%] object-cover z-30 shadow-2xl rounded-2xl border-4 border-white"
+                            alt="Code" />
+                    </motion.div>
+
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                        className="lg:w-1/2">
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
+                            Google Tag Manager Integration Company in Mumbai
+                        </h2>
+                        <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
+                            Supercharge your analytics with our expert GTM services! Capture every conversion, track every user interaction, and give your marketing team the data they need to make smarter decisions. Let's build your perfect tag architecture — contact us now!
+                        </p>
+
+                        <div className="space-y-4">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+                                    <button onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                        className="w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                                        <span className={`font-bold text-lg ${openFaq === index ? 'text-[#FDB813]' : 'text-black'}`}>
+                                            {faq.title}
+                                        </span>
+                                        {openFaq === index
+                                            ? <ChevronUp className="text-[#FDB813]" />
+                                            : <ChevronDown className="text-gray-400" />}
+                                    </button>
+                                    <AnimatePresence>
+                                        {openFaq === index && (
+                                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }} className="px-6 pb-6 text-gray-500 text-[15px]">
+                                                {faq.content}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* ════ 6. STATS ════ */}
+            <section className="py-24 px-6 bg-gradient-to-r from-teal-900 to-teal-700 text-white text-center">
+                <div className="max-w-5xl mx-auto mb-16">
+                    <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                        className="font-lora text-4xl lg:text-5xl mb-6">
+                        We are a Google Tag Manager Integration Agency
+                    </motion.h2>
+                    <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                        className="text-gray-300 text-lg">
+                        Experience data-driven growth with one of the <b>best GTM integration agencies in Mumbai</b>! We begin with a thorough tag audit, clean architecture, and precision event tracking.
+                    </motion.p>
+                </div>
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-teal-600/50">
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">200+</h3>
+                        <p className="text-gray-300 text-lg">GTM Containers successfully deployed!</p>
+                    </div>
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">99.8%</h3>
+                        <p className="text-gray-300 text-lg">Tag Firing Accuracy across all clients</p>
+                    </div>
+                    <div className="pt-6 md:pt-0">
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">50+</h3>
+                        <p className="text-gray-300 text-lg">Integrations: GA4, Meta, LinkedIn & more!</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ════ 7. VIDEO BANNER ════ */}
+            <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
+                <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
+                    style={{ backgroundImage: `url('${IMG.vidBg}')` }} />
+                <a href="https://www.youtube.com/watch?v=AiOyBHDQctY" target="_blank" rel="noreferrer"
+                    className="relative z-10 w-24 h-24 bg-[#FDB813] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(253,184,19,0.5)]">
+                    <Play size={40} className="fill-black text-black ml-2" />
+                </a>
+            </section>
+
+            {/* ════ 8. TESTIMONIALS ════ */}
+            <section className="py-24 px-6 bg-white text-black">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-16 text-center max-w-3xl mx-auto">
+                        <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
+                            What people <span className="italic text-[#FDB813]">say</span>
+                        </h2>
+                        <p className="text-gray-500 text-lg leading-relaxed">
+                            Hear from clients who finally got clean, trustworthy data through our GTM integration services.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { name: "Facebook", logo: "https://cdn-icons-png.flaticon.com/512/124/124010.png" },
-                            { name: "Google Ads", logo: "https://cdn-icons-png.flaticon.com/512/300/300221.png" },
-                            { name: "Pinterest", logo: "https://cdn-icons-png.flaticon.com/512/145/145808.png" },
-                            { name: "Hotjar", logo: "https://cdn.iconscout.com/icon/free/png-256/free-hotjar-3521487-2944928.png" },
-                            { name: "Analytics", logo: "https://cdn-icons-png.flaticon.com/512/281/281764.png" },
-                            { name: "LinkedIn", logo: "https://cdn-icons-png.flaticon.com/512/174/174857.png" },
-                            { name: "Quora", logo: "https://cdn-icons-png.flaticon.com/512/145/145811.png" },
-                            { name: "Shopify", logo: "https://cdn-icons-png.flaticon.com/512/825/825582.png" }
-                        ].map((brand, i) => (
-                            <motion.div
-                                whileHover={{ scale: 1.1, y: -10 }}
-                                key={i} className="flex flex-col items-center gap-4"
-                            >
-                                <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-full shadow-xl flex items-center justify-center p-7 border border-gray-50 hover:border-[#f9b91b] transition-all">
-                                    <img src={brand.logo} alt={brand.name} className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                            {
+                                name: "Priya Nair", role: "GrowthStack — Head of Marketing", img: IMG.av1,
+                                text: "Before their GTM setup, our conversion data was a mess. Now we have accurate GA4 events, Meta Pixel firing correctly, and real-time reports we can actually trust. Incredible work!"
+                            },
+                            {
+                                name: "Karan Mehta", role: "Shopify Store Owner", img: IMG.av2,
+                                text: "They migrated our entire UA setup to GA4 via GTM with zero data loss and even added enhanced ecommerce tracking. Our ROAS improved by 40% in the first month because we could finally see the full funnel."
+                            },
+                            {
+                                name: "Divya Sharma", role: "FinTech Startup — Growth Lead", img: IMG.av3,
+                                text: "The dataLayer architecture they built for us is rock solid. Custom events for every step of our onboarding funnel, LinkedIn Insight Tag, and Hotjar — all configured flawlessly. Our paid campaigns have never been more efficient."
+                            }
+                        ].map((review, i) => (
+                            <motion.div key={i} whileHover={{ y: -10 }}
+                                className="bg-[#eef4fb] p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between">
+                                <div>
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <img src={review.img} alt={review.name}
+                                            className="w-16 h-16 rounded-full object-cover border-2 border-[#FDB813] shadow-md" />
+                                        <div>
+                                            <h4 className="font-bold text-lg text-[#1a162d] leading-tight">{review.name}</h4>
+                                            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">{review.role}</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-600 text-[16px] leading-relaxed italic">"{review.text}"</p>
+                                </div>
+                                <div className="mt-8 pt-6 border-t border-gray-200/50">
+                                    <div className="flex text-[#FDB813] gap-1 text-sm">
+                                        {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -280,176 +373,98 @@ const GoogleTagManager = () => {
                 </div>
             </section>
 
-            <section className="py-28 px-6 bg-gradient-to-b from-[#fff7e6] via-[#fffdf8] to-white">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-                    <motion.div
-                        initial={{ opacity: 0, x: -24 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                    >
-                        <span className="inline-flex items-center gap-2 rounded-full bg-black text-white text-xs tracking-[0.3em] uppercase px-5 py-2 mb-6">
-                            <Sparkles size={14} /> Why teams choose us
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black leading-[0.95] mb-8">
-                            A conversion-first GTM system built for
-                            <span className="bg-[#f9b91b] text-white px-3 rounded-xl ml-2 inline-block">clarity</span>
+            {/* ════ 9. MINI CTA ════ */}
+            <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                    className="max-w-4xl mx-auto">
+                    <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
+                        Unlock the full power of your data with Ibraine's GTM experts
+                    </h2>
+                    <p className="text-gray-600 text-lg mb-10">
+                        Partner with Ibraine, the GTM integration specialists, to finally get clean, accurate, and actionable data. Our tailored tag management strategies will give your marketing team the insights they need to scale with confidence.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+                        <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* ════ 10. CONTACT FORM ════ */}
+            <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
+
+                {/* Puzzle decoration */}
+                <div className="absolute top-10 right-10 lg:right-32 rotate-12 opacity-80 hidden md:block">
+                    <div className="w-24 h-24 lg:w-32 lg:h-32 text-blue-400">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 12c0-1.1-.9-2-2-2V7c0-1.1-.9-2-2-2h-3c0-1.1-.9-2-2-2s-2 .9-2 2H7c-1.1 0-2 .9-2 2v3c-1.1 0-2 .9-2 2s.9 2 2 2v3c0 1.1.9 2 2 2h3c0 1.1.9 2 2 2s2-.9 2-2h3c1.1 0 2-.9 2-2v-3c1.1 0 2-.9 2-2z" />
+                        </svg>
+                    </div>
+                </div>
+                <div className="absolute top-4 left-[45%] w-6 h-6 bg-blue-400 rounded-full opacity-70 hidden lg:block" />
+                <div className="absolute right-[10%] top-1/2 w-3 h-3 bg-orange-400 rounded-full opacity-60 hidden lg:block" />
+
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+
+                    {/* LEFT */}
+                    <div className="space-y-8">
+                        <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-400 shadow-sm">
+                            <Headphones size={24} />
+                        </div>
+                        <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
+                            Let's Talk with <br />
+                            Experienced <br />
+                            <span className="relative inline-block z-10">
+                                GTM Integration
+                                <span className="absolute left-0 bottom-1 w-full h-3 bg-[#FDB813]/50 -z-10 rounded-sm" />
+                            </span> <br />
+                            Specialists
                         </h2>
-                        <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-xl">
-                            We don't just install tags. We architect a measurement framework that helps founders, marketers, and analysts move faster with trustworthy data and actionable insights.
+                        <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">
+                            Ready to take control of your tracking and analytics? Our GTM specialists are here to help you build a reliable, scalable tag infrastructure. Fill out the form and let's start building your data foundation.
                         </p>
-                        <div className="space-y-5">
-                            {[
-                                { icon: <Target size={20} />, text: 'Business-aligned event taxonomy and conversion mapping' },
-                                { icon: <Layers3 size={20} />, text: 'Server-side and client-side tagging strategy support' },
-                                { icon: <TimerReset size={20} />, text: 'Rapid QA cycles with documentation for in-house teams' }
-                            ].map((point) => (
-                                <motion.div
-                                    key={point.text}
-                                    initial={{ opacity: 0, y: 16 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.45 }}
-                                    className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100"
-                                >
-                                    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#f9b91b]/15 text-[#f9b91b] flex items-center justify-center">{point.icon}</div>
-                                    <p className="text-gray-700 font-medium leading-relaxed">{point.text}</p>
-                                </motion.div>
-                            ))}
+                        <div className="pt-4">
+                            <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
+                                <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
+                                +91 9892 854 892
+                            </p>
                         </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 24 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="bg-white rounded-[2.5rem] border border-gray-100 p-8 md:p-10 shadow-[0_35px_80px_-40px_rgba(0,0,0,0.25)]"
-                    >
-                        <h3 className="text-2xl md:text-3xl font-black mb-8">Our implementation process</h3>
-                        <div className="space-y-6">
-                            {processSteps.map((step, index) => (
-                                <motion.div
-                                    key={step.title}
-                                    initial={{ opacity: 0, y: 16 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.45, delay: index * 0.08 }}
-                                    className="flex gap-4"
-                                >
-                                    <div className="w-9 h-9 rounded-full bg-black text-white text-sm font-black flex items-center justify-center mt-1">
-                                        {index + 1}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-black text-lg mb-1">{step.title}</h4>
-                                        <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                        <button className="mt-8 inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[#f9b91b]">
-                            Book a strategy call <ChevronRight size={16} />
-                        </button>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ════ 5. TESTIMONIALS (Circular Headshots) ════ */}
-            <section className="py-40 px-6 bg-white relative">
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <div className="bg-[#f9b91b]/10 w-24 h-24 rounded-full mx-auto flex items-center justify-center text-[#f9b91b] text-4xl font-black mb-12 shadow-sm">66</div>
-                    <h2 className="text-4xl md:text-[70px] font-black mb-20 leading-none">Check what our <br /> <span className="bg-[#e0f2fe] px-2 rounded-2xl">clients</span> say about us.</h2>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                        className="bg-[#fdfdfb] p-16 md:p-24 rounded-[5rem] border border-gray-100 shadow-sm relative overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 p-10 opacity-10"><MessageSquare size={100} /></div>
-                        <p className="text-2xl md:text-3xl font-medium text-gray-600 mb-12 leading-relaxed italic relative z-10">
-                            "This has given us a clearer picture of our online performance. Thanks! We now have a better grasp of our data, enabling us to optimize our digital strategies effectively."
-                        </p>
-                        <div className="space-y-1 relative z-10">
-                            <h4 className="text-3xl font-black italic">Naren Waghela</h4>
-                            <p className="text-[#f9b91b] font-bold text-lg tracking-widest uppercase">FusionKraaft - Founder</p>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Floating Headshots exactly as seen in video */}
-                <div className="absolute inset-0 pointer-events-none opacity-60 overflow-hidden">
-                    <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 left-20 w-20 h-20 bg-gray-100 rounded-full border-4 border-white shadow-xl overflow-hidden"><img src="https://i.pravatar.cc/100?u=1" alt="" /></motion.div>
-                    <motion.div animate={{ y: [20, -10, 20] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-1/4 left-[15%] w-24 h-24 bg-gray-100 rounded-full border-4 border-white shadow-xl overflow-hidden"><img src="https://i.pravatar.cc/100?u=2" alt="" /></motion.div>
-                    <motion.div animate={{ y: [-10, 20, -10] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-1/3 right-[10%] w-28 h-28 bg-gray-100 rounded-full border-4 border-white shadow-xl overflow-hidden"><img src="https://i.pravatar.cc/100?u=3" alt="" /></motion.div>
-                    <motion.div animate={{ y: [15, -15, 15] }} transition={{ duration: 4.5, repeat: Infinity }} className="absolute bottom-1/3 right-[20%] w-16 h-16 bg-gray-100 rounded-full border-4 border-white shadow-xl overflow-hidden"><img src="https://i.pravatar.cc/100?u=4" alt="" /></motion.div>
-                </div>
-            </section>
-
-            <section className="py-26 px-6 bg-[#f9fafb]">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl md:text-6xl font-black mb-5">Frequently asked questions</h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Everything you need to know before partnering with us for GTM implementation and analytics growth.
-                        </p>
-                    </div>
-                    <div className="space-y-5">
-                        {faqs.map((faq) => (
-                            <motion.div
-                                key={faq.question}
-                                initial={{ opacity: 0, y: 18 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.45 }}
-                                className="rounded-3xl border border-gray-200 bg-white p-7 md:p-8"
-                            >
-                                <h3 className="text-xl md:text-2xl font-black mb-3">{faq.question}</h3>
-                                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ════ 6. CONSULTANT CONTACT SECTION ════ */}
-            <section className="py-32 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mb-10"><Headphones size={32} /></div>
-                        <h2 className="text-4xl md:text-[85px] font-black mb-10 leading-[0.9]">Let's talk with <br /> experienced <br /> <span className="border-b-8 border-orange-100">Web Analytics</span> <br /> Consultant</h2>
-                        <p className="text-xl text-gray-400 max-w-md font-medium mb-8">Our team of experts is here to help! Fill out the form, and let's start the journey towards achieving your digital goals.</p>
-                        <ul className="space-y-3 text-gray-600 font-medium">
-                            <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#f9b91b]" /> Customized tracking blueprint in 3-5 business days</li>
-                            <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#f9b91b]" /> Dedicated analytics specialist for onboarding</li>
-                            <li className="flex items-center gap-3"><CheckCircle2 size={18} className="text-[#f9b91b]" /> Post-launch QA and optimization support</li>
-                        </ul>
                     </div>
 
+                    {/* RIGHT */}
                     <div className="relative">
-                        {/* Brand Witty Hand-drawn Arrow */}
-                        <div className="absolute -top-16 left-10 hidden lg:block">
-                            <p className="font-serif italic text-sm mb-2 opacity-50">Fill the <br /> form</p>
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="black" strokeWidth="1.5">
-                                <path d="M10 10 Q30 10 40 50 M40 50 L30 40 M40 50 L50 40" strokeLinecap="round" strokeLinejoin="round" />
+                        <div className="absolute -top-16 -left-16 hidden xl:block pointer-events-none">
+                            <p className="font-serif italic text-gray-400 text-sm mb-1 -rotate-12">Fill the form</p>
+                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="2" className="opacity-40">
+                                <path d="M10,10 Q50,10 50,60 T90,90" strokeLinecap="round" />
+                                <path d="M85,90 L95,95 L95,85" strokeLinecap="round" />
                             </svg>
                         </div>
-
-                        <div className="bg-white p-14 rounded-[5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] border border-gray-50">
+                        <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-gray-100">
                             <form className="space-y-6">
-                                <input type="text" placeholder="Your name" className="w-full bg-[#f8f8f8] p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold" />
-                                <input type="email" placeholder="Your email" className="w-full bg-[#f8f8f8] p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold" />
-                                <input type="text" placeholder="Your phone" className="w-full bg-[#f8f8f8] p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold" />
-                                <textarea placeholder="Tell us about your project" rows="4" className="w-full bg-[#f8f8f8] p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#f9b91b] font-bold resize-none"></textarea>
-                                <button className="w-full bg-black text-white py-6 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-[#f9b91b] transition-all shadow-xl">
+                                <input type="text" placeholder="Your name"
+                                    className="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
+                                <input type="email" placeholder="Your email"
+                                    className="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
+                                <input type="tel" placeholder="Your phone"
+                                    className="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
+                                <textarea placeholder="Message..." rows="5"
+                                    className="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none" />
+                                <button className="w-full sm:w-auto border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-black transition-all duration-300">
                                     Send Message
                                 </button>
                             </form>
+                            <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
+                                Let's Build Your <span className="text-[#1a162d] font-black">Data Foundation!</span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-        </div>
+        </main>
     );
 };
 
-export default GoogleTagManager;
+export default GTMIntegration;
