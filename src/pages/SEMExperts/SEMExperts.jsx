@@ -14,10 +14,10 @@ const SEMExperts = () => {
    const [openFaq, setOpenFaq] = useState(0);
 
    const faqs = [
-      { title: "Select the keywords", content: "Reach your goals with personalized insights, custom budgets, spend tracking, and subscription monitoring" },
-      { title: "Bid for a fair price", content: "Reach your goals with personalized insights, custom budgets, spend tracking, and subscription monitoring" },
-      { title: "Create ad copies", content: "Reach your goals with personalized insights, custom budgets, spend tracking, and subscription monitoring" },
-      { title: "Design a catchy landing page", content: "Reach your goals with personalized insights, custom budgets, spend tracking, and subscription monitoring" }
+      { title: "Search Intent Analysis", content: "Identify high-converting keywords." },
+      { title: "Campaign Structuring", content: "Build scalable, high-performance campaigns" },
+      { title: "Ad Copy Optimization", content: "Craft compelling, conversion-driven messaging" },
+      { title: "Bid Strategy & Budget Allocation", content: "Maximize ROI using AI-based bidding" }
    ];
 
    const brandLogos = [
@@ -47,14 +47,14 @@ const SEMExperts = () => {
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
                <div className="lg:w-1/2">
                   <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                     We drive <span className="relative inline-block z-10">
-                        high-quality
+                     Capture High-Intent <span className="relative inline-block z-10">
+                        Customers Exactly
                         <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
-                     </span> traffic to your site at the lowest possible cost, which converts.
+                     </span> When They’re Searching.
                   </motion.h1>
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                     Paid Search Marketing is a fast and simple way to expand the reach of your website. It can offer instant results and huge rewards. It’s also highly measurable which means you can make regular adjustments to your strategy in order to improve your results.
+                     Our AI-powered SEM strategies place your brand at the top of search results — converting demand into revenue with precision targeting and performance-driven execution.
                   </motion.p>
 
                   <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
@@ -66,8 +66,7 @@ const SEMExperts = () => {
                      </button>
                   </motion.div>
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
-                     We can help you get started today and have your adverts showing in no time at all.
-                  </motion.p>
+                     Rs. X Cr+ Search Revenue Generated | 4-10X ROAS Delivered | High-Intent Leads at Scale                  </motion.p>
                </div>
 
                <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
@@ -101,11 +100,11 @@ const SEMExperts = () => {
                </motion.div>
 
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Maximize your visibility with search, mobile, display, YouTube, and remarketing.</h2>
-                  <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Getting your site to the top of Google for the right search terms is an excellent way to increase your site’s traffic. Achieving this organically requires time, dedication, and patience. But what if you need to be seen today?</p>
-                  <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">Paid search advertising provides instant top-page visibility. Once you’ve decided on a budget, keywords to advertise on, and landing pages to use, you can go live immediately.</p>
+                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Intent-Based Marketing That Drives Immediate Revenue</h2>
+                  <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Unlike social media, search marketing captures users who are already looking for your product or service.</p>
+                  <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">We ensure you show up at the right time — with the right message.</p>
                   <ul className="space-y-4 mb-10">
-                     {["Certified SEM Experts", "Assured Confidentiality", "Transparent Reporting"].map((item, i) => (
+                     {["Target high-converting keywords", "Maximize ROI with smart bidding", "Eliminate wasted spend"].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                         </li>
@@ -120,10 +119,14 @@ const SEMExperts = () => {
          <section className="py-24 px-6 bg-white">
             <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn information into actionable insights</h2>
-                  <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Search engine marketing agency in Mumbai</b>, we deliver instant, highly targeted traffic. Your site appears only when people search for your selected keywords. You control your ads, placement, timing, and budget. With 10+ years of PPC search management expertise, our agency ensures a positive ROI for your business through PPC advertising. Start today and see your ads go live quickly.</p>
+                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Beyond Keywords. We Engineer Conversions.</h2>
+                  <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">Most agencies focus on clicks.
+                     We focus on revenue from search.
+                  </p>
+
+                  <p className="text-gray-600 text-[17px] mb-8 leading-relaxed"><b>Our SEM Advantage:</b></p>
                   <ul className="space-y-4 mb-10">
-                     {["Get Immediate Visibility", "Highly Targeted Traffic", "Budget Control", "Measurable Results", "Highly Flexible and Customisable"].map((item, i) => (
+                     {["AI-powered keyword intelligence", "Intent-based audience segmentation", "Conversion-focused ad copy", "Landing page optimization", "Smart bidding strategies"].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                         </li>
@@ -149,8 +152,8 @@ const SEMExperts = () => {
                </motion.div>
 
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Search Engine Marketing Company in Mumbai</h2>
-                  <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Supercharge your brand with our expert PPC services! Increase exposure, attract floods of visitors to your site, and leave your competitors in awe. Let’s make PPC magic happen – contact us now!</p>
+                  <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Our SEM Execution Framework</h2>
+                  <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Boost your brand’s growth with our expert PPC strategies. Drive high-quality traffic, maximize visibility, and stay ahead of the competition. Ready to see real results? Let’s get started today!</p>
 
                   <div className="space-y-4">
                      {faqs.map((faq, index) => (
@@ -211,7 +214,7 @@ const SEMExperts = () => {
                {/* Centered Header for a more balanced look */}
                <div className="mb-16 text-center max-w-3xl mx-auto">
                   <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                     What people <span className="italic text-[#FDB813]">say</span>
+                     Testimonials That Make Us <span className="italic text-[#FDB813]">Blush</span>
                   </h2>
                   <p className="text-gray-500 text-lg leading-relaxed">
                      Hear from clients who turned challenges into triumphs through our client-centric approach.
@@ -324,10 +327,12 @@ const SEMExperts = () => {
                   </p>
 
                   <div className="pt-4">
-                     <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                     {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                      <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                         <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                        +91 9892 854 892
+                        <a href="tel:+919892854892" className="hover:underline">
+                           +91 9892 854 892
+                        </a>
                      </p>
                   </div>
                </div>

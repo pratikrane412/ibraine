@@ -46,15 +46,14 @@ const WebDevelopment = () => {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
           <div className="lg:w-1/2">
             <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-              We build <span className="relative inline-block z-10">
-                stunning websites
+              We design<span className="relative inline-block z-10">
+                high-impact websites
                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
-              </span> that convert visitors into loyal customers.
+              </span> that turn visitors into loyal, long-term customers.
             </motion.h1>
 
             <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-              A powerful website is the foundation of your digital presence. We craft fast, responsive, and visually compelling websites tailored to your brand — designed to engage your audience and drive real business growth from day one.
-            </motion.p>
+A powerful website is the backbone of your digital presence. We build fast, responsive, and visually engaging websites tailored to your brand—designed to capture attention, enhance user experience, and drive real business growth from day one.            </motion.p>
 
             <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
               <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
@@ -65,7 +64,7 @@ const WebDevelopment = () => {
               </button>
             </motion.div>
             <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
-              We can have your new website live and driving results faster than you think.
+              We’ll get your new website live quickly—ready to perform and start delivering real results.
             </motion.p>
           </div>
 
@@ -81,8 +80,8 @@ const WebDevelopment = () => {
       {/* ════ 2. BRANDS SLIDER ════ */}
       <section className="py-20 px-6 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands Whose Digital Presence We've Transformed</h2>
-          <p className="text-gray-500 mb-12 text-lg">Diverse industries. Custom-built websites. Measurable growth. Your vision, our code. Let's build together.</p>
+          <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We’ve Helped Transform Through Powerful Digital Experiences</h2>
+          <p className="text-gray-500 mb-12 text-lg">Across industries, we craft custom-built websites that drive measurable growth. Your vision, our code—let’s build something impactful together.</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
             {brandLogos.map((logo, index) => (
               <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -100,9 +99,9 @@ const WebDevelopment = () => {
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Stunning design meets flawless functionality — websites built to impress and perform.</h2>
-            <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Your website is often the first impression a customer has of your brand. A slow, outdated, or confusing site can cost you business every single day. We create modern, high-performance websites that make your brand stand out and keep visitors engaged.</p>
-            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">From landing pages to complex web applications, we combine beautiful design with clean, scalable code — so your website grows with your business and delivers results from launch day.</p>
+            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Where stunning design meets seamless functionality.</h2>
+            <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Your website is often the first impression of your brand—and a slow, outdated, or confusing experience can cost you valuable customers. We build modern, high-performance websites that capture attention, enhance usability, and keep visitors engaged.</p>
+            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">From conversion-focused landing pages to complex web applications, we blend elegant design with clean, scalable code—ensuring your website evolves with your business and delivers results from day one.</p>
             <ul className="space-y-4 mb-10">
               {["Certified Web Development Experts", "Assured Code Quality & Security", "Transparent Milestone Reporting"].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
@@ -119,10 +118,10 @@ const WebDevelopment = () => {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn your ideas into powerful digital experiences</h2>
-            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Website Development Agency in Mumbai</b>, we build custom websites that are fast, mobile-friendly, and optimised for search engines. Whether you need a brand-new website or a complete redesign, our team of 10+ years of web development expertise delivers solutions that drive real business growth and a measurable return on your investment.</p>
+            <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We transform your ideas into impactful digital experiences.</h2>
+            <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a trusted website development agency in Mumbai, we design and develop high-performance websites that are fast, mobile-optimized, and built to rank. Whether you're starting from scratch or upgrading your current platform, our 10+ years of experience ensures scalable solutions that drive real business growth and strong ROI</p>
             <ul className="space-y-4 mb-10">
-              {["Pixel-Perfect Responsive Design", "Lightning-Fast Page Speeds", "SEO-Ready Architecture", "Scalable & Secure Codebase", "Fully Custom & Brand-Aligned"].map((item, i) => (
+              {["Precision-crafted, fully responsive design", "High-speed performance for seamless user experience", "Built-in SEO foundations for better visibility", "Secure, scalable, and future-ready development", "Tailor-made solutions aligned with your brands"].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                   <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                 </li>
@@ -149,7 +148,7 @@ const WebDevelopment = () => {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
             <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Website Development Company in Mumbai</h2>
-            <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Supercharge your brand with a world-class website! Increase credibility, attract floods of visitors, and leave your competitors behind. Let's build something extraordinary — contact us now!</p>
+            <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Elevate your brand with a high-performance, professionally crafted website. Build trust, attract quality traffic, and stand out in a competitive market. Let’s create something exceptional—get in touch today!</p>
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (
@@ -317,10 +316,12 @@ const WebDevelopment = () => {
             </p>
 
             <div className="pt-4">
-              <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+              {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
               <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                +91 9892 854 892
+                <a href="tel:+919892854892" className="hover:underline">
+                  +91 9892 854 892
+                </a>
               </p>
             </div>
           </div>

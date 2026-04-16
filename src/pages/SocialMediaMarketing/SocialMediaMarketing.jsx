@@ -82,7 +82,7 @@ const SocialMediaMarketing = () => {
                             transition={{ delay: 0.2 }}
                             className="text-gray-600 text-[18px] mb-8 leading-relaxed"
                         >
-                           From intelligent content creation to data-driven conversions, we leverage advanced AI and strategic social media marketing to scale your brand across all major platforms. Our approach blends high-impact organic storytelling with precision-targeted paid campaigns designed to maximize engagement, visibility, and ROI.
+                            From intelligent content creation to data-driven conversions, we leverage advanced AI and strategic social media marketing to scale your brand across all major platforms. Our approach blends high-impact organic storytelling with precision-targeted paid campaigns designed to maximize engagement, visibility, and ROI.
                         </motion.p>
 
                         <motion.div
@@ -197,7 +197,7 @@ const SocialMediaMarketing = () => {
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
                             Organic reach is declining. Competition is rising.
-If your brand isn’t showing up strategically, you’re invisible.
+                            If your brand isn’t showing up strategically, you’re invisible.
 
                         </p>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
@@ -227,19 +227,19 @@ If your brand isn’t showing up strategically, you’re invisible.
                         className="lg:w-1/2"
                     >
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                           What We Deliver as Your Social Media Growth Partner
+                            What We Deliver as Your Social Media Growth Partner
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-We create social media campaigns that people don’t scroll past; they engage with.</p>
+                            We create social media campaigns that people don’t scroll past; they engage with.</p>
 
-<p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-By combining creative storytelling, AI-driven insights, and strategic distribution, we help brands achieve higher reach, stronger engagement, and consistent growth.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+                            By combining creative storytelling, AI-driven insights, and strategic distribution, we help brands achieve higher reach, stronger engagement, and consistent growth.</p>
 
-<p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-From content and influencers to trends and reputation management, we handle it all so your brand doesn’t just exist online, it leads.
- </p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+                            From content and influencers to trends and reputation management, we handle it all so your brand doesn’t just exist online, it leads.
+                        </p>
 
-                       
+
                         <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
                             Talk to our SMM Expert Now
                         </button>
@@ -325,7 +325,7 @@ From content and influencers to trends and reputation management, we handle it a
                         className="lg:w-1/2"
                     >
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
-                            Our Social Media Marketing Process: From Strategy to Growth 
+                            Our Social Media Marketing Process: From Strategy to Growth
                         </h2>
                         <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
                             We follow a data-driven, result-oriented social media marketing process designed to help your brand grow, engage, and convert consistently. From understanding your business goals to executing high-performing campaigns, we work with you at every step.
@@ -481,7 +481,7 @@ From content and influencers to trends and reputation management, we handle it a
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                       A Global Independent Digital Marketing Network | Start A Project
+                        A Global Independent Digital Marketing Network | Start A Project
                     </h2>
                     <p className="text-gray-600 text-lg mb-10">
                         Partner with Ibraine, the social media experts, to build a brand people follow, trust, and buy from. Our tailored social media strategies will grow your audience, deepen engagement, and consistently drive real business results.
@@ -527,10 +527,12 @@ From content and influencers to trends and reputation management, we handle it a
                             Ready to grow your brand on social media? Our team of experts is here to help. Fill out the form and let's start building a social media strategy that delivers real, measurable results.
                         </p>
                         <div className="pt-4">
-                            <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>
