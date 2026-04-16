@@ -13,20 +13,20 @@ const PerformanceMarketing = () => {
 
    const faqs = [
       {
-         title: "Define campaign goals & KPIs",
-         content: "We begin by deeply understanding your business objectives — whether it's acquiring leads, driving purchases, boosting app installs, or scaling revenue. Every campaign is built around clear, measurable KPIs so you always know exactly what you're paying for."
+         title: "Deep Brand & Market Intelligence",
+         content: "We begin by decoding your brand, audience psychology, and market positioning. Using AI-driven insights + human strategy, we identify what truly drives your customer to convert."
       },
       {
-         title: "Audience research & precision targeting",
-         content: "Using first-party data, behavioral signals, and lookalike modeling, we identify and segment the audiences most likely to convert — across Meta, Google, YouTube, and programmatic channels. No guesswork, only precision."
+         title: "Data-Led Audience Targeting",
+         content: "We don’t guess — we engineer audiences. Advanced segmentation, behavioral data, and predictive AI models help us reach high-intent users at scale."
       },
       {
-         title: "Creative production & A/B testing",
-         content: "Our in-house team designs conversion-focused ad creatives — static, video, carousel, and UGC-style — that are continuously A/B tested. We scale what works and cut what doesn't, fast."
+         title: "High-Performance Copy & Creative Strategy",
+         content: "We craft scroll-stopping copy & creatives backed by performance data. Every ad is designed to capture attention, trigger emotion, and drive action."
       },
       {
-         title: "Optimize, scale & report results",
-         content: "Every rupee is tracked in real time. We monitor CPA, ROAS, CTR, and LTV daily — making data-backed optimizations to scale profitable campaigns and deliver transparent weekly performance reports to your team."
+         title: "Transparent Reporting & Growth Insights",
+         content: "Clear dashboards. Actionable insights. Real results. You don’t just see numbers — you understand what’s driving growth and how to scale it further."
       }
    ];
 
@@ -57,17 +57,17 @@ const PerformanceMarketing = () => {
                <div className="lg:w-1/2">
                   <motion.h1 initial="hidden" animate="visible" variants={fadeUp}
                      className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                     We turn your ad spend into{" "}
+                     We Don’t Run Ads. {" "}
                      <span className="relative inline-block z-10">
-                        predictable revenue
+                        We Engineer
                         <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
                      </span>{" "}
-                     that scales with your business.
+                     Predictable Revenue.
                   </motion.h1>
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
                      className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                     Performance Marketing is the most accountable form of digital advertising — you only pay for real, measurable outcomes. From Meta Ads and Google Ads to YouTube, programmatic, and affiliate campaigns, we engineer every rupee to drive leads, purchases, and scalable growth for your brand.
+                     Scale your business with data-backed campaigns, intelligent automation, and conversion-focused execution. Every penny is optimized. Every click is accountable.
                   </motion.p>
 
                   <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
@@ -82,7 +82,7 @@ const PerformanceMarketing = () => {
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }}
                      className="text-gray-500 text-[15px]">
-                     We can launch your first performance campaign within 48 hours — fast, focused, and fully ROI-driven.
+                     Rs. X Cr+ Revenue Generated | 5-12X ROAS Delivered | 20K+ Conversions Driven.
                   </motion.p>
                </div>
 
@@ -122,7 +122,7 @@ const PerformanceMarketing = () => {
          {/* ════ 2. BRANDS SLIDER ════ */}
          <section className="py-20 px-6 border-b border-gray-100 bg-white">
             <div className="max-w-7xl mx-auto text-center">
-               <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Scaled Through Performance Marketing</h2>
+               <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands That Trust Our Performance Engine</h2>
                <p className="text-gray-500 mb-12 text-lg">From D2C startups to enterprise brands — we've driven measurable, profitable growth across every industry. Your success story is next.</p>
                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                   {brandLogos.map((logo, index) => (
@@ -153,16 +153,18 @@ const PerformanceMarketing = () => {
 
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                   <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                     Full-funnel campaigns across Meta, Google, YouTube, Programmatic & Affiliates.
+                     Built on AI. Driven by Performance.
+
                   </h2>
                   <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
-                     Getting conversions at scale requires more than just running ads. It requires owning the entire customer journey — from the very first impression to the final purchase. We architect full-funnel performance systems that capture, nurture, and convert your ideal customers at every stage.
+                     Most agencies optimize campaigns.
+                     We optimize outcomes using AI.
                   </p>
                   <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                     Whether you need immediate leads today or a long-term customer acquisition engine, our performance campaigns are built to deliver — with precise audience targeting, compelling creatives, and conversion-optimised landing pages all working together.
+                     Our proprietary approach includes
                   </p>
                   <ul className="space-y-4 mb-10">
-                     {["Certified Meta & Google Ads Specialists", "Conversion Rate Optimisation (CRO)", "Transparent Real-Time Reporting"].map((item, i) => (
+                     {["Predictive Audience Targeting", "Smart Media Buying", "Conversion-Focused Funnels", "Creative Intelligence", "Full-Funnel Tracking & Attribution"].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                         </li>
@@ -185,11 +187,11 @@ const PerformanceMarketing = () => {
                   </p>
                   <ul className="space-y-4 mb-10">
                      {[
-                        "Lower Your Cost Per Acquisition (CPA)",
-                        "Laser-Targeted Audience Segmentation",
-                        "Real-Time Budget Reallocation",
-                        "Multi-Channel Attribution Modelling",
-                        "Creative Testing at Scale"
+                        "ROI-first approach (not impressions & clicks)",
+                        "Dedicated performance strategist",
+                        "Transparent reporting dashboards",
+                        "Fast execution & testing cycles",
+                        "AI + human expertise combined"
                      ].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
@@ -335,7 +337,7 @@ const PerformanceMarketing = () => {
             <div className="max-w-7xl mx-auto">
                <div className="mb-16 text-center max-w-3xl mx-auto">
                   <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                     What clients <span className="italic text-[#FDB813]">say</span>
+                     Testimonials That Make Us  <span className="italic text-[#FDB813]">Blush</span>
                   </h2>
                   <p className="text-gray-500 text-lg leading-relaxed">
                      Hear from brands who stopped burning budgets and started breaking records — all through performance-first marketing.
@@ -392,13 +394,13 @@ const PerformanceMarketing = () => {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                className="max-w-4xl mx-auto">
                <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                  Unlock the full growth potential of your brand with Ibraine
+                  A Global Independent Digital Marketing Network | Start A Project
                </h2>
                <p className="text-gray-600 text-lg mb-10">
                   Partner with Ibraine, the performance marketing specialists, to transform your ad spend into measurable, scalable revenue. Our outcome-first campaigns are engineered for one thing — your profitable growth.
                </p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+                  {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button> */}
                   <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                </div>
             </motion.div>
@@ -438,10 +440,12 @@ const PerformanceMarketing = () => {
                   </p>
 
                   <div className="pt-4">
-                     <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                     {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                      <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                         <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                        +91 9892 854 892
+                        <a href="tel:+919892854892" className="hover:underline">
+                           +91 9892 854 892
+                        </a>
                      </p>
                   </div>
                </div>

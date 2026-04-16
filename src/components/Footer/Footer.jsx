@@ -73,14 +73,16 @@ const Footer = () => {
               Inquiries
             </h4>
             <div className="space-y-5 text-[15px] text-white/60 font-sans">
-              <a href="mailto:hello@ibraine.com" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors">
-                <Mail size={16} /> hello@ibraine.com
+              <a href="mailto:info@ibraine.com" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors">
+                <Mail size={16} /> info@ibraine.com
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors">
-                <Phone size={16} /> +91 98765 43210
+              <a href="tel:+91 98928 54892" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors">
+                <Phone size={16} /> +91 98928 54892
               </a>
               <div className="flex items-center gap-3">
-                <Globe size={16} /> Mumbai, India
+                <Globe size={16} /> Office No. 2, Chandra Niwas CHS, Off Old Police Lane
+Andheri East, Mumbai – 400069
+2 mins walk from Andheri Station and Metro Station
               </div>
             </div>
           </div>

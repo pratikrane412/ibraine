@@ -13,20 +13,20 @@ const SEOExperts = () => {
 
    const faqs = [
       {
-         title: "In-depth keyword research & strategy",
-         content: "We identify high-intent, low-competition keywords that drive qualified organic traffic to your website. Our data-driven approach ensures you rank for the terms your customers are actively searching for — not just high-volume vanity keywords."
+         title: "Intent-driven keyword strategy",
+         content: "We identify opportunities based on real search behavior — not just volume — ensuring you target what actually converts."
       },
       {
-         title: "On-page SEO optimization",
-         content: "From meta tags, headings, and schema markup to content structure and internal linking — we optimize every on-page element so search engines fully understand and rank your pages for the right queries."
+         title: "On-page optimisation",
+         content: "We refine structure, content, and on-page signals so your website communicates clearly with both users and search engines."
       },
       {
-         title: "Technical SEO & site audits",
-         content: "We fix crawl errors, improve page speed, optimize Core Web Vitals, and ensure your website architecture is technically flawless — so search engines can index and rank your pages without any friction."
+         title: "Technical SEO foundation",
+         content: "From site speed to crawlability, we build a technically strong platform that supports consistent ranking performance."
       },
       {
-         title: "Authority link building",
-         content: "We earn high-quality backlinks from authoritative, relevant websites through ethical white-hat outreach strategies that boost your domain authority and accelerate your climb up the search rankings."
+         title: "Authority building",
+         content: "We strengthen your domain with high-quality, relevant signals that improve trust and search visibility over time."
       }
    ];
 
@@ -58,18 +58,20 @@ const SEOExperts = () => {
                <div className="lg:w-1/2">
                   <motion.h1 initial="hidden" animate="visible" variants={fadeUp}
                      className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                     We get your website to{" "}
+                     Where Search Intent{" "}
                      <span className="relative inline-block z-10">
-                        page one
+                        Meets AI-Driven
                         <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
                      </span>{" "}
-                     of Google and keep it there — organically.
+                     Precision.
                   </motion.h1>
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
                      className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                     Search Engine Optimisation is the most powerful long-term digital strategy available. Unlike paid ads that stop the moment your budget runs out, SEO builds compounding organic traffic — delivering a steady stream of high-intent visitors month after month.
-                  </motion.p>
+                     We design intelligent SEO systems that place your brand at the exact moment decisions are made.                  </motion.p>
+                  <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
+                     className="text-gray-600 text-[18px] mb-8 leading-relaxed">
+                     By combining search intent, technical precision, and AI-led insights, we move beyond rankings—toward sustained, revenue-driving visibility.</motion.p>
 
                   <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                      className="flex flex-col sm:flex-row items-center gap-5 mb-6">
@@ -83,7 +85,7 @@ const SEOExperts = () => {
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }}
                      className="text-gray-500 text-[15px]">
-                     We can audit your site today and build a custom SEO roadmap to start ranking fast.
+                     Get your website audited today and receive a tailored SEO roadmap designed to boost your rankings quickly.
                   </motion.p>
                </div>
 
@@ -122,8 +124,8 @@ const SEOExperts = () => {
          {/* ════ 2. BRANDS SLIDER ════ */}
          <section className="py-20 px-6 border-b border-gray-100 bg-white">
             <div className="max-w-7xl mx-auto text-center">
-               <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Ranked on Google's First Page</h2>
-               <p className="text-gray-500 mb-12 text-lg">Diverse industries. Proven SEO strategies. Sustainable organic growth. Your rankings, our mission. Join us now.</p>
+               <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands That Don’t Just Rank—They Lead Search</h2>
+               <p className="text-gray-500 mb-12 text-lg">Across industries, our clients achieve one thing consistently— <b>they don’t chase rankings, they build search dominance.</b></p>
                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                   {brandLogos.map((logo, index) => (
                      <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -154,16 +156,14 @@ const SEOExperts = () => {
                {/* Right: Text */}
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                   <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                     Dominate search results with on-page, off-page, technical, and local SEO.
+                     Dominate search with intelligence, not just effort.
                   </h2>
                   <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
-                     Getting your website to position one on Google for the right keywords is one of the most powerful growth levers available. It generates consistent, high-intent organic traffic without paying for every single click.
-                  </p>
+                     Search isn’t getting easier—it’s getting more complex. Algorithms evolve. User behavior shifts. Most brands are reacting—few are adapting intelligently. If your brand isn’t guided by insight, you’re not just missing traffic—you’re missing intent.                   </p>
                   <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                     Our holistic SEO approach covers everything — from deep keyword research and content strategy to technical audits and authoritative link building — ensuring you don't just rank, you stay ranked.
-                  </p>
+                     Our approach goes beyond traditional SEO — combining AI-led insights, technical excellence, and strategic content systems to ensure you don’t just rank, you lead.                  </p>
                   <ul className="space-y-4 mb-10">
-                     {["Certified SEO Specialists", "100% White-Hat Techniques", "Transparent Monthly Reporting"].map((item, i) => (
+                     {["AI-Driven SEO Systems", "Data-Led Strategy & Execution", "Transparent Performance Tracking"].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                         </li>
@@ -183,18 +183,19 @@ const SEOExperts = () => {
                {/* Left: Text */}
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                   <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                     We turn search data into a compounding organic growth engine
+                     Turning Search Signals into Scalable Growth
                   </h2>
                   <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                     As a leading <b>Search Engine Optimisation agency in Mumbai</b>, we deliver sustainable, compounding organic traffic. Your website appears when people search for what you offer — no ad spend required. With 10+ years of SEO expertise, our agency ensures measurable, long-term ROI through proven white-hat strategies. Start today and begin climbing the rankings.
+                     We don’t just improve rankings — we engineer systems that grow over time.
+                     By aligning search intent, content, and technical performance, your brand appears when it matters most — without relying on continuous ad spend.
                   </p>
                   <ul className="space-y-4 mb-10">
                      {[
-                        "Long-Term Organic Visibility",
-                        "High-Intent Targeted Traffic",
-                        "Zero Per-Click Ad Cost",
-                        "Fully Measurable Results",
-                        "Custom SEO Roadmap for Your Business"
+                        "Sustained Organic Visibility",
+                        "High-Quality, Intent-Driven Traffic",
+                        "Lower Dependency on Paid Channels",
+                        "Clear, Measurable ROI",
+                        "Custom-Built SEO Systems"
                      ].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                            <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
@@ -250,10 +251,11 @@ const SEOExperts = () => {
                {/* Right: Accordion */}
                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                   <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
-                     Search Engine Optimisation Company in Mumbai
+                     Built for Brands That Want to Own Search
                   </h2>
                   <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
-                     Supercharge your brand with expert SEO services! Climb Google's rankings, attract floods of organic visitors, and outrank your competitors for good. Let's make SEO magic happen — contact us now!
+                     Our SEO approach is designed for businesses that want more than temporary wins.
+                     We create long-term visibility strategies that strengthen your position in search and keep you ahead of competitors.
                   </p>
 
                   <div className="space-y-4">
@@ -327,11 +329,10 @@ const SEOExperts = () => {
             <div className="max-w-7xl mx-auto">
                <div className="mb-16 text-center max-w-3xl mx-auto">
                   <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                     What people <span className="italic text-[#FDB813]">say</span>
+                     Testimonials That Make Us <span className="italic text-[#FDB813]">Blush</span>
                   </h2>
                   <p className="text-gray-500 text-lg leading-relaxed">
-                     Hear from clients who transformed their organic search presence and built lasting digital authority with our SEO strategies.
-                  </p>
+                     See how brands have transformed their visibility and built lasting search presence through our SEO systems.                  </p>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -389,10 +390,10 @@ const SEOExperts = () => {
                   Unlock the full organic potential of your business with Ibraine
                </h2>
                <p className="text-gray-600 text-lg mb-10">
-                  Partner with Ibraine, the SEO experts, to dominate search engines and grow organically. Our proven strategies will elevate your website's authority, attract your ideal audience, and deliver compounding long-term results.
-               </p>
+                  If search is where decisions are made—make sure your brand leads them.
+                  Let’s build an AI-driven SEO system designed for long-term growth.               </p>
                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+                  {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button> */}
                   <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                </div>
             </motion.div>
@@ -433,10 +434,12 @@ const SEOExperts = () => {
                   </p>
 
                   <div className="pt-4">
-                     <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                     {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                      <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                         <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                        +91 9892 854 892
+                        <a href="tel:+919892854892" className="hover:underline">
+                           +91 9892 854 892
+                        </a>
                      </p>
                   </div>
                </div>
