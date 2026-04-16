@@ -48,7 +48,7 @@ const Navbar = () => {
             >
               <button className={`flex items-center gap-1 text-[15px] font-bold ${activeMenu === 'services' ? 'text-[#ffb400]' : 'text-slate-800'}`}>
                 Services
-                <span className="bg-[#fff4d6] text-[#ffb400] text-[9px] font-black px-1.5 py-0.5 rounded-sm ml-1 tracking-tighter">HOT</span>
+                <span className="bg-[#fff4d6] text-[#ffb400] text-[9px] font-black px-1.5 py-0.5 rounded-sm ml-1 tracking-tighter"></span>
                 <ChevronDown size={14} className={`ml-0.5 transition-transform ${activeMenu === 'services' ? 'rotate-180' : ''}`} />
               </button>
 
@@ -96,7 +96,7 @@ const Navbar = () => {
 
               <div>
                 <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className="flex items-center justify-between w-full text-3xl font-bold">
-                  <span>Services <span className="bg-[#fff4d6] text-[#ffb400] text-[10px] px-2 py-0.5 rounded-sm">HOT</span></span>
+                  <span>Services <span className="bg-[#fff4d6] text-[#ffb400] text-[10px] px-2 py-0.5 rounded-sm"></span></span>
                   <ChevronDown size={28} className={mobileServicesOpen ? 'rotate-180' : ''} />
                 </button>
                 {/* ... mobile services items logic ... */}

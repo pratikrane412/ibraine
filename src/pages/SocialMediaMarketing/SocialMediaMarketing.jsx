@@ -12,20 +12,20 @@ const SocialMediaMarketing = () => {
 
     const faqs = [
         {
-            title: "Build a Winning Content Strategy",
-            content: "We research your audience, study your competitors, and craft a platform-specific content strategy — covering what to post, when to post, and how to make every piece of content work harder for your brand across Instagram, Facebook, LinkedIn, and more."
+            title: "Understanding Your Brand & Goals",
+            content: "We begin with an in-depth exploration of your brand vision, values, and objectives, leveraging AI-assisted insights to establish a strong, strategic foundation."
         },
         {
-            title: "Create Scroll-Stopping Content",
-            content: "Our in-house creative team designs eye-catching graphics, short-form videos, reels, carousels, and stories that stop the scroll and spark genuine engagement. Every asset is crafted to match your brand identity and platform best practices."
+            title: "Audience Analysis",
+            content: "Through a blend of human expertise and AI-driven intelligence, we identify and decode your ideal audience to ensure meaningful, high-value engagement."
         },
         {
-            title: "Run High-ROI Social Media Ads",
-            content: "From Facebook and Instagram ads to LinkedIn and YouTube campaigns — we set up, manage, and optimise paid social campaigns that bring in qualified leads and sales at the lowest possible cost per result."
+            title: "Crafting the Optimal SMM Strategy",
+            content: "We curate a bespoke social media marketing strategy, enhanced by predictive analytics, designed to position your brand for sustained growth and visibility."
         },
         {
-            title: "Grow & Manage Your Community",
-            content: "We actively monitor your pages, respond to comments and DMs, engage with your audience, and build a loyal brand community — turning casual followers into lifelong customers who advocate for your brand."
+            title: "Competitor Research",
+            content: "Our advanced competitor analysis combines strategic thinking with AI insights to position your brand distinctively within a competitive digital landscape."
         }
     ];
 
@@ -65,12 +65,12 @@ const SocialMediaMarketing = () => {
                             initial="hidden" animate="visible" variants={fadeUp}
                             className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black"
                         >
-                            We grow your brand on{' '}
+                            We turn scrolls into sales with{' '}
                             <span className="relative inline-block z-10">
-                                social media
+                                high-converting
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
                             </span>{' '}
-                            with content that connects, engages, and converts.
+                            social media marketing.
                         </motion.h1>
 
                         <motion.p
@@ -78,7 +78,7 @@ const SocialMediaMarketing = () => {
                             transition={{ delay: 0.2 }}
                             className="text-gray-600 text-[18px] mb-8 leading-relaxed"
                         >
-                            Social Media Marketing is the most powerful way to build your brand, earn trust, and stay top-of-mind with your audience. From viral reels to targeted paid campaigns, we manage every aspect of your social presence so you get consistent growth and real business results.
+                           From intelligent content creation to data-driven conversions, we leverage advanced AI and strategic social media marketing to scale your brand across all major platforms. Our approach blends high-impact organic storytelling with precision-targeted paid campaigns designed to maximize engagement, visibility, and ROI.
                         </motion.p>
 
                         <motion.div
@@ -149,8 +149,8 @@ const SocialMediaMarketing = () => {
             {/* ════ 2. BRANDS SLIDER ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Grown on Social Media Over the Years</h2>
-                    <p className="text-gray-500 mb-12 text-lg">From D2C startups to enterprise names — we've built powerful social communities for diverse brands across India.</p>
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We’ve Scaled on Social Media</h2>
+                    <p className="text-gray-500 mb-12 text-lg">From startups to established brands. We’ve delivered measurable growth through content, ads, and strategy. </p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -189,16 +189,19 @@ const SocialMediaMarketing = () => {
                         className="lg:w-1/2"
                     >
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            Dominate Instagram, Facebook, LinkedIn, YouTube & Twitter with a single expert team.
+                            Dominate Instagram, Meta, LinkedIn, YouTube & More.
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
-                            Every social media platform has its own algorithm, audience behaviour, and content format. Trying to manage all of them in-house while running a business is nearly impossible. That's where we come in.
+                            Organic reach is declining. Competition is rising.
+If your brand isn’t showing up strategically, you’re invisible.
+
                         </p>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            Our platform specialists create channel-specific content that feels native — not repurposed — so your brand always shows up at its best, on every feed, every day.
+                            We combine organic + paid social media to:
+
                         </p>
                         <ul className="space-y-4 mb-10">
-                            {["Certified Social Media Experts", "Platform-Specific Content Strategy", "Consistent Brand Voice Across Channels"].map((item, i) => (
+                            {["Platform-specific strategies", "Performance-driven creatives", "Consistent brand positioning", "Data-backend optimization"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                                 </li>
@@ -220,24 +223,19 @@ const SocialMediaMarketing = () => {
                         className="lg:w-1/2"
                     >
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            We turn your followers into loyal customers with content that converts
+                           What We Deliver as Your Social Media Growth Partner
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            As a leading <b>Social Media Marketing agency in Mumbai</b>, we go beyond vanity metrics. Every reel, story, carousel, and caption is crafted with one goal in mind — driving real business outcomes. With 10+ years of social media expertise, our team blends creative storytelling with data-driven strategy to consistently grow your reach, engagement, and revenue. Get started today and watch your brand come alive on social.
-                        </p>
-                        <ul className="space-y-4 mb-10">
-                            {[
-                                "Reels & Short-Form Video Production",
-                                "Instagram & Facebook Ad Campaigns",
-                                "Influencer Marketing & Collaborations",
-                                "Monthly Content Calendars",
-                                "Community Building & DM Automation"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
-                                    <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
-                                </li>
-                            ))}
-                        </ul>
+We create social media campaigns that people don’t scroll past; they engage with.</p>
+
+<p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+By combining creative storytelling, AI-driven insights, and strategic distribution, we help brands achieve higher reach, stronger engagement, and consistent growth.</p>
+
+<p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+From content and influencers to trends and reputation management, we handle it all so your brand doesn’t just exist online, it leads.
+ </p>
+
+                       
                         <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
                             Talk to our SMM Expert Now
                         </button>
@@ -323,10 +321,10 @@ const SocialMediaMarketing = () => {
                         className="lg:w-1/2"
                     >
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
-                            Social Media Marketing Company in Mumbai
+                            Our Social Media Marketing Process: From Strategy to Growth 
                         </h2>
                         <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
-                            Supercharge your brand with our expert Social Media services! Skyrocket your followers, flood your website with social traffic, and make your competitors wonder what your secret is. Let's make it happen — contact us now!
+                            We follow a data-driven, result-oriented social media marketing process designed to help your brand grow, engage, and convert consistently. From understanding your business goals to executing high-performing campaigns, we work with you at every step.
                         </p>
 
                         <div className="space-y-4">
@@ -379,16 +377,16 @@ const SocialMediaMarketing = () => {
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-teal-600/50">
                     <div className="pt-6 md:pt-0">
-                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">2Cr+</h3>
-                        <p className="text-gray-300 text-lg">Organic impressions delivered last month!</p>
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">10M+</h3>
+                        <p className="text-gray-300 text-lg">Reach Generated</p>
                     </div>
                     <div className="pt-6 md:pt-0">
-                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">8x</h3>
-                        <p className="text-gray-300 text-lg">Average engagement growth within 90 days</p>
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">4X–16X </h3>
+                        <p className="text-gray-300 text-lg">ROAS on Paid Campaigns</p>
                     </div>
                     <div className="pt-6 md:pt-0">
-                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">50K+</h3>
-                        <p className="text-gray-300 text-lg">Real followers gained for clients this year!</p>
+                        <h3 className="font-bold text-5xl lg:text-6xl text-[#FDB813] mb-2">300%</h3>
+                        <p className="text-gray-300 text-lg">Avg Engagement Growth</p>
                     </div>
                 </div>
             </section>
@@ -414,7 +412,7 @@ const SocialMediaMarketing = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center max-w-3xl mx-auto">
                         <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            What our clients <span className="italic text-[#FDB813]">say</span>
+                            Testimonials That Make <span className="italic text-[#FDB813]">Us Blush</span>
                         </h2>
                         <p className="text-gray-500 text-lg leading-relaxed">
                             Real brands. Real growth. Hear from clients who transformed their social media presence into a revenue engine.
@@ -479,13 +477,13 @@ const SocialMediaMarketing = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">
-                        Get the full potential of your brand on social media with Ibraine
+                       A Global Independent Digital Marketing Network | Start A Project
                     </h2>
                     <p className="text-gray-600 text-lg mb-10">
                         Partner with Ibraine, the social media experts, to build a brand people follow, trust, and buy from. Our tailored social media strategies will grow your audience, deepen engagement, and consistently drive real business results.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                     </div>
                 </motion.div>

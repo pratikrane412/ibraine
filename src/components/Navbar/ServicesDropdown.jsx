@@ -11,7 +11,7 @@ const ServicesDropdown = () => {
     {
       title: "Marketing Solutions",
       items: [
-        { name: "Performance Marketing", slug: "performance-marketing", desc: "ROI focused data-driven strategies", icon: <TrendingUp />, tag: "HOT", iconBg: "bg-emerald-50 text-emerald-600" },
+        { name: "Performance Marketing", slug: "performance-marketing", desc: "ROI focused data-driven strategies", icon: <TrendingUp />, tag: "", iconBg: "bg-emerald-50 text-emerald-600" },
         { name: "SEM Experts", slug: "sem-experts", desc: "Search, Display, Shopping, Native", icon: <Search />, iconBg: "bg-orange-50 text-orange-600" },
         { name: "SEO Services", slug: "seo-services", desc: "Rank organic in SERP", icon: <BarChart3 />, iconBg: "bg-yellow-50 text-yellow-600" },
         { name: "Social Media", slug: "social-media-marketing", desc: "Building viral communities", icon: <Users />, iconBg: "bg-blue-50 text-blue-600" },
@@ -31,7 +31,7 @@ const ServicesDropdown = () => {
       items: [
         { name: "Content Writing", slug: "content-writing", desc: "Improve conversions with copy", icon: <PenTool />, iconBg: "bg-red-50 text-red-600" },
         { name: "Graphic Design", slug: "graphic-design", desc: "Establish distinct style", icon: <Palette />, iconBg: "bg-sky-50 text-sky-600" },
-        { name: "Video Production", slug: "reels-videos-photos", desc: "Visual storytelling for products", icon: <Video />, tag: "NEW", iconBg: "bg-slate-100 text-slate-600" },
+        { name: "Video Production", slug: "reels-videos-photos", desc: "Visual storytelling for products", icon: <Video />, tag: "", iconBg: "bg-slate-100 text-slate-600" },
       ]
     }
   ];
@@ -59,7 +59,7 @@ const ServicesDropdown = () => {
                       {item.name}
                     </span>
                     {item.tag && (
-                      <span className={`text-[8px] font-black px-1.5 py-0.5 rounded-sm uppercase ${item.tag === 'HOT' ? 'bg-[#fff4d6] text-[#ffb400]' : 'bg-indigo-50 text-indigo-500'}`}>
+                      <span className={`text-[8px] font-black px-1.5 py-0.5 rounded-sm uppercase ${item.tag === '' ? 'bg-[#fff4d6] text-[#ffb400]' : 'bg-indigo-50 text-indigo-500'}`}>
                         {item.tag}
                       </span>
                     )}
