@@ -21,19 +21,19 @@ const UIUXDesign = () => {
     ];
 
     const brandLogos = [
-      "/client/Artigenius Logo.png",
-      "/client/NAT.png",
-      "/client/Meditac Kits Logo.png",
-      "/client/Vastu Energetics Logo.png",
-      "/client/Papita Logo.jpg",
-      "/client/Emrik Cakes Logo.webp",
-      "/client/MRC.png",
-      "/client/GRT.png",
-      "/client/DHOBI.png",
-      "/client/LOK.png",
-      "/client/Thorny Affairs Logo.png",
-      "/client/Lullabies Logo.png",
-   ];
+        "/client/Artigenius Logo.png",
+        "/client/NAT.png",
+        "/client/Meditac Kits Logo.png",
+        "/client/Vastu Energetics Logo.png",
+        "/client/Papita Logo.jpg",
+        "/client/Emrik Cakes Logo.webp",
+        "/client/MRC.png",
+        "/client/GRT.png",
+        "/client/DHOBI.png",
+        "/client/LOK.png",
+        "/client/Thorny Affairs Logo.png",
+        "/client/Lullabies Logo.png",
+    ];
 
     return (
         <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
@@ -70,10 +70,10 @@ const UIUXDesign = () => {
                     </div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" className="absolute right-0 top-0 w-[85%] object-cover z-10 rounded-2xl shadow-xl" alt="UI/UX Design Hero" />
-                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/19.png" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
-                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/images.png" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
-                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Return-on-Investment-1-1.png" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
+                        <img src="/images/ui1_converted.png" className="absolute right-0 top-0 w-[85%] object-cover z-10 rounded-2xl shadow-xl" alt="UI/UX Design Hero" />
+                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web2_converted.webp" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
+                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="/images/web4_converted.webp" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
+                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="/images/web3_converted.webp" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
                     </motion.div>
                 </div>
             </section>
@@ -95,8 +95,8 @@ const UIUXDesign = () => {
             <section className="py-24 px-6 bg-slate-50">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] w-full">
-                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="UI Design Process" />
-                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?auto=format&fit=crop&w=600&q=80" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl object-cover" alt="Wireframing" />
+                        <img src="/images/ui2_converted.png" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="UI Design Process" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/ui3_converted.png" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl object-cover" alt="Wireframing" />
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
@@ -132,8 +132,8 @@ const UIUXDesign = () => {
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
-                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl object-cover h-[85%]" alt="UX Research & Design" />
-                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats.svg" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
+                        <img src="/images/ui4_converted.png" className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl object-cover h-[85%]" alt="UX Research & Design" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="/images/ui5_converted.png" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
                     </motion.div>
                 </div>
             </section>
@@ -142,9 +142,9 @@ const UIUXDesign = () => {
             <section className="py-24 px-6 bg-[#fcfaf2]">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[600px] w-full">
-                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=700&q=80" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl object-cover h-[55%]" alt="UI UX Design Studio" />
-                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=600&q=80" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl object-cover h-[50%]" alt="Prototype Design" />
-                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats2.svg" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
+                        <img src="/images/ui5_converted.png" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl object-cover h-[55%]" alt="UI UX Design Studio" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/ui6_converted.png" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl object-cover h-[50%]" alt="Prototype Design" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web11_converted.png" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">

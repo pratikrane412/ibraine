@@ -14,29 +14,29 @@ const IMG = {
     blobB: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='100' rx='70' ry='90' fill='%2338bdf8' opacity='0.3'/%3E%3C/svg%3E`,
 
     // Hero right — person at laptop with analytics on screen
-    heroDash: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80",
+    heroDash: "/images/gtm1_converted.png",
     // Hero floating card 1 — coding / script feel
-    heroC1: "https://images.unsplash.com/photo-1607798748738-b15c40d33d57?w=600&auto=format&fit=crop&q=80",
+    heroC1: "/images/gtm2_converted.png",
     // Hero floating card 2 — charts / data
-    heroC2: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&auto=format&fit=crop&q=80",
+    heroC2: "/images/gtm3_converted.png",
     // Hero floating card 3 — finance / ROI numbers
-    heroROI: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=500&auto=format&fit=crop&q=80",
+    heroROI: "/images/gtm4_converted.png",
 
     // Section 3 — analytics desk
-    s3a: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    s3b: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80",
+    s3a: "/images/gtm5_converted.png",
+    s3b: "/images/gtm6_converted.png",
 
     // Section 4 — data screens
-    s4a: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=900&auto=format&fit=crop&q=80",
-    s4b: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80",
+    s4a: "/images/gtm7_converted.png",
+    s4b: "/images/gtm8_converted.png",
 
     // Section 5 FAQ images
-    faq1: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=700&q=80",
-    faq2: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=700&auto=format&fit=crop&q=80",
-    faq3: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&auto=format&fit=crop&q=80",
+    faq1: "/images/gtm9_converted.png",
+    faq2: "/images/gtm10_converted.png",
+    faq3: "/images/gtm11_converted.png",
 
     // Video banner BG
-    vidBg: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1600&auto=format&fit=crop&q=80",
+    vidBg: "/images/gtm/gtm12_converted.png",
 
     // Avatars
     av1: "https://i.pravatar.cc/150?img=47",

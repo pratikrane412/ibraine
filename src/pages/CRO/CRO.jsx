@@ -10,27 +10,27 @@ const fadeUp = {
 // ─── All CRO-themed images from Unsplash (reliable, no auth required) ───
 const IMG = {
     // Hero section
-    heroMain: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80",   // analytics dashboard on laptop
-    heroCard1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80", // charts / graphs card
-    heroCard2: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=80", // metrics screen
-    heroROI: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=400&auto=format&fit=crop&q=80",  // ROI growth
+    heroMain: "/images/cro1_converted.png",   // analytics dashboard on laptop
+    heroCard1: "/images/cro2_converted.png", // charts / graphs card
+    heroCard2: "/images/cro3_converted.png", // metrics screen
+    heroROI: "/images/cro4_converted.png",  // ROI growth
 
     // Floating decoration shapes (keep original)
     shape1: "https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp",
     shape2: "https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp",
 
     // Section 3 — Maximize conversions
-    sec3Bottom: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&auto=format&fit=crop&q=80", // person at dashboard
-    sec3Top: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&auto=format&fit=crop&q=80", // heatmap / UX screen
+    sec3Bottom: "/images/cro5_converted.png", // person at dashboard
+    sec3Top: "/images/cro6_converted.png", // heatmap / UX screen
 
     // Section 4 — Actionable insights
-    sec4Main: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&auto=format&fit=crop&q=80",  // A/B test data on screen
-    sec4Float: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=80",  // reuse dashboard as floating card
+    sec4Main: "/images/cro7_converted.png",  // A/B test data on screen
+    sec4Float: "/images/cro8_converted.png",  // reuse dashboard as floating card
 
     // Section 5 — FAQ / accordion image stack
-    sec5TopLeft: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&auto=format&fit=crop&q=80", // team at whiteboard
-    sec5MidRight: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&auto=format&fit=crop&q=80", // team collaboration
-    sec5BotLeft: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&auto=format&fit=crop&q=80",  // conversion graph
+    sec5TopLeft: "/images/cro9_converted.png", // team at whiteboard
+    sec5MidRight: "/images/cro10_converted.png", // team collaboration
+    sec5BotLeft: "/images/cro11_converted.png",  // conversion graph
 
     // Video banner background
     videoBg: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=80",
