@@ -21,14 +21,18 @@ const ContentWriting = () => {
     ];
 
     const brandLogos = [
-        "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-        "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-        "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-        "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-        "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-        "https://brandwitty.com/media/2023/08/askon-1-2.png",
-        "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-        "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
+        "/client/Artigenius Logo.png",
+        "/client/NAT.png",
+        "/client/Meditac Kits Logo.png",
+        "/client/Vastu Energetics Logo.png",
+        "/client/Papita Logo.jpg",
+        "/client/Emrik Cakes Logo.webp",
+        "/client/MRC.png",
+        "/client/GRT.png",
+        "/client/DHOBI.png",
+        "/client/LOK.png",
+        "/client/Thorny Affairs Logo.png",
+        "/client/Lullabies Logo.png",
     ];
 
     return (

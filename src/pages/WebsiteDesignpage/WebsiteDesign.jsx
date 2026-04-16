@@ -21,14 +21,18 @@ const WebDevelopment = () => {
   ];
 
   const brandLogos = [
-    "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-    "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-    "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-    "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-    "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-    "https://brandwitty.com/media/2023/08/askon-1-2.png",
-    "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-    "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
+    "/client/Artigenius Logo.png",
+    "/client/Futurz4x4 Logo.webp",
+    "/client/Meditac Kits Logo.png",
+    "/client/Vastu Energetics Logo.png",
+    "/client/Papita Logo.jpg",
+    "/client/Emrik Cakes Logo.webp",
+    "/client/DLOK.png",
+    "/client/KOLGA.png",
+    "/client/Alpha.png",
+    "/client/LEAK.webp",
+    "/client/Treat Resort logo.png",
+    "/client/ORM.png",
   ];
 
   return (
@@ -66,10 +70,10 @@ const WebDevelopment = () => {
           </div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80" className="absolute right-0 top-0 w-[85%] object-contain z-10 rounded-2xl shadow-xl" alt="Web Development Hero" />
-            <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/19.png" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
-            <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/images.png" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
-            <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Return-on-Investment-1-1.png" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
+            <img src="/images/web1_converted.png" className="absolute right-0 top-0 w-[85%] object-contain z-10 rounded-2xl shadow-xl" alt="Web Development Hero" />
+            <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web2_converted.webp" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
+            <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="/images/web4_converted.webp" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
+            <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="/images/web3_converted.webp" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
           </motion.div>
         </div>
       </section>
@@ -91,8 +95,8 @@ const WebDevelopment = () => {
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] w-full">
-            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Web Design" />
-            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="Coding" />
+            <img src="/images/web5_converted.png" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Web Design" />
+            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/web6_converted.png" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="Coding" />
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
@@ -128,8 +132,8 @@ const WebDevelopment = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=80" className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl" alt="Web Development Process" />
-            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats.svg" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
+            <img src="/images/web7_converted.png" className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl" alt="Web Development Process" />
+            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="/images/web8_converted.png" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
           </motion.div>
         </div>
       </section>
@@ -138,9 +142,9 @@ const WebDevelopment = () => {
       <section className="py-24 px-6 bg-[#fcfaf2]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[600px] w-full">
-            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=700&q=80" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Web Development Agency" />
-            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Code" />
-            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats2.svg" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
+            <img src="/images/web9_converted.png" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Web Development Agency" />
+            <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/web10_converted.png" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Code" />
+            <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web11_converted.png" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">

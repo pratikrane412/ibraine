@@ -33,15 +33,19 @@ const GraphicDesign = () => {
     ];
 
     const brandLogos = [
-        "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-        "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-        "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-        "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-        "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-        "https://brandwitty.com/media/2023/08/askon-1-2.png",
-        "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-        "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
-    ];
+      "/client/Artigenius Logo.png",
+      "/client/NAT.png",
+      "/client/Meditac Kits Logo.png",
+      "/client/Vastu Energetics Logo.png",
+      "/client/Papita Logo.jpg",
+      "/client/Emrik Cakes Logo.webp",
+      "/client/MRC.png",
+      "/client/GRT.png",
+      "/client/DHOBI.png",
+      "/client/LOK.png",
+      "/client/Thorny Affairs Logo.png",
+      "/client/Lullabies Logo.png",
+   ];
 
     return (
         <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
@@ -55,16 +59,16 @@ const GraphicDesign = () => {
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
                     <div className="lg:w-1/2">
                         <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                            We design{" "}
+                            We turn{" "}
                             <span className="relative inline-block z-10">
-                                stunning visuals
+                                visuals into
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#f97316]/40 -z-10 rounded-sm"></span>
                             </span>{" "}
-                            that make your brand impossible to ignore.
+                            impact with high-performing graphic design.
                         </motion.h1>
 
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                            Great graphic design is more than aesthetics — it's communication. Every colour, shape, and layout choice tells your brand's story and influences how people feel about your business. From logos to full brand identities, our designers craft visuals that captivate, convert, and leave a lasting impression.
+                            From intelligent visual concepts to conversion-focused creatives, we leverage AI-assisted insights and strategic design thinking to elevate your brand across all digital platforms. Our approach blends aesthetic excellence with performance-driven design to maximize attention, engagement, and results.
                         </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
@@ -92,8 +96,8 @@ const GraphicDesign = () => {
             {/* ════ 2. BRANDS SLIDER ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Designed For Over the Last Few Years</h2>
-                    <p className="text-gray-500 mb-12 text-lg">Diverse industries. Distinctive visuals. Memorable brands. Your identity, crafted with purpose. Join us now.</p>
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We’ve Designed For</h2>
+                    <p className="text-gray-500 mb-12 text-lg">From startups to established brands, we’ve delivered measurable impact through strategic design, creative direction, and visual systems.</p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -111,11 +115,11 @@ const GraphicDesign = () => {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Make your brand unforgettable with logos, branding, social graphics, print, and UI design.</h2>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Dominate Attention Across Every Platform</h2>
                         <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">In a world flooded with content, great design is what makes people stop, look, and remember you. A powerful visual identity builds trust instantly — before a single word is read. But creating consistently great design across every channel takes expertise, creativity, and strategy.</p>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">Our graphic design service delivers pixel-perfect, brand-aligned visuals ready for every platform. From initial concepts to final files, we handle the entire creative process so your brand always looks its absolute best.</p>
                         <ul className="space-y-4 mb-10">
-                            {["Award-Winning Creative Designers", "Unlimited Revision Rounds", "Fast Turnaround & Transparent Process"].map((item, i) => (
+                            {["Capture attention instantly", "Communicate value clearly", "Drive engagement and action"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#f97316] shrink-0" size={24} /> {item}
                                 </li>
@@ -130,10 +134,10 @@ const GraphicDesign = () => {
             <section className="py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn creative vision into measurable business impact</h2>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Our Graphic Design Process: From Concept to Impact</h2>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Graphic Design Agency in Mumbai</b>, we create visuals that do far more than look good — they communicate your value, build brand loyalty, and drive conversions. With 10+ years of design expertise across industries, our agency delivers creative that resonates with your audience and produces real, measurable results across every platform.</p>
                         <ul className="space-y-4 mb-10">
-                            {["Logo & Brand Identity Design", "Social Media Graphics & Templates", "Brochures, Flyers & Print Design", "Packaging & Product Design", "UI/UX & Web Graphics"].map((item, i) => (
+                            {["Platform-specific creative strategies", "Performance-driven visual design", "Consistent brand identity systems", "Data-backed creative optimization", "UI/UX & Web Graphics"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#f97316] shrink-0" size={24} /> {item}
                                 </li>

@@ -31,14 +31,18 @@ const PerformanceMarketing = () => {
    ];
 
    const brandLogos = [
-      "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-      "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-      "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-      "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-      "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-      "https://brandwitty.com/media/2023/08/askon-1-2.png",
-      "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-      "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
+      "/client/Artigenius Logo.png",
+      "/client/NAT.png",
+      "/client/Meditac Kits Logo.png",
+      "/client/Vastu Energetics Logo.png",
+      "/client/Papita Logo.jpg",
+      "/client/Emrik Cakes Logo.webp",
+      "/client/MRC.png",
+      "/client/GRT.png",
+      "/client/DHOBI.png",
+      "/client/LOK.png",
+      "/client/Thorny Affairs Logo.png",
+      "/client/Lullabies Logo.png",
    ];
 
    return (
@@ -92,19 +96,19 @@ const PerformanceMarketing = () => {
 
                   {/* Main image: marketer analyzing campaign data on laptop */}
                   <img
-                     src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&auto=format&fit=crop&q=80"
+                     src="/images/p2.jpg"
                      className="absolute right-0 top-0 w-[85%] h-[72%] object-cover z-10 rounded-2xl shadow-2xl"
                      alt="Performance Marketing Expert" />
 
                   {/* Floating card 1: analytics dashboard */}
                   <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}
-                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=80"
+                     src="/images/p4.webp"
                      className="absolute left-[-10%] top-[20%] w-[58%] h-[190px] object-cover z-20 shadow-2xl rounded-xl"
                      alt="Ad Analytics Dashboard" />
 
                   {/* Floating card 2: charts & graphs */}
                   <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }}
-                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=80"
+                     src="/images/p3.webp"
                      className="absolute left-[10%] bottom-[5%] w-[44%] h-[155px] object-cover z-30 shadow-2xl rounded-xl"
                      alt="Campaign ROI Chart" />
 
@@ -140,13 +144,13 @@ const PerformanceMarketing = () => {
 
                   {/* Main: marketing team reviewing campaign results */}
                   <img
-                     src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&auto=format&fit=crop&q=80"
+                     src="/images/p6.webp"
                      className="absolute bottom-0 left-0 w-[80%] h-[380px] object-cover rounded-2xl shadow-xl z-10"
                      alt="Performance Marketing Team" />
 
                   {/* Floating: ads dashboard screen */}
                   <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                     src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&auto=format&fit=crop&q=80"
+                     src="/images/p5.webp"
                      className="absolute top-0 right-0 w-[62%] h-[260px] object-cover z-20 rounded-2xl shadow-2xl"
                      alt="Ads Performance Dashboard" />
                </motion.div>
@@ -232,13 +236,13 @@ const PerformanceMarketing = () => {
 
                   {/* Main: person analyzing performance on screens */}
                   <img
-                     src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700&auto=format&fit=crop&q=80"
+                     src="/images/p7.jpg"
                      className="absolute top-0 left-0 w-[70%] h-[360px] object-cover z-10 rounded-2xl shadow-xl"
                      alt="Performance Marketing Analysis" />
 
                   {/* Floating: creative team working on ads */}
                   <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                     src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&auto=format&fit=crop&q=80"
+                     src="/images/p8.webp"
                      className="absolute top-[20%] right-[-5%] w-[55%] h-[220px] object-cover z-20 rounded-2xl shadow-2xl"
                      alt="Ad Creative Team" />
 

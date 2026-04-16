@@ -30,15 +30,19 @@ const SocialMediaMarketing = () => {
     ];
 
     const brandLogos = [
-        "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-        "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-        "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-        "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-        "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-        "https://brandwitty.com/media/2023/08/askon-1-2.png",
-        "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-        "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
-    ];
+      "/client/Artigenius Logo.png",
+      "/client/NAT.png",
+      "/client/Meditac Kits Logo.png",
+      "/client/Vastu Energetics Logo.png",
+      "/client/Papita Logo.jpg",
+      "/client/Emrik Cakes Logo.webp",
+      "/client/MRC.png",
+      "/client/GRT.png",
+      "/client/DHOBI.png",
+      "/client/LOK.png",
+      "/client/Thorny Affairs Logo.png",
+      "/client/Lullabies Logo.png",
+   ];
 
     return (
         <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
@@ -112,7 +116,7 @@ const SocialMediaMarketing = () => {
                     >
                         {/* Main hero image - social media dashboard/phone mockup */}
                         <img
-                            src="https://img.freepik.com/free-vector/social-media-marketing-mobile-phone-concept_23-2148427507.jpg"
+                            src="/images/social3_converted.png"
                             className="absolute right-0 top-0 w-[85%] object-contain z-10 rounded-2xl"
                             alt="Social Media Marketing"
                         />
@@ -120,7 +124,7 @@ const SocialMediaMarketing = () => {
                         <motion.img
                             animate={{ y: [-10, 10, -10] }}
                             transition={{ duration: 4, repeat: Infinity }}
-                            src="https://img.freepik.com/free-vector/social-media-post-frame-design_23-2149126034.jpg"
+                            src="/images/social2_converted.png"
                             className="absolute left-[-10%] top-[20%] w-[55%] z-20 shadow-2xl rounded-xl"
                             alt="Social Media Post"
                         />
@@ -128,7 +132,7 @@ const SocialMediaMarketing = () => {
                         <motion.img
                             animate={{ y: [10, -10, 10] }}
                             transition={{ duration: 5, repeat: Infinity }}
-                            src="https://img.freepik.com/free-vector/social-media-analytics-concept_23-2148326263.jpg"
+                            src="/images/social1_converted.png"
                             className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl"
                             alt="Analytics"
                         />
@@ -170,14 +174,14 @@ const SocialMediaMarketing = () => {
                         className="lg:w-1/2 relative h-[500px] w-full"
                     >
                         <img
-                            src="https://img.freepik.com/free-photo/social-media-marketing-concept-marketing-with-applications_23-2150063134.jpg"
+                            src="/images/social5_converted.png"
                             className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10 object-cover h-[380px]"
                             alt="Social Media Platforms"
                         />
                         <motion.img
                             animate={{ y: [-15, 15, -15] }}
                             transition={{ duration: 6, repeat: Infinity }}
-                            src="https://img.freepik.com/free-vector/social-media-icons-pack_23-2147513210.jpg"
+                            src="/images/social4_converted.png"
                             className="absolute top-0 right-0 w-[60%] z-20 rounded-2xl shadow-2xl object-cover h-[280px]"
                             alt="Platform Icons"
                         />
@@ -249,7 +253,7 @@ From content and influencers to trends and reputation management, we handle it a
                         className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full"
                     >
                         <img
-                            src="https://img.freepik.com/free-photo/social-media-marketing-strategy-planning-concept_53876-127517.jpg"
+                            src="/images/social6_converted.png"
                             className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl object-cover h-[420px]"
                             alt="Social Media Content Strategy"
                         />
@@ -282,14 +286,14 @@ From content and influencers to trends and reputation management, we handle it a
                         className="lg:w-1/2 relative h-[600px] w-full"
                     >
                         <img
-                            src="https://img.freepik.com/free-photo/team-working-animation-project_23-2149239014.jpg"
+                            src="/images/social7_converted.png"
                             className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl object-cover h-[320px]"
                             alt="Social Media Team"
                         />
                         <motion.img
                             animate={{ y: [-15, 15, -15] }}
                             transition={{ duration: 6, repeat: Infinity }}
-                            src="https://img.freepik.com/free-vector/social-media-post-frame-design_23-2149126050.jpg"
+                            src="/images/social8_converted.png"
                             className="absolute top-[20%] right-[-5%] w-[58%] z-20 rounded-2xl shadow-2xl object-cover h-[260px]"
                             alt="Content Design"
                         />

@@ -31,14 +31,18 @@ const SEOExperts = () => {
    ];
 
    const brandLogos = [
-      "https://brandwitty.com/media/2023/08/Lamanpg-1.png",
-      "https://brandwitty.com/media/2023/08/Clear-trip-1.png",
-      "https://brandwitty.com/media/2023/08/Rustomjee-2.png",
-      "https://brandwitty.com/media/2023/08/Kalpataru-2.png",
-      "https://brandwitty.com/media/2023/08/Speakwell-2.png",
-      "https://brandwitty.com/media/2023/08/askon-1-2.png",
-      "https://brandwitty.com/media/2023/08/Signature-smiles-1.png",
-      "https://brandwitty.com/media/2023/08/Bath-shop-1.png"
+      "/client/Artigenius Logo.png",
+      "/client/NAT.png",
+      "/client/Meditac Kits Logo.png",
+      "/client/Vastu Energetics Logo.png",
+      "/client/Papita Logo.jpg",
+      "/client/Emrik Cakes Logo.webp",
+      "/client/MRC.png",
+      "/client/GRT.png",
+      "/client/DHOBI.png",
+      "/client/LOK.png",
+      "/client/Thorny Affairs Logo.png",
+      "/client/Lullabies Logo.png",
    ];
 
    return (
@@ -93,25 +97,25 @@ const SEOExperts = () => {
 
                   {/* Main hero — SEO analytics illustration */}
                   <img
-                     src="https://img.freepik.com/free-vector/seo-analytics-concept-illustration_114360-1386.jpg"
+                     src="/images/seo1_converted.png"
                      className="absolute right-0 top-0 w-[85%] object-contain z-10 rounded-2xl"
                      alt="SEO Analytics"
                   />
                   {/* Floating card 1 — keyword research visual */}
                   <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/seo-search-engine-optimization-infographic_23-2148620434.jpg"
+                     src="/images/seo2_converted.png"
                      className="absolute left-[-10%] top-[20%] w-[58%] z-20 shadow-2xl rounded-xl"
                      alt="Keyword Research"
                   />
                   {/* Floating card 2 — organic traffic growth */}
                   <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/gradient-website-traffic-concept_23-2149108764.jpg"
+                     src="/images/seo3_converted.png"
                      className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl"
                      alt="Organic Traffic"
                   />
                   {/* Floating badge — Google ranking visual */}
                   <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/organic-search-concept-illustration_114360-6485.jpg"
+                     src="/images/seo4_converted.png"
                      className="absolute right-[-5%] bottom-[5%] w-[38%] z-20 rounded-xl shadow-xl"
                      alt="Google Rankings"
                   />
@@ -140,12 +144,12 @@ const SEOExperts = () => {
                <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                   className="lg:w-1/2 relative h-[500px] w-full">
                   <img
-                     src="https://img.freepik.com/free-vector/seo-concept-illustration_114360-5765.jpg"
+                     src="/images/seo5_converted.png"
                      className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10"
                      alt="SEO Strategy"
                   />
                   <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/website-setup-concept_23-2148683810.jpg"
+                     src="/images/seo6_converted.png"
                      className="absolute top-0 right-0 w-[62%] z-20 rounded-2xl shadow-2xl"
                      alt="Technical SEO"
                   />
@@ -210,12 +214,12 @@ const SEOExperts = () => {
                <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                   className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
                   <img
-                     src="https://img.freepik.com/free-vector/link-building-concept-illustration_114360-5959.jpg"
+                     src="/images/seo7_converted.png"
                      className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl"
                      alt="Link Building"
                   />
                   <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/business-analytics-concept-illustration_114360-9027.jpg"
+                     src="/images/seo8_converted.png"
                      className="absolute bottom-10 left-[-5%] w-[58%] z-20 shadow-2xl rounded-xl bg-white"
                      alt="SEO Analytics Data"
                   />
@@ -231,17 +235,17 @@ const SEOExperts = () => {
                <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                   className="lg:w-1/2 relative h-[600px] w-full">
                   <img
-                     src="https://img.freepik.com/free-vector/content-marketing-concept-illustration_114360-2115.jpg"
+                     src="/images/seo9_converted.png"
                      className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl"
                      alt="Content Marketing"
                   />
                   <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/local-seo-concept-illustration_114360-6587.jpg"
+                     src="/images/seo10_converted.png"
                      className="absolute top-[20%] right-[-5%] w-[58%] z-20 rounded-2xl shadow-2xl"
                      alt="Local SEO"
                   />
                   <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }}
-                     src="https://img.freepik.com/free-vector/search-engine-optimization-seo-concept_23-2148649403.jpg"
+                     src="/images/seo11_converted.png"
                      className="absolute bottom-0 left-[10%] w-[68%] z-30 shadow-2xl bg-white rounded-2xl"
                      alt="SERP Rankings"
                   />
