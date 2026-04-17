@@ -60,10 +60,10 @@ const GTMIntegration = () => {
     const [openFaq, setOpenFaq] = useState(0);
 
     const faqs = [
-        { title: "Install the GTM Container", content: "We set up your Google Tag Manager container and deploy the snippet across your entire website, ensuring all pages are tracked without touching your source code repeatedly." },
-        { title: "Configure Tags & Triggers", content: "We configure custom tags for Google Analytics, Meta Pixel, conversion tracking, and more — and set up precise triggers so tags fire only when and where they should." },
-        { title: "Set Up Data Layer Events", content: "We implement a robust dataLayer strategy to push custom events (form submissions, button clicks, scroll depth, ecommerce events) for deep behavioural insights." },
-        { title: "Test, Debug & Publish", content: "Using GTM's Preview & Debug mode and Tag Assistant, we thoroughly QA every tag before publishing — so you never have duplicate or misfiring tags in production." }
+        { title: "GTM setup & container deployment", content: "We implement and configure your GTM container across your website, ensuring seamless tracking without repeated code changes." },
+        { title: "Tag and trigger configuration", content: "We set up and manage tags for analytics, ad platforms, and third-party tools — with precise triggers to ensure accurate firing." },
+        { title: "DataLayer architecture & event tracking", content: "We build structured dataLayer implementations to track key user actions like clicks, form submissions, scroll depth, and ecommerce events." },
+        { title: "Testing, debugging & QA", content: "We rigorously test every tag using advanced debugging tools to eliminate errors, duplicates, and misfires before going live." }
     ];
 
     return (
@@ -83,18 +83,18 @@ const GTMIntegration = () => {
                     <div className="lg:w-1/2">
                         <motion.h1 initial="hidden" animate="visible" variants={fadeUp}
                             className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                            We implement{' '}
+                            Precision Tracking{' '}
                             <span className="relative inline-block z-10">
-                                flawless GTM
+                                Systems Built
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm" />
                             </span>{' '}
-                            setups that give you total control over every tag, trigger, and pixel.
+                            for Smarter Marketing Decisions
                         </motion.h1>
 
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
                             className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                            Google Tag Manager is the backbone of modern web analytics. It lets you deploy tracking codes, pixels, and scripts without developer intervention — keeping your marketing agile, your data clean, and your site fast. Our GTM experts set it up right, the first time.
-                        </motion.p>
+                            Data is only powerful when it’s accurate, structured, and actionable.
+                            We design advanced Google Tag Manager setups that give you full control over tracking, eliminate data inconsistencies, and turn every user interaction into meaningful insight.                        </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row items-center gap-5 mb-6">
@@ -141,8 +141,8 @@ const GTMIntegration = () => {
             {/* ════ 2. BRANDS ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We've Helped Track, Measure & Grow</h2>
-                    <p className="text-gray-500 mb-12 text-lg">Diverse clientele. Clean data pipelines. Reliable insights. Your growth, our mission. Join us now.</p>
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Trusted by Brands That Rely on Clean, Actionable Data</h2>
+                    <p className="text-gray-500 mb-12 text-lg">From growing startups to performance-driven businesses, we’ve helped brands build reliable tracking systems that power smarter marketing decisions and measurable growth.</p>
                     <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         {LOGOS.map((logo, i) => (
                             <img key={i} src={logo.src} alt={logo.name}
@@ -171,16 +171,16 @@ const GTMIntegration = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            One container to manage all your tags — GA4, Meta, LinkedIn, HotJar, and more.
+                            Take Control of Your Tracking Without Technical Bottlenecks
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
-                            Stop relying on developers every time marketing needs a new pixel or tracking code. Google Tag Manager gives your team the power to deploy, update, and remove tags independently — keeping campaigns moving fast.
+                            Modern marketing moves fast — your tracking setup should too.
+                            Relying on developers for every tag or pixel slows you down and increases the risk of data gaps.
                         </p>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            Our certified GTM specialists audit your existing setup, clean up tag bloat, and build a scalable container structure that grows with your business.
-                        </p>
+                            We build flexible, scalable GTM systems that allow your marketing team to:                        </p>
                         <ul className="space-y-4 mb-10">
-                            {["Certified GTM Specialists", "Zero Data Loss Guarantee", "Transparent Audit Reports"].map((item, i) => (
+                            {["Deploy and manage tags independently", "Track user behavior with precision", "Adapt quickly to campaign changes"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                                 </li>
@@ -200,13 +200,15 @@ const GTMIntegration = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            We turn raw tag data into actionable marketing intelligence
+                            From Raw Data to Clear Marketing Intelligence
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            As a leading <b>Google Tag Manager agency in Mumbai</b>, we go beyond basic implementation. We architect your entire dataLayer strategy, set up custom event tracking, configure ecommerce tracking, and integrate with GA4, Meta CAPI, and CRM platforms — ensuring every click, scroll, and conversion is captured accurately. With 10+ years of analytics experience, our team ensures your data is clean, consistent, and conversion-ready.
-                        </p>
+                            We go beyond basic tag implementation — we create a complete tracking ecosystem.                        </p>
+
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
+                            As a Google Tag Manager-focused agency in Mumbai, we structure your dataLayer, configure advanced tracking, and integrate your entire marketing stack — ensuring every interaction is captured cleanly and consistently. </p>
                         <ul className="space-y-4 mb-10">
-                            {["GA4 & UA Migration Support", "Custom Event & Conversion Tracking", "Ecommerce & Enhanced Measurement", "Cross-Domain Tracking Setup", "Ongoing Tag Maintenance & QA"].map((item, i) => (
+                            {["Accurate Conversion Tracking", "Deeper User Behaviour Insights", "Improved Campaign Optimization", "Reduced Data Discrepancies", "Future-Ready Tracking Infrastructure"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#FDB813] shrink-0" size={24} /> {item}
                                 </li>
@@ -252,11 +254,11 @@ const GTMIntegration = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
-                            Google Tag Manager Integration Company in Mumbai
+                            Built for Brands That Depend on Data Accuracy
                         </h2>
                         <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
-                            Supercharge your analytics with our expert GTM services! Capture every conversion, track every user interaction, and give your marketing team the data they need to make smarter decisions. Let's build your perfect tag architecture — contact us now!
-                        </p>
+                            Whether you're scaling paid campaigns or optimizing funnels, your decisions depend on reliable data.
+                            We ensure your tracking foundation is strong, consistent, and built to support long-term growth.                        </p>
 
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
@@ -290,12 +292,11 @@ const GTMIntegration = () => {
                 <div className="max-w-5xl mx-auto mb-16">
                     <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="font-lora text-4xl lg:text-5xl mb-6">
-                        We are a Google Tag Manager Integration Agency
+                        A Systematic Approach to Tracking That Scales with You
                     </motion.h2>
                     <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="text-gray-300 text-lg">
-                        Experience data-driven growth with one of the <b>best GTM integration agencies in Mumbai</b>! We begin with a thorough tag audit, clean architecture, and precision event tracking.
-                    </motion.p>
+                        We start with a detailed audit, identify tracking gaps, and build a clean, structured GTM setup that evolves with your marketing needs.                    </motion.p>
                 </div>
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-teal-600/50">
                     <div className="pt-6 md:pt-0">
@@ -328,10 +329,10 @@ const GTMIntegration = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center max-w-3xl mx-auto">
                         <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            What people <span className="italic text-[#FDB813]">say</span>
+                            Testimonials That Make Us <span className="italic text-[#FDB813]">Blush</span>
                         </h2>
                         <p className="text-gray-500 text-lg leading-relaxed">
-                            Hear from clients who finally got clean, trustworthy data through our GTM integration services.
+                            Hear from brands that transformed their analytics and gained complete confidence in their tracking systems.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -384,7 +385,7 @@ const GTMIntegration = () => {
                         Partner with Ibraine, the GTM integration specialists, to finally get clean, accurate, and actionable data. Our tailored tag management strategies will give your marketing team the insights they need to scale with confidence.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                     </div>
                 </motion.div>
@@ -424,10 +425,12 @@ const GTMIntegration = () => {
                             Ready to take control of your tracking and analytics? Our GTM specialists are here to help you build a reliable, scalable tag infrastructure. Fill out the form and let's start building your data foundation.
                         </p>
                         <div className="pt-4">
-                            <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>

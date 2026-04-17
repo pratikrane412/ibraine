@@ -42,15 +42,14 @@ const UIUXDesign = () => {
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
                     <div className="lg:w-1/2">
                         <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                            We design <span className="relative inline-block z-10">
-                                experiences
+                            We craft <span className="relative inline-block z-10">
+                                digital experiences
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#FDB813]/60 -z-10 rounded-sm"></span>
-                            </span> that users love and businesses rely on.
+                            </span> that users enjoy and businesses depend on.
                         </motion.h1>
 
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                            Great UI/UX design is the difference between a product people abandon and one they can't stop using. We create intuitive, beautiful, and conversion-focused digital experiences — grounded in user research and brought to life with pixel-perfect design.
-                        </motion.p>
+                            Great UI/UX is what turns a product from forgettable to indispensable. We design intuitive, visually engaging, and conversion-driven experiences—rooted in deep user insights and executed with pixel-perfect precision.                        </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
                             <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
@@ -61,8 +60,7 @@ const UIUXDesign = () => {
                             </button>
                         </motion.div>
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
-                            From wireframe to final design — we deliver experiences that delight your users and grow your business.
-                        </motion.p>
+                            From wireframes to final design, we create seamless experiences that engage users and drive meaningful business growth.                        </motion.p>
                     </div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
@@ -313,10 +311,12 @@ const UIUXDesign = () => {
                         </p>
 
                         <div className="pt-4">
-                            <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>
