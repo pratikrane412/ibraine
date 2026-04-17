@@ -10,8 +10,29 @@ const fadeUp = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
+const reviews = [
+    { name: "Rashid Khan", role: "", initials: "RK", text: "One of the standout qualities of Ibraine is their exceptional team of professionals. They are not just experts in their respective fields but also great communicators who take the time to understand your business goals. This personalized approach is evident in every campaign they run." },
+    { name: "Anil Singh Kunwar Singh Aswal", role: "", initials: "AS", text: "Im impressed with the kind of Digital marketing expertize iBraine has delivered. Their ability to scale budgets without killing efficiency is a genuine superpower. Every rupee we give them comes back multiplied. Truly world-class." },
+    { name: "Rohit Patil", role: "", initials: "RP", text: "Our online bookings tripled in 90 days. The Google and Meta campaigns were laser-sharp — right audience, right creative, right moment. Cost per booking dropped by 58%. I wouldn't trust anyone else with our ad budget!" },
+    { name: "Vikram Gargote", role: "", initials: "VG", text: "Switched agencies three times before finding this team. Within 45 days our D2C revenue jumped 2.4x. The level of strategic depth combined with flawless execution is genuinely rare in the market." },
+    { name: "Junaid Makrani", role: "", initials: "JM", text: "From zero to 50,000 monthly active users in 4 months through performance marketing alone. Their Meta funnel architecture and retention retargeting is masterclass-level. ROI we never thought possible." },
+    { name: "Ed Lopez", role: "", initials: "EL", text: "Our cost per purchase dropped 47% in the first month. The creative iterations they run are relentless and data-backed. Every campaign feels custom-built, not templated. Absolute game-changers for e-commerce." },
+    { name: "Yash Lad", role: "", initials: "YL", text: "Real estate leads used to cost us ₹2,400 each. Now we're at ₹380 with 3x better quality. Their Google Search strategy combined with smart landing page testing made all the difference. Exceptional work." },
+    { name: "Kinjal Gohil", role: "", initials: "KG", text: "We launched our D2C health brand with zero digital footprint. Within 90 days we had a 5x ROAS on Meta and a profitable Google Shopping account. The roadmap they built for us is worth its weight in gold." },
+    { name: "Shraddha Somani", role: "", initials: "SS", text: "B2B lead generation through Meta was something we never believed in — until they proved us wrong. 300+ quality leads in 60 days with a CPL 60% below industry average. The results speak louder than any pitch." },
+    { name: "Deepika Joshi", role: "", initials: "DJ", text: "From a struggling furniture brand to a recognised name — all in 6 months. Their full-funnel strategy blending awareness and conversion campaigns is the reason we're now expanding to 3 new cities. Can't recommend enough." },
+];
+
+const CARD_WIDTH = 340;
+const GAP = 20;
+const VISIBLE = 3;
+const STEP = CARD_WIDTH + GAP;
+const MAX = reviews.length - VISIBLE;
+
 const GraphicDesign = () => {
     const [openFaq, setOpenFaq] = useState(0);
+    const [current, setCurrent] = useState(0);
+    const go = (n) => setCurrent(Math.max(0, Math.min(n, MAX)));
 
     const faqs = [
         {
@@ -228,68 +249,86 @@ const GraphicDesign = () => {
             </section>
 
             {/* ════ 8. TESTIMONIALS ════ */}
-            <section className="py-24 px-6 bg-white text-black">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16 text-center max-w-3xl mx-auto">
-                        <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            What people <span className="italic text-[#f97316]">say</span>
-                        </h2>
-                        <p className="text-gray-500 text-lg leading-relaxed">
-                            Hear from clients whose brands were transformed by the power of great design.
-                        </p>
-                    </div>
+            <section className="py-24 bg-white overflow-hidden">
+                {/* Header */}
+                <div className="text-center max-w-2xl mx-auto px-6 mb-14">
+                    <h2 className="font-lora text-4xl lg:text-5xl font-normal text-[#1a162d] leading-tight mb-4">
+                        Testimonials That Make Us <em className="text-[#FDB813] not-italic font-lora italic">Blush</em>
+                    </h2>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                        Hear from brands who stopped burning budgets and started breaking records — all through performance-first marketing.
+                    </p>
+                </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            {
-                                name: "Vikram Nair",
-                                role: "Aura Interiors - Founder",
-                                img: "https://brandwitty.com/media/2023/09/testimonial2.png",
-                                text: "The team redesigned our entire brand identity and the results were immediate. Clients started commenting on how professional and premium we looked. We saw a 40% increase in enquiries within two months. Absolutely brilliant!"
-                            },
-                            {
-                                name: "Neha Kapoor",
-                                role: "FreshBite Foods - CMO",
-                                img: "https://brandwitty.com/media/2023/09/testimonial13.png",
-                                text: "Our packaging design was completely transformed. Brandwitty understood our target audience perfectly and created visuals that genuinely stand out on the shelf. Our retail sales jumped significantly after the rebrand. Exceptional work!"
-                            },
-                            {
-                                name: "Arjun Malhotra",
-                                role: "SwiftLaunch - Co-Founder",
-                                img: "https://brandwitty.com/media/2023/09/testimonial11.png",
-                                text: "From our logo to our entire pitch deck design, the team delivered beyond expectations every single time. The quality, speed, and attention to detail is unmatched. We look like a Fortune 500 company now. Highly recommended!"
-                            }
-                        ].map((review, i) => (
-                            <motion.div
+                {/* Slider */}
+                <div className="pl-12 overflow-hidden">
+                    <motion.div
+                        className="flex"
+                        style={{ gap: GAP }}
+                        animate={{ x: -current * STEP }}
+                        transition={{ type: "spring", stiffness: 300, damping: 35 }}
+                    >
+                        {reviews.map((r, i) => (
+                            <div
                                 key={i}
-                                whileHover={{ y: -10 }}
-                                className="bg-[#fff5f0] p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+                                style={{ flex: `0 0 ${CARD_WIDTH}px` }}
+                                className="bg-[#fcfaf2] rounded-[2rem] border border-[#ede8d4] p-8 flex flex-col justify-between"
                             >
                                 <div>
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <img
-                                            src={review.img}
-                                            alt={review.name}
-                                            className="w-16 h-16 rounded-full object-cover border-2 border-[#f97316] shadow-md"
-                                        />
+                                    {/* Avatar + Name */}
+                                    <div className="flex items-center gap-3 mb-5">
+                                        <div className="w-12 h-12 rounded-full bg-[#FDB813] flex items-center justify-content-center text-white font-bold text-sm shrink-0 flex items-center justify-center">
+                                            {r.initials}
+                                        </div>
                                         <div>
-                                            <h4 className="font-bold text-lg text-[#1a162d] leading-tight">{review.name}</h4>
-                                            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">{review.role}</p>
+                                            <p className="font-bold text-[#1a162d] text-base leading-tight">{r.name}</p>
+                                            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-300 mt-0.5">{r.role}</p>
                                         </div>
                                     </div>
-                                    <p className="text-gray-600 text-[16px] leading-relaxed italic">
-                                        "{review.text}"
-                                    </p>
+                                    {/* Quote */}
+                                    <p className="text-gray-500 text-sm leading-relaxed italic">"{r.text}"</p>
                                 </div>
+                                {/* Stars */}
+                                <div className="mt-5 pt-4 border-t border-black/5">
+                                    <span className="text-[#FDB813] tracking-widest text-sm">★★★★★</span>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
 
-                                <div className="mt-8 pt-6 border-t border-gray-200/50">
-                                    <div className="flex text-[#f97316] gap-1 text-sm">
-                                        {"★★★★★".split("").map((star, idx) => <span key={idx}>{star}</span>)}
-                                    </div>
-                                </div>
-                            </motion.div>
+                {/* Controls */}
+                <div className="flex items-center justify-center gap-4 mt-10 px-6">
+                    <button
+                        onClick={() => go(current - 1)}
+                        disabled={current === 0}
+                        className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+
+                    {/* Dots */}
+                    <div className="flex gap-2 items-center">
+                        {Array.from({ length: MAX + 1 }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => go(i)}
+                                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-[#FDB813]" : "w-2 bg-[#e8e2cc]"}`}
+                            />
                         ))}
                     </div>
+
+                    <button
+                        onClick={() => go(current + 1)}
+                        disabled={current === MAX}
+                        className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
                 </div>
             </section>
 
