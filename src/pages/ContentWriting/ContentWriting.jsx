@@ -14,10 +14,10 @@ const ContentWriting = () => {
     const [openFaq, setOpenFaq] = useState(0);
 
     const faqs = [
-        { title: "Research & Topic Discovery", content: "We begin every project with deep research — understanding your industry, audience, competitors, and trending topics so every piece of content is strategically positioned to perform." },
-        { title: "SEO-Optimised Copywriting", content: "Our writers craft content that search engines love — naturally integrating target keywords, optimising meta tags, headers, and structure to help your pages rank higher organically." },
-        { title: "Brand Voice & Tone Consistency", content: "We develop and maintain a consistent brand voice across all content — whether blogs, web copy, or social posts — ensuring your audience always recognises and connects with your brand." },
-        { title: "Content Strategy & Editorial Calendar", content: "We build a complete content roadmap for your business — monthly editorial calendars, topic clusters, and publishing schedules designed to attract, engage, and convert your ideal customers." }
+        { title: "Research-led topic planning", content: "We identify high-impact topics based on audience behavior, industry trends, and search demand — ensuring every piece has a clear purpose." },
+        { title: "SEO-focused content writing", content: "Our content is structured and optimized to rank — while staying natural, engaging, and valuable to readers." },
+        { title: "Voice and messaging alignment", content: "We establish a consistent tone and communication style so your brand feels cohesive across every touchpoint." },
+        { title: "Strategic content planning", content: "We create long-term content plans, editorial calendars, and topic clusters designed to attract, nurture, and convert your audience." }
     ];
 
     const brandLogos = [
@@ -47,17 +47,17 @@ const ContentWriting = () => {
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
                     <div className="lg:w-1/2">
                         <motion.h1 initial="hidden" animate="visible" variants={fadeUp} className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                            We craft{" "}
+                            Strategic Content{" "}
                             <span className="relative inline-block z-10">
-                                compelling content
+                                Built to Attract,
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#6366f1]/40 -z-10 rounded-sm"></span>
                             </span>{" "}
-                            that attracts audiences and drives real business growth.
+                            Engage, and Convert
                         </motion.h1>
 
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-                            Content Writing is the backbone of every successful digital strategy. From blogs and web copy to social media and email campaigns, the right words build trust, boost SEO rankings, and turn readers into loyal customers. Let our expert writers tell your brand's story.
-                        </motion.p>
+                            Content today isn’t just about writing — it’s about influence.
+                            We create SEO-led, insight-driven content that positions your brand in front of the right audience and turns attention into measurable business growth.                        </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
                             <button className="bg-[#6366f1] text-white font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
@@ -84,8 +84,8 @@ const ContentWriting = () => {
             {/* ════ 2. BRANDS SLIDER ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands That We've Written For Over the Last Few Years</h2>
-                    <p className="text-gray-500 mb-12 text-lg">Diverse industries. Tailored content. Measurable results. Your voice, amplified. Join us now.</p>
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Content That Builds Visibility and Authority Across Industries</h2>
+                    <p className="text-gray-500 mb-12 text-lg">From emerging brands to established businesses, our content strategies consistently deliver stronger search presence, deeper engagement, and lasting brand impact.</p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -103,11 +103,12 @@ const ContentWriting = () => {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Amplify your brand voice with blogs, web copy, social media, email, and video scripts.</h2>
-                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Getting your message in front of the right audience organically requires consistently great content. Great writing builds credibility, attracts backlinks, and boosts search rankings — but it takes time, strategy, and skill to get right.</p>
-                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">Our content writing service delivers ready-to-publish, SEO-optimised content tailored to your brand voice. From the first brief to final delivery, we handle everything so you can focus on running your business.</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Make Every Word Work Towards Growth</h2>
+                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">In a digital-first world, content is often your first impression — and your biggest differentiator.
+                            If your messaging isn’t clear, relevant, and consistent, you’re losing both attention and opportunity.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">We combine SEO strategy, audience insight, and brand storytelling to:</p>
                         <ul className="space-y-4 mb-10">
-                            {["Certified Content Strategists", "Assured Brand Confidentiality", "Transparent Reporting & Revisions"].map((item, i) => (
+                            {["Attract high-intent traffic", "Build credibility and trust", "Convert readers into customers"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#6366f1] shrink-0" size={24} /> {item}
                                 </li>
@@ -122,10 +123,12 @@ const ContentWriting = () => {
             <section className="py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn words into powerful business-driving assets</h2>
-                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>Content Writing Agency in Mumbai</b>, we create content that does more than just fill pages — it attracts organic traffic, builds authority, and converts readers into customers. With 10+ years of content strategy expertise, our agency crafts narratives that resonate with your audience and drive measurable results across every channel.</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6"> From Content Creation to Content Systems</h2>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">We don’t just write — we build structured content ecosystems designed for long-term performance.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a content-focused digital agency, we align every piece with your business goals, audience behavior, and search demand — ensuring your content delivers consistent value over time.</p>
+
                         <ul className="space-y-4 mb-10">
-                            {["Blog Posts & Long-Form Articles", "Website & Landing Page Copy", "Social Media Content", "Email Campaigns & Newsletters", "Product Descriptions & Ad Copy"].map((item, i) => (
+                            {["Improved Organic Visibility", "Stronger Audience Engagement", "Higher Search Rankings", "Clear and Consistent Messaging", "Content That Drives Conversions"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#6366f1] shrink-0" size={24} /> {item}
                                 </li>
@@ -151,8 +154,8 @@ const ContentWriting = () => {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Content Writing Company in Mumbai</h2>
-                        <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Supercharge your brand with our expert content writing services! Increase organic visibility, attract floods of engaged visitors, and position yourself as the authority in your niche. Let's make content magic happen — contact us now!</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">Designed for Brands That Want to Stand Out with Clarity</h2>
+                        <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">Whether it’s website copy, blogs, or campaigns, we create content that communicates with purpose and performs across platforms — helping your brand stay relevant and impactful.</p>
 
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
@@ -178,8 +181,9 @@ const ContentWriting = () => {
             {/* ════ 6. GRADIENT STATS SECTION ════ */}
             <section className="py-24 px-6 bg-gradient-to-r from-indigo-900 to-indigo-700 text-white text-center">
                 <div className="max-w-5xl mx-auto mb-16">
-                    <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-lora text-4xl lg:text-5xl mb-6">We are a Content Writing Agency</motion.h2>
-                    <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-gray-300 text-lg">Experience results-driven content services with one of the <b>best content writing agencies in Mumbai</b>! We begin with meticulous research, strategic planning, and quality-first creation.</motion.p>
+                    <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-lora text-4xl lg:text-5xl mb-6">A Smarter Approach to Content Creation</motion.h2>
+                    <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-gray-300 text-lg">Every piece we create is backed by research, guided by strategy, and refined for performance.
+                        This ensures your content doesn’t just exist — it contributes to real business growth.</motion.p>
                 </div>
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-indigo-600/50">
@@ -211,7 +215,7 @@ const ContentWriting = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center max-w-3xl mx-auto">
                         <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            What people <span className="italic text-[#6366f1]">say</span>
+                            Testimonials That Make Us <span className="italic text-[#6366f1]">Blush</span>
                         </h2>
                         <p className="text-gray-500 text-lg leading-relaxed">
                             Hear from clients whose brands found their voice and their audience through our content.
@@ -275,10 +279,10 @@ const ContentWriting = () => {
             {/* ════ 9. MINI CTA ════ */}
             <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
-                    <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Unlock the full potential of your brand with Ibraine</h2>
-                    <p className="text-gray-600 text-lg mb-10">Partner with Ibraine, the content writing experts, to unlock the full potential of your brand's story. Our tailored content strategies will elevate your authority, engage your target audience, and drive sustainable growth.</p>
+                    <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Voices of Brands That Grew with Better Content</h2>
+                    <p className="text-gray-600 text-lg mb-10">Discover how businesses improved their visibility, engagement, and messaging through a more strategic content approach.</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#6366f1] hover:text-white transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#6366f1] hover:text-white transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                     </div>
                 </motion.div>
@@ -320,10 +324,12 @@ const ContentWriting = () => {
                         </p>
 
                         <div className="pt-4">
-                            <p className="text-[#6366f1] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#6366f1] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>
