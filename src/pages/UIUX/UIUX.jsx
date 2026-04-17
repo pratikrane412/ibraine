@@ -21,16 +21,16 @@ const UIUXDesign = () => {
     ];
 
     const brandLogos = [
-        "/client/Artigenius Logo.png",
+        "/client/MRC.png",
         "/client/NAT.png",
         "/client/Meditac Kits Logo.png",
         "/client/Vastu Energetics Logo.png",
         "/client/Papita Logo.jpg",
+        "/client/LOK.png",
         "/client/Emrik Cakes Logo.webp",
-        "/client/MRC.png",
+        "/client/Artigenius Logo.png",
         "/client/GRT.png",
         "/client/DHOBI.png",
-        "/client/LOK.png",
         "/client/Thorny Affairs Logo.png",
         "/client/Lullabies Logo.png",
     ];
@@ -81,9 +81,18 @@ const UIUXDesign = () => {
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands Whose User Experiences We've Transformed</h2>
                     <p className="text-gray-500 mb-12 text-lg">From startups to enterprises — we craft intuitive, beautiful digital experiences that users love.</p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
-                            <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
+                            <div
+                                key={index}
+                                className="w-32 md:w-40 h-20 md:h-24 flex items-center justify-center"
+                            >
+                                <img
+                                    src={logo}
+                                    alt="Brand Logo"
+                                    className="max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>

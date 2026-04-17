@@ -53,7 +53,7 @@ const WebDevelopment = () => {
             </motion.h1>
 
             <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }} className="text-gray-600 text-[18px] mb-8 leading-relaxed">
-A powerful website is the backbone of your digital presence. We build fast, responsive, and visually engaging websites tailored to your brand—designed to capture attention, enhance user experience, and drive real business growth from day one.            </motion.p>
+              A powerful website is the backbone of your digital presence. We build fast, responsive, and visually engaging websites tailored to your brand—designed to capture attention, enhance user experience, and drive real business growth from day one.            </motion.p>
 
             <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
               <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
@@ -82,9 +82,18 @@ A powerful website is the backbone of your digital presence. We build fast, resp
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands We’ve Helped Transform Through Powerful Digital Experiences</h2>
           <p className="text-gray-500 mb-12 text-lg">Across industries, we craft custom-built websites that drive measurable growth. Your vision, our code—let’s build something impactful together.</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 transition-all duration-500">
             {brandLogos.map((logo, index) => (
-              <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
+              <div
+                key={index}
+                className="w-32 md:w-40 h-20 md:h-24 flex items-center justify-center"
+              >
+                <img
+                  src={logo}
+                  alt="Brand Logo"
+                  className="max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </div>
             ))}
           </div>
         </div>
