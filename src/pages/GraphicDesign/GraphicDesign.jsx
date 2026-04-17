@@ -286,7 +286,7 @@ const GraphicDesign = () => {
                     <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Unlock the full visual potential of your brand with Ibraine</h2>
                     <p className="text-gray-600 text-lg mb-10">Partner with Ibraine, the graphic design experts, to build a brand identity that commands attention and trust. Our tailored design strategies will elevate your visual presence, captivate your target audience, and drive real business growth.</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#f97316] hover:text-white transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#f97316] hover:text-white transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">View Portfolio</button>
                     </div>
                 </motion.div>
@@ -328,10 +328,12 @@ const GraphicDesign = () => {
                         </p>
 
                         <div className="pt-4">
-                            <p className="text-[#f97316] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#f97316] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>

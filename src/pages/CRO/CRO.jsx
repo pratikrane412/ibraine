@@ -41,20 +41,20 @@ const CROOptimization = () => {
 
     const faqs = [
         {
-            title: "Analyze user behavior & heatmaps",
-            content: "We use advanced heatmaps, session recordings, and scroll maps to understand exactly how your visitors interact with your pages — identifying friction points and drop-off zones that kill conversions."
+            title: "User behaviour analysis & insights",
+            content: "We study heatmaps, scroll patterns, and session recordings to identify friction points, confusion areas, and missed opportunities across your pages."
         },
         {
-            title: "A/B test high-impact elements",
-            content: "From headlines and CTAs to layouts and form designs, we rigorously A/B test every hypothesis to find winning variations backed by statistically significant data — not guesswork."
+            title: "A/B testing & experimentation",
+            content: "We test variations of key elements like headlines, CTAs, layouts, and offers — using statistically valid methods to find what truly drives conversions."
         },
         {
-            title: "Optimize landing page copy & design",
-            content: "We craft persuasive, benefit-led copy paired with conversion-focused design that guides visitors through a seamless journey — removing distractions and building trust at every step."
+            title: "Conversion-focused copy & design",
+            content: "We refine messaging and visual hierarchy to guide users seamlessly — building trust, clarity, and motivation to act."
         },
         {
-            title: "Streamline your conversion funnel",
-            content: "We audit your entire funnel — from ad click to thank-you page — identifying leaks and implementing targeted fixes so more of your existing traffic turns into paying customers."
+            title: "Funnel optimisation",
+            content: "We evaluate your entire journey — from landing page to final conversion — and eliminate drop-offs to improve overall performance."
         }
     ];
 
@@ -93,21 +93,21 @@ const CROOptimization = () => {
                             initial="hidden" animate="visible" variants={fadeUp}
                             className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black"
                         >
-                            We turn your existing traffic into{" "}
+                            Turn Existing Traffic{" "}
                             <span className="relative inline-block z-10">
-                                more revenue
+                                into Measurable
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#4f7fff]/40 -z-10 rounded-sm"></span>
                             </span>{" "}
-                            without spending more on ads.
+                            Revenue Growth
                         </motion.h1>
 
                         <motion.p
                             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
                             className="text-gray-600 text-[18px] mb-8 leading-relaxed"
                         >
-                            Conversion Rate Optimisation (CRO) is the most cost-effective way to grow your business.
-                            Instead of paying for more clicks, we help you convert the visitors you already have —
-                            using data-driven testing, behavioural analysis, and persuasive design.
+                            More traffic doesn’t guarantee growth — better conversion does.
+                            We build data-driven CRO systems that transform user behaviour into higher conversions, increased revenue, and stronger ROI without increasing ad spend.
+
                         </motion.p>
 
                         <motion.div
@@ -172,8 +172,8 @@ const CROOptimization = () => {
             {/* ════ 2. BRANDS SLIDER ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands Whose Conversions We've Transformed</h2>
-                    <p className="text-gray-500 mb-12 text-lg">Diverse industries. Tested strategies. Measurable uplift. Your growth, our mission. Join us now.</p>
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Trusted by Brands Focused on Performance, Not Just Traffic</h2>
+                    <p className="text-gray-500 mb-12 text-lg">Across industries, we’ve helped businesses unlock more value from their existing traffic through structured testing, behavioural insights, and conversion-focused experiences.</p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <img key={index} src={logo} alt="Brand Logo" className="w-32 md:w-40 object-contain hover:scale-110 transition-transform" />
@@ -208,18 +208,16 @@ const CROOptimization = () => {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            Maximise conversions across landing pages, funnels, checkout flows, and mobile.
+                            Maximise the Value of Every Visitor
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">
-                            Getting traffic to your site is only half the battle. The real challenge is converting those visitors into
-                            leads, sign-ups, and customers. Most businesses lose up to 97% of their traffic without ever knowing why.
+                            Driving traffic is only the first step — converting that traffic is where real growth happens.
+                            Most websites lose the majority of their visitors due to friction, unclear messaging, or poor user experience.
                         </p>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            CRO gives you clear answers. Through structured testing and user research, we identify exactly what's
-                            stopping your visitors from converting — and we fix it, fast.
-                        </p>
+                            We combine data, psychology, and experimentation to:                        </p>
                         <ul className="space-y-4 mb-10">
-                            {["Certified CRO Specialists", "Data-Backed Testing Process", "Transparent Reporting & Insights"].map((item, i) => (
+                            {["Identify conversion barriers", "Improve user journeys", "Increase actions that matter"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#4f7fff] shrink-0" size={24} /> {item}
                                 </li>
@@ -237,16 +235,15 @@ const CROOptimization = () => {
                 <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">
-                            We turn visitor data into conversion-boosting decisions
+                            From User Behaviour to Smarter Decisions
                         </h2>
                         <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">
-                            As a leading <b>CRO agency in Mumbai</b>, we dig deep into your analytics, heatmaps, and user recordings to
-                            understand real behaviour. We don't rely on assumptions — every test we run is grounded in evidence.
-                            With 10+ years of optimisation expertise, our team consistently delivers higher conversion rates and lower
-                            cost-per-acquisition for brands across industries.
+                            We don’t rely on assumptions — we rely on evidence.
+                            As a CRO-focused agency in Mumbai, we analyze real user interactions through analytics, heatmaps, and session recordings to uncover exactly where and why users drop off — and how to fix it.
+
                         </p>
                         <ul className="space-y-4 mb-10">
-                            {["Higher Conversion Rates Immediately", "Lower Cost Per Acquisition", "Data-Driven A/B Testing", "Improved User Experience", "Fully Customised to Your Funnel"].map((item, i) => (
+                            {["Higher Conversion Rates", "Improved Return on Ad Spend", "Lower Cost Per Acquisition", "Enhanced User Experience", "Continuous Performance Improvement"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#4f7fff] shrink-0" size={24} /> {item}
                                 </li>
@@ -314,12 +311,11 @@ const CROOptimization = () => {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
                         <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-4">
-                            Conversion Rate Optimisation Company in Mumbai
+                            Built for Brands That Want More from Their Traffic
                         </h2>
                         <p className="text-gray-600 text-[18px] mb-10 leading-relaxed">
-                            Supercharge your revenue with our expert CRO services! Stop wasting ad spend on traffic that doesn't
-                            convert — attract, engage, and persuade your visitors to take action. Let's make your website work
-                            harder. Contact us now!
+                            Whether you're running paid campaigns or scaling organically, CRO ensures you’re getting maximum return from every visitor.
+                            We optimise your digital experience so more users take action — consistently.
                         </p>
 
                         <div className="space-y-4">
@@ -361,13 +357,12 @@ const CROOptimization = () => {
                 <div className="max-w-5xl mx-auto mb-16">
                     <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="font-lora text-4xl lg:text-5xl mb-6">
-                        We are a Conversion Rate Optimisation Agency
+                        An Optimisation System That Continuously Improves
                     </motion.h2>
                     <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                         className="text-gray-300 text-lg">
-                        Experience revenue-driven CRO services with one of the <b>best conversion rate optimisation agencies in Mumbai</b>!
-                        We begin with in-depth funnel analysis, hypothesis building, and systematic testing.
-                    </motion.p>
+                        CRO isn’t a one-time fix — it’s an ongoing process.
+                        We build a structured experimentation system that continuously tests, learns, and improves your conversion performance over time.                    </motion.p>
                 </div>
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-blue-600/50">
@@ -406,11 +401,10 @@ const CROOptimization = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center max-w-3xl mx-auto">
                         <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            What people <span className="italic text-[#4f7fff]">say</span>
+                            Testimonials That Make Us <span className="italic text-[#4f7fff]">Blush</span>
                         </h2>
                         <p className="text-gray-500 text-lg leading-relaxed">
-                            Hear from clients who turned low-converting websites into growth engines through our data-driven CRO approach.
-                        </p>
+                            Hear from brands that increased conversions and unlocked more revenue through a smarter optimisation approach.                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -471,7 +465,7 @@ const CROOptimization = () => {
                         maximise return from every visitor.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#4f7fff] transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#4f7fff] transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Case Studies</button>
                     </div>
                 </motion.div>
@@ -507,10 +501,12 @@ const CROOptimization = () => {
                             conversion blockers, and build a roadmap to higher revenue from your existing traffic.
                         </p>
                         <div className="pt-4">
-                            <p className="text-[#4f7fff] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#4f7fff] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>
