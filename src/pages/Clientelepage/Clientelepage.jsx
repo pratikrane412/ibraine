@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, ArrowRight, Star, Users, TrendingUp, Award } from 'lucide-react';
 
@@ -52,88 +52,75 @@ const STATS = [
 /* ─── STAGGER VARIANTS ───────────────────────────────────────── */
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.04 } }
+  visible: { transition: { staggerChildren: 0.03 } }
 };
 const itemVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: "easeOut" } }
 };
 
 /* ══════════════════════════════════════════════════════════════
    1. HERO
 ══════════════════════════════════════════════════════════════ */
 const ClienteleHero = () => (
-  <section className="relative w-full min-h-[92vh] flex flex-col items-center justify-center text-center overflow-hidden px-6 py-24 bg-[#f8fafc]">
+  <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden px-4 sm:px-6 py-20 sm:py-24 bg-[#f8fafc]">
 
     {/* ── grid texture ── */}
     <div className="absolute inset-0 pointer-events-none"
       style={{
-        backgroundImage: 'linear-gradient(rgba(148,163,184,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.12) 1px,transparent 1px)',
-        backgroundSize: '60px 60px'
+        backgroundImage: 'linear-gradient(rgba(148,163,184,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.1) 1px,transparent 1px)',
+        backgroundSize: '40px 40px sm:60px 60px'
       }} />
 
     {/* ── blurred orbs ── */}
-    <div className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full bg-blue-200/30 blur-[120px] pointer-events-none" />
-    <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-amber-200/30 blur-[120px] pointer-events-none" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-indigo-100/20 blur-[140px] pointer-events-none" />
+    <div className="absolute -top-32 -left-32 w-[300px] sm:w-[520px] h-[300px] sm:h-[520px] rounded-full bg-blue-200/40 blur-[100px] pointer-events-none" />
+    <div className="absolute -bottom-32 -right-32 w-[300px] sm:w-[520px] h-[300px] sm:h-[520px] rounded-full bg-amber-200/30 blur-[100px] pointer-events-none" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] rounded-full bg-indigo-100/30 blur-[120px] pointer-events-none" />
 
-    <div className="relative z-10 max-w-5xl mx-auto space-y-8">
+    <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8 mt-10">
 
       {/* badge */}
       <motion.div
         initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}
-        className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-amber-200 text-amber-600 text-sm font-semibold shadow-sm"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-amber-200 text-amber-600 text-xs sm:text-sm font-semibold shadow-sm"
       >
-        <Trophy size={15} className="fill-amber-400 text-amber-400" />
+        <Trophy size={16} className="fill-amber-400 text-amber-400" />
         Our Clientele
       </motion.div>
 
       {/* headline */}
       <motion.h1
         initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="font-lora text-[44px] md:text-[68px] leading-[1.15] text-[#0f172a] font-normal"
+        className="font-lora text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.2] text-[#0f172a] font-normal tracking-tight"
       >
         We believe our greatest{' '}
-        <span className="relative inline-block">
+        <span className="relative inline-block whitespace-nowrap">
           <span className="relative z-10 text-[#1d4ed8]">reward</span>
-          <span className="absolute left-0 -bottom-1 w-full h-[6px] bg-[#FDB813] rounded-full" />
+          <span className="absolute left-0 bottom-0 sm:-bottom-1 w-full h-[4px] sm:h-[6px] bg-[#FDB813] rounded-full" />
         </span>
         <br className="hidden md:block" />
-        {' '}is our clients' trust &amp; satisfaction
+        {' '}is our clients' trust & satisfaction
       </motion.h1>
 
       {/* sub */}
       <motion.p
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-        className="font-lora text-gray-500 text-lg md:text-xl max-w-xl mx-auto leading-relaxed"
+        className="text-gray-500 text-base sm:text-lg md:text-xl max-w-xl mx-auto leading-relaxed px-4"
       >
         We are not your agency — we are your partner in growth.
       </motion.p>
-
-      {/* scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-        className="flex justify-center"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-gray-300 flex items-start justify-center pt-2"
-        >
-          <div className="w-1 h-2 bg-gray-400 rounded-full" />
-        </motion.div>
-      </motion.div>
     </div>
 
     {/* ── stats strip ── */}
     <motion.div
       initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }}
-      className="relative z-10 mt-16 w-full max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4"
+      className="relative z-10 mt-12 sm:mt-16 w-full max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 px-4"
     >
       {STATS.map(({ icon: Icon, value, label }, i) => (
-        <div key={i} className="bg-white/70 backdrop-blur-md border border-white/90 rounded-2xl p-5 text-center shadow-sm">
+        <div key={i} className="bg-white/80 backdrop-blur-md border border-white/90 rounded-2xl p-4 sm:p-5 text-center shadow-sm">
           <Icon size={20} className="mx-auto mb-2 text-[#FDB813]" />
-          <p className="font-lora text-2xl font-bold text-[#0f172a]">{value}</p>
-          <p className="text-gray-500 text-xs mt-0.5 font-medium tracking-wide">{label}</p>
+          <p className="font-lora text-xl sm:text-2xl font-bold text-[#0f172a]">{value}</p>
+          <p className="text-gray-500 text-[11px] sm:text-xs mt-1 font-medium tracking-wide uppercase">{label}</p>
         </div>
       ))}
     </motion.div>
@@ -141,69 +128,64 @@ const ClienteleHero = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   2. GRID
+   2. GRID (Smoothed & Responsive)
 ══════════════════════════════════════════════════════════════ */
 const ClienteleGrid = () => {
-  const [hovered, setHovered] = useState(null);
-
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <p className="text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-3">Trusted By</p>
-          <h2 className="font-lora text-4xl md:text-5xl text-[#0f172a] font-normal leading-tight">
+          <h2 className="font-lora text-3xl sm:text-4xl md:text-5xl text-[#0f172a] font-normal leading-tight">
             Brands that chose <span className="italic text-[#1d4ed8]">us</span>
           </h2>
-          <p className="text-gray-500 mt-4 text-base max-w-lg mx-auto">
+          <p className="text-gray-500 mt-4 text-sm sm:text-base max-w-lg mx-auto px-4">
             From hyper-growth startups to household names — here are the brands we're proud to call partners.
           </p>
           {/* decorative divider */}
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#FDB813]" />
-            <div className="w-2 h-2 rounded-full bg-[#FDB813]" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FDB813]" />
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#FDB813]" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FDB813]" />
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#FDB813]" />
           </div>
         </motion.div>
 
         {/* grid */}
         <motion.div
-          variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4"
         >
           {CLIENT_DATA.map((client, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              onHoverStart={() => setHovered(index)}
-              onHoverEnd={() => setHovered(null)}
-              whileHover={{ y: -6, scale: 1.04 }}
-              style={{
-                backgroundColor: client.bg,
-                boxShadow: hovered === index ? `0 12px 40px -8px ${client.accent}55` : '0 2px 8px rgba(0,0,0,0.06)'
-              }}
-              className="relative group h-32 md:h-36 flex flex-col items-center justify-center p-5 rounded-2xl cursor-pointer overflow-hidden transition-shadow duration-500"
+              style={{ backgroundColor: client.bg }}
+              className="group relative aspect-[3/2] flex items-center justify-center p-4 sm:p-5 rounded-2xl cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.15)]"
             >
-              {/* shimmer bar on top */}
+              {/* Shimmer line */}
               <div
-                className="absolute top-0 left-0 w-full h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute top-0 left-0 w-full h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{ background: `linear-gradient(90deg, ${client.accent}00, ${client.accent}, ${client.accent}00)` }}
               />
 
-              {/* logo */}
+              {/* Logo (Perfectly Fit & Smooth) */}
               <img
                 src={client.src}
                 alt={client.name}
-                className="max-w-[75%] max-h-[55%] object-contain filter grayscale group-hover:grayscale-0 opacity-55 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-500"
+                loading="lazy"
+                className="w-full h-full object-contain filter grayscale opacity-50 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
               />
 
-              {/* name tooltip */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-sm text-white text-[10px] font-medium py-1.5 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                {client.name}
+              {/* Tooltip */}
+              <div className="absolute bottom-2 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
+                <span className="bg-black/80 backdrop-blur-md text-white text-[10px] font-medium py-1 px-3 rounded-full whitespace-nowrap shadow-sm">
+                  {client.name}
+                </span>
               </div>
             </motion.div>
           ))}
@@ -212,7 +194,7 @@ const ClienteleGrid = () => {
         {/* bottom note */}
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="text-center text-gray-400 text-sm mt-12 font-medium"
+          className="text-center text-gray-400 text-xs sm:text-sm mt-10 sm:mt-12 font-medium"
         >
           …and many more brands across 15+ industries
         </motion.p>
@@ -231,11 +213,11 @@ const testimonials = [
 ];
 
 const TestimonialStrip = () => (
-  <section className="bg-[#f8fafc] py-20 px-6 border-y border-gray-100">
+  <section className="bg-[#f8fafc] py-16 sm:py-20 px-4 sm:px-6 border-y border-gray-100">
     <div className="max-w-7xl mx-auto">
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-12"
+        className="text-center text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-8 sm:mb-12"
       >
         Client Love
       </motion.p>
@@ -245,24 +227,23 @@ const TestimonialStrip = () => (
             key={i}
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.5 }} viewport={{ once: true }}
-            whileHover={{ y: -4 }}
-            className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-400 relative overflow-hidden"
+            className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 relative overflow-hidden group"
           >
             {/* giant quote mark */}
-            <div className="absolute -top-2 -left-1 text-[80px] leading-none text-[#FDB813]/15 font-serif select-none">"</div>
-            <p className="text-gray-700 text-[15px] leading-relaxed italic mb-6 relative z-10">"{t.quote}"</p>
+            <div className="absolute -top-2 -left-1 text-[80px] leading-none text-[#FDB813]/10 font-serif select-none transition-colors group-hover:text-[#FDB813]/20">"</div>
+            <p className="font-lora text-gray-700 text-sm sm:text-[15px] leading-relaxed italic mb-6 relative z-10">"{t.quote}"</p>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1d4ed8] to-[#7c3aed] flex items-center justify-center text-white font-bold text-sm shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1d4ed8] to-[#7c3aed] flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-inner">
                 {t.name.charAt(0)}
               </div>
               <div>
                 <p className="font-bold text-[#0f172a] text-sm">{t.name}</p>
-                <p className="text-gray-400 text-xs">{t.role}</p>
+                <p className="text-gray-500 text-xs">{t.role}</p>
               </div>
             </div>
             {/* star row */}
             <div className="flex gap-0.5 mt-4">
-              {"★★★★★".split("").map((s, idx) => <span key={idx} className="text-[#FDB813] text-xs">{s}</span>)}
+              {"★★★★★".split("").map((s, idx) => <span key={idx} className="text-[#FDB813] text-xs sm:text-sm">{s}</span>)}
             </div>
           </motion.div>
         ))}
@@ -275,28 +256,25 @@ const TestimonialStrip = () => (
    4. CTA
 ══════════════════════════════════════════════════════════════ */
 const ClienteleCTA = () => (
-  <section className="relative w-full bg-[#0a1e3d] py-24 md:py-32 overflow-hidden">
+  <section className="relative w-full bg-[#0a1e3d] py-20 sm:py-24 md:py-32 overflow-hidden px-4">
 
     {/* decorative orbs */}
-    <div className="absolute top-1/2 -right-24 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-500/15 blur-[100px] pointer-events-none" />
-    <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-amber-400/10 blur-[100px] pointer-events-none" />
+    <div className="absolute top-1/2 -right-10 sm:-right-24 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-blue-500/15 blur-[80px] sm:blur-[100px] pointer-events-none" />
+    <div className="absolute -bottom-10 sm:-bottom-20 -left-10 sm:-left-20 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-amber-400/10 blur-[80px] sm:blur-[100px] pointer-events-none" />
 
     {/* dot grid overlay */}
-    <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+    <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
       style={{
         backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-        backgroundSize: '32px 32px'
+        backgroundSize: '24px 24px sm:32px 32px'
       }} />
 
-    {/* diagonal accent line */}
-    <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent" style={{ right: '20%' }} />
-
-    <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <div className="relative z-10 max-w-4xl mx-auto text-center">
 
       <motion.p
         initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }} viewport={{ once: true }}
-        className="text-[#FDB813] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-6"
+        className="text-[#FDB813] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-4 sm:mb-6"
       >
         Get In Touch
       </motion.p>
@@ -304,20 +282,20 @@ const ClienteleCTA = () => (
       <motion.h2
         initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.1 }} viewport={{ once: true }}
-        className="font-lora text-white text-4xl md:text-6xl leading-[1.2] font-normal mb-6"
+        className="font-lora text-white text-3xl sm:text-4xl md:text-6xl leading-[1.2] font-normal mb-4 sm:mb-6"
       >
-        Need a Custom Plan?<br className="hidden md:block" />
+        Need a Custom Plan?<br className="hidden sm:block" />
         {' '}
         <span className="relative inline-block">
           Let's build it together.
-          <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#FDB813]/60 rounded-full" />
+          <span className="absolute left-0 -bottom-1 w-full h-[2px] sm:h-[3px] bg-[#FDB813]/60 rounded-full" />
         </span>
       </motion.h2>
 
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3 }} viewport={{ once: true }}
-        className="text-gray-400 text-lg mb-12 max-w-xl mx-auto leading-relaxed"
+        className="text-gray-300 text-sm sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto leading-relaxed"
       >
         Join 36+ brands who chose Brandwitty as their performance partner. Send us a message — we respond within 24 hours.
       </motion.p>
@@ -325,30 +303,28 @@ const ClienteleCTA = () => (
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.25 }} viewport={{ once: true }}
-        className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
       >
-        <motion.a
+        <a
           href="/contact"
-          whileHover={{ y: -2, scale: 1.02 }} whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center gap-2.5 bg-[#FDB813] hover:bg-[#e5a610] text-[#0a1e3d] font-bold px-9 py-4 rounded-xl shadow-[0_8px_32px_rgba(253,184,19,0.35)] transition-colors duration-200 group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FDB813] hover:bg-[#e5a610] text-[#0a1e3d] font-bold px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl shadow-[0_8px_30px_rgba(253,184,19,0.25)] hover:shadow-[0_8px_30px_rgba(253,184,19,0.4)] hover:-translate-y-0.5 transition-all duration-300 group"
         >
-          <span className="text-base">Contact Us Now</span>
+          <span className="text-sm sm:text-base">Contact Us Now</span>
           <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
-        </motion.a>
-        <motion.a
+        </a>
+        <a
           href="/case-studies"
-          whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center gap-2 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 font-semibold px-9 py-4 rounded-xl transition-all duration-200"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white hover:border-white/50 hover:bg-white/5 font-semibold px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl transition-all duration-300"
         >
-          View Case Studies
-        </motion.a>
+          <span className="text-sm sm:text-base">View Case Studies</span>
+        </a>
       </motion.div>
 
       {/* trust strip */}
       <motion.div
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5 }} viewport={{ once: true }}
-        className="mt-16 flex flex-wrap items-center justify-center gap-6 text-gray-500 text-sm"
+        className="mt-10 sm:mt-16 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6 text-gray-400 text-xs sm:text-sm"
       >
         {["No lock-in contracts", "Results in 30 days", "Free audit included"].map((item, i) => (
           <span key={i} className="flex items-center gap-2">
@@ -365,7 +341,9 @@ const ClienteleCTA = () => (
    PAGE WRAPPER
 ══════════════════════════════════════════════════════════════ */
 const ClientelePage = () => (
-  <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
+  // Removed global font-lora, allowing system sans-serif for UI elements, which looks cleaner.
+  // Headings explicitly use font-lora in their respective components.
+  <main className="w-full bg-white overflow-hidden text-[#1a1a1a]">
     <ClienteleHero />
     <ClienteleGrid />
     <TestimonialStrip />

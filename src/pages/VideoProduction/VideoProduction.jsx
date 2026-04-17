@@ -35,10 +35,10 @@ const VideoProduction = () => {
     const go = (n) => setCurrent(Math.max(0, Math.min(n, MAX)));
 
     const faqs = [
-        { title: "Pre-Production Planning", content: "We start with a detailed discovery session to understand your brand, goals, and target audience. Our team crafts a compelling script, storyboard, and production schedule tailored to your vision." },
-        { title: "Professional Filming & Direction", content: "Our experienced directors and cinematographers capture your story using industry-grade cameras and lighting equipment. We ensure every frame aligns with your brand identity and message." },
-        { title: "Post-Production & Editing", content: "From color grading to motion graphics, sound design to VFX — our editors transform raw footage into a polished, broadcast-ready video that resonates with your audience." },
-        { title: "Distribution & Video Marketing", content: "We help you publish and promote your video across YouTube, social media, OTT platforms, and your website to maximize reach, views, and conversions." }
+        { title: "Concept development & pre-production", content: "We define the creative direction, script, and storyboard — aligning your message with audience intent and platform requirements." },
+        { title: "Professional filming & direction", content: "Our team captures high-quality visuals using advanced equipment, ensuring every frame reflects your brand identity and storytelling vision." },
+        { title: "Post-production & editing", content: "We refine your video with editing, color grading, motion graphics, and sound design — delivering a polished, high-impact final output." },
+        { title: "Distribution & performance strategy", content: "We optimise and adapt your videos for platforms such as social media, YouTube, and ads — maximising reach, engagement, and ROI." }
     ];
 
     const brandLogos = [
@@ -71,16 +71,16 @@ const VideoProduction = () => {
                     <div className="lg:w-1/2">
                         <motion.h1 initial="hidden" animate="visible" variants={fadeUp}
                             className="font-lora text-[42px] lg:text-[60px] leading-[1.15] mb-6 font-medium text-black">
-                            We create <span className="relative inline-block z-10">
-                                cinematic videos
+                            High-Impact <span className="relative inline-block z-10">
+                                Video Content
                                 <span className="absolute left-0 bottom-2 w-full h-3 bg-[#e8c84a]/60 -z-10 rounded-sm"></span>
-                            </span> that tell your brand story and drive real results.
+                            </span> Designed to Capture Attention and Drive Action
                         </motion.h1>
 
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
                             className="text-black-300 text-[18px] mb-8 leading-relaxed">
-                            Video is the most powerful medium in digital marketing today. From corporate films and product demos to social media reels and YouTube ads — we handle every frame with precision, creativity, and purpose to help your brand stand out.
-                        </motion.p>
+                            Video isn’t just content — it’s influence at scale.
+                            We create strategy-led, performance-driven videos that combine storytelling, production quality, and audience insight to help your brand stand out and deliver measurable results.                        </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row items-center gap-5 mb-6">
@@ -126,9 +126,9 @@ const VideoProduction = () => {
             {/* ════ 2. BRANDS SLIDER ════ */}
             <section className="py-20 px-6 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Brands Whose Stories We've Told Over the Years</h2>
-                    <p className="text-gray-500 mb-12 text-lg">Diverse industries. Compelling narratives. Measurable impact. Your vision, our craft. Let's create together.</p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 transition-all duration-500">
+                    <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Stories That Don’t Just Get Viewed — They Create Impact</h2>
+                    <p className="text-gray-500 mb-12 text-lg">Across industries, we’ve helped brands transform ideas into compelling visual narratives that engage audiences, build recall, and drive meaningful outcomes.</p>
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <div
                                 key={index}
@@ -163,11 +163,12 @@ const VideoProduction = () => {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">End-to-end video production — concept, filming, editing, and delivery.</h2>
-                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">Getting your message across in today's fast-scrolling world requires more than just good visuals. It demands a story that stops the scroll, sparks emotion, and drives action. That's exactly what we deliver.</p>
-                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">From scripting and storyboarding to professional filming and final post-production, our full-stack video team manages every stage of production so you can focus on your business.</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">Make Every Frame Work Towards Your Business Goals</h2>
+                        <p className="text-gray-600 text-[17px] mb-4 leading-relaxed">In a fast-scrolling digital world, attention is limited — and competition is endless.
+                            Your video content needs to stop the scroll, communicate instantly, and leave a lasting impression.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">We combine creative storytelling, production expertise, and platform strategy to:</p>
                         <ul className="space-y-4 mb-10">
-                            {["Certified Video Professionals", "100% Creative Confidentiality", "Transparent Timelines & Deliverables"].map((item, i) => (
+                            {["Capture attention within seconds", "Communicate your message clearly", "Drive engagement and conversions"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#e8c84a] shrink-0" size={24} /> {item}
                                 </li>
@@ -182,10 +183,12 @@ const VideoProduction = () => {
             <section className="py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">We turn your ideas into videos that engage, educate, and convert</h2>
-                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a leading <b>video production company in Mumbai</b>, we craft purpose-driven content — from brand films and explainer videos to Instagram reels and YouTube commercials. With 10+ years of production expertise, our team ensures every video delivers measurable ROI. Whether you need one video or an entire content calendar, we've got you covered.</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-black mb-6">From Concept to Final Cut — Built for Performance</h2>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">We don’t just produce videos — we build content systems designed to perform across platforms.</p>
+                        <p className="text-gray-600 text-[17px] mb-8 leading-relaxed">As a video production-focused agency in Mumbai, we manage everything from ideation and scripting to filming, editing, and distribution — ensuring consistency, quality, and impact at every stage.</p>
+
                         <ul className="space-y-4 mb-10">
-                            {["Brand Films & Corporate Videos", "Social Media Reels & Short-Form", "Product & E-commerce Videos", "Animated Explainer Videos", "Event & Documentary Coverage"].map((item, i) => (
+                            {["Higher Engagement Across Platforms", "Stronger Brand Recall", "Increased Viewer Retention", "Content Optimised for Conversions", "Scalable Video Content Strategy"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-[18px] text-black font-medium">
                                     <CheckCircle2 className="text-[#e8c84a] shrink-0" size={24} /> {item}
                                 </li>
@@ -233,8 +236,8 @@ const VideoProduction = () => {
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
-                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-white mb-4">Video Production Company in Mumbai</h2>
-                        <p className="text-gray-300 text-[18px] mb-10 leading-relaxed">Supercharge your brand with our expert video production services! Increase engagement, attract a flood of viewers to your content, and leave your competitors in awe. Let's make video magic happen – contact us now!</p>
+                        <h2 className="font-lora text-4xl lg:text-[46px] leading-[1.2] text-white mb-4">Created for Brands That Want to Stand Out Visually</h2>
+                        <p className="text-gray-300 text-[18px] mb-10 leading-relaxed">Whether it’s a brand film, ad creative, or short-form content, we craft videos that align with your positioning and resonate with your audience — helping your brand stay relevant and memorable.</p>
 
                         <div className="space-y-4">
                             {faqs.map((faq, index) => (
@@ -263,9 +266,10 @@ const VideoProduction = () => {
             <section className="py-24 px-6 bg-gradient-to-r from-[#e8c84a] to-[#f5a623] text-black text-center">
                 <div className="max-w-5xl mx-auto mb-16">
                     <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                        className="font-lora text-4xl lg:text-5xl mb-6 text-black">We are a Premier Video Production Studio</motion.h2>
+                        className="font-lora text-4xl lg:text-5xl mb-6 text-black">A Structured Approach to Video That Scales with Your Brand</motion.h2>
                     <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                        className="text-black/70 text-lg">Experience results-driven video production with one of the <b>best video production agencies in Mumbai</b>! We begin with meticulous scripting, storyboarding, and creative strategy.</motion.p>
+                        className="text-black/70 text-lg">Every video is backed by strategy, not guesswork.
+                        We create repeatable frameworks that allow you to produce consistent, high-performing content as your brand grows.</motion.p>
                 </div>
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-black/20">
@@ -294,16 +298,17 @@ const VideoProduction = () => {
             </section>
 
             {/* ════ 8. TESTIMONIALS ════ */}
-            <section className="py-24 bg-white overflow-hidden">
-                {/* Header */}
-                <div className="text-center max-w-2xl mx-auto px-6 mb-14">
-                    <h2 className="font-lora text-4xl lg:text-5xl font-normal text-[#1a162d] leading-tight mb-4">
-                        Testimonials That Make Us <em className="text-[#FDB813] not-italic font-lora italic">Blush</em>
-                    </h2>
-                    <p className="text-gray-400 text-lg leading-relaxed">
-                        Hear from brands who stopped burning budgets and started breaking records — all through performance-first marketing.
-                    </p>
-                </div>
+            <section className="py-24 px-6 bg-white text-black">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-16 text-center max-w-3xl mx-auto">
+                        <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
+                            Testimonials That Make Us <span className="italic text-[#e8c84a]">Blush</span>
+                        </h2>
+                        <p className="text-gray-500 text-lg leading-relaxed">
+                            Hear from brands that elevated their presence and performance through strategic video content.
+                        </p>
+                    </div>
+                    </div>
 
                 {/* Slider */}
                 <div className="pl-12 overflow-hidden">
@@ -383,7 +388,7 @@ const VideoProduction = () => {
                     <h2 className="font-lora text-4xl lg:text-5xl mb-6 text-black">Unlock the full power of your brand with stunning video content</h2>
                     <p className="text-gray-600 text-lg mb-10">Partner with our video production experts to bring your brand to life on screen. From scripting to distribution, we craft videos that captivate your audience and drive real business results.</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#e8c84a] hover:text-black transition-all shadow-lg">Call Now</button>
+                        {/* <button className="bg-black text-white font-bold px-10 py-4 rounded-md hover:bg-[#e8c84a] hover:text-black transition-all shadow-lg">Call Now</button> */}
                         <button className="border-2 border-black text-black font-bold px-10 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">View Portfolio</button>
                     </div>
                 </motion.div>
@@ -430,10 +435,12 @@ const VideoProduction = () => {
                         </p>
 
                         <div className="pt-4">
-                            <p className="text-[#e8c84a] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
+                            {/* <p className="text-[#e8c84a] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
                             <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                                 <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                +91 9892 854 892
+                                <a href="tel:+919892854892" className="hover:underline">
+                                    +91 9892 854 892
+                                </a>
                             </p>
                         </div>
                     </div>
