@@ -399,7 +399,7 @@ const VideoProduction = () => {
             <ContactSection
                     headingLine1="Let's Talk with"
                     headingLine2="Experienced"
-                    headingHighlight="Web Development"
+                    headingHighlight="Video Production "
                     headingLine3="Consultant"
                   />
 

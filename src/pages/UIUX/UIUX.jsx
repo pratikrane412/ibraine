@@ -331,7 +331,7 @@ const UIUXDesign = () => {
             <ContactSection
                     headingLine1="Let's Talk with"
                     headingLine2="Experienced"
-                    headingHighlight="Web Development"
+                    headingHighlight="UI/UX "
                     headingLine3="Consultant"
                   />
 

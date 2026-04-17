@@ -549,7 +549,7 @@ const SocialMediaMarketing = () => {
             <ContactSection
                 headingLine1="Let's Talk with"
                 headingLine2="Experienced"
-                headingHighlight="Web Development"
+                headingHighlight="Socail Media Marketing"
                 headingLine3="Consultant"
             />
 
