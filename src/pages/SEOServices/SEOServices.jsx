@@ -460,7 +460,12 @@ const SEOExperts = () => {
          </section>
 
          {/* ════ 10. CONTACT FORM SECTION ════ */}
-         <ContactSection />
+         <ContactSection
+            headingLine1="Let's Talk with"
+            headingLine2="Experienced"
+            headingHighlight="SEO"
+            headingLine3="Consultant"
+         />
 
       </main>
    );

@@ -1,6 +1,11 @@
 import { Headphones } from "lucide-react";
 
-export default function ContactSection() {
+export default function ContactSection({
+    headingLine1 = "Let's Talk with",
+    headingLine2 = "Experienced",
+    headingHighlight = "Web Development",
+    headingLine3 = "Consultant",
+}) {
     return (
         <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
 
@@ -26,10 +31,10 @@ export default function ContactSection() {
                     </div>
 
                     <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
-                        Let's Talk with <br />
-                        Experienced <br />
-                        <span className="text-marker">Web Development</span> <br />
-                        Consultant
+                        {headingLine1} <br />
+                        {headingLine2} <br />
+                        <span className="text-marker">{headingHighlight}</span> <br />
+                        {headingLine3}
                     </h2>
 
                     <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">

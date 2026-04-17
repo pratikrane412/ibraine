@@ -447,7 +447,12 @@ const GTMIntegration = () => {
             </section>
 
             {/* ════ 10. CONTACT FORM ════ */}
-            <ContactSection />
+            <ContactSection
+                headingLine1="Let's Talk with"
+                headingLine2="Experienced"
+                headingHighlight="Google Tag Manager"
+                headingLine3="Consultant"
+            />
 
         </main>
     );
