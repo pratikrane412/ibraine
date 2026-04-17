@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Headphones } from 'lucide-react';
+import ContactSection from '../../components/ContactSection/ContactSection';
 
 const fadeUp = {
    hidden: { opacity: 0, y: 40 },
@@ -459,81 +460,7 @@ const SEOExperts = () => {
          </section>
 
          {/* ════ 10. CONTACT FORM SECTION ════ */}
-         <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
-
-            {/* Search icon decoration (top right) — replacing puzzle piece */}
-            <div className="absolute top-10 right-10 lg:right-32 rotate-12 opacity-90 hidden md:block">
-               <div className="w-24 h-24 lg:w-32 lg:h-32 text-green-500">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                     <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                  </svg>
-               </div>
-            </div>
-
-            <div className="absolute top-4 left-[45%] w-6 h-6 bg-green-500 rounded-full opacity-80 hidden lg:block"></div>
-            <div className="absolute right-[10%] top-1/2 w-3 h-3 bg-orange-400 rounded-full opacity-60 hidden lg:block"></div>
-
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-
-               {/* Left */}
-               <div className="space-y-8">
-                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-500 shadow-sm">
-                     <Headphones size={24} />
-                  </div>
-
-                  <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
-                     Let's Talk with <br />
-                     Experienced <br />
-                     <span className="text-marker">SEO &amp; Content</span> <br />
-                     Consultants
-                  </h2>
-
-                  <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">
-                     Ready to rank higher and grow organically? Our SEO consultants are here to help! Fill out the form and let's start building your path to page one of Google.
-                  </p>
-
-                  <div className="pt-4">
-                     {/* <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
-                     <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
-                        <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                        <a href="tel:+919892854892" className="hover:underline">
-                           +91 9892 854 892
-                        </a>
-                     </p>
-                  </div>
-               </div>
-
-               {/* Right: Form */}
-               <div className="relative">
-                  <div className="absolute -top-16 -left-16 hidden xl:block pointer-events-none">
-                     <p className="font-serif italic text-gray-400 text-sm mb-1 -rotate-12">Fill the form</p>
-                     <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="2" className="opacity-40">
-                        <path d="M10,10 Q50,10 50,60 T90,90" strokeLinecap="round" />
-                        <path d="M85,90 L95,95 L95,85" strokeLinecap="round" />
-                     </svg>
-                  </div>
-
-                  <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
-                     <form className="space-y-6">
-                        <input type="text" placeholder="Your name"
-                           className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
-                        <input type="email" placeholder="Your email"
-                           className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
-                        <input type="tel" placeholder="Your phone"
-                           className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm" />
-                        <textarea placeholder="Tell us about your SEO goals..." rows="5"
-                           className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none"></textarea>
-                        <button className="w-full sm:w-auto border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-white transition-all duration-300">
-                           Send Message
-                        </button>
-                     </form>
-                     <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
-                        Let's Boost Your <span className="text-[#1a162d] font-black">Organic Rankings!</span>
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </section>
+         <ContactSection />
 
       </main>
    );

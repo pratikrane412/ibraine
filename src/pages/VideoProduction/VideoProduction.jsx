@@ -4,6 +4,7 @@ import {
     Play, CheckCircle2, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { Headphones } from 'lucide-react';
+import ContactSection from '../../components/ContactSection/ContactSection';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -308,7 +309,7 @@ const VideoProduction = () => {
                             Hear from brands that elevated their presence and performance through strategic video content.
                         </p>
                     </div>
-                    </div>
+                </div>
 
                 {/* Slider */}
                 <div className="pl-12 overflow-hidden">
@@ -395,88 +396,7 @@ const VideoProduction = () => {
             </section>
 
             {/* ════ 10. CONTACT FORM SECTION ════ */}
-            <section className="relative w-full py-20 lg:py-32 px-6 lg:px-24 bg-white overflow-hidden font-lora">
-
-                {/* Decorative Clapperboard Icon (Top Right) */}
-                <div className="absolute top-10 right-10 lg:right-32 rotate-12 opacity-10 hidden md:block">
-                    <svg viewBox="0 0 64 64" fill="#0d1f2d" className="w-24 h-24 lg:w-32 lg:h-32">
-                        <rect x="4" y="16" width="56" height="44" rx="3" />
-                        <rect x="4" y="4" width="56" height="16" rx="3" />
-                        <line x1="16" y1="4" x2="20" y2="20" stroke="white" strokeWidth="3" />
-                        <line x1="30" y1="4" x2="34" y2="20" stroke="white" strokeWidth="3" />
-                        <line x1="44" y1="4" x2="48" y2="20" stroke="white" strokeWidth="3" />
-                    </svg>
-                </div>
-
-                {/* Floating Dots */}
-                <div className="absolute top-4 left-[45%] w-6 h-6 bg-[#e8c84a] rounded-full opacity-80 hidden lg:block"></div>
-                <div className="absolute right-[10%] top-1/2 w-3 h-3 bg-[#0d1f2d] rounded-full opacity-40 hidden lg:block"></div>
-
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-
-                    {/* --- LEFT SIDE: TEXT CONTENT --- */}
-                    <div className="space-y-8">
-                        <div className="w-12 h-12 bg-[#e8c84a]/20 rounded-full flex items-center justify-center text-[#e8c84a] shadow-sm">
-                            <Headphones size={24} />
-                        </div>
-
-                        <h2 className="font-lora text-4xl lg:text-6xl leading-tight text-[#1a162d]">
-                            Let's Talk with <br />
-                            Our Experienced <br />
-                            <span className="relative inline-block">
-                                Video Production
-                                <span className="absolute left-0 bottom-1 w-full h-3 bg-[#e8c84a]/50 -z-10 rounded-sm"></span>
-                            </span> <br />
-                            Team
-                        </h2>
-
-                        <p className="text-gray-500 text-lg leading-relaxed max-w-md font-light">
-                            Ready to bring your brand story to life on screen? Our creative team is here to help! Fill out the form and let's start crafting a video that drives results.
-                        </p>
-
-                        <div className="pt-4">
-                            {/* <p className="text-[#e8c84a] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p> */}
-                            <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
-                                <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                                <a href="tel:+919892854892" className="hover:underline">
-                                    +91 9892 854 892
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* --- RIGHT SIDE: FORM --- */}
-                    <div className="relative">
-                        <div className="absolute -top-16 -left-16 hidden xl:block pointer-events-none">
-                            <p className="font-serif italic text-gray-400 text-sm mb-1 -rotate-12">Fill the form</p>
-                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="black" strokeWidth="2" className="opacity-40">
-                                <path d="M10,10 Q50,10 50,60 T90,90" strokeLinecap="round" />
-                                <path d="M85,90 L95,95 L95,85" strokeLinecap="round" />
-                            </svg>
-                        </div>
-
-                        <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
-                            <form className="space-y-6">
-                                <input type="text" placeholder="Your name"
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#e8c84a] transition-colors shadow-sm" />
-                                <input type="email" placeholder="Your email"
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#e8c84a] transition-colors shadow-sm" />
-                                <input type="tel" placeholder="Your phone"
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#e8c84a] transition-colors shadow-sm" />
-                                <textarea placeholder="Tell us about your video project..." rows="5"
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#e8c84a] transition-colors shadow-sm resize-none"></textarea>
-                                <button className="w-full sm:w-auto border-2 border-[#e8c84a] text-[#b8970a] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#e8c84a] hover:text-black transition-all duration-300">
-                                    Send Message
-                                </button>
-                            </form>
-
-                            <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
-                                Let's Tell Your <span className="text-[#1a162d] font-black">Brand Story!</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ContactSection />
 
         </main>
     );
