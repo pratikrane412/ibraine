@@ -75,12 +75,11 @@ const SEOExperts = () => {
 
                   <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                      className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+                    <a href="/contact">
                      <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
                         Talk to our SEO Expert Now
-                     </button>
-                     <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                        <Play size={20} className="fill-black" /> Watch a Demo
-                     </button>
+                     </button></a>
+                     
                   </motion.div>
 
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }}
@@ -169,9 +168,10 @@ const SEOExperts = () => {
                         </li>
                      ))}
                   </ul>
+                  <a href="/contact">
                   <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">
                      Get a free SEO audit now
-                  </button>
+                  </button></a>
                </motion.div>
             </div>
          </section>
@@ -202,9 +202,10 @@ const SEOExperts = () => {
                         </li>
                      ))}
                   </ul>
+                  <a href="/contact">
                   <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
                      Talk to our SEO Expert Now
-                  </button>
+                  </button></a>
                </motion.div>
 
                {/* Right: SEO link building & analytics visuals */}

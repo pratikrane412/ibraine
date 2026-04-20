@@ -86,12 +86,11 @@ const SocialMediaMarketing = () => {
                             transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row items-center gap-5 mb-6"
                         >
-                            <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
-                                Talk to our SMM Expert Now
-                            </button>
-                            <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                                <Play size={20} className="fill-black" /> Watch a Demo
-                            </button>
+                            <a href="/contact">
+                                <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
+                                    Talk to our SMM Expert Now
+                                </button></a>
+
                         </motion.div>
 
                         <motion.p
@@ -207,9 +206,10 @@ const SocialMediaMarketing = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">
-                            Get a Free Social Media Audit
-                        </button>
+                        <a href="/contact">
+                            <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">
+                                Get a Free Social Media Audit
+                            </button></a>
                     </motion.div>
                 </div>
             </section>
@@ -235,10 +235,10 @@ const SocialMediaMarketing = () => {
                             From content and influencers to trends and reputation management, we handle it all so your brand doesn’t just exist online, it leads.
                         </p>
 
-
-                        <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
-                            Talk to our SMM Expert Now
-                        </button>
+                        <a href="/contact">
+                            <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">
+                                Talk to our SMM Expert Now
+                            </button></a>
                     </motion.div>
 
                     {/* Right: Images */}
@@ -392,7 +392,7 @@ const SocialMediaMarketing = () => {
             </section>
 
             {/* ════ 7. VIDEO BANNER ════ */}
-          
+
 
             {/* ════ 8. TESTIMONIALS ════ */}
             <section className="py-24 px-6 bg-white text-black">

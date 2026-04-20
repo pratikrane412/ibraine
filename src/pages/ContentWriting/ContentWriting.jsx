@@ -56,12 +56,11 @@ const ContentWriting = () => {
                             We create SEO-led, insight-driven content that positions your brand in front of the right audience and turns attention into measurable business growth.                        </motion.p>
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+                           <a href="/contact">
                             <button className="bg-[#6366f1] text-white font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
                                 Talk to our Content Expert Now
-                            </button>
-                            <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                                <Play size={20} className="fill-black" /> Watch a Demo
-                            </button>
+                            </button></a>
+                           
                         </motion.div>
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
                             We can have your first batch of content ready within days — not weeks.
@@ -110,7 +109,9 @@ const ContentWriting = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#6366f1] hover:text-white transition-all shadow-lg">Get a free content consultation</button>
+                   </a>
                     </motion.div>
                 </div>
             </section>
@@ -130,7 +131,9 @@ const ContentWriting = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-[#6366f1] text-white font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our Content Expert Now</button>
+                   </a>
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">

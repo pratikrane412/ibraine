@@ -52,12 +52,11 @@ const WebDevelopment = () => {
 A powerful website is the backbone of your digital presence. We build fast, responsive, and visually engaging websites tailored to your brand—designed to capture attention, enhance user experience, and drive real business growth from day one.            </motion.p>
 
             <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+             <a href="/contact">
               <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
                 Talk to our Web Expert Now
-              </button>
-              <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                <Play size={20} className="fill-black" /> Watch a Demo
-              </button>
+              </button></a>
+              
             </motion.div>
             <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
               We’ll get your new website live quickly—ready to perform and start delivering real results.
@@ -105,7 +104,9 @@ A powerful website is the backbone of your digital presence. We build fast, resp
                 </li>
               ))}
             </ul>
+            <a href="/contact">
             <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Get a free consultation now</button>
+         </a>
           </motion.div>
         </div>
       </section>
@@ -123,7 +124,9 @@ A powerful website is the backbone of your digital presence. We build fast, resp
                 </li>
               ))}
             </ul>
+            <a href="/contact">
             <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our Web Expert Now</button>
+         </a>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
