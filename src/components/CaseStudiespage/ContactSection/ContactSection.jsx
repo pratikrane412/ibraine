@@ -44,7 +44,7 @@ const ContactSection = () => {
              <p className="text-[#ffb400] font-bold text-sm uppercase tracking-widest mb-2">Urgent?</p>
              <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span> 
-               +91 9892 854 892
+               +91 9321111753
              </p>
           </div>
         </div>

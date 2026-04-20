@@ -67,7 +67,7 @@ const HeroSection = () => {
             </button>
 
             {/* Call Now → Direct Phone Call */}
-            <a href="tel:+919892854892" className="w-full sm:w-auto">
+            <a href="tel:+919321111753" className="w-full sm:w-auto">
               <button className="w-full bg-white text-slate-900 border border-slate-200 px-10 py-4 rounded-full font-bold text-sm hover:bg-slate-50 transition-all">
                 Call Now
               </button>

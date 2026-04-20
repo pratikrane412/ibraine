@@ -6,7 +6,7 @@ import MarketingPlan from '../../components/MarketingPlan/MarketingPlan';
 import ServiceSection from '../../components/ServiceSection/ServiceSection';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import StatsSection from '../../components/StatsSection/StatsSection';
-import CaseStudy from '../../components/CaseStudy/CaseStudy';
+// import CaseStudy from '../../components/CaseStudy/CaseStudy';
 import TestimonialsSection from '../../components/TestimonialsSection/TestimonialsSection';
 import StartSection from '../../components/StartSection/BlogSection';
 
@@ -20,7 +20,7 @@ const Homepage = () => {
       <ServiceSection />
       <WhyChooseUs />
       <StatsSection />
-      <CaseStudy />
+      {/* <CaseStudy /> */}
       <TestimonialsSection />
       <StartSection />
     </main>

@@ -58,7 +58,7 @@ const AboutHero = () => {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8">
             <Sparkles className="w-3 h-3 text-indigo-200" />
-            <span className="text-white text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">Est. Mumbai 2012</span>
+            <span className="text-white text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">Est. Mumbai 2011</span>
           </div>
 
           {/* Main Title */}

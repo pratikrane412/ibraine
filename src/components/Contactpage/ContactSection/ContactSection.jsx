@@ -110,8 +110,9 @@ const ContactSection = () => {
               <div className="space-y-8">
                 <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Direct Contact</p>
                 <div className="space-y-6">
-                  <a href="tel:+919892854892" className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
-                    <FiPhone size={20} className="text-[#2c66f6]" /> +91 9892 854 892
+                  <a href="tel:9321111753
+ " className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
+                    <FiPhone size={20} className="text-[#2c66f6]" /> +91 9321111753
                   </a>
                   <a href="mailto:info@ibraine.com" className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
                     <FiMail size={20} className="text-[#2c66f6]" /> info@ibraine.com

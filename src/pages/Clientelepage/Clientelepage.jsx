@@ -13,7 +13,7 @@ const CLIENT_DATA = [
   { name: "Bragpacker", src: "/client/bragpacker logo.png", bg: "#FDF2F8", accent: "#ec4899" },
   { name: "Choupette", src: "/client/Choupette Logo.jpg", bg: "#ECFEFF", accent: "#06b6d4" },
   { name: "Cloud Dhobi", src: "/client/Cloud Dhobi Logo.jpg", bg: "#F0F9FF", accent: "#0ea5e9" },
-  { name: "Dlok", src: "/client/Dlok Logo High Res.png", bg: "#F7FEE7", accent: "#84cc16" },
+  { name: "DLOK", src: "/client/DLOK Logo High Res.png", bg: "#F7FEE7", accent: "#84cc16" },
   { name: "Elevation Interior", src: "/client/Elevation Interior logo.png", bg: "#F0FDFA", accent: "#14b8a6" },
   { name: "Finzard", src: "/client/Finzard Logo.png", bg: "#FEF3C7", accent: "#f59e0b" },
   { name: "Garware", src: "/client/Garware Logo.png", bg: "#EEF2FF", accent: "#818cf8" },

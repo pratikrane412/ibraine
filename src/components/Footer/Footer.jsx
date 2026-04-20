@@ -10,7 +10,7 @@ const Footer = () => {
   const bottomLinks = [
     { icon: Globe, href: "https://www.ibraine.com", label: "Website" },
     { icon: Mail, href: "mailto:info@ibraine.com", label: "Email" },
-    { icon: Phone, href: "tel:+919892854892", label: "Phone" }
+    { icon: Phone, href: "tel:+919321111753", label: "Phone" }
   ];
 
   // ✅ Added routing configs
@@ -118,9 +118,9 @@ const Footer = () => {
                 info@ibraine.com
               </a>
 
-              <a href="tel:+919892854892" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors group">
+              <a href="tel:+919321111753" className="flex items-center gap-3 hover:text-[#0072BC] transition-colors group">
                 <Phone size={18} className="text-white/50 group-hover:text-[#0072BC]" />
-                +91 98928 54892
+                +91 93211 11753
               </a>
 
               <div className="flex items-start gap-3 text-sm md:text-[15px] leading-relaxed">

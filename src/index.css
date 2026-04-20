@@ -42,11 +42,11 @@
   --animate-marker-draw: markerDraw 0.8s ease-out forwards;
 }
 
-html,
+/* html,
 body {
   overflow-x: hidden;
   max-width: 100%;
-}
+} */
 
 /* 3. COMPONENT STYLES */
 @layer components {

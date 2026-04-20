@@ -51,7 +51,7 @@ const UIUXDesign = () => {
         "/client/LOK.png",
         "/client/Emrik Cakes Logo.webp",
         "/client/Artigenius Logo.png",
-        "/client/GRT.png",
+        "/client/DLOK.png",
         "/client/DHOBI.png",
         "/client/Thorny Affairs Logo.png",
         "/client/Lullabies Logo.png",

@@ -273,8 +273,8 @@ const AffiliateMarketing = () => {
     
               <div className="bg-white/5 border border-white/10 p-4 md:p-5 rounded-xl backdrop-blur-md inline-block w-full sm:w-auto">
                  <p className="text-[#FB8C32] font-body font-bold text-[10px] md:text-xs uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><PhoneCall size={12} /> Direct Line</p>
-                 <a href="tel:+919892854892" className="text-white text-xl md:text-2xl font-heading font-bold hover:text-[#1872BA] transition-colors">
-                   +91 9892 854 892
+                 <a href="tel:+919321111753" className="text-white text-xl md:text-2xl font-heading font-bold hover:text-[#1872BA] transition-colors">
+                   +91 9321111753
                  </a>
               </div>
             </div>

@@ -90,8 +90,8 @@ export default function ContactSection({
                     <div className="pt-4">
                         <p className="text-[#1a162d] text-xl lg:text-2xl font-black">
                             <span className="text-gray-400 font-medium text-sm mr-2 italic">Call us</span>
-                            <a href="tel:+919892854892" className="hover:underline">
-                                +91 9892 854 892
+                            <a href="tel:+919321111753" className="hover:underline">
+                                +91 9321111753
                             </a>
                         </p>
                     </div>

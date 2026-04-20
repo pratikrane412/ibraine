@@ -91,7 +91,7 @@ const OurStory = () => {
               Our <span className="italic text-indigo-400">Story</span>
             </h2>
             <p className="font-jakarta text-slate-400 text-lg md:text-xl leading-relaxed max-w-xl">
-              Since 2012, we've partnered with hundreds of brands to build robust digital ecosystems. We combine deep technical expertise with data-driven marketing to engineer measurable growth.
+              Since 2011, we've partnered with hundreds of brands to build robust digital ecosystems. We combine deep technical expertise with data-driven marketing to engineer measurable growth.
             </p>
           </motion.div>
 
