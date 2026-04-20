@@ -14,43 +14,43 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white font-sans">
+    <section className="w-full bg-white" style={{ fontFamily: "'Lora', serif" }}>
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12">
 
         {/* ════ LEFT: THE FORM (Height Reduced) ════ */}
         <div className="lg:col-span-7 p-6 md:p-12 lg:p-16 border-r border-slate-100">
           <div className="mb-10">
             <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#f59e0b] mb-3">Step 01</p>
-            <h2 className="text-3xl md:text-5xl font-serif text-slate-950" style={{ fontFamily: "'Lora', serif" }}>Project Brief</h2>
+            <h2 className="text-3xl md:text-5xl text-slate-950">Project Brief</h2>
           </div>
 
           <form className="space-y-8">
-            
+
             {/* 6 Text Inputs Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Full Name*</label>
-                <input type="text" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="John Doe" />
+                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="John Doe" />
               </div>
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Email Address*</label>
-                <input type="email" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="john@example.com" />
+                <input type="email" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="john@example.com" />
               </div>
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Phone Number*</label>
-                <input type="tel" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="+91 00000 00000" />
+                <input type="tel" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="+91 00000 00000" />
               </div>
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Subject*</label>
-                <input type="text" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="Inquiry Type" />
+                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="Inquiry Type" />
               </div>
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Company Name</label>
-                <input type="text" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="Optional" />
+                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="Optional" />
               </div>
               <div className="group space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Website Link</label>
-                <input type="url" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300" placeholder="www.example.com" />
+                <input type="url" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="www.example.com" />
               </div>
             </div>
 
@@ -65,7 +65,7 @@ const ContactSection = () => {
                       <div className="absolute inset-0 bg-[#2c66f6] scale-0 peer-checked:scale-100 transition-transform origin-center duration-200"></div>
                       <FiCheck className="absolute text-white scale-0 peer-checked:scale-100 transition-transform duration-200 delay-75" size={12} strokeWidth={3} />
                     </div>
-                    <span className="text-slate-600 font-sans text-sm md:text-[15px] group-hover:text-slate-950 transition-colors select-none">
+                    <span className="text-slate-600 text-sm md:text-[15px] group-hover:text-slate-950 transition-colors select-none">
                       {service}
                     </span>
                   </label>
@@ -76,7 +76,7 @@ const ContactSection = () => {
             {/* Textarea */}
             <div className="group space-y-2 pt-2">
               <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Requirements</label>
-              <textarea rows="2" className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl font-serif text-slate-900 placeholder:text-slate-300 resize-none" placeholder="Share a brief of your requirements..."></textarea>
+              <textarea rows="2" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300 resize-none" placeholder="Share a brief of your requirements..."></textarea>
             </div>
 
             {/* Submit Button */}
@@ -92,15 +92,15 @@ const ContactSection = () => {
           </form>
         </div>
 
-        {/* ════ RIGHT: TECHNICAL INFO (Vertically Centered to remove blank gap) ════ */}
+        {/* ════ RIGHT: TECHNICAL INFO ════ */}
         <div className="lg:col-span-5 flex flex-col justify-center bg-[#fafafa] h-full">
-          
+
           <div className="w-full">
             {/* Top Info block */}
             <div className="p-6 md:p-12 lg:p-20 space-y-16">
               <div className="space-y-6">
                 <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Headquarters</p>
-                <h3 className="text-2xl md:text-3xl font-serif leading-[1.1] text-slate-950" style={{ fontFamily: "'Lora', serif" }}>
+                <h3 className="text-2xl md:text-3xl leading-[1.1] text-slate-950">
                   Office No. 2, Chandra Niwas CHS, <br />
                   Off Old Police Lane, Andheri East, <br />
                   Mumbai – 400069
@@ -110,18 +110,17 @@ const ContactSection = () => {
               <div className="space-y-8">
                 <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Direct Contact</p>
                 <div className="space-y-6">
-                  <a href="tel:9321111753
- " className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
+                  <a href="tel:9321111753" className="flex items-center gap-4 text-2xl md:text-3xl text-slate-900 group hover:text-[#2c66f6] transition-colors">
                     <FiPhone size={20} className="text-[#2c66f6]" /> +91 9321111753
                   </a>
-                  <a href="mailto:info@ibraine.com" className="flex items-center gap-4 text-2xl md:text-3xl font-serif text-slate-900 group hover:text-[#2c66f6] transition-colors" style={{ fontFamily: "'Lora', serif" }}>
+                  <a href="mailto:info@ibraine.com" className="flex items-center gap-4 text-2xl md:text-3xl text-slate-900 group hover:text-[#2c66f6] transition-colors">
                     <FiMail size={20} className="text-[#2c66f6]" /> info@ibraine.com
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Social Ecosystem (Restored Original Design) */}
+            {/* Social Ecosystem */}
             <div className="border-t border-slate-200 p-6 md:p-12 lg:p-20">
               <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-8">Follow Ecosystem</p>
               <div className="flex flex-wrap gap-x-12 gap-y-6">
