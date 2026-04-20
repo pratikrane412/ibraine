@@ -140,12 +140,11 @@ const CROOptimization = () => {
                             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row items-center gap-5 mb-6"
                         >
+                            <a href="/conatct">
                             <button className="bg-[#4f7fff] text-white font-bold px-8 py-4 rounded-md hover:bg-black transition-all shadow-lg w-full sm:w-auto">
                                 Talk to our CRO Expert Now
-                            </button>
-                            <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                                <Play size={20} className="fill-black" /> Watch a Demo
-                            </button>
+                            </button></a>
+                            
                         </motion.div>
 
                         <motion.p
@@ -258,9 +257,10 @@ const CROOptimization = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#4f7fff] transition-all shadow-lg">
                             Get a free CRO audit now
-                        </button>
+                        </button></a>
                     </motion.div>
                 </div>
             </section>
@@ -284,9 +284,10 @@ const CROOptimization = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-[#4f7fff] text-white font-bold px-8 py-4 rounded-md hover:bg-black transition-all shadow-lg">
                             Talk to our CRO Expert Now
-                        </button>
+                        </button></a>
                     </motion.div>
 
                     <motion.div
@@ -417,19 +418,7 @@ const CROOptimization = () => {
             </section>
 
             {/* ════ 7. VIDEO BANNER ════ */}
-            <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
-                <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
-                    style={{ backgroundImage: `url('${IMG.videoBg}')` }}
-                ></div>
-                <a
-                    href="https://www.youtube.com/watch?v=zfMHTO__b6M"
-                    target="_blank" rel="noreferrer"
-                    className="relative z-10 w-24 h-24 bg-[#4f7fff] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(79,127,255,0.5)]"
-                >
-                    <Play size={40} className="fill-white text-white ml-2" />
-                </a>
-            </section>
+           
 
             {/* ════ 8. TESTIMONIALS ════ */}
             <TestimonialsSection reviews={reviews} />

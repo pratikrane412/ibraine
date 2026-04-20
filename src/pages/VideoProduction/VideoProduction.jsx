@@ -86,12 +86,10 @@ const VideoProduction = () => {
 
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }}
                             className="flex flex-col sm:flex-row items-center gap-5 mb-6">
-                            <button className="bg-[#e8c84a] text-black font-bold px-8 py-4 rounded-md hover:bg-white hover:text-black transition-all shadow-lg w-full sm:w-auto">
+                          <a href="/contact">  <button className="bg-[#e8c84a] text-black font-bold px-8 py-4 rounded-md hover:bg-white hover:text-black transition-all shadow-lg w-full sm:w-auto">
                                 Talk to our Video Expert Now
-                            </button>
-                            <button className="flex items-center justify-center gap-3 border border-gray-500 text-black px-8 py-4 rounded-md font-bold bg-transparent hover:bg-white/10 transition-all shadow-sm w-full sm:w-auto">
-                                <Play size={20} className="fill-white" /> Watch Our Showreel
-                            </button>
+                            </button></a>
+                            
                         </motion.div>
                         <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }}
                             className="text-black-400 text-[15px]">
@@ -176,7 +174,9 @@ const VideoProduction = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#e8c84a] hover:text-black transition-all shadow-lg">Get a free consultation now</button>
+                   </a>
                     </motion.div>
                 </div>
             </section>
@@ -196,7 +196,9 @@ const VideoProduction = () => {
                                 </li>
                             ))}
                         </ul>
+                        <a href="/contact">
                         <button className="bg-[#e8c84a] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our Video Expert Now</button>
+                  </a>
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
@@ -291,13 +293,7 @@ const VideoProduction = () => {
             </section>
 
             {/* ════ 7. VIDEO BANNER ════ */}
-            <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
-                <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer"
-                    className="relative z-10 w-24 h-24 bg-[#e8c84a] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(232,200,74,0.5)]">
-                    <Play size={40} className="fill-black text-black ml-2" />
-                </a>
-            </section>
+           
 
             {/* ════ 8. TESTIMONIALS ════ */}
             <TestimonialsSection reviews={reviews} />

@@ -81,12 +81,11 @@ const SEMExperts = () => {
                   </motion.p>
 
                   <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row items-center gap-5 mb-6">
+                    <a href="/contact">
                      <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg w-full sm:w-auto">
                         Talk to our SEM Expert Now
-                     </button>
-                     <button className="flex items-center justify-center gap-3 border border-gray-300 text-black px-8 py-4 rounded-md font-bold bg-white hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                        <Play size={20} className="fill-black" /> Watch a Demo
-                     </button>
+                     </button></a>
+                     
                   </motion.div>
                   <motion.p initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.5 }} className="text-gray-500 text-[15px]">
                      Rs. X Cr+ Search Revenue Generated | 4-10X ROAS Delivered | High-Intent Leads at Scale                  </motion.p>
@@ -142,7 +141,9 @@ const SEMExperts = () => {
                         </li>
                      ))}
                   </ul>
+                  <a href="/contact">
                   <button className="bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-[#FDB813] hover:text-black transition-all shadow-lg">Get a free consultation now</button>
+               </a>
                </motion.div>
             </div>
          </section>
@@ -164,7 +165,9 @@ const SEMExperts = () => {
                         </li>
                      ))}
                   </ul>
+                  <a href="/contact">
                   <button className="bg-[#FDB813] text-black font-bold px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all shadow-lg">Talk to our SEM Expert Now</button>
+              </a>
                </motion.div>
 
                <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
@@ -232,13 +235,7 @@ const SEMExperts = () => {
          </section>
 
          {/* ════ 7. VIDEO BANNER ════ */}
-         <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
-            {/* FIX: Properly closed the href attribute string here! */}
-            <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer" className="relative z-10 w-24 h-24 bg-[#FDB813] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(253,184,19,0.5)]">
-               <Play size={40} className="fill-black text-black ml-2" />
-            </a>
-         </section>
+       
 
          {/* ════ 8. TESTIMONIALS ════ */}
          <TestimonialsSection reviews={reviews} />
