@@ -1,133 +1,179 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Quote, Star, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Play, CheckCircle2, PhoneCall, ChevronDown, ChevronUp
+} from 'lucide-react';
+import { Headphones, Puzzle } from 'lucide-react';
 
-const testimonials = [
-  {
-    name: "Meera Rai",
-    role: "Manager - Aditya Birla Capital",
-    quote: "A digital marketing agency with par excellence! Kudos to this proactive team of professionals who come with innovative, out of the box solutions.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150",
-    color: "bg-indigo-600"
-  },
-  {
-    name: "Pradeep Singhvi",
-    role: "Founder - Houseome",
-    quote: "Our traffic and lead quality have significantly increased. Their efforts contributed to a 40% increase in our sales. Great team to work with.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150",
-    color: "bg-amber-500",
-    featured: true // This card will be slightly taller/offset
-  },
-  {
-    name: "Aman Chowdary",
-    role: "Founder - Luxulo",
-    quote: "5-star service... Best digital marketing company to handle your brand. Great people who guide you at every step and deliver exceptional services!!",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
-    color: "bg-emerald-500"
-  }
+const reviews = [
+  { name: "Rashid Khan", role: "", initials: "RK", text: "One of the standout qualities of Ibraine is their exceptional team of professionals. They are not just experts in their respective fields but also great communicators who take the time to understand your business goals. This personalized approach is evident in every campaign they run." },
+  { name: "Anil Singh Kunwar Singh Aswal", role: "", initials: "AS", text: "Im impressed with the kind of Digital marketing expertize iBraine has delivered. Their ability to scale budgets without killing efficiency is a genuine superpower. Every rupee we give them comes back multiplied. Truly world-class." },
+  { name: "Rohit Patil", role: "", initials: "RP", text: "Our online bookings tripled in 90 days. The Google and Meta campaigns were laser-sharp — right audience, right creative, right moment. Cost per booking dropped by 58%. I wouldn't trust anyone else with our ad budget!" },
+  { name: "Vikram Gargote", role: "", initials: "VG", text: "Switched agencies three times before finding this team. Within 45 days our D2C revenue jumped 2.4x. The level of strategic depth combined with flawless execution is genuinely rare in the market." },
+  { name: "Junaid Makrani", role: "", initials: "JM", text: "From zero to 50,000 monthly active users in 4 months through performance marketing alone. Their Meta funnel architecture and retention retargeting is masterclass-level. ROI we never thought possible." },
+  { name: "Ed Lopez", role: "", initials: "EL", text: "Our cost per purchase dropped 47% in the first month. The creative iterations they run are relentless and data-backed. Every campaign feels custom-built, not templated. Absolute game-changers for e-commerce." },
+  { name: "Yash Lad", role: "", initials: "YL", text: "Real estate leads used to cost us ₹2,400 each. Now we're at ₹380 with 3x better quality. Their Google Search strategy combined with smart landing page testing made all the difference. Exceptional work." },
+  { name: "Kinjal Gohil", role: "", initials: "KG", text: "We launched our D2C health brand with zero digital footprint. Within 90 days we had a 5x ROAS on Meta and a profitable Google Shopping account. The roadmap they built for us is worth its weight in gold." },
+  { name: "Shraddha Somani", role: "", initials: "SS", text: "B2B lead generation through Meta was something we never believed in — until they proved us wrong. 300+ quality leads in 60 days with a CPL 60% below industry average. The results speak louder than any pitch." },
+  { name: "Deepika Joshi", role: "", initials: "DJ", text: "From a struggling furniture brand to a recognised name — all in 6 months. Their full-funnel strategy blending awareness and conversion campaigns is the reason we're now expanding to 3 new cities. Can't recommend enough." },
 ];
 
+const CARD_WIDTH = 340;
+const GAP = 20;
+const VISIBLE = 3;
+const STEP = CARD_WIDTH + GAP;
+
+// Triple the array: real cards sit in the middle clone (index 1)
+// so both prev and next have buffer cards on either side
+const LOOPED = [...reviews, ...reviews, ...reviews];
+const OFFSET = reviews.length; // we start at the middle clone
+
 const TestimonialsSection = () => {
+  const [openFaq, setOpenFaq] = useState(0);
+  const [current, setCurrent] = useState(OFFSET); // start at middle clone
+  const [animated, setAnimated] = useState(true);
+  const timerRef = useRef(null);
+  const isJumping = useRef(false);
+
+  const startAutoPlay = () => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      if (!isJumping.current) {
+        setCurrent(prev => prev + 1);
+      }
+    }, 3000);
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  // When current drifts into the first or third clone, snap silently back to middle
+  useEffect(() => {
+    if (isJumping.current) return;
+
+    // Drifted past the end of the middle clone → snap to equivalent position in middle
+    if (current >= OFFSET + reviews.length) {
+      isJumping.current = true;
+      setTimeout(() => {
+        setAnimated(false);
+        setCurrent(prev => prev - reviews.length);
+        setTimeout(() => {
+          setAnimated(true);
+          isJumping.current = false;
+        }, 50);
+      }, 400); // wait for spring animation to finish
+    }
+
+    // Went before the start of the middle clone → snap forward
+    if (current < OFFSET) {
+      isJumping.current = true;
+      setTimeout(() => {
+        setAnimated(false);
+        setCurrent(prev => prev + reviews.length);
+        setTimeout(() => {
+          setAnimated(true);
+          isJumping.current = false;
+        }, 50);
+      }, 400);
+    }
+  }, [current]);
+
+  const handleManual = (n) => {
+    clearInterval(timerRef.current);
+    setAnimated(true);
+    setCurrent(n);
+    // Resume after 5s pause
+    setTimeout(() => startAutoPlay(), 5000);
+  };
+
+  const dotIndex = ((current - OFFSET) % reviews.length + reviews.length) % reviews.length;
+
   return (
-    <section className="relative w-full py-24 lg:py-40 px-6 bg-[#fafafa] overflow-hidden selection:bg-indigo-100">
-      {/* --- ELITE BACKGROUND DECOR --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[50%] bg-indigo-100/40 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[30%] h-[40%] bg-amber-50/40 rounded-full blur-[100px]" />
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      </div>
+    <main className="w-full bg-white overflow-hidden font-lora text-[#1a1a1a]">
+      {/* ════ 8. TESTIMONIALS ════ */}
+      <section className="py-24 bg-white overflow-hidden">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto px-6 mb-14">
+          <h2 className="font-lora text-4xl lg:text-5xl font-normal text-[#1a162d] leading-tight mb-4">
+            Testimonials That Make Us <em className="text-[#FDB813] not-italic font-lora italic">Blush</em>
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            Hear from brands who stopped burning budgets and started breaking records — all through performance-first marketing.
+          </p>
+        </div>
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-        .font-lora { font-family: 'Lora', serif; }
-        .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
-      `}</style>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* --- SECTION HEADER --- */}
-        <div className="flex flex-col items-center text-center mb-20 lg:mb-32">
+        {/* Slider */}
+        <div className="pl-12 overflow-hidden">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 font-bold text-[10px] tracking-[0.2em] uppercase mb-6"
+            className="flex"
+            style={{ gap: GAP }}
+            animate={{ x: -current * STEP }}
+            transition={animated
+              ? { type: "spring", stiffness: 300, damping: 35 }
+              : { duration: 0 }
+            }
           >
-            <Sparkles size={14} /> Client Stories
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-lora text-4xl md:text-6xl lg:text-7xl font-medium text-slate-900 leading-[1.1] tracking-tight"
-          >
-            Trusted by <span className="italic text-indigo-600">30k+</span> world class <br />
-            companies & design teams
-          </motion.h2>
-        </div>
-
-        {/* --- TESTIMONIALS GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
-          {testimonials.map((item, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.8 }}
-              // Adds a vertical offset to the middle card for an editorial look
-              className={`relative group ${item.featured ? 'lg:mt-12' : ''}`}
-            >
-              <div className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
-                
-                {/* Large Background Quote Icon */}
-                <Quote className="absolute top-8 right-8 w-16 h-16 text-slate-100 -z-10 group-hover:text-indigo-50 transition-colors" />
-
-                {/* Stars */}
-                <div className="flex gap-1 mb-8">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-
-                {/* Quote Text */}
-                <p className="font-lora text-lg md:text-xl text-slate-700 leading-relaxed mb-10 italic">
-                  "{item.quote}"
-                </p>
-
-                {/* Author Info */}
-                <div className="flex items-center gap-4 border-t border-slate-100 pt-8">
-                  <div className="relative">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-14 h-14 rounded-2xl object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                    <div className={`absolute -bottom-1 -right-1 w-4 h-4 ${item.color} rounded-full border-2 border-white shadow-sm`} />
+            {LOOPED.map((r, i) => (
+              <div
+                key={i}
+                style={{ flex: `0 0 ${CARD_WIDTH}px` }}
+                className="bg-[#fcfaf2] rounded-[2rem] border border-[#ede8d4] p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-full bg-[#FDB813] flex items-center justify-content-center text-white font-bold text-sm shrink-0 flex items-center justify-center">
+                      {r.initials}
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#1a162d] text-base leading-tight">{r.name}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-gray-300 mt-0.5">{r.role}</p>
+                    </div>
                   </div>
-                  
-                  <div className="text-left font-jakarta">
-                    <h4 className="text-slate-900 font-bold text-sm tracking-tight">
-                      {item.name.toUpperCase()}
-                    </h4>
-                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mt-0.5">
-                      {item.role}
-                    </p>
-                  </div>
+                  <p className="text-gray-500 text-sm leading-relaxed italic">"{r.text}"</p>
                 </div>
-
+                <div className="mt-5 pt-4 border-t border-black/5">
+                  <span className="text-[#FDB813] tracking-widest text-sm">★★★★★</span>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
 
-        {/* --- BOTTOM DECORATIVE CTA --- */}
-       
+        {/* Controls */}
+        <div className="flex items-center justify-center gap-4 mt-10 px-6">
+          <button
+            onClick={() => handleManual(current - 1)}
+            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
 
-      </div>
-    </section>
+          {/* Dots */}
+          <div className="flex gap-2 items-center">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => handleManual(OFFSET + i)}
+                className={`h-2 rounded-full transition-all duration-300 ${i === dotIndex ? "w-6 bg-[#FDB813]" : "w-2 bg-[#e8e2cc]"}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => handleManual(current + 1)}
+            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
 

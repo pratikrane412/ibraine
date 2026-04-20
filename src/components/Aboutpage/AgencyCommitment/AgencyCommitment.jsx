@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Handshake, Zap, Trophy, Heart, ArrowUpRight, Sparkles } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const commitmentCards = [
   {
@@ -29,10 +30,11 @@ const commitmentCards = [
   }
 ];
 
+
 const AgencyCommitment = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef(null);
-
+  const navigate = useNavigate();
   // 1. AUTO-SCROLL LOGIC (3 Seconds) - Only active on Mobile
   useEffect(() => {
     const interval = setInterval(() => {
@@ -97,7 +99,7 @@ const AgencyCommitment = () => {
             <p className="font-jakarta text-slate-500 text-lg md:text-xl leading-relaxed max-w-xl mb-12">
               We don't just execute campaigns; we act as an extension of your team. Our foundation is built on absolute trust and strategies that actually move the needle.
             </p>
-            <button className="relative group overflow-hidden bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-sm tracking-tight flex items-center gap-3 w-fit shadow-2xl transition-all">
+            <button onClick={() => navigate("/contact")} className="relative group overflow-hidden bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-sm tracking-tight flex items-center gap-3 w-fit shadow-2xl transition-all">
               <span className="relative z-10">Learn our process</span>
               <ArrowUpRight size={20} className="relative z-10 text-indigo-300" />
               <div className="absolute inset-0 bg-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
@@ -107,14 +109,14 @@ const AgencyCommitment = () => {
 
         {/* ════ RIGHT SIDE: CAROUSEL ON MOBILE / STACK ON DESKTOP ════ */}
         <div className="w-full lg:w-[52%]">
-          <div 
+          <div
             ref={scrollRef}
             onScroll={handleScroll}
             className="flex lg:flex-col overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory gap-6 md:gap-12 pb-10 lg:pb-20"
           >
             {commitmentCards.map((card, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="min-w-full lg:min-w-0 snap-center px-1 lg:px-0"
               >
                 <motion.div
@@ -155,8 +157,8 @@ const AgencyCommitment = () => {
           {/* MOBILE ONLY INDICATORS (DOTS) */}
           <div className="flex justify-center gap-3 lg:hidden mt-2">
             {commitmentCards.map((_, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 bg-indigo-600' : 'w-2 bg-slate-300'}`}
               />
             ))}

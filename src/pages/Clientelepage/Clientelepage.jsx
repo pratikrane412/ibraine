@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, ArrowRight, Star, Users, TrendingUp, Award } from 'lucide-react';
+import TestimonialsSection from '../../components/TestimonialsSection/TestimonialsSection';
 
 /* ─── DATA ─────────────────────────────────────────────────── */
 const CLIENT_DATA = [
@@ -203,54 +204,7 @@ const ClienteleGrid = () => {
   );
 };
 
-/* ══════════════════════════════════════════════════════════════
-   3. TESTIMONIAL STRIP
-══════════════════════════════════════════════════════════════ */
-const testimonials = [
-  { quote: "Brandwitty didn't just run our ads — they rebuilt our entire growth engine.", name: "Aman Chowdary", role: "Founder, Luxulo" },
-  { quote: "CPL dropped 80% in 6 weeks. These guys are the real deal.", name: "Salman Khan", role: "Business Head, RewardPort" },
-  { quote: "Our online bookings tripled. I wouldn't trust anyone else with our budget.", name: "Rahul Pandey", role: "Founder, Synk Salon" }
-];
 
-const TestimonialStrip = () => (
-  <section className="bg-[#f8fafc] py-16 sm:py-20 px-4 sm:px-6 border-y border-gray-100">
-    <div className="max-w-7xl mx-auto">
-      <motion.p
-        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-8 sm:mb-12"
-      >
-        Client Love
-      </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.5 }} viewport={{ once: true }}
-            className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 relative overflow-hidden group"
-          >
-            {/* giant quote mark */}
-            <div className="absolute -top-2 -left-1 text-[80px] leading-none text-[#FDB813]/10 font-serif select-none transition-colors group-hover:text-[#FDB813]/20">"</div>
-            <p className="font-lora text-gray-700 text-sm sm:text-[15px] leading-relaxed italic mb-6 relative z-10">"{t.quote}"</p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1d4ed8] to-[#7c3aed] flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-inner">
-                {t.name.charAt(0)}
-              </div>
-              <div>
-                <p className="font-bold text-[#0f172a] text-sm">{t.name}</p>
-                <p className="text-gray-500 text-xs">{t.role}</p>
-              </div>
-            </div>
-            {/* star row */}
-            <div className="flex gap-0.5 mt-4">
-              {"★★★★★".split("").map((s, idx) => <span key={idx} className="text-[#FDB813] text-xs sm:text-sm">{s}</span>)}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 /* ══════════════════════════════════════════════════════════════
    4. CTA
@@ -346,7 +300,7 @@ const ClientelePage = () => (
   <main className="w-full bg-white overflow-hidden text-[#1a1a1a]">
     <ClienteleHero />
     <ClienteleGrid />
-    <TestimonialStrip />
+    <TestimonialsSection/>
     <ClienteleCTA />
   </main>
 );

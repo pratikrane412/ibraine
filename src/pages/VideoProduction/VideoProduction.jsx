@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { Headphones } from 'lucide-react';
 import ContactSection from '../../components/ContactSection/ContactSection';
+import TestimonialsSection from '../../components/TestimonialsSection/TestimonialsSection';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -299,89 +300,7 @@ const VideoProduction = () => {
             </section>
 
             {/* ════ 8. TESTIMONIALS ════ */}
-            <section className="py-24 px-6 bg-white text-black">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16 text-center max-w-3xl mx-auto">
-                        <h2 className="font-lora text-4xl lg:text-5xl mb-6 leading-tight">
-                            Testimonials That Make Us <span className="italic text-[#e8c84a]">Blush</span>
-                        </h2>
-                        <p className="text-gray-500 text-lg leading-relaxed">
-                            Hear from brands that elevated their presence and performance through strategic video content.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Slider */}
-                <div className="pl-12 overflow-hidden">
-                    <motion.div
-                        className="flex"
-                        style={{ gap: GAP }}
-                        animate={{ x: -current * STEP }}
-                        transition={{ type: "spring", stiffness: 300, damping: 35 }}
-                    >
-                        {reviews.map((r, i) => (
-                            <div
-                                key={i}
-                                style={{ flex: `0 0 ${CARD_WIDTH}px` }}
-                                className="bg-[#fcfaf2] rounded-[2rem] border border-[#ede8d4] p-8 flex flex-col justify-between"
-                            >
-                                <div>
-                                    {/* Avatar + Name */}
-                                    <div className="flex items-center gap-3 mb-5">
-                                        <div className="w-12 h-12 rounded-full bg-[#FDB813] flex items-center justify-content-center text-white font-bold text-sm shrink-0 flex items-center justify-center">
-                                            {r.initials}
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-[#1a162d] text-base leading-tight">{r.name}</p>
-                                            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-300 mt-0.5">{r.role}</p>
-                                        </div>
-                                    </div>
-                                    {/* Quote */}
-                                    <p className="text-gray-500 text-sm leading-relaxed italic">"{r.text}"</p>
-                                </div>
-                                {/* Stars */}
-                                <div className="mt-5 pt-4 border-t border-black/5">
-                                    <span className="text-[#FDB813] tracking-widest text-sm">★★★★★</span>
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-
-                {/* Controls */}
-                <div className="flex items-center justify-center gap-4 mt-10 px-6">
-                    <button
-                        onClick={() => go(current - 1)}
-                        disabled={current === 0}
-                        className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group disabled:opacity-30 disabled:cursor-not-allowed"
-                    >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
-                            <polyline points="15 18 9 12 15 6" />
-                        </svg>
-                    </button>
-
-                    {/* Dots */}
-                    <div className="flex gap-2 items-center">
-                        {Array.from({ length: MAX + 1 }).map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => go(i)}
-                                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-[#FDB813]" : "w-2 bg-[#e8e2cc]"}`}
-                            />
-                        ))}
-                    </div>
-
-                    <button
-                        onClick={() => go(current + 1)}
-                        disabled={current === MAX}
-                        className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group disabled:opacity-30 disabled:cursor-not-allowed"
-                    >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
-                            <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                    </button>
-                </div>
-            </section>
+            <TestimonialsSection reviews={reviews} />
 
             {/* ════ 9. MINI CTA ════ */}
             <section className="py-20 px-6 bg-slate-50 text-center border-t border-gray-200">

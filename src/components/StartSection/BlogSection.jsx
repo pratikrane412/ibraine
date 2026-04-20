@@ -139,6 +139,7 @@ const BlogSection = () => {
       <div className="absolute -bottom-10 right-0 text-[15vw] font-black text-slate-200/20 pointer-events-none select-none uppercase tracking-tighter leading-none font-jakarta">
         Blog
       </div>
+  
     </section>
   );
 };

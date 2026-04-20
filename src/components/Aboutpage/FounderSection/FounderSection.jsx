@@ -89,7 +89,7 @@ const FounderSection = () => {
             {/* The Main Image Frame */}
             <div className="aspect-[4/5] w-full min-w-[280px] max-w-[450px] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] bg-zinc-100 border-[10px] border-white">
               <img
-                src="/images/Founder_img.png"
+                src="/images/Harsh-Ibraine.png"
                 alt="Founder"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />

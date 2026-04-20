@@ -30,14 +30,19 @@ const Navbar = () => {
         <nav className="flex items-center justify-between h-20 md:h-22">
 
           {/* LOGO */}
-          <Link to="/home" className="flex-shrink-0 z-[1001]">
+          <Link to="/" className="flex-shrink-0 z-[1001]">
             <img src="/images/logo.png" alt="iBraine" className="h-10 md:h-12 w-auto" />
           </Link>
 
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-8">
-            {['Home', 'About'].map((item) => (
-              <Link key={item} to={`/${item.toLowerCase()}`} className="text-[15px] font-bold text-slate-800 hover:text-[#ffb400] transition-colors">{item}</Link>
+            {[
+              { label: 'Home', to: '/' },
+              { label: 'About', to: '/about' },
+            ].map((item) => (
+              <Link key={item.label} to={item.to} className="text-[15px] font-bold text-slate-800 hover:text-[#ffb400] transition-colors">
+                {item.label}
+              </Link>
             ))}
 
             {/* SERVICES WITH DROPDOWN */}
@@ -91,7 +96,7 @@ const Navbar = () => {
             className="fixed inset-0 z-[1000] bg-white lg:hidden flex flex-col h-screen overflow-y-auto pt-24 px-8 pb-10"
           >
             <div className="flex flex-col space-y-6">
-              <Link to="/home" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold">Home</Link>
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold">Home</Link>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-bold">About</Link>
 
               <div>

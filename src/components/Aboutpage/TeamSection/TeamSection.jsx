@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Twitter, Dribbble, Linkedin, Sparkles, ArrowUpRight } from 'lucide-react';
 
 const teamMembers = [
+  {
+    name: 'Zahid Shaikh',
+    role: 'SEO Head',
+    image: '/images/Zahid.webp',
+    bio: 'Zahid is the visionary behind our agency, with a decade of experience in crafting innovative digital strategies that drive growth and engagement.'
+  },
   { 
     name: 'Dashmeet', 
     role: 'Social Media Manager', 
@@ -17,9 +23,9 @@ const teamMembers = [
   },
   { 
     name: 'Rasika Karjavkar', 
-    role: 'Social Media Executive', 
+    role: 'Content Writing Head', 
     image: '/images/Rasmikaa.png', 
-    bio: 'A creative force behind trending content, Rasmika specializes in high-engagement visual storytelling and platform-specific trends.' 
+    bio: 'A creative force behind trending content, Rasika specializes in high-engagement visual storytelling and platform-specific trends.' 
   },
   { 
     name: 'Avantika', 
@@ -29,13 +35,13 @@ const teamMembers = [
   },
   { 
     name: 'Pratik Rane', 
-    role: 'Backend Developer', 
+    role: 'App developer', 
     image: '/images/PrakitRane.png', 
     bio: 'Pratik focuses on building robust systems and seamless integrations that power our modern digital solutions.' 
   },
   { 
     name: 'Nishi More', 
-    role: 'Social Media Executive', 
+    role: 'Senior Video Editor', 
     image: '/images/Nishi.png', 
     bio: 'Nishi excels at data-driven marketing, ensuring every campaign is optimized for maximum ROI and visibility.' 
   },
