@@ -15,11 +15,11 @@ const BLOGS = [
         title: "The Ultimate Guide to Performance Marketing in 2025",
         subtitle: "Everything you need to know about running campaigns that pay for themselves",
         excerpt: "Performance marketing has evolved dramatically. In 2025, brands that win aren't just running ads — they're building full-funnel systems that turn every rupee into predictable, scalable revenue.",
-        author: "Sneha Sharma",
+        author: "Rasika Karjavkar",
         authorRole: "Head of Performance",
         date: "April 12, 2025",
         readTime: "8 min read",
-        cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80",
+        cover: "/images/blog1_converted.png",
         accentColor: "#FDB813",
         content: [
             {
@@ -98,11 +98,11 @@ const BLOGS = [
         title: "7 Meta Ads Strategies That Consistently Deliver 5x+ ROAS",
         subtitle: "The playbook our team uses every day to scale paid social campaigns profitably",
         excerpt: "Getting a 5x return on Meta Ads isn't luck — it's a repeatable system. Here are the exact strategies our team uses to consistently hit and exceed ROAS targets for our clients.",
-        author: "Puja Mehta",
+        author: "Rasika Karjavkar",
         authorRole: "Paid Social Lead",
         date: "March 28, 2025",
         readTime: "6 min read",
-        cover: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&auto=format&fit=crop&q=80",
+        cover: "/images/blog2_converted.png",
         accentColor: "#3b82f6",
         content: [
             {
@@ -189,11 +189,11 @@ const BLOGS = [
         title: "SEO vs. SEM in 2025: Which One Does Your Business Actually Need?",
         subtitle: "Stop guessing — here's a clear framework to decide where your marketing budget should go",
         excerpt: "One takes months to show results. The other works overnight but costs money every day. SEO and SEM both have a place — but knowing which to prioritize (and when) can make or break your digital marketing strategy.",
-        author: "Arjun Nair",
+        author: "Rasika Karjavkar",
         authorRole: "SEO Strategist",
         date: "March 10, 2025",
         readTime: "7 min read",
-        cover: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&auto=format&fit=crop&q=80",
+        cover: "/images/blog3_converted.png",
         accentColor: "#10b981",
         content: [
             {
@@ -275,11 +275,11 @@ const BLOGS = [
         title: "How Content Marketing Generates Leads While You Sleep",
         subtitle: "Build a content engine that attracts, educates, and converts — on autopilot",
         excerpt: "The best marketing doesn't feel like marketing. Content that genuinely helps your target audience builds trust, establishes authority, and generates a steady stream of inbound leads — often with a fraction of the cost of paid ads.",
-        author: "Neha Kapoor",
+        author: "Rasika Karjavkar",
         authorRole: "Content Strategist",
         date: "February 22, 2025",
         readTime: "9 min read",
-        cover: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&auto=format&fit=crop&q=80",
+        cover: "/images/blog4_converted.png",
         accentColor: "#f43f5e",
         content: [
             {
