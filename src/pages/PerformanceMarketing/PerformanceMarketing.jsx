@@ -323,14 +323,14 @@ const PerformanceMarketing = () => {
          </section>
 
          {/* ════ 7. VIDEO BANNER ════ */}
-         <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
+         {/* <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
             <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&auto=format&fit=crop&q=80')" }}></div>
             <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer"
                className="relative z-10 w-24 h-24 bg-[#FDB813] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(253,184,19,0.5)]">
                <Play size={40} className="fill-black text-black ml-2" />
             </a>
-         </section>
+         </section> */}
 
          {/* ════ 8. TESTIMONIALS ════ */}
          <section className="py-24 px-6 bg-white text-black">

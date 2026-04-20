@@ -199,12 +199,7 @@ const ContentWriting = () => {
             </section>
 
             {/* ════ 7. VIDEO BANNER ════ */}
-            <section className="h-[400px] w-full relative flex items-center justify-center bg-gray-900">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
-                <a href="https://www.youtube.com/watch?v=zfMHTO__b6M" target="_blank" rel="noreferrer" className="relative z-10 w-24 h-24 bg-[#6366f1] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_30px_rgba(99,102,241,0.5)]">
-                    <Play size={40} className="fill-white text-white ml-2" />
-                </a>
-            </section>
+           
 
             {/* ════ 8. TESTIMONIALS ════ */}
             <section className="py-24 px-6 bg-white text-black">
