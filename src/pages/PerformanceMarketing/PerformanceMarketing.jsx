@@ -78,10 +78,10 @@ const PerformanceMarketing = () => {
          {/* ════ 1. HERO SECTION ════ */}
          <section className="relative bg-[#fcfaf2] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
             <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}
-               src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp"
+               src="/images/bg1.webp"
                className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-50" />
             <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }}
-               src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp"
+               src="/images/bg2.webp"
                className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-50" />
 
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
@@ -246,7 +246,7 @@ const PerformanceMarketing = () => {
 
                   {/* Main: data analytics and revenue charts */}
                   <img
-                     src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=800&auto=format&fit=crop&q=80"
+                     src="/images/performance.png"
                      className="absolute top-0 right-0 w-[90%] h-[72%] object-cover z-10 rounded-2xl shadow-xl"
                      alt="Performance Data Analytics" />
 

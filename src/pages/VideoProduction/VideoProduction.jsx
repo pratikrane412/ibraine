@@ -101,22 +101,22 @@ const VideoProduction = () => {
                     <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
                         className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
                         <img
-                            src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=700&auto=format&fit=crop"
+                            src="/images/video1_converted.png"
                             className="absolute right-0 top-0 w-[85%] object-cover z-10 rounded-2xl shadow-2xl"
                             alt="Video Production Studio"
                         />
                         <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?w=400&auto=format&fit=crop"
+                            src="/images/video2_converted.png"
                             className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl object-cover"
                             alt="Camera Setup"
                         />
                         <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&auto=format&fit=crop"
+                            src="/images/video3_converted.jpg"
                             className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl object-cover"
                             alt="Video Editing"
                         />
                         <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1536240478700-b869ad10e128?w=300&auto=format&fit=crop"
+                            src="/images/video4_converted.png"
                             className="absolute right-[-5%] bottom-[5%] w-[40%] z-20 rounded-xl shadow-2xl object-cover"
                             alt="Director Clapperboard"
                         />
@@ -152,12 +152,12 @@ const VideoProduction = () => {
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                         className="lg:w-1/2 relative h-[500px] w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=700&auto=format&fit=crop"
+                            src="/images/video5_converted.png"
                             className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10 object-cover h-[380px]"
                             alt="Film Crew"
                         />
                         <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1567443024551-f3e3cc2be870?w=500&auto=format&fit=crop"
+                            src="/images/video6_converted.png"
                             className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl object-cover h-[300px]"
                             alt="Cinematic Lighting"
                         />
@@ -201,12 +201,12 @@ const VideoProduction = () => {
                     <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                         className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=700&auto=format&fit=crop"
+                            src="/images/video7_converted.png"
                             className="absolute top-0 right-0 w-[90%] z-10 rounded-2xl shadow-xl object-cover h-[400px]"
                             alt="Video Analytics"
                         />
                         <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&auto=format&fit=crop"
+                            src="/images/video8_converted.png"
                             className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white object-cover h-[220px]"
                             alt="Video Performance Stats"
                         />
@@ -220,17 +220,17 @@ const VideoProduction = () => {
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                         className="lg:w-1/2 relative h-[600px] w-full">
                         <img
-                            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&auto=format&fit=crop"
+                            src="/images/video9_converted.png"
                             className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl object-cover h-[350px]"
                             alt="Film Production"
                         />
                         <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=500&auto=format&fit=crop"
+                            src="/images/video10_converted.png"
                             className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl object-cover h-[260px]"
                             alt="Behind the Scenes"
                         />
                         <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }}
-                            src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600&auto=format&fit=crop"
+                            src="/images/video11_converted.png"
                             className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl object-cover h-[180px]"
                             alt="Video Editing Suite"
                         />

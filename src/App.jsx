@@ -25,6 +25,7 @@ import VideoProduction from './pages/VideoProduction/VideoProduction';
 import Clientelepage from './pages/Clientelepage/Clientelepage'
 import CaseStudiespage from './pages/CaseStudiespage/CaseStudiespage';
 import Contactpage from "./pages/Contactpage/Contactpage";
+import BlogPage from './pages/BlogPage/BlogPage';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/clientele" element={<Clientelepage />} />
         <Route path="/case-studies" element={<CaseStudiespage />} />
         <Route path="/contact" element={<Contactpage />} />
+        <Route path="/blog" element={<BlogPage />} />
       </Routes>
 
       <Footer />

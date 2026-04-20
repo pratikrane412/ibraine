@@ -65,14 +65,14 @@ const IMG = {
 
 // Brand logos via Clearbit (highly reliable public CDN)
 const LOGOS = [
-    { src: "https://cdn.simpleicons.org/google", name: "Google" },
-    { src: "https://cdn.simpleicons.org/meta", name: "Meta" },
-    { src: "https://cdn.simpleicons.org/shopify", name: "Shopify" },
-    { src: "https://cdn.simpleicons.org/hubspot", name: "HubSpot" },
-    { src: "https://cdn.simpleicons.org/salesforce", name: "Salesforce" },
-    { src: "https://cdn.simpleicons.org/mailchimp", name: "Mailchimp" },
-    { src: "https://cdn.simpleicons.org/stripe", name: "Stripe" },
-    { src: "https://cdn.simpleicons.org/zendesk", name: "Zendesk" },
+    { src: "/images/google.svg", name: "Google" },
+    { src: "/images/meta.svg", name: "Meta" },
+    { src: "/images/shopify.svg", name: "Shopify" },
+    { src: "/images/hubspot.svg", name: "HubSpot" },
+    { src: "/images/salesforce.svg", name: "Salesforce" },
+    { src: "/images/mailchimp.svg", name: "Mailchimp" },
+    { src: "/images/stripe.svg", name: "Stripe" },
+    { src: "/images/zendesk.svg", name: "Zendesk" },
 ];
 
 const GTMIntegration = () => {
@@ -164,7 +164,7 @@ const GTMIntegration = () => {
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Trusted by Brands That Rely on Clean, Actionable Data</h2>
                     <p className="text-gray-500 mb-12 text-lg">From growing startups to performance-driven businesses, we’ve helped brands build reliable tracking systems that power smarter marketing decisions and measurable growth.</p>
-                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 transition-all duration-500">
                         {LOGOS.map((logo, i) => (
                             <img key={i} src={logo.src} alt={logo.name}
                                 className="w-12 h-12 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform"

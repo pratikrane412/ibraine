@@ -63,8 +63,8 @@ const ContentWriting = () => {
 
             {/* ════ 1. HERO SECTION ════ */}
             <section className="relative bg-[#f0f4ff] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
-                <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp" className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-50" />
-                <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp" className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-50" />
+                <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} src="/images/bg1.webp" className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-50" />
+                <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} src="/images/bg2.webp" className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-50" />
 
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
                     <div className="lg:w-1/2">
@@ -95,10 +95,10 @@ const ContentWriting = () => {
                     </div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full mt-10 lg:mt-0">
-                        <img src="https://img.freepik.com/free-vector/content-writer-concept-illustration_114360-4215.jpg" className="absolute right-0 top-0 w-[85%] object-contain z-10" alt="Content Writing Hero" />
-                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/19.png" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
-                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/images.png" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
-                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Return-on-Investment-1-1.png" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
+                        <img src="/images/case4.png" className="absolute right-0 top-0 w-[85%] object-contain z-10" alt="Content Writing Hero" />
+                        <motion.img animate={{ y: [-10, 10, -10] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web2_converted.webp" className="absolute left-[-10%] top-[20%] w-[60%] z-20 shadow-2xl rounded-xl" alt="Stats" />
+                        <motion.img animate={{ y: [10, -10, 10] }} transition={{ duration: 5, repeat: Infinity }} src="/images/web4_converted.webp" className="absolute left-[10%] bottom-[10%] w-[45%] z-30 shadow-2xl rounded-xl" alt="Graph" />
+                        <motion.img animate={{ scale: [0.95, 1.05, 0.95] }} transition={{ duration: 6, repeat: Infinity }} src="/images/web3_converted.webp" className="absolute right-[-5%] bottom-[5%] w-[40%] z-20" alt="ROI" />
                     </motion.div>
                 </div>
             </section>
@@ -129,8 +129,8 @@ const ContentWriting = () => {
             <section className="py-24 px-6 bg-slate-50">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] w-full">
-                        <img src="https://img.freepik.com/free-vector/blog-post-concept-illustration_114360-687.jpg" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Content Writing" />
-                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Home-5-SEO-Audit-Image.png" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="SEO Audit" />
+                        <img src="/images/case5.png" className="absolute bottom-0 left-0 w-[80%] rounded-2xl shadow-xl z-10" alt="Content Writing" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/case6.webp" className="absolute top-0 right-0 w-[65%] z-20 rounded-2xl shadow-2xl" alt="SEO Audit" />
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">
@@ -169,8 +169,8 @@ const ContentWriting = () => {
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[500px] lg:h-[600px] w-full">
-                        <img src="https://img.freepik.com/free-vector/content-marketing-concept-illustration_114360-2457.jpg" className="absolute top-0 right-0 w-[90%] z-10" alt="Content Marketing" />
-                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats.svg" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
+                        <img src="/images/case3.png" className="absolute top-0 right-0 w-[90%] z-10" alt="Content Marketing" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 5, repeat: Infinity }} src="/images/web8_converted.png" className="absolute bottom-10 left-[-5%] w-[60%] z-20 shadow-2xl rounded-xl bg-white" alt="Stats Tool" />
                     </motion.div>
                 </div>
             </section>
@@ -179,9 +179,9 @@ const ContentWriting = () => {
             <section className="py-24 px-6 bg-[#f0f4ff]">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2 relative h-[600px] w-full">
-                        <img src="https://img.freepik.com/free-vector/copywriter-concept-illustration_114360-7009.jpg" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Copywriter" />
-                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/case-1.png" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Case" />
-                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="https://brandwitty.com/media/2023/08/Stats2.svg" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
+                        <img src="/images/case2.png" className="absolute top-0 left-0 w-[70%] z-10 rounded-2xl shadow-xl" alt="Copywriter" />
+                        <motion.img animate={{ y: [-15, 15, -15] }} transition={{ duration: 6, repeat: Infinity }} src="/images/case1.webp" className="absolute top-[20%] right-[-5%] w-[60%] z-20 rounded-2xl shadow-2xl" alt="Case" />
+                        <motion.img animate={{ y: [15, -15, 15] }} transition={{ duration: 4, repeat: Infinity }} src="/images/web11_converted.png" className="absolute bottom-0 left-[10%] w-[70%] z-30 shadow-2xl bg-white rounded-2xl" alt="Stats2" />
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:w-1/2">

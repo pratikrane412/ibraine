@@ -66,7 +66,7 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {['Clientele', 'Case Studies', 'Contact'].map((item) => (
+            {['Clientele', 'Blog', 'Contact'].map((item) => (
               <Link key={item} to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-[15px] font-bold text-slate-800 hover:text-[#ffb400] transition-colors">{item}</Link>
             ))}
 

@@ -43,14 +43,14 @@ const SEOServicesGrid = () => {
                 <motion.img
                     animate={{ y: [0, -15, 0], rotate: [15, 20, 15] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    src="https://brandwitty.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
+                    src="https://ibraine.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
                     className="absolute top-10 right-[-30px] w-64 md:w-80 opacity-100 hidden lg:block"
                 />
                 {/* Blue Puzzle - Replicated with CSS filter */}
                 <motion.img
                     animate={{ y: [0, 20, 0], rotate: [-15, -20, -15] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    src="https://brandwitty.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
+                    src="https://ibraine.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
                     className="absolute bottom-[-50px] left-[-50px] w-56 md:w-64 opacity-100 hidden lg:block hue-rotate-[200deg]"
                 />
 

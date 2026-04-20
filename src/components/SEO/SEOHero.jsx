@@ -24,7 +24,7 @@ const SEOHero = () => (
             {/* Main Hero Image Asset */}
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1 }} className="mt-20">
                 <img
-                    src="https://brandwitty.com/media/2023/07/SEO-Agency-Hero-Image--1536x823.webp"
+                    src="https://ibraine.com/media/2023/07/SEO-Agency-Hero-Image--1536x823.webp"
                     className="w-full h-auto max-w-6xl mx-auto drop-shadow-2xl"
                     alt="SEO Dashboard"
                 />

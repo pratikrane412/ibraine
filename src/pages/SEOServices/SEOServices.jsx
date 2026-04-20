@@ -73,10 +73,10 @@ const SEOExperts = () => {
          {/* ════ 1. HERO SECTION ════ */}
          <section className="relative bg-[#f0f7f4] pt-32 pb-24 px-6 min-h-[90vh] flex flex-col justify-center">
             <motion.img animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}
-               src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp"
+               src="/images/bg1.webp"
                className="absolute top-32 left-[5%] w-16 hidden lg:block opacity-40" />
             <motion.img animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }}
-               src="https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp"
+               src="/images/bg2.webp"
                className="absolute bottom-20 left-[45%] w-12 hidden lg:block opacity-40" />
 
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">

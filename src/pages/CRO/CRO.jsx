@@ -35,8 +35,8 @@ const IMG = {
     heroROI: "/images/cro4_converted.png",  // ROI growth
 
     // Floating decoration shapes (keep original)
-    shape1: "https://brandwitty.com/media/2023/07/digital-ads-software-shape-1.webp",
-    shape2: "https://brandwitty.com/media/2023/07/digital-ads-software-shape-2.webp",
+    shape1: "/images/bg1.webp",
+    shape2: "/images/bg2.webp",
 
     // Section 3 — Maximize conversions
     sec3Bottom: "/images/cro5_converted.png", // person at dashboard
@@ -52,7 +52,7 @@ const IMG = {
     sec5BotLeft: "/images/cro11_converted.png",  // conversion graph
 
     // Video banner background
-    videoBg: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=80",
+    videoBg: "/images/crogg.png",
 };
 
 const CROOptimization = () => {
@@ -199,7 +199,7 @@ const CROOptimization = () => {
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="font-lora text-3xl md:text-4xl font-bold mb-4">Trusted by Brands Focused on Performance, Not Just Traffic</h2>
                     <p className="text-gray-500 mb-12 text-lg">Across industries, we’ve helped businesses unlock more value from their existing traffic through structured testing, behavioural insights, and conversion-focused experiences.</p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 transition-all duration-500">
                         {brandLogos.map((logo, index) => (
                             <div
                                 key={index}
@@ -440,7 +440,7 @@ const CROOptimization = () => {
                         <p className="text-gray-500 text-lg leading-relaxed">
                             Hear from brands that increased conversions and unlocked more revenue through a smarter optimisation approach.                        </p>
                     </div>
-                    </div>
+                </div>
 
                 {/* Slider */}
                 <div className="pl-12 overflow-hidden">

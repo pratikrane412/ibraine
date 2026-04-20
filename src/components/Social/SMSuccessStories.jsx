@@ -11,7 +11,7 @@ const SMSuccessStories = () => {
     const stories = [
         {
             t: "TripXOXO: Scalable Engagement Boost",
-            i: "https://brandwitty.com/media/2020/03/blog5-1-650x393.jpg",
+            i: "https://ibraine.com/media/2020/03/blog5-1-650x393.jpg",
             cat: "Travel & Leisure",
             metric: "+320% Reach",
             desc: "Transforming a static travel profile into a high-velocity community engine.",
@@ -21,7 +21,7 @@ const SMSuccessStories = () => {
         },
         {
             t: "Luxulo: Elite Social Branding",
-            i: "https://brandwitty.com/media/2020/03/blog6-1-650x393.jpg",
+            i: "https://ibraine.com/media/2020/03/blog6-1-650x393.jpg",
             cat: "Luxury Retail",
             metric: "8.2x ROAS",
             desc: "Establishing India's premier fashion presence with premium visual aesthetics.",
@@ -31,7 +31,7 @@ const SMSuccessStories = () => {
         },
         {
             t: "SaaS Ecosystems: Viral Lead Gen",
-            i: "https://brandwitty.com/media/2022/09/businessman-working-with-digital-finance-business-graph-perceptive-technology_31965-90360-650x289.jpg",
+            i: "https://ibraine.com/media/2022/09/businessman-working-with-digital-finance-business-graph-perceptive-technology_31965-90360-650x289.jpg",
             cat: "B2B Tech",
             metric: "12k+ Leads",
             desc: "Leveraging algorithmic patterns to scale B2B authority and generate traffic.",
@@ -54,7 +54,7 @@ const SMSuccessStories = () => {
                 {/* Parallax Asset - Bottom Right */}
                 <motion.img
                     style={{ y: puzzleY, rotate: -20 }}
-                    src="https://brandwitty.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
+                    src="https://ibraine.com/media/2023/07/SEO-Agency-Shape-2-300x294.webp"
                     className="absolute bottom-[-10%] right-[-5%] w-72 md:w-[500px] opacity-20 hue-rotate-[200deg] brightness-125 grayscale-[0.5]"
                 />
 

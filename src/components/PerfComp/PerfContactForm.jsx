@@ -4,7 +4,7 @@ import { FiArrowRight } from 'react-icons/fi';
 const PerfContactForm = () => (
     <section className="py-32 px-6 bg-[#fafafa] relative overflow-hidden relative z-10">
         {/* Image 5: Background Graphic */}
-        <img src="https://brandwitty.com/media/2023/07/dcdc70.png" className="absolute bottom-[-10%] left-[-5%] w-[450px] opacity-[0.03] pointer-events-none grayscale" alt="" />
+        <img src="https://ibraine.com/media/2023/07/dcdc70.png" className="absolute bottom-[-10%] left-[-5%] w-[450px] opacity-[0.03] pointer-events-none grayscale" alt="" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div>

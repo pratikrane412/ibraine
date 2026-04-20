@@ -7,17 +7,17 @@ const SEOIntroSection = () => {
         {
             title: "Sustainable Growth",
             desc: "Our SEO services ensures long-term results, driving steady organic traffic for MSMEs and startups without continuous ad spending.",
-            icon: "https://brandwitty.com/media/2023/08/growth.png"
+            icon: "https://ibraine.com/media/2023/08/growth.png"
         },
         {
             title: "Boosted Brand Visibility",
             desc: "Enhance brand credibility with top search engine rankings, making your startup more trustworthy and authoritative.",
-            icon: "https://brandwitty.com/media/2023/08/performance-boost.png"
+            icon: "https://ibraine.com/media/2023/08/performance-boost.png"
         },
         {
             title: "Cost-Effective Marketing",
             desc: "SEO offers a budget-friendly digital marketing option, providing higher ROI and better conversions than traditional methods.",
-            icon: "https://brandwitty.com/media/2023/08/market-share.png"
+            icon: "https://ibraine.com/media/2023/08/market-share.png"
         }
     ];
 

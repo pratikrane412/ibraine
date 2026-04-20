@@ -81,7 +81,7 @@ const SMGreatBrands = () => {
                     >
                         {/* Provided Image 3 (Megaphone Image) */}
                         <div className="rounded-[3rem] overflow-hidden border-8 border-white shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] relative z-10">
-                            <img src="https://brandwitty.com/media/2023/09/leverage-social-media-6-1-e1694546240101-768x866.png" className="w-full h-auto" alt="Social Growth" />
+                            <img src="https://ibraine.com/media/2023/09/leverage-social-media-6-1-e1694546240101-768x866.png" className="w-full h-auto" alt="Social Growth" />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0072BC]/20 to-transparent" />
                         </div>
 

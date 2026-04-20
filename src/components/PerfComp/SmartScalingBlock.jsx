@@ -21,7 +21,7 @@ const SmartScalingBlock = () => {
                     <div className="absolute inset-0 pointer-events-none opacity-10">
                         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:40px_40px]" />
                         <img
-                            src="https://brandwitty.com/media/2023/08/Mails-Marketing-Image-439x650.webp"
+                            src="https://ibraine.com/media/2023/08/Mails-Marketing-Image-439x650.webp"
                             className="absolute right-0 top-0 w-full h-full object-cover grayscale brightness-200 mix-blend-overlay"
                             alt=""
                         />

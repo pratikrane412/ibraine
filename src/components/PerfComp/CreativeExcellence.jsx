@@ -49,7 +49,7 @@ const CreativeExcellence = () => {
                         className="relative z-10 w-full max-w-md drop-shadow-[0_50px_80px_rgba(0,0,0,0.12)]"
                     >
                         <img
-                            src="https://brandwitty.com/media/2023/08/website-hand-1.png"
+                            src="https://ibraine.com/media/2023/08/website-hand-1.png"
                             className="w-full h-auto transform lg:rotate-[-2deg]"
                             alt="Marketing Excellence Mockup"
                         />

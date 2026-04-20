@@ -25,7 +25,7 @@ const PerfHero = () => {
                 <motion.img
                     animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-                    src="https://brandwitty.com/media/2023/07/SEO-Agency-Shape-1-1-300x296.webp"
+                    src="https://ibraine.com/media/2023/07/SEO-Agency-Shape-1-1-300x296.webp"
                     className="absolute top-24 right-[8%] w-44 opacity-20 hidden lg:block grayscale blur-[0.5px]"
                 />
             </div>

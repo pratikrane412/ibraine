@@ -5,7 +5,7 @@ const SMWhyImportant = () => (
     <section className="py-32 px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl aspect-square">
-                <img src="https://brandwitty.com/media/2023/09/why-is-social-media-important.jpg" className="w-full h-full object-cover" />
+                <img src="https://ibraine.com/media/2023/09/why-is-social-media-important.jpg" className="w-full h-full object-cover" />
             </div>
             <div className="pt-10">
                 <h2 className="text-4xl md:text-6xl leading-[1] mb-10 tracking-tight">Why social media is <br /> <span className="italic text-[#0072BC]">important</span> for business?</h2>

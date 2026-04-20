@@ -38,7 +38,7 @@ const ShowcaseDashboard = () => {
                     >
                         <div className="rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white rotate-[-6deg] hover:rotate-0 transition-all duration-700">
                             <img
-                                src="https://brandwitty.com/media/2023/08/ad-creatives-557x650.jpg"
+                                src="https://ibraine.com/media/2023/08/ad-creatives-557x650.jpg"
                                 className="w-full grayscale-[20%] hover:grayscale-0 transition-all"
                                 alt="Creative Asset 1"
                             />
@@ -61,7 +61,7 @@ const ShowcaseDashboard = () => {
                                 <div className="w-2 h-2 rounded-full bg-green-400" />
                             </div>
                             <img
-                                src="https://brandwitty.com/media/2023/08/Mails-Hero-Image-2-300x233.webp"
+                                src="https://ibraine.com/media/2023/08/Mails-Hero-Image-2-300x233.webp"
                                 className="w-full transform group-hover:scale-105 transition-transform duration-1000"
                                 alt="Main Dashboard"
                             />
@@ -108,7 +108,7 @@ const ShowcaseDashboard = () => {
                     >
                         <div className="rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white rotate-[6deg] hover:rotate-0 transition-all duration-700">
                             <img
-                                src="https://brandwitty.com/media/2023/08/adcreatives1-557x650.jpg"
+                                src="https://ibraine.com/media/2023/08/adcreatives1-557x650.jpg"
                                 className="w-full grayscale-[20%] hover:grayscale-0 transition-all"
                                 alt="Creative Asset 2"
                             />

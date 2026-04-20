@@ -76,7 +76,7 @@ const SMHero = () => {
                 {/* ════ RIGHT SIDE: VISUAL ════ */}
                 <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative w-full max-w-lg">
-                        <img src="https://brandwitty.com/media/2023/09/Great-brands-3.png" className="w-full h-auto relative z-10 drop-shadow-[0_50px_80px_rgba(0,0,0,0.12)]" alt="Social Media Engineering" />
+                        <img src="https://ibraine.com/media/2023/09/Great-brands-3.png" className="w-full h-auto relative z-10 drop-shadow-[0_50px_80px_rgba(0,0,0,0.12)]" alt="Social Media Engineering" />
 
                         {/* Floating Interaction Badge */}
                         <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}

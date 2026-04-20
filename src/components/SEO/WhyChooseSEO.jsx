@@ -9,7 +9,7 @@ const WhyChooseSEO = () => (
             {/* Visual side with provided Puzzle image */}
             <div className="relative flex justify-center order-2 lg:order-1">
                 <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                    <img src="https://brandwitty.com/media/2023/07/SEO-Agency-Services-Image-600x595.webp" className="w-full max-w-md h-auto" alt="Strategy" />
+                    <img src="https://ibraine.com/media/2023/07/SEO-Agency-Services-Image-600x595.webp" className="w-full max-w-md h-auto" alt="Strategy" />
                 </motion.div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#0072BC]/5 blur-[100px] -z-10" />
             </div>

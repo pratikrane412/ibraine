@@ -49,7 +49,7 @@ const SMImportance = () => {
                     >
                         {/* Provided Image 2 */}
                         <img
-                            src="https://brandwitty.com/media/2023/09/why-is-social-media-important.jpg"
+                            src="https://ibraine.com/media/2023/09/why-is-social-media-important.jpg"
                             className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000"
                             alt="Strategy Meeting"
                         />

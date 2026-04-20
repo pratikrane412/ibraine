@@ -12,7 +12,7 @@ const SMStatsSection = () => (
 
             <div className="lg:col-span-7 flex justify-center relative order-1 lg:order-2">
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative max-w-lg">
-                    <img src="https://brandwitty.com/media/2023/09/leverage-social-media-6-1-e1694546240101-768x866.png" className="w-full rounded-3xl" />
+                    <img src="https://ibraine.com/media/2023/09/leverage-social-media-6-1-e1694546240101-768x866.png" className="w-full rounded-3xl" />
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="absolute bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl w-[280px]">
                         <p className="text-[10px] font-bold text-slate-400 uppercase mb-3">Accounts reached</p>
                         <div className="text-3xl font-black text-slate-900 mb-4">11,756</div>
