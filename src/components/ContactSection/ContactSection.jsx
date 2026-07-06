@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Headphones, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // 🔥 1. Imported useNavigate
 
 // ✅ Points to your PHP file on Hostinger
-// When deployed, this becomes: https://yourdomain.com/contact.php
 const API_URL = "/contact.php";
 
 export default function ContactSection({
@@ -12,8 +12,10 @@ export default function ContactSection({
     headingLine3 = "Consultant",
 }) {
     const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-    const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
+    const [status, setStatus] = useState("idle"); // "idle" | "loading" | "error" (Success pe ab redirect hoga)
     const [errorMsg, setErrorMsg] = useState("");
+    
+    const navigate = useNavigate(); // 🔥 2. Initialized useNavigate
 
     const handleChange = (e) =>
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -48,7 +50,10 @@ export default function ContactSection({
 
             if (!res.ok) throw new Error(data.error || "Something went wrong.");
 
-            setStatus("success");
+            // 🔥 3. On Success, redirect to Thank You page
+            navigate("/thank-you"); 
+            
+            // Optional: Form reset (agar page wapas aaye to form khali ho)
             setForm({ name: "", email: "", phone: "", message: "" });
 
         } catch (err) {
@@ -109,86 +114,67 @@ export default function ContactSection({
 
                     <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
 
-                        {/* SUCCESS STATE */}
-                        {status === "success" ? (
-                            <div className="flex flex-col items-center justify-center py-12 text-center space-y-5">
-                                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
-                                    <CheckCircle size={32} className="text-green-500" />
+                        <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                            <input
+                                type="text"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                placeholder="Your name"
+                                disabled={status === "loading"}
+                                className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                placeholder="Your email"
+                                disabled={status === "loading"}
+                                className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+                            />
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={form.phone}
+                                onChange={handleChange}
+                                placeholder="Your phone"
+                                disabled={status === "loading"}
+                                className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+                            />
+                            <textarea
+                                name="message"
+                                value={form.message}
+                                onChange={handleChange}
+                                placeholder="Message..."
+                                rows="5"
+                                disabled={status === "loading"}
+                                className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none disabled:opacity-50"
+                            />
+
+                            {/* Error */}
+                            {status === "error" && errorMsg && (
+                                <div className="flex items-start gap-3 bg-red-50 border border-red-100 text-red-600 text-sm px-4 py-3 rounded-xl">
+                                    <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                                    <span>{errorMsg}</span>
                                 </div>
-                                <h3 className="font-lora text-2xl text-[#1a162d]">Message Sent!</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-                                    Thank you for reaching out. We've received your message and will get back to you within 24 hours.
-                                </p>
-                                <button
-                                    onClick={() => setStatus("idle")}
-                                    className="mt-4 border-2 border-gray-200 text-gray-500 px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:border-gray-400 transition-colors duration-200"
-                                >
-                                    Send Another
-                                </button>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    placeholder="Your name"
-                                    disabled={status === "loading"}
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    placeholder="Your email"
-                                    disabled={status === "loading"}
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
-                                />
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    value={form.phone}
-                                    onChange={handleChange}
-                                    placeholder="Your phone"
-                                    disabled={status === "loading"}
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
-                                />
-                                <textarea
-                                    name="message"
-                                    value={form.message}
-                                    onChange={handleChange}
-                                    placeholder="Message..."
-                                    rows="5"
-                                    disabled={status === "loading"}
-                                    className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none disabled:opacity-50"
-                                />
+                            )}
 
-                                {/* Error */}
-                                {status === "error" && errorMsg && (
-                                    <div className="flex items-start gap-3 bg-red-50 border border-red-100 text-red-600 text-sm px-4 py-3 rounded-xl">
-                                        <AlertCircle size={16} className="shrink-0 mt-0.5" />
-                                        <span>{errorMsg}</span>
-                                    </div>
+                            <button
+                                type="submit"
+                                disabled={status === "loading"}
+                                className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                            >
+                                {status === "loading" ? (
+                                    <>
+                                        <Loader2 size={14} className="animate-spin" />
+                                        Sending…
+                                    </>
+                                ) : (
+                                    "Send Message"
                                 )}
-
-                                <button
-                                    type="submit"
-                                    disabled={status === "loading"}
-                                    className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-                                >
-                                    {status === "loading" ? (
-                                        <>
-                                            <Loader2 size={14} className="animate-spin" />
-                                            Sending…
-                                        </>
-                                    ) : (
-                                        "Send Message"
-                                    )}
-                                </button>
-                            </form>
-                        )}
+                            </button>
+                        </form>
 
                         <p className="text-center mt-10 text-[13px] text-gray-400 font-medium">
                             Let's Build Your <span className="text-[#1a162d] font-black">Dream Website!</span>

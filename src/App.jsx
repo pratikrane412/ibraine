@@ -9,7 +9,7 @@ import Aboutpage from "./pages/Aboutpage/Aboutpage";
 import Servicespage from "./pages/Servicespage/Servicespage";
 
 // Check this path carefully against your actual folder!
-import PerformanceMarketing from './pages/PerformanceMarketing/PerformanceMarketing'; 
+import PerformanceMarketing from './pages/PerformanceMarketing/PerformanceMarketing';
 import SEMExperts from './pages/SEMExperts/SEMExperts';
 import SEOServices from './pages/SEOServices/SEOServices';
 import SocialMediaMarketing from './pages/SocialMediaMarketing/SocialMediaMarketing';
@@ -26,23 +26,24 @@ import Clientelepage from './pages/Clientelepage/Clientelepage'
 import CaseStudiespage from './pages/CaseStudiespage/CaseStudiespage';
 import Contactpage from "./pages/Contactpage/Contactpage";
 import BlogPage from './pages/BlogPage/BlogPage';
+import ThankYouPage from './pages/ThankYouPage/Thankyou';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      <ScrollToTop /> 
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Homepage />} />  
+        <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/services" element={<Servicespage />} />
-        
+
         <Route path="/services/performance-marketing" element={<PerformanceMarketing />} />
-        
+
         {/* COMMENT THIS OUT IF THE FILE DOES NOT EXIST YET: */}
         <Route path="/services/sem-experts" element={<SEMExperts />} />
-        <Route path="/services/seo-services" element={<SEOServices />} /> 
+        <Route path="/services/seo-services" element={<SEOServices />} />
         <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
         <Route path="/services/google-analytics" element={<GoogleAnalytics />} />
         <Route path="/services/affiliate-marketing" element={<AffiliateMarketing />} />
@@ -57,6 +58,7 @@ function App() {
         <Route path="/case-studies" element={<CaseStudiespage />} />
         <Route path="/contact" element={<Contactpage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
       </Routes>
 
       <Footer />

@@ -4,134 +4,225 @@ import { FiArrowUpRight, FiPhone, FiMail, FiCheck } from 'react-icons/fi';
 
 const ContactSection = () => {
   const services = [
-    "Search Engine Optimization",
     "Performance Marketing",
+    "SEM Experts",
+    "SEO Services",
     "Social Media Marketing",
-    "Google Analytics",
-    "Web Design & Development",
-    "Affiliate marketing",
-    "Ecommerce Marketing"
+    "Website Design",
+    "UX/UI Design",
+    "GTM Integration",
+    "CRO Optimization",
+    "Content Writing",
+    "Graphic Design",
+    "Video Production"
   ];
 
+  // Animation variants for Staggered Load
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <section className="w-full bg-white" style={{ fontFamily: "'Lora', serif" }}>
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12">
+    <section className="w-full bg-white relative overflow-hidden" style={{ fontFamily: "'Lora', serif" }}>
+      
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#fafafa] -z-10 hidden lg:block" />
 
-        {/* ════ LEFT: THE FORM (Height Reduced) ════ */}
-        <div className="lg:col-span-7 p-6 md:p-12 lg:p-16 border-r border-slate-100">
-          <div className="mb-10">
-            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#f59e0b] mb-3">Step 01</p>
-            <h2 className="text-3xl md:text-5xl text-slate-950">Project Brief</h2>
-          </div>
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 relative z-10">
 
-          <form className="space-y-8">
+        {/* ════ LEFT: THE FORM ════ */}
+        <div className="lg:col-span-7 p-8 md:p-14 lg:p-20 bg-white border-r border-slate-100">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-slate-900 font-bold leading-tight" style={{ fontFamily: "'Lora', serif" }}>
+              Project Brief.
+            </h2>
+          </motion.div>
 
+          <motion.form 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-10"
+          >
             {/* 6 Text Inputs Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Full Name*</label>
-                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="John Doe" />
-              </div>
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Email Address*</label>
-                <input type="email" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="john@example.com" />
-              </div>
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Phone Number*</label>
-                <input type="tel" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="+91 00000 00000" />
-              </div>
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Subject*</label>
-                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="Inquiry Type" />
-              </div>
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Company Name</label>
-                <input type="text" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="Optional" />
-              </div>
-              <div className="group space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Website Link</label>
-                <input type="url" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300" placeholder="www.example.com" />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              {[
+                { label: 'Full Name*', type: 'text', placeholder: 'John Doe' },
+                { label: 'Email Address*', type: 'email', placeholder: 'john@example.com' },
+                { label: 'Phone Number*', type: 'tel', placeholder: '+91 00000 00000' },
+                { label: 'Subject*', type: 'text', placeholder: 'Inquiry Type' },
+                { label: 'Company Name', type: 'text', placeholder: 'Optional' },
+                { label: 'Website Link', type: 'url', placeholder: 'www.example.com' },
+              ].map((field, idx) => (
+                <motion.div key={idx} variants={itemVariants} className="group relative pt-4">
+                  <label 
+                    style={{ fontFamily: "'Lora', serif" }} 
+                    className="absolute top-0 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-[#2c66f6] transition-colors duration-300"
+                  >
+                    {field.label}
+                  </label>
+                  <input 
+                    type={field.type} 
+                    style={{ fontFamily: "'Lora', serif" }} 
+                    className="w-full bg-transparent border-b border-slate-200 pb-2 pt-3 outline-none focus:border-[#2c66f6] transition-all duration-300 text-[15px] md:text-[16px] text-slate-800 placeholder:text-slate-300 placeholder:font-light" 
+                    placeholder={field.placeholder} 
+                  />
+                  <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#2c66f6] group-focus-within:w-full transition-all duration-500 ease-out" />
+                </motion.div>
+              ))}
             </div>
 
             {/* Checkboxes Section */}
-            <div className="space-y-3 pt-2">
-              <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block">Services Required</label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8">
+            <motion.div variants={itemVariants} className="space-y-5 pt-4">
+              <label 
+                style={{ fontFamily: "'Lora', serif" }} 
+                className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 block mb-2"
+              >
+                Services Required
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6">
                 {services.map((service, idx) => (
                   <label key={idx} className="flex items-center gap-3 cursor-pointer group w-fit">
-                    <div className="relative flex items-center justify-center w-4 h-4 border-2 border-slate-300 rounded-[3px] group-hover:border-[#2c66f6] transition-colors overflow-hidden bg-white">
+                    <div className="relative flex items-center justify-center w-4 h-4 border border-slate-300 rounded-[4px] group-hover:border-[#ffb400] transition-colors overflow-hidden bg-white shrink-0">
                       <input type="checkbox" className="peer sr-only" />
-                      <div className="absolute inset-0 bg-[#2c66f6] scale-0 peer-checked:scale-100 transition-transform origin-center duration-200"></div>
+                      <div className="absolute inset-0 bg-[#ffb400] scale-0 peer-checked:scale-100 transition-transform origin-center duration-200 ease-out" />
                       <FiCheck className="absolute text-white scale-0 peer-checked:scale-100 transition-transform duration-200 delay-75" size={12} strokeWidth={3} />
                     </div>
-                    <span className="text-slate-600 text-sm md:text-[15px] group-hover:text-slate-950 transition-colors select-none">
+                    <span 
+                      style={{ fontFamily: "'Lora', serif" }} 
+                      className="text-slate-500 text-[14px] md:text-[15px] font-medium group-hover:text-slate-900 transition-colors select-none"
+                    >
                       {service}
                     </span>
                   </label>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Textarea */}
-            <div className="group space-y-2 pt-2">
-              <label className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 block group-focus-within:text-[#2c66f6] transition-colors">Requirements</label>
-              <textarea rows="2" style={{ fontFamily: "'Lora', serif" }} className="w-full bg-transparent border-b-2 border-slate-200 py-1.5 outline-none focus:border-slate-900 transition-colors text-lg md:text-xl text-slate-900 placeholder:text-slate-300 resize-none" placeholder="Share a brief of your requirements..."></textarea>
-            </div>
+            <motion.div variants={itemVariants} className="group relative pt-4">
+              <label 
+                style={{ fontFamily: "'Lora', serif" }} 
+                className="absolute top-0 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-[#2c66f6] transition-colors duration-300"
+              >
+                Requirements
+              </label>
+              <textarea 
+                rows="2" 
+                style={{ fontFamily: "'Lora', serif" }} 
+                className="w-full bg-transparent border-b border-slate-200 pb-2 pt-3 outline-none focus:border-[#2c66f6] transition-all duration-300 text-[15px] md:text-[16px] text-slate-800 placeholder:text-slate-300 placeholder:font-light resize-none mt-2" 
+                placeholder="Share a brief of your requirements..."
+              />
+              <div className="absolute bottom-1 left-0 w-0 h-[2px] bg-[#2c66f6] group-focus-within:w-full transition-all duration-500 ease-out" />
+            </motion.div>
 
             {/* Submit Button */}
             <motion.button
+              variants={itemVariants}
               whileHover={{ x: 10 }}
-              className="flex items-center gap-5 group mt-6 cursor-pointer border-none bg-transparent"
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-5 group mt-8 cursor-pointer border-none bg-transparent"
             >
-              <div className="w-14 h-14 rounded-full bg-slate-950 flex items-center justify-center text-white group-hover:bg-[#2c66f6] transition-all duration-300 shadow-xl shadow-slate-200">
-                <FiArrowUpRight size={22} />
+              <div className="w-16 h-16 rounded-full bg-slate-950 flex items-center justify-center text-white group-hover:bg-[#ffb400] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[#ffb400]/30">
+                <FiArrowUpRight size={24} className="group-hover:rotate-45 transition-transform duration-300" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-950 group-hover:text-[#2c66f6] transition-colors">Send Inquiry</span>
+              <span 
+                style={{ fontFamily: "'Lora', serif" }} 
+                className="text-[12px] font-black uppercase tracking-[0.4em] text-slate-900 group-hover:text-[#ffb400] transition-colors"
+              >
+                Send Inquiry
+              </span>
             </motion.button>
-          </form>
+
+          </motion.form>
         </div>
 
+
         {/* ════ RIGHT: TECHNICAL INFO ════ */}
-        <div className="lg:col-span-5 flex flex-col justify-center bg-[#fafafa] h-full">
+        <div className="lg:col-span-5 flex flex-col justify-between bg-[#fafafa] lg:bg-transparent h-full">
 
-          <div className="w-full">
-            {/* Top Info block */}
-            <div className="p-6 md:p-12 lg:p-20 space-y-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="p-8 md:p-14 lg:p-20 space-y-16"
+          >
+            {/* Headquarters */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-[#2c66f6]" />
+                <p style={{ fontFamily: "'Lora', serif" }} className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#2c66f6] m-0">Headquarters</p>
+              </div>
+              <h3 style={{ fontFamily: "'Lora', serif" }} className="text-xl md:text-2xl lg:text-[28px] leading-[1.4] text-slate-800 font-medium">
+                Office No. 2, Chandra Niwas CHS, <br />
+                Off Old Police Lane, Andheri East, <br />
+                Mumbai – 400069
+              </h3>
+            </div>
+
+            {/* Direct Contact */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-[#2c66f6]" />
+                <p style={{ fontFamily: "'Lora', serif" }} className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#2c66f6] m-0">Direct Contact</p>
+              </div>
               <div className="space-y-6">
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Headquarters</p>
-                <h3 className="text-2xl md:text-3xl leading-[1.1] text-slate-950">
-                  Office No. 2, Chandra Niwas CHS, <br />
-                  Off Old Police Lane, Andheri East, <br />
-                  Mumbai – 400069
-                </h3>
-              </div>
-
-              <div className="space-y-8">
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#2c66f6]">Direct Contact</p>
-                <div className="space-y-6">
-                  <a href="tel:9321111753" className="flex items-center gap-4 text-2xl md:text-3xl text-slate-900 group hover:text-[#2c66f6] transition-colors">
-                    <FiPhone size={20} className="text-[#2c66f6]" /> +91 9321111753
-                  </a>
-                  <a href="mailto:info@ibraine.com" className="flex items-center gap-4 text-2xl md:text-3xl text-slate-900 group hover:text-[#2c66f6] transition-colors">
-                    <FiMail size={20} className="text-[#2c66f6]" /> info@ibraine.com
-                  </a>
-                </div>
+                <a href="tel:9321111753" style={{ fontFamily: "'Lora', serif" }} className="flex items-center gap-5 text-xl md:text-2xl text-slate-800 font-medium group hover:text-[#ffb400] transition-colors w-fit">
+                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:border-[#ffb400] group-hover:shadow-md transition-all">
+                    <FiPhone size={18} className="text-[#2c66f6] group-hover:text-[#ffb400] transition-colors" />
+                  </div>
+                  +91 9321111753
+                </a>
+                <a href="mailto:info@ibraine.com" style={{ fontFamily: "'Lora', serif" }} className="flex items-center gap-5 text-xl md:text-2xl text-slate-800 font-medium group hover:text-[#ffb400] transition-colors w-fit">
+                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:border-[#ffb400] group-hover:shadow-md transition-all">
+                    <FiMail size={18} className="text-[#2c66f6] group-hover:text-[#ffb400] transition-colors" />
+                  </div>
+                  info@ibraine.com
+                </a>
               </div>
             </div>
+          </motion.div>
 
-            {/* Social Ecosystem */}
-            <div className="border-t border-slate-200 p-6 md:p-12 lg:p-20">
-              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-8">Follow Ecosystem</p>
-              <div className="flex flex-wrap gap-x-12 gap-y-6">
-                {['Instagram', 'LinkedIn', 'Twitter', 'Facebook'].map((social) => (
-                  <a key={social} href="#" className="text-sm font-extrabold text-slate-700 hover:text-[#2c66f6] transition-colors uppercase tracking-[0.2em]">
-                    {social}
-                  </a>
-                ))}
-              </div>
+          {/* Social Ecosystem */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="border-t border-slate-200 p-8 md:p-14 lg:p-20 mt-auto bg-[#fafafa]"
+          >
+            <p style={{ fontFamily: "'Lora', serif" }} className="text-[11px] font-bold uppercase tracking-[0.4em] text-slate-400 mb-8">Follow Ecosystem</p>
+            <div className="flex flex-wrap gap-x-10 gap-y-6">
+              {['Instagram', 'LinkedIn', 'Twitter', 'Facebook'].map((social) => (
+                <a 
+                  key={social} 
+                  href="#" 
+                  style={{ fontFamily: "'Lora', serif" }} 
+                  className="text-[13px] font-bold text-slate-700 hover:text-[#ffb400] transition-colors uppercase tracking-[0.2em] relative group"
+                >
+                  {social}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#ffb400] group-hover:w-full transition-all duration-300" />
+                </a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
