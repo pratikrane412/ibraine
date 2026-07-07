@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Headphones, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom"; // 🔥 1. Imported useNavigate
 
-// ✅ Points to your PHP file on Hostinger
-const API_URL = "/contact.php";
+// Point to the Django backend API
+const API_URL = "http://127.0.0.1:8000/api/service-contact/";
 
 export default function ContactSection({
     headingLine1 = "Let's Talk with",
@@ -39,11 +39,17 @@ export default function ContactSection({
         setStatus("loading");
         setErrorMsg("");
 
+        // Build payload dynamically containing page service source
+        const payload = {
+            ...form,
+            service: headingHighlight || "General Inquiry"
+        };
+
         try {
             const res = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form),
+                body: JSON.stringify(payload),
             });
 
             const data = await res.json();

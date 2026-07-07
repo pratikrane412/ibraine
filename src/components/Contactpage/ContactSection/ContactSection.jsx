@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight, FiPhone, FiMail, FiCheck } from 'react-icons/fi';
 
@@ -16,6 +16,93 @@ const ContactSection = () => {
     "Graphic Design",
     "Video Production"
   ];
+
+  // Controlled form state
+  const [formData, setFormData] = useState({
+    full_name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    company: '',
+    website: '',
+    services: [],
+    requirements: ''
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState({ type: '', text: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleCheckboxChange = (serviceName) => {
+    setFormData((prev) => {
+      const currentServices = [...prev.services];
+      if (currentServices.includes(serviceName)) {
+        return {
+          ...prev,
+          services: currentServices.filter((s) => s !== serviceName)
+        };
+      } else {
+        return {
+          ...prev,
+          services: [...currentServices, serviceName]
+        };
+      }
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatusMsg({ type: '', text: '' });
+
+    // Validate required fields
+    if (!formData.full_name || !formData.email || !formData.phone || !formData.subject) {
+      setStatusMsg({ type: 'error', text: 'Please fill in all required fields (*).' });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const resData = await response.json();
+
+      if (response.ok && resData.success) {
+        setStatusMsg({ type: 'success', text: 'Inquiry sent successfully! We will get back to you shortly.' });
+        // Reset form
+        setFormData({
+          full_name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          company: '',
+          website: '',
+          services: [],
+          requirements: ''
+        });
+      } else {
+        setStatusMsg({ type: 'error', text: resData.error || 'Something went wrong. Please try again.' });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatusMsg({ type: 'error', text: 'Unable to connect to the backend server. Make sure it is running.' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Animation variants for Staggered Load
   const containerVariants = {
@@ -58,17 +145,18 @@ const ContactSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
+            onSubmit={handleSubmit}
             className="space-y-10"
           >
             {/* 6 Text Inputs Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
               {[
-                { label: 'Full Name*', type: 'text', placeholder: 'John Doe' },
-                { label: 'Email Address*', type: 'email', placeholder: 'john@example.com' },
-                { label: 'Phone Number*', type: 'tel', placeholder: '+91 00000 00000' },
-                { label: 'Subject*', type: 'text', placeholder: 'Inquiry Type' },
-                { label: 'Company Name', type: 'text', placeholder: 'Optional' },
-                { label: 'Website Link', type: 'url', placeholder: 'www.example.com' },
+                { key: 'full_name', label: 'Full Name*', type: 'text', placeholder: 'John Doe', required: true },
+                { key: 'email', label: 'Email Address*', type: 'email', placeholder: 'john@example.com', required: true },
+                { key: 'phone', label: 'Phone Number*', type: 'tel', placeholder: '+91 00000 00000', required: true },
+                { key: 'subject', label: 'Subject*', type: 'text', placeholder: 'Inquiry Type', required: true },
+                { key: 'company', label: 'Company Name', type: 'text', placeholder: 'Optional', required: false },
+                { key: 'website', label: 'Website Link', type: 'url', placeholder: 'www.example.com', required: false },
               ].map((field, idx) => (
                 <motion.div key={idx} variants={itemVariants} className="group relative pt-4">
                   <label 
@@ -79,6 +167,10 @@ const ContactSection = () => {
                   </label>
                   <input 
                     type={field.type} 
+                    name={field.key}
+                    value={formData[field.key]}
+                    onChange={handleChange}
+                    required={field.required}
                     style={{ fontFamily: "'Lora', serif" }} 
                     className="w-full bg-transparent border-b border-slate-200 pb-2 pt-3 outline-none focus:border-[#2c66f6] transition-all duration-300 text-[15px] md:text-[16px] text-slate-800 placeholder:text-slate-300 placeholder:font-light" 
                     placeholder={field.placeholder} 
@@ -100,7 +192,12 @@ const ContactSection = () => {
                 {services.map((service, idx) => (
                   <label key={idx} className="flex items-center gap-3 cursor-pointer group w-fit">
                     <div className="relative flex items-center justify-center w-4 h-4 border border-slate-300 rounded-[4px] group-hover:border-[#ffb400] transition-colors overflow-hidden bg-white shrink-0">
-                      <input type="checkbox" className="peer sr-only" />
+                      <input 
+                        type="checkbox" 
+                        className="peer sr-only" 
+                        checked={formData.services.includes(service)}
+                        onChange={() => handleCheckboxChange(service)}
+                      />
                       <div className="absolute inset-0 bg-[#ffb400] scale-0 peer-checked:scale-100 transition-transform origin-center duration-200 ease-out" />
                       <FiCheck className="absolute text-white scale-0 peer-checked:scale-100 transition-transform duration-200 delay-75" size={12} strokeWidth={3} />
                     </div>
@@ -125,6 +222,9 @@ const ContactSection = () => {
               </label>
               <textarea 
                 rows="2" 
+                name="requirements"
+                value={formData.requirements}
+                onChange={handleChange}
                 style={{ fontFamily: "'Lora', serif" }} 
                 className="w-full bg-transparent border-b border-slate-200 pb-2 pt-3 outline-none focus:border-[#2c66f6] transition-all duration-300 text-[15px] md:text-[16px] text-slate-800 placeholder:text-slate-300 placeholder:font-light resize-none mt-2" 
                 placeholder="Share a brief of your requirements..."
@@ -132,12 +232,29 @@ const ContactSection = () => {
               <div className="absolute bottom-1 left-0 w-0 h-[2px] bg-[#2c66f6] group-focus-within:w-full transition-all duration-500 ease-out" />
             </motion.div>
 
+            {/* Status Messages */}
+            {statusMsg.text && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`p-4 rounded-md text-[14px] font-medium ${
+                  statusMsg.type === 'success' 
+                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
+                    : 'bg-rose-50 text-rose-700 border border-rose-200'
+                }`}
+              >
+                {statusMsg.text}
+              </motion.div>
+            )}
+
             {/* Submit Button */}
             <motion.button
+              type="submit"
+              disabled={loading}
               variants={itemVariants}
               whileHover={{ x: 10 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-5 group mt-8 cursor-pointer border-none bg-transparent"
+              className="flex items-center gap-5 group mt-8 cursor-pointer border-none bg-transparent disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="w-16 h-16 rounded-full bg-slate-950 flex items-center justify-center text-white group-hover:bg-[#ffb400] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[#ffb400]/30">
                 <FiArrowUpRight size={24} className="group-hover:rotate-45 transition-transform duration-300" />
@@ -146,7 +263,7 @@ const ContactSection = () => {
                 style={{ fontFamily: "'Lora', serif" }} 
                 className="text-[12px] font-black uppercase tracking-[0.4em] text-slate-900 group-hover:text-[#ffb400] transition-colors"
               >
-                Send Inquiry
+                {loading ? 'Sending...' : 'Send Inquiry'}
               </span>
             </motion.button>
 
