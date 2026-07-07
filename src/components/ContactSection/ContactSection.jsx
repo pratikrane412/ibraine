@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Headphones, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom"; // 🔥 1. Imported useNavigate
 
-// Point to the Django backend API
-const API_URL = "http://127.0.0.1:8000/api/service-contact/";
+// Point to the Django backend API dynamically based on environment
+const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? "http://127.0.0.1:8000/api/service-contact/"
+    : "https://api.ibraine.com/api/service-contact/";
 
 export default function ContactSection({
     headingLine1 = "Let's Talk with",

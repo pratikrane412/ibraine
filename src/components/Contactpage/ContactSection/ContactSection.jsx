@@ -70,7 +70,10 @@ const ContactSection = () => {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+      const apiBase = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://127.0.0.1:8000'
+        : 'https://api.ibraine.com';
+      const response = await fetch(`${apiBase}/api/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
