@@ -28,6 +28,7 @@ import Contactpage from "./pages/Contactpage/Contactpage";
 import BlogPage from './pages/BlogPage/BlogPage';
 import ThankYouPage from './pages/ThankYouPage/Thankyou';
 import Dashboardpage from './pages/Dashboardpage/Dashboardpage';
+import RequestQuote from './pages/RequestQuote/RequestQuote';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="/clientele" element={<Clientelepage />} />
         <Route path="/case-studies" element={<CaseStudiespage />} />
         <Route path="/contact" element={<Contactpage />} />
+        <Route path="/request-quote" element={<RequestQuote />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/dashboard" element={<Dashboardpage />} />

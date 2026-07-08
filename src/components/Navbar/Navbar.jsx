@@ -31,7 +31,7 @@ const Navbar = () => {
     <motion.button
       whileTap={{ scale: 0.96 }}
       onClick={() => {
-        navigate("/contact");
+        navigate("/request-quote");
         setIsMobileMenuOpen(false); // Close menu on click
       }}
       className={`border-2 border-[#ffb400] text-[#ffb400] px-6 py-2 rounded-md font-bold text-[14px] hover:bg-[#ffb400] hover:text-white transition-all duration-300 font-lora ${className}`}
