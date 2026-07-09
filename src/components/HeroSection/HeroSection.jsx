@@ -60,7 +60,7 @@ const HeroSection = () => {
 
             {/* Request a Quote → Route */}
             <button
-              onClick={() => navigate("/contact")} // change route if needed
+              onClick={() => navigate("/request-quote")} // change route if needed
               className="w-full sm:w-auto bg-slate-900 text-white px-10 py-4 rounded-full font-bold text-sm shadow-xl hover:bg-indigo-600 transition-all"
             >
               Request a Quote
