@@ -5,7 +5,7 @@ import GrowthElements from '../../components/CaseStudiespage/GrowthElements/Grow
 import MethodologySection from '../../components/CaseStudiespage/MethodologySection/MethodologySection';
 import ChallengesSection from '../../components/CaseStudiespage/ChallengesSection/ChallengesSection';
 import TestimonialSection from '../../components/CaseStudiespage/TestimonialSection/TestimonialSection';
-import ContactSection from '../../components/CaseStudiespage/ContactSection/ContactSection';
+import ContactInput from '../../components/CaseStudiespage/ContactInput/ContactInput';
 
 const CaseStudiespage = () => {
     return (
@@ -16,7 +16,7 @@ const CaseStudiespage = () => {
         <MethodologySection/>
         <ChallengesSection/>
         <TestimonialSection/>
-        <ContactSection/>
+        <ContactInput/>
       </main>
     );
 };
