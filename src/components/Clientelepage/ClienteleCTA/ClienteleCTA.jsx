@@ -17,7 +17,7 @@ const ClienteleCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-[#fdb813] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-6"
+          className="text-[#F58220] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-6"
         >
           Get In Touch
         </motion.p>
@@ -44,7 +44,7 @@ const ClienteleCTA = () => {
         >
           <a 
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#fdb813] hover:bg-[#e5a610] text-gray-900 font-bold px-8 py-4 rounded-lg shadow-lg transition-all duration-300 group hover:-translate-y-1 active:scale-95"
+            className="inline-flex items-center gap-2 bg-[#F58220] hover:bg-[#D96F16] text-gray-900 font-bold px-8 py-4 rounded-lg shadow-lg transition-all duration-300 group hover:-translate-y-1 active:scale-95"
           >
             <span className="text-sm md:text-base">Contact us</span>
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />

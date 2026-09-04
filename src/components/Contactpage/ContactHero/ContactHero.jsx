@@ -19,7 +19,7 @@ const ContactHero = () => {
         />
         <motion.div
           style={{ y: orbY }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-[#fdb813]/5 rounded-full blur-[100px]"
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-[#F58220]/5 rounded-full blur-[100px]"
         />
 
         {/* 2. Professional Grain Texture */}
@@ -47,7 +47,7 @@ const ContactHero = () => {
           <span className="relative inline-block italic text-[#2c66f6]">
             Conversation
             {/* Animated SVG Hand-drawn Scribble */}
-            <svg className="absolute -bottom-4 left-0 w-full h-6 text-[#fdb813]/40" viewBox="0 0 100 20" preserveAspectRatio="none">
+            <svg className="absolute -bottom-4 left-0 w-full h-6 text-[#F58220]/40" viewBox="0 0 100 20" preserveAspectRatio="none">
               <motion.path
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}

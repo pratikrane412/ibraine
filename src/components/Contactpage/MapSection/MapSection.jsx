@@ -36,7 +36,7 @@ const MapSection = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="bg-white p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-gray-100 max-w-[280px] md:max-w-[340px]"
           >
-            <h4 className="text-[#fdb813] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3">
+            <h4 className="text-[#F58220] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3">
               VISIT OUR OFFICE
             </h4>
             <p className="text-gray-900 font-bold text-sm md:text-lg leading-relaxed">

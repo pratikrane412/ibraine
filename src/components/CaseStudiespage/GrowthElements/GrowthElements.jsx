@@ -51,7 +51,7 @@ const GrowthElements = () => {
           {/* ════ LEFT: STICKY EDITORIAL CONTEXT ════ */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 h-fit">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-1.5 h-1.5 bg-[#fdb813] rounded-full animate-pulse" />
+              <div className="w-1.5 h-1.5 bg-[#F58220] rounded-full animate-pulse" />
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-slate-400">Scaling Framework v4.0</span>
             </div>
 
@@ -105,7 +105,7 @@ const GrowthElements = () => {
                   {/* Content */}
                   <div className="md:col-span-9 space-y-4">
                     <div className="flex items-center gap-4">
-                      <div className="text-slate-300 group-hover:text-[#fdb813] transition-colors">
+                      <div className="text-slate-300 group-hover:text-[#F58220] transition-colors">
                         {point.icon}
                       </div>
                       <h3

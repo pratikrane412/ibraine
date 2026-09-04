@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto px-6 mb-14">
           <h2 className="font-lora text-4xl lg:text-5xl font-normal text-[#1a162d] leading-tight mb-4">
-            Testimonials That Make Us <em className="text-[#FDB813] not-italic font-lora italic">Blush</em>
+            Testimonials That Make Us <em className="text-[#F58220] not-italic font-lora italic">Blush</em>
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
             Hear from brands who stopped burning budgets and started breaking records — all through performance-first marketing.
@@ -123,7 +123,7 @@ const TestimonialsSection = () => {
               >
                 <div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-12 h-12 rounded-full bg-[#FDB813] flex items-center justify-content-center text-white font-bold text-sm shrink-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-[#F58220] flex items-center justify-content-center text-white font-bold text-sm shrink-0 flex items-center justify-center">
                       {r.initials}
                     </div>
                     <div>
@@ -134,7 +134,7 @@ const TestimonialsSection = () => {
                   <p className="text-gray-500 text-sm leading-relaxed italic">"{r.text}"</p>
                 </div>
                 <div className="mt-5 pt-4 border-t border-black/5">
-                  <span className="text-[#FDB813] tracking-widest text-sm">★★★★★</span>
+                  <span className="text-[#F58220] tracking-widest text-sm">★★★★★</span>
                 </div>
               </div>
             ))}
@@ -145,7 +145,7 @@ const TestimonialsSection = () => {
         <div className="flex items-center justify-center gap-4 mt-10 px-6">
           <button
             onClick={() => handleManual(current - 1)}
-            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group"
+            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#F58220] hover:border-[#F58220] group"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
               <polyline points="15 18 9 12 15 6" />
@@ -158,14 +158,14 @@ const TestimonialsSection = () => {
               <button
                 key={i}
                 onClick={() => handleManual(OFFSET + i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === dotIndex ? "w-6 bg-[#FDB813]" : "w-2 bg-[#e8e2cc]"}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === dotIndex ? "w-6 bg-[#F58220]" : "w-2 bg-[#e8e2cc]"}`}
               />
             ))}
           </div>
 
           <button
             onClick={() => handleManual(current + 1)}
-            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#FDB813] hover:border-[#FDB813] group"
+            className="w-11 h-11 rounded-full border border-[#e8e2cc] bg-white flex items-center justify-center transition-all hover:bg-[#F58220] hover:border-[#F58220] group"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-gray-300 group-hover:stroke-white transition-colors">
               <polyline points="9 18 15 12 9 6" />

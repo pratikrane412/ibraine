@@ -137,3 +137,59 @@ body {
   background-size: 80px 100%;
   background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px);
 }
+
+@keyframes serviceReveal {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes serviceBlink {
+  0%, 42%, 100% {
+    color: inherit;
+    opacity: 1;
+  }
+  18%, 30% {
+    color: #f47b20;
+    opacity: 1;
+  }
+}
+
+.service-page-content h1,
+.service-page-content h2,
+.service-page-content h3,
+.service-page-content p,
+.service-page-content span {
+  animation: serviceReveal 0.7s ease-out both;
+}
+
+.service-page-content h1 { animation-delay: 0.1s; }
+.service-page-content h2 { animation-delay: 0.16s; }
+.service-page-content h3 { animation-delay: 0.22s; }
+.service-page-content p { animation-delay: 0.28s; }
+.service-page-content span { animation-delay: 0.34s; }
+
+.service-page-content .service-blink {
+  animation: serviceReveal 0.8s ease-out both, serviceBlink 2.2s ease-in-out infinite 0.8s;
+}
+
+.service-page-content h1 .service-highlight {
+  display: inline-block;
+  animation: serviceReveal 0.8s ease-out both, serviceBlink 2.2s ease-in-out infinite 0.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-page-content h1,
+  .service-page-content h2,
+  .service-page-content h3,
+  .service-page-content p,
+  .service-page-content span,
+  .service-page-content .service-blink {
+    animation: none;
+  }
+}

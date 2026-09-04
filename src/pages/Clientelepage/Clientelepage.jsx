@@ -97,7 +97,7 @@ const ClienteleHero = () => (
         We believe our greatest{' '}
         <span className="relative inline-block whitespace-nowrap">
           <span className="relative z-10 text-[#1d4ed8]">reward</span>
-          <span className="absolute left-0 bottom-0 sm:-bottom-1 w-full h-[4px] sm:h-[6px] bg-[#FDB813] rounded-full" />
+          <span className="absolute left-0 bottom-0 sm:-bottom-1 w-full h-[4px] sm:h-[6px] bg-[#F58220] rounded-full" />
         </span>
         <br className="hidden md:block" />
         {' '}is our clients' trust & satisfaction
@@ -119,7 +119,7 @@ const ClienteleHero = () => (
     >
       {STATS.map(({ icon: Icon, value, label }, i) => (
         <div key={i} className="bg-white/80 backdrop-blur-md border border-white/90 rounded-2xl p-4 sm:p-5 text-center shadow-sm">
-          <Icon size={20} className="mx-auto mb-2 text-[#FDB813]" />
+          <Icon size={20} className="mx-auto mb-2 text-[#F58220]" />
           <p className="font-lora text-xl sm:text-2xl font-bold text-[#0f172a]">{value}</p>
           <p className="text-gray-500 text-[11px] sm:text-xs mt-1 font-medium tracking-wide uppercase">{label}</p>
         </div>
@@ -141,7 +141,7 @@ const ClienteleGrid = () => {
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-3">Trusted By</p>
+            <p className="text-[#F58220] text-xs font-bold tracking-[0.35em] uppercase mb-3">Trusted By</p>
           <h2 className="font-lora text-3xl sm:text-4xl md:text-5xl text-[#0f172a] font-normal leading-tight">
             Brands that chose <span className="italic text-[#1d4ed8]">us</span>
           </h2>
@@ -150,9 +150,9 @@ const ClienteleGrid = () => {
           </p>
           {/* decorative divider */}
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#FDB813]" />
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FDB813]" />
-            <div className="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#FDB813]" />
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#F58220]" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#F58220]" />
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#F58220]" />
           </div>
         </motion.div>
 
@@ -228,7 +228,7 @@ const ClienteleCTA = () => (
       <motion.p
         initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }} viewport={{ once: true }}
-        className="text-[#FDB813] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-4 sm:mb-6"
+        className="text-[#F58220] text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-4 sm:mb-6"
       >
         Get In Touch
       </motion.p>
@@ -242,7 +242,7 @@ const ClienteleCTA = () => (
         {' '}
         <span className="relative inline-block">
           Let's build it together.
-          <span className="absolute left-0 -bottom-1 w-full h-[2px] sm:h-[3px] bg-[#FDB813]/60 rounded-full" />
+          <span className="absolute left-0 -bottom-1 w-full h-[2px] sm:h-[3px] bg-[#F58220]/60 rounded-full" />
         </span>
       </motion.h2>
 
@@ -261,7 +261,7 @@ const ClienteleCTA = () => (
       >
         <a
           href="/contact"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FDB813] hover:bg-[#e5a610] text-[#0a1e3d] font-bold px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl shadow-[0_8px_30px_rgba(253,184,19,0.25)] hover:shadow-[0_8px_30px_rgba(253,184,19,0.4)] hover:-translate-y-0.5 transition-all duration-300 group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#F58220] hover:bg-[#D96F16] text-[#0a1e3d] font-bold px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl shadow-[0_8px_30px_rgba(245,130,32,0.25)] hover:shadow-[0_8px_30px_rgba(245,130,32,0.4)] hover:-translate-y-0.5 transition-all duration-300 group"
         >
           <span className="text-sm sm:text-base">Contact Us Now</span>
           <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -282,7 +282,7 @@ const ClienteleCTA = () => (
       >
         {["No lock-in contracts", "Results in 30 days", "Free audit included"].map((item, i) => (
           <span key={i} className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FDB813]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F58220]" />
             {item}
           </span>
         ))}

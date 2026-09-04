@@ -39,7 +39,7 @@ const ClienteleHero = () => {
           <span className="relative inline-block text-[#3b82f6]">
             reward
             {/* Yellow Marker Line */}
-            <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#fdb813] rounded-full"></div>
+            <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#F58220] rounded-full"></div>
           </span> 
           {" "}is our client's trust and <br className="hidden md:block" /> satisfaction
         </motion.h1>

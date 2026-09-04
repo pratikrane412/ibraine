@@ -373,7 +373,7 @@ export default function InteractivePlanner() {
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* 1. Moving Mesh Orbs */}
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[70%] bg-[#2c66f6]/3 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-[#fdb813]/3 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] bg-[#F58220]/3 rounded-full blur-[100px]" />
 
         {/* 2. Professional Grain Texture */}
         <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />

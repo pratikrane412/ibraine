@@ -53,7 +53,7 @@ const ChallengesSection = () => {
           {/* 2. Yellow Question Card */}
           <motion.div 
             custom={1} variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="bg-white rounded-2xl p-6 border-2 border-[#fdb813] shadow-sm max-w-[380px] relative z-10"
+            className="bg-white rounded-2xl p-6 border-2 border-[#F58220] shadow-sm max-w-[380px] relative z-10"
           >
             <p className="font-bold text-black mb-3">Hi Laura, (...)</p>
             <p className="text-gray-600 text-sm leading-relaxed">

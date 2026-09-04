@@ -130,7 +130,7 @@
 //                                 onChange={handleChange}
 //                                 placeholder="Your name"
 //                                 disabled={status === "loading"}
-//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50"
 //                             />
 //                             <input
 //                                 type="email"
@@ -139,7 +139,7 @@
 //                                 onChange={handleChange}
 //                                 placeholder="Your email"
 //                                 disabled={status === "loading"}
-//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50"
 //                             />
 //                             <input
 //                                 type="tel"
@@ -148,7 +148,7 @@
 //                                 onChange={handleChange}
 //                                 placeholder="Your phone"
 //                                 disabled={status === "loading"}
-//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50"
+//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50"
 //                             />
 //                             <textarea
 //                                 name="message"
@@ -157,7 +157,7 @@
 //                                 placeholder="Message..."
 //                                 rows="5"
 //                                 disabled={status === "loading"}
-//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none disabled:opacity-50"
+//                                 className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm resize-none disabled:opacity-50"
 //                             />
 
 //                             {/* Error */}
@@ -171,7 +171,7 @@
 //                             <button
 //                                 type="submit"
 //                                 disabled={status === "loading"}
-//                                 className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+//                                 className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#F58220] text-[#F58220] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#F58220] hover:text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
 //                             >
 //                                 {status === "loading" ? (
 //                                     <>
@@ -270,10 +270,10 @@ export default function ContactSection({
         <div className="relative">
           <div className="bg-[#fcfcfc] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50">
             <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-              <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50" />
-              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Your email" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50" />
-              <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Your phone" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm disabled:opacity-50" />
-              <textarea name="message" value={form.message} onChange={handleChange} placeholder="Message..." rows="5" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#FDB813] transition-colors shadow-sm resize-none disabled:opacity-50" />
+              <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50" />
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Your email" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50" />
+              <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Your phone" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm disabled:opacity-50" />
+              <textarea name="message" value={form.message} onChange={handleChange} placeholder="Message..." rows="5" disabled={status === "loading"} className="w-full bg-white border border-gray-100 p-4 rounded-xl outline-none focus:border-[#F58220] transition-colors shadow-sm resize-none disabled:opacity-50" />
 
               {status === "error" && errorMsg && (
                 <div className="flex items-start gap-3 bg-red-50 border border-red-100 text-red-600 text-sm px-4 py-3 rounded-xl">
@@ -282,7 +282,7 @@ export default function ContactSection({
                 </div>
               )}
 
-              <button type="submit" disabled={status === "loading"} className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#FDB813] text-[#FDB813] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#FDB813] hover:text-white transition-all duration-300 disabled:opacity-60">
+              <button type="submit" disabled={status === "loading"} className="w-full sm:w-auto flex items-center gap-2 border-2 border-[#F58220] text-[#F58220] px-10 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#F58220] hover:text-white transition-all duration-300 disabled:opacity-60">
                 {status === "loading" ? (
                   <>
                     <Loader2 size={14} className="animate-spin" />

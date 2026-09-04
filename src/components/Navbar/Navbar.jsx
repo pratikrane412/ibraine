@@ -75,7 +75,7 @@ const Navbar = () => {
               onMouseEnter={() => setActiveMenu('services')}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <button className={`flex items-center gap-1 text-[15px] font-bold ${activeMenu === 'services' ? 'text-[#ffb400]' : 'text-slate-800'}`}>
+              <button onClick={() => navigate('/services')} className={`flex items-center gap-1 text-[15px] font-bold ${activeMenu === 'services' ? 'text-[#ffb400]' : 'text-slate-800'}`}>
                 Services
                 <ChevronDown size={14} className={`ml-0.5 transition-transform ${activeMenu === 'services' ? 'rotate-180' : ''}`} />
               </button>
@@ -148,7 +148,7 @@ const Navbar = () => {
               {/* 🔥 MOBILE SERVICES ACCORDION 🔥 */}
               <div className="border-b border-slate-100 pb-4">
                 <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  onClick={() => navigate('/services')}
                   // 👇 Yahan outline-none, focus:outline-none aur border-none add kiya hai taaki wo box na aaye
                   className={`flex items-center justify-between w-full text-[28px] font-bold transition-colors outline-none focus:outline-none border-none bg-transparent ${mobileServicesOpen ? "text-[#ffb400]" : "text-slate-900"}`}
                 >

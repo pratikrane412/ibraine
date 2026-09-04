@@ -46,7 +46,7 @@ const MethodologySection = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-3 mb-8">
-                <FiTarget className="text-[#fdb813]" size={16} />
+                <FiTarget className="text-[#F58220]" size={16} />
                 <span className="text-[10px] font-sans font-black uppercase tracking-[0.5em] text-slate-400 italic">Execution Blueprint v2.0</span>
               </div>
 
@@ -78,7 +78,7 @@ const MethodologySection = () => {
 
                   <div className="space-y-3">
                     <div className="flex items-center gap-4">
-                      <span className="text-[10px] font-mono font-bold text-[#fdb813]">STP_{step.num}</span>
+                      <span className="text-[10px] font-mono font-bold text-[#F58220]">STP_{step.num}</span>
                       <h4 className="text-xl font-bold text-slate-900 tracking-tight font-serif" style={{ fontFamily: "'Lora', serif" }}>{step.title}</h4>
                     </div>
                     <p className="text-[13px] text-slate-400 leading-relaxed italic max-w-xs group-hover:text-slate-600 transition-colors">
@@ -116,7 +116,7 @@ const MethodologySection = () => {
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
                 className="absolute -bottom-8 -left-8 md:-left-16 bg-[#0c0d12] p-6 rounded-3xl shadow-2xl border border-white/10 z-20 flex items-center gap-5"
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#0052e6]/20 flex items-center justify-center text-[#fdb813] shadow-inner">
+                <div className="w-12 h-12 rounded-2xl bg-[#0052e6]/20 flex items-center justify-center text-[#F58220] shadow-inner">
                   <FiActivity size={24} />
                 </div>
                 <div>
@@ -129,7 +129,7 @@ const MethodologySection = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                className="absolute -top-10 right-0 text-[#fdb813] opacity-20 blur-[1px]"
+                className="absolute -top-10 right-0 text-[#F58220] opacity-20 blur-[1px]"
               >
                 <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
@@ -148,7 +148,7 @@ const MethodologySection = () => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="bg-[#0052e6] text-white px-10 py-4 rounded-full font-sans font-black text-[11px] uppercase tracking-[0.3em] shadow-xl hover:bg-[#fdb813] hover:text-black transition-all duration-500 flex items-center gap-4 group"
+            className="bg-[#0052e6] text-white px-10 py-4 rounded-full font-sans font-black text-[11px] uppercase tracking-[0.3em] shadow-xl hover:bg-[#F58220] hover:text-black transition-all duration-500 flex items-center gap-4 group"
           >
             Launch Discovery <FiArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </motion.button>

@@ -10,7 +10,7 @@ const BLOGS = [
         id: 1,
         slug: "performance-marketing-guide-2025",
         category: "Performance Marketing",
-        categoryColor: "#FDB813",
+        categoryColor: "#F58220",
         tag: "Guide",
         title: "The Ultimate Guide to Performance Marketing in 2025",
         subtitle: "Everything you need to know about running campaigns that pay for themselves",
@@ -20,7 +20,7 @@ const BLOGS = [
         date: "April 12, 2025",
         readTime: "8 min read",
         cover: "/images/blog1_converted.png",
-        accentColor: "#FDB813",
+        accentColor: "#F58220",
         content: [
             {
                 type: "intro",
@@ -377,13 +377,13 @@ const BlogListing = ({ onSelectBlog }) => {
                         backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)',
                         backgroundSize: '72px 72px'
                     }} />
-                <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#FDB813]/10 blur-[120px] pointer-events-none" />
+                <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#F58220]/10 blur-[120px] pointer-events-none" />
                 <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
 
                 <div className="max-w-5xl mx-auto relative z-10 text-center">
                     <motion.p
                         initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}
-                        className="text-[#FDB813] text-xs font-bold tracking-[0.4em] uppercase mb-5"
+                        className="text-[#F58220] text-xs font-bold tracking-[0.4em] uppercase mb-5"
                     >
                         iBraine Insights
                     </motion.p>
@@ -393,8 +393,8 @@ const BlogListing = ({ onSelectBlog }) => {
                     >
                         Marketing insights that{' '}
                         <span className="relative inline-block">
-                            <span className="text-[#FDB813]">actually</span>
-                            <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#FDB813]/40 rounded-full" />
+                            <span className="text-[#F58220]">actually</span>
+                            <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#F58220]/40 rounded-full" />
                         </span>
                         {' '}move the needle
                     </motion.h1>
@@ -457,7 +457,7 @@ const BlogListing = ({ onSelectBlog }) => {
             <section className="max-w-7xl mx-auto px-6 pb-28">
                 <motion.p
                     initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-                    className="text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-10"
+                    className="text-[#F58220] text-xs font-bold tracking-[0.35em] uppercase mb-10"
                 >
                     More Articles
                 </motion.p>
@@ -668,7 +668,7 @@ const BlogDetail = ({ blog, onBack, allBlogs }) => {
             {/* ── RELATED ARTICLES ── */}
             <section className="bg-white border-t border-gray-100 py-20 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <p className="text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-3">Keep Reading</p>
+                    <p className="text-[#F58220] text-xs font-bold tracking-[0.35em] uppercase mb-3">Keep Reading</p>
                     <h3 className="font-lora text-3xl text-[#0f172a] mb-10">Related Articles</h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -696,7 +696,7 @@ const BlogDetail = ({ blog, onBack, allBlogs }) => {
             {/* ── CTA ── */}
             <section className="bg-[#0f172a] py-20 px-6 text-center">
                 <div className="max-w-2xl mx-auto">
-                    <p className="text-[#FDB813] text-xs font-bold tracking-[0.35em] uppercase mb-5">Work With Us</p>
+                    <p className="text-[#F58220] text-xs font-bold tracking-[0.35em] uppercase mb-5">Work With Us</p>
                     <h3 className="font-lora text-white text-4xl leading-tight mb-6">
                         Ready to put these strategies to work for your brand?
                     </h3>
@@ -705,7 +705,7 @@ const BlogDetail = ({ blog, onBack, allBlogs }) => {
                     </p>
                     <button
                         className="inline-flex items-center gap-2 font-bold px-9 py-4 rounded-xl text-[#0f172a] hover:scale-105 transition-transform duration-200"
-                        style={{ background: '#FDB813' }}
+                        style={{ background: '#F58220' }}
                     >
                         Get a Free Strategy Call <ArrowRight size={18} />
                     </button>

@@ -5,7 +5,6 @@ import { Sparkles, Quote } from 'lucide-react'; // Removed ArrowRight
 const FounderSection = () => {
   return (
     <section className="relative w-full bg-[#fafafa] py-16 md:py-24 lg:py-32 px-6 overflow-hidden selection:bg-indigo-100">
-
       {/* --- ELITE BACKGROUND DESIGN --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Animated Mesh Glows */}
@@ -22,12 +21,10 @@ const FounderSection = () => {
         .font-lora { font-family: 'Lora', serif; }
         .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
       `}</style>
-
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
 
         {/* --- LEFT SIDE: EDITORIAL CONTENT --- */}
         <div className="flex flex-col text-left lg:col-span-7 order-2 lg:order-1">
-
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,7 +48,7 @@ const FounderSection = () => {
               <span className="inline-block mx-3 md:mx-5 align-middle">
                 <motion.div
                   animate={{ rotate: [0, 90, 0] }}
-                  transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+                 transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
                   className="text-[#fb8930]"
                 >
                   <svg width="45" height="45" viewBox="0 0 24 24" className="md:w-[60px] md:h-[60px] fill-current">
@@ -60,7 +57,6 @@ const FounderSection = () => {
                 </motion.div>
               </span>
               That Scale Brands. <br className="hidden md:block" />
-
             </h2>
 
             {/* REFINED DIVIDER */}
@@ -72,13 +68,11 @@ const FounderSection = () => {
             {/* DESCRIPTION CONTENT */}
             <p className="font-jakarta text-slate-500 text-lg md:text-xl max-w-xl leading-relaxed mb-12 font-medium">
               We bridge the gap between business vision and digital execution. Our goal is to leverage technical innovation and deep marketing expertise to scale your business with precision            </p>
-
           </motion.div>
         </div>
 
         {/* --- RIGHT SIDE: PREMIUM PORTRAIT --- */}
         <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end relative">
-
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
