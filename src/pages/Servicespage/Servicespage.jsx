@@ -279,48 +279,88 @@ const Servicespage = () => (
   
 
     {/* HERO SECTION */}
-    <section className="relative mx-auto min-h-[600px] max-w-[1160px] overflow-hidden px-6 pb-20 pt-16">
-      <AmbientCurve top="-180px" />
+      <section className="relative mx-auto min-h-[600px] max-w-[1160px] overflow-hidden px-6 pb-20 pt-16">
+        <AmbientCurve top="-180px" />
 
-      {/* MATCHED GRADIENT ACCENT ORBS */}
-      <div className="absolute left-[30%] top-[120px] h-[400px] w-[400px] rounded-full bg-gradient-to-br from-[#18b8c9]/20 to-[#102c63]/10 blur-3xl pointer-events-none" />
-      <div className="absolute right-[15%] top-[50px] h-[180px] w-[180px] rounded-full bg-gradient-to-br from-[#18b8c9]/30 to-[#fbfdff] blur-2xl pointer-events-none" />
+        {/* CONTINUOUS MORPHING ANIMATED SHAPES (UPDATED TO BRAND LOGO COLORS) */}
+        <motion.div
+          className="absolute left-[30%] top-[100px] h-[480px] w-[480px] rounded-full bg-[#00A99D] pointer-events-none opacity-90"
+          animate={{
+            scale: [1, 1.12, 0.95, 1.08, 1],
+            x: [0, 25, -15, 10, 0],
+            y: [0, -20, 15, -10, 0],
+            borderRadius: [
+              '50% 50% 50% 50%',
+              '60% 40% 70% 30% / 50% 60% 40% 50%',
+              '40% 60% 30% 70% / 60% 30% 70% 40%',
+              '55% 45% 60% 40% / 45% 55% 40% 60%',
+              '50% 50% 50% 50%'
+            ]
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        />
 
-      <div className="relative z-10">
-        <p className="mb-4 text-[11px] font-bold uppercase tracking-[1.6px] text-[#59677e]">
-          iBraine Digital Services
-        </p>
-        <h1 className="m-0 text-[clamp(48px,7vw,110px)] font-black leading-[0.95] tracking-[-4px] text-[#102c63]">
-          <span className="block text-right">we provide-</span>
-          <strong className="mt-6 block font-black text-[#102c63]">
-            digital<span className="text-[#18b8c9]">*</span>
-            <br />
-            solutions
-          </strong>
-        </h1>
-      </div>
+        <motion.div
+          className="absolute right-[15%] top-[40px] h-[200px] w-[200px] rounded-full bg-[#e9ff5b] pointer-events-none opacity-90"
+          animate={{
+            scale: [1, 0.9, 1.1, 0.95, 1],
+            x: [0, -18, 12, -8, 0],
+            y: [0, 15, -20, 10, 0],
+            borderRadius: [
+              '50% 50% 50% 50%',
+              '45% 55% 60% 40% / 55% 45% 50% 50%',
+              '65% 35% 45% 55% / 40% 60% 35% 65%',
+              '50% 50% 50% 50%'
+            ]
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        />
 
-      <div className="relative lg:absolute lg:left-[52%] lg:top-[280px] z-20 mt-8 lg:mt-0 max-w-[420px]">
-        <p className="mb-6 text-[16px] leading-relaxed text-[#59677e]">
-          This digital marketing agency theme features clean, focused solutions for SEO, marketing, website analysis, optimisation, and growth.
-        </p>
-        <motion.a
-          className="inline-flex items-center gap-4 rounded-full bg-[#102c63] px-8 py-4 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md hover:bg-[#18b8c9] transition-all"
-          href="#service-categories"
-          whileHover={{ y: -3 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          Get Started
-          <span className="text-[#18b8c9]">
-            <ArrowUpRight size={18} />
-          </span>
-        </motion.a>
-      </div>
-    </section>
+        <div className="relative z-10">
+          {/* KICKER TEXT: DARK NAVY WITH HIGH CONTRAST */}
+          <p className="mb-4 text-[12px] font-extrabold uppercase tracking-[2px] text-[#0A192F]">
+            iBraine Digital Services
+          </p>
+          <h1 className="m-0 text-[clamp(48px,7vw,110px)] font-black leading-[0.95] tracking-[-4px] text-[#0A192F]">
+            <span className="block text-right">we provide-</span>
+            <strong className="mt-6 block font-black text-[#0A192F]">
+              digital<span className="text-[#F15A24]">*</span>
+              <br />
+              solutions
+            </strong>
+          </h1>
+        </div>
+
+        <div className="relative lg:absolute lg:left-[52%] lg:top-[280px] z-20 mt-8 lg:mt-0 max-w-[420px]">
+          {/* BODY TEXT: BOLDER DARK NAVY FOR MAXIMUM READABILITY OVER THE TEAL SHAPE */}
+          <p className="mb-6 text-[16px] font-semibold leading-relaxed text-[#0A192F]">
+            This digital marketing agency theme features clean, focused solutions for SEO, marketing, website analysis, optimisation, and growth.
+          </p>
+          <motion.a
+            className="inline-flex items-center gap-4 rounded-full bg-[#0A192F] px-8 py-4 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-lg hover:bg-[#F15A24] transition-all"
+            href="#service-categories"
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Get Started
+            <span className="text-[#00A99D]">
+              <ArrowUpRight size={18} />
+            </span>
+          </motion.a>
+        </div>
+      </section>
 
     {/* BANNER SECTION */}
     <div
-      className="mx-auto max-w-[1160px] bg-[linear-gradient(rgba(16,44,99,0.3),rgba(16,44,99,0.3)),url('/parallax-office.png')] bg-cover bg-center bg-fixed h-[260px] rounded-[24px]"
+      className="mx-auto max-w-[1160px] bg-[linear-gradient(rgba(16,44,99,0.3),rgba(16,44,99,0.3)),url('/parallax-office.png')] bg-cover bg-center bg-fixed h-[260px] rounded"
       aria-label="Our creative workspace"
     />
 

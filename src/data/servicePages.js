@@ -1,58 +1,705 @@
-const logos = ['/client/MRC.png', '/client/NAT.png', '/client/Meditac Kits Logo.png', '/client/Vastu Energetics Logo.png', '/client/Papita Logo.jpg', '/client/LOK.png', '/client/Emrik Cakes Logo.webp', '/client/Artigenius Logo.png', '/client/DLOK.png', '/client/DHOBI.png', '/client/Thorny Affairs Logo.png', '/client/Lullabies Logo.png'];
+const logos = ['/client/MRC.png', '/client/NAT.png', '/client/Meditac Kits Logo.png', '/client/Vastu Energetics Logo.png', '/client/Papita Logo.jpg',
+  '/client/LOK.png', '/client/Emrik Cakes Logo.webp', '/client/Artigenius Logo.png', '/client/DLOK.png', '/client/DHOBI.png', '/client/Thorny Affairs Logo.png',
+  '/client/Lullabies Logo.png'];
+ 
 const sharedImages = ['/images/web1_converted.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'];
-const serviceContent = (name, accent) => {
-  const content = {
-    growthTitle: `Make your ${name} work towards growth`,
-    resultsTitle: `From strategy to measurable ${name} results`,
-    consultationButton: `Get a free ${name} consultant`,
-    expertButton: `Talk to our ${name} expert now`,
-  };
-
-  return {
-    ...content,
-    features: [
-      { title: content.growthTitle, copy: [`Your ${name} is often the first impression of your brand. We combine strategy, creativity, and execution to create experiences that capture attention and build trust.`, `Our process is designed around your business goals, audience, and measurable outcomes.`], bullets: ['Capture attention instantly', 'Build credibility and trust', 'Drive engagement and action'], images: sharedImages.slice(0, 2), button: content.consultationButton, accent },
-      { title: content.resultsTitle, copy: [`We do more than deliver isolated activities. We build a complete, scalable system aligned with your audience and market.`, `Every decision is refined through insight, testing, and performance data.`], bullets: ['Performance-focused execution', 'Clear and consistent strategy', 'Scalable solutions for growth'], images: sharedImages.slice(2, 4), button: content.expertButton, accent },
-    ],
-  };
-};
 const defaultFaqImages = ['/images/web9_converted.png', '/images/web10_converted.png', '/images/web11_converted.png'];
-const faqData = {
-  'performance-marketing': ['Performance Marketing Agency in Mumbai', 'Scale campaigns with disciplined testing, accurate attribution, and profitable acquisition.', ['Audience and offer research', 'Creative testing and iteration', 'Budget and bid optimisation', 'Revenue-focused reporting']],
-  'sem-experts': ['SEM Agency in Mumbai', 'Capture existing demand with search campaigns built around intent, relevance, and efficient spend.', ['Search intent mapping', 'Campaign and ad-group architecture', 'Search term and bid control', 'Landing page conversion checks']],
-  'seo-services': ['SEO Agency in Mumbai', 'Build durable organic visibility through technical health, useful content, and trusted authority.', ['Technical crawl and indexation', 'Intent-led keyword planning', 'Content and on-page optimisation', 'Authority and ranking growth']],
-  'social-media-marketing': ['Social Media Agency in Mumbai', 'Turn audience attention into a consistent brand community and a measurable growth channel.', ['Audience and platform strategy', 'Content pillars and calendars', 'Community engagement systems', 'Reach and conversion measurement']],
-  'google-analytics': ['Google Analytics Agency in Mumbai', 'Replace scattered numbers with a dependable measurement system your team can act on.', ['Measurement plan and goals', 'GA4 property configuration', 'Events, funnels, and audiences', 'Dashboards and decision reporting']],
-  'affiliate-marketing': ['Affiliate Marketing Agency in Mumbai', 'Create partner-led growth with clear incentives, quality controls, and transparent attribution.', ['Partner and publisher discovery', 'Commission and offer design', 'Fraud and quality monitoring', 'Partner performance optimisation']],
-  'website-design': ['Website Development Company in Mumbai', 'Build a fast, credible website that supports your brand, search visibility, and business goals.', ['Discovery and conversion planning', 'Responsive experience design', 'Scalable front-end development', 'Launch, QA, and optimisation']],
-  'ui-ux': ['UI/UX Design Agency in Mumbai', 'Design digital products around real user needs, clear journeys, and confident interactions.', ['User research and discovery', 'Information architecture', 'Interface and prototype design', 'Usability testing and handoff']],
-  'gtm-integration': ['Google Tag Manager Agency in Mumbai', 'Give your marketing team clean, flexible tracking without repeated development bottlenecks.', ['Container and tag architecture', 'Trigger and dataLayer planning', 'Cross-platform event tracking', 'Debugging and governance']],
-  'cro': ['CRO Agency in Mumbai', 'Improve the value of existing traffic by removing friction and learning from every experiment.', ['Funnel and behaviour diagnosis', 'Hypothesis-led experiments', 'Landing page improvements', 'Results and learning loops']],
-  'content-writing': ['Content Writing Agency in Mumbai', 'Create useful, search-ready content that earns attention, trust, and action.', ['Audience and topic research', 'Editorial voice and structure', 'SEO content production', 'Distribution and performance review']],
-  'graphic-design': ['Graphic Design Agency in Mumbai', 'Build a recognisable visual system that communicates clearly across every brand touchpoint.', ['Brand identity direction', 'Platform-ready creative systems', 'Campaign and marketing collateral', 'Creative consistency reviews']],
-  'reels-videos-photos': ['Video Production Agency in Mumbai', 'Make every frame purposeful with stories shaped for attention, recall, and measurable action.', ['Concept and pre-production', 'Production and art direction', 'Editing, sound, and motion', 'Platform delivery and performance']],
-};
-const makeService = ({ slug, name, hero, images = sharedImages, faqImages, brands, features, faq, stats, cta, background = '#F8FAFC', accent = '#F58220' }) => {
-  const [faqTitle, faqCopy, faqTitles] = faqData[slug];
-  const content = serviceContent(name, accent);
-  return { slug, name, accent, logos, hero: { background, ...hero, images }, content, brands: brands || { title: `Brands We've Helped Through ${name}`, copy: `From growing startups to established businesses, our tailored ${name} solutions deliver stronger visibility, engagement, and measurable growth.` }, features: features || content.features, faq: faq || { background: '#FFF7ED', title: faqTitle, copy: faqCopy, images: faqImages || defaultFaqImages, items: faqTitles.map((title, index) => ({ title, content: [`We define the ${name.toLowerCase()} foundation around your goals and audience.`, `Our team applies a practical ${name.toLowerCase()} process with clear priorities.`, `We refine the work using evidence, testing, and performance data.`, `You receive a repeatable system that supports long-term growth.`][index] })) }, stats: stats || { gradient: 'linear-gradient(to right, #005A91, #0072BC)', title: `A smarter approach to ${name}`, copy: `Strategy-led execution, transparent reporting, and measurable outcomes that help your brand grow.`, items: [{ value: '200+', label: `${name} projects delivered` }, { value: '300%', label: 'Average growth achieved' }, { value: '10+', label: 'Years of expertise' }] }, cta: cta || { title: `Unlock the full potential of your business with our ${name} experts`, copy: `Partner with iBraine for thoughtful strategy and execution that turns your goals into real business results.`, button: 'Case Studies' }, contact: name };
-};
-
+ 
+/**
+ * Every service below carries its OWN features + FAQ content — nothing is
+ * generated by swapping a service name into a shared sentence. Each block
+ * should read like it was written by someone who actually runs that
+ * discipline: what the deliverable is, what the process looks like, and
+ * what problem it solves.
+ */
+ 
+const makeService = ({
+  slug, name, hero, images = sharedImages, faqImages, brands, features, faqTitle, faqCopy, faqItems,
+  stats, cta, background = '#F8FAFC', accent = '#F58220',
+}) => ({
+  slug,
+  name,
+  accent,
+  logos,
+  hero: { background, ...hero, images },
+  brands: brands || {
+    title: `Brands We've Helped Through ${name}`,
+    copy: `From growing startups to established businesses, our tailored ${name} solutions deliver stronger visibility, engagement, and measurable growth.`,
+  },
+  features,
+  faq: {
+    background: '#FFF7ED',
+    title: faqTitle,
+    copy: faqCopy,
+    images: faqImages || defaultFaqImages,
+    items: faqItems,
+  },
+  stats: stats || {
+    gradient: 'linear-gradient(to right, #005A91, #0072BC)',
+    title: `A smarter approach to ${name}`,
+    copy: `Strategy-led execution, transparent reporting, and measurable outcomes that help your brand grow.`,
+    items: [
+      { value: '200+', label: `${name} projects delivered` },
+      { value: '300%', label: 'Average growth achieved' },
+      { value: '10+', label: 'Years of expertise' },
+    ],
+  },
+  cta: cta || {
+    title: `Unlock the full potential of your business with our ${name} experts`,
+    copy: `Partner with iBraine for thoughtful strategy and execution that turns your goals into real business results.`,
+    button: 'Case Studies',
+  },
+  contact: name,
+});
+ 
 const servicePages = [
-  makeService({ slug: 'performance-marketing', name: 'Performance Marketing', hero: { before: 'We engineer', highlight: 'predictable revenue', after: 'through intelligent performance marketing.', copy: ['Scale your business with data-backed campaigns, intelligent automation, and conversion-focused execution. Every penny is optimized. Every click is accountable.'], button: 'Talk to our Performance Expert Now', note: 'Rs. X Cr+ Revenue Generated | 5-12X ROAS Delivered | 20K+ Conversions Driven.' }, images: ['/images/p2.jpg', '/images/p4.webp', '/images/p3.webp', '/images/performance.png'] }),
-  makeService({ slug: 'sem-experts', name: 'SEM', hero: { before: 'Capture high-intent', highlight: 'customers exactly', after: 'when they’re searching.', copy: ['Our AI-powered SEM strategies place your brand at the top of search results, converting demand into revenue with precision targeting.'], button: 'Talk to our SEM Expert Now', note: 'Rs. X Cr+ Search Revenue Generated | 4-10X ROAS Delivered | High-Intent Leads at Scale' }, images: ['/images/sem6.webp', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'] }),
-  makeService({ slug: 'seo-services', name: 'SEO', background: '#f0f7f4', hero: { before: 'Where search intent meets', highlight: 'AI-driven precision', after: '.', copy: ['We design intelligent SEO systems that place your brand at the exact moment decisions are made.', 'By combining search intent, technical precision, and AI-led insights, we move beyond rankings toward sustained visibility.'], button: 'Talk to our SEO Expert Now', note: 'Get your website audited today and receive a tailored SEO roadmap.' }, images: ['/images/seo1_converted.png', '/images/seo2_converted.png', '/images/seo3_converted.png', '/images/seo4_converted.png'], faqImages: ['/images/seo5_converted.png', '/images/seo6_converted.png', '/images/seo7_converted.png'] }),
-  makeService({ slug: 'social-media-marketing', name: 'Social Media Marketing', hero: { before: 'Build communities that', highlight: 'drive real growth', after: '.', copy: ['We create strategic, insight-led social media experiences that help brands connect, engage, and convert.'], button: 'Talk to our Social Media Expert Now', note: 'Build a social presence your audience remembers.' }, images: ['./assets/smm/1', './assets/smm/2', './assets/smm/3', './assets/smm/4', './assets/smm/5'] }),
-  makeService({ slug: 'google-analytics', name: 'Google Analytics', background: '#323232', accent: '#FB8C32', hero: { before: 'Turn your data into', highlight: 'decisions that grow', after: '.', copy: ['Accurate analytics gives your marketing the clarity it needs to perform. We build reliable measurement systems and actionable reporting.'], button: 'Talk to our Analytics Expert Now', note: 'Understand what is working and where your next opportunity lies.' }, images: ['/images/Dashmeet.png', '/images/cro5_converted.png', '/images/cro6_converted.png', '/images/cro7_converted.png'] }),
-  makeService({ slug: 'affiliate-marketing', name: 'Affiliate Marketing', accent: '#FB8C32', background: '#fafbfc', hero: { before: 'Grow through', highlight: 'trusted partnerships', after: '.', copy: ['Build a scalable affiliate network that brings qualified traffic, stronger credibility, and measurable revenue.'], button: 'Talk to our Affiliate Expert Now', note: 'Turn the right partnerships into a dependable growth channel.' }, images: ['https://ibraine.com/wp-content/uploads/2024/05/Group-77-2.png', 'https://ibraine.com/wp-content/uploads/2024/05/program-1.png', 'https://ibraine.com/wp-content/uploads/2024/05/affiliate-marketing-3.png', 'https://ibraine.com/wp-content/uploads/2024/05/networking-1.png'] }),
-  makeService({ slug: 'website-design', name: 'Web Development', hero: { before: 'We design', highlight: 'high-impact websites', after: 'that turn visitors into loyal customers.', copy: ['We build fast, responsive, and visually engaging websites tailored to your brand, designed to capture attention and drive real growth.'], button: 'Talk to our Web Expert Now', note: 'We’ll get your new website live quickly, ready to perform and deliver results.' }, images: sharedImages, features: serviceContent('website development', '#F58220').features }),
-  makeService({ slug: 'ui-ux', name: 'UI/UX Design', hero: { before: 'We craft', highlight: 'digital experiences', after: 'that users enjoy and businesses depend on.', copy: ['We design intuitive, visually engaging, and conversion-driven experiences rooted in deep user insights and pixel-perfect precision.'], button: 'Talk to our UI/UX Expert Now', note: 'From wireframes to final design, we create seamless experiences.' }, images: ['/images/ui1_converted.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'] }),
-  makeService({ slug: 'gtm-integration', name: 'Google Tag Manager', background: '#eef4fb', hero: { before: 'Precision tracking systems built', highlight: 'for smarter decisions', after: '.', copy: ['We design advanced Google Tag Manager setups that give you control over tracking and turn every interaction into meaningful insight.'], button: 'Talk to our GTM Expert Now', note: 'Get your tags deployed, tested, and live without touching your website code.' }, images: ['/images/gtm1_converted.png', '/images/gtm2_converted.png', '/images/gtm3_converted.png', '/images/gtm4_converted.png'], faqImages: ['/images/gtm9_converted.png', '/images/gtm10_converted.png', '/images/gtm11_converted.png'] }),
-  makeService({ slug: 'cro', name: 'CRO', hero: { before: 'Turn more visitors into', highlight: 'measurable conversions', after: '.', copy: ['We analyze behavior, test experiences, and remove friction so your website works harder for your business.'], button: 'Talk to our CRO Expert Now', note: 'Make every visit more valuable.' }, images: ['/images/cro1_converted.png', '/images/cro2_converted.png', '/images/cro3_converted.png', '/images/cro4_converted.png'] }),
-  makeService({ slug: 'content-writing', name: 'Content Writing', background: '#f0f4ff', accent: '#6366f1', hero: { before: 'Strategic content built to', highlight: 'attract, engage,', after: 'and convert.', copy: ['We create SEO-led, insight-driven content that positions your brand in front of the right audience and turns attention into growth.'], button: 'Talk to our Content Expert Now', note: 'Your first batch of content can be ready within days, not weeks.' }, images: ['/images/case4.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'], faqImages: ['/images/case2.png', '/images/case1.webp', '/images/web11_converted.png'] }),
-  makeService({ slug: 'graphic-design', name: 'Graphic Design', background: '#fff5f0', accent: '#f97316', hero: { before: 'We turn', highlight: 'visuals into impact', after: 'with high-performing graphic design.', copy: ['From intelligent visual concepts to conversion-focused creatives, we blend aesthetic excellence with performance-driven design.'], button: 'Talk to our Design Expert Now', note: 'We can deliver your first design concepts within 48 hours.' }, images: ['/images/graphic1.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'], faqImages: ['/images/graphic5.png', '/images/case1.webp', '/images/web11_converted.png'] }),
-  makeService({ slug: 'reels-videos-photos', name: 'Video Production', accent: '#e8c84a', background: '#f0f4ff', hero: { before: 'High-impact', highlight: 'video content', after: 'designed to capture attention and drive action.', copy: ['We create strategy-led, performance-driven videos that combine storytelling, production quality, and audience insight.'], button: 'Talk to our Video Expert Now', note: 'From concept to final cut, we deliver videos that convert.' }, images: ['/images/video1_converted.png', '/images/video2_converted.png', '/images/video3_converted.jpg', '/images/video4_converted.png'], faqImages: ['/images/video9_converted.png', '/images/video10_converted.png', '/images/video11_converted.png'] }),
+ 
+  // ---------------------------------------------------------------- //
+  // PERFORMANCE MARKETING
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'performance-marketing',
+    name: 'Performance Marketing',
+    accent: '#F58220',
+    hero: {
+      before: 'We engineer',
+      highlight: 'predictable revenue',
+      after: 'through intelligent performance marketing.',
+      copy: ['Scale your business with data-backed campaigns, intelligent automation, and conversion-focused execution. Every rupee is optimized. Every click is accountable.'],
+      button: 'Talk to our Performance Expert Now',
+      note: 'Rs. X Cr+ Revenue Generated | 5-12X ROAS Delivered | 20K+ Conversions Driven.',
+    },
+    images: ['/images/p2.jpg', '/images/p4.webp', '/images/p3.webp', '/images/performance.png'],
+    features: [
+      {
+        title: 'A media plan built around your unit economics',
+        copy: [
+          'We start with your margins, average order value, and target CAC — not a generic "boost visibility" brief. Budgets across Meta, Google, and programmatic are allocated to the channels that actually convert for your category.',
+          'Creative, audience, and offer are tested as separate variables so you know exactly what moved the needle, not just that "the campaign worked."',
+        ],
+        bullets: ['CAC and LTV modelling before spend', 'Channel mix built for your margin', 'Creative/audience/offer split testing'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Performance Audit',
+      },
+      {
+        title: 'Daily optimization, not monthly reporting',
+        copy: [
+          'Bids, budgets, and placements are adjusted against live conversion data, not a once-a-week check-in. Underperforming ad sets are killed fast; winners get scaled before the opportunity closes.',
+          'You get a weekly revenue-and-ROAS dashboard, not a vanity-metrics deck.',
+        ],
+        bullets: ['Real-time bid & budget shifts', 'Fast kill/scale decisions', 'Revenue-first reporting'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Performance Expert Now',
+      },
+    ],
+    faqTitle: 'Performance Marketing Agency in Mumbai',
+    faqCopy: 'Scale campaigns with disciplined testing, accurate attribution, and profitable acquisition.',
+    faqItems: [
+      { title: 'Audience and offer research', content: 'We map who actually buys — not just who clicks — using past purchase data, lookalikes, and competitor gap analysis, then pair that audience with an offer angle worth testing first.' },
+      { title: 'Creative testing and iteration', content: 'Every campaign launches with 3-5 creative variants across hook, format, and CTA. We kill low performers within days and double down on what earns cheap conversions.' },
+      { title: 'Budget and bid optimisation', content: 'Spend shifts daily toward the ad sets producing the lowest cost-per-acquisition, with automated rules catching wasted spend before it adds up.' },
+      { title: 'Revenue-focused reporting', content: 'Your dashboard tracks ROAS, blended CAC, and incremental revenue — the numbers that decide whether to scale, not impressions or reach.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // SEM
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'sem-experts',
+    name: 'SEM',
+    accent: '#F58220',
+    hero: {
+      before: 'Capture high-intent',
+      highlight: 'customers exactly',
+      after: 'when they’re searching.',
+      copy: ['Our AI-powered SEM strategies place your brand at the top of search results, converting demand into revenue with precision targeting.'],
+      button: 'Talk to our SEM Expert Now',
+      note: 'Rs. X Cr+ Search Revenue Generated | 4-10X ROAS Delivered | High-Intent Leads at Scale',
+    },
+    images: ['/images/sem6.webp', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'],
+    features: [
+      {
+        title: 'Campaigns structured around search intent, not keywords',
+        copy: [
+          'We split "researching" traffic from "ready to buy" traffic into separate campaigns with their own budgets, ad copy, and landing pages — so you stop paying for clicks that were never going to convert.',
+          'Negative keyword lists are built and maintained weekly to keep wasted spend out of your account.',
+        ],
+        bullets: ['Intent-tiered campaign structure', 'Weekly negative-keyword pruning', 'Match-type strategy per funnel stage'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free SEM Audit',
+      },
+      {
+        title: 'Quality Score and CPC pushed down, not just up',
+        copy: [
+          'Ad relevance, landing page experience, and expected CTR are tuned together, which is what actually lowers your cost per click over time — not just raising bids.',
+          'We track search-term reports line by line to keep the account clean.',
+        ],
+        bullets: ['Landing page relevance checks', 'CTR-driven ad copy testing', 'Search-term report audits'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our SEM Expert Now',
+      },
+    ],
+    faqTitle: 'SEM Agency in Mumbai',
+    faqCopy: 'Capture existing demand with search campaigns built around intent, relevance, and efficient spend.',
+    faqItems: [
+      { title: 'Search intent mapping', content: 'We group keywords by where the searcher actually is — informational, comparison, or ready-to-buy — so each ad and landing page matches what they need next.' },
+      { title: 'Campaign and ad-group architecture', content: 'Tight ad groups (5-15 closely related keywords) keep Quality Scores high and let each ad speak directly to the search query instead of a generic pitch.' },
+      { title: 'Search term and bid control', content: 'We review the actual queries triggering your ads weekly, add negatives to cut waste, and shift bids toward terms with proven conversion history.' },
+      { title: 'Landing page conversion checks', content: 'Traffic is only as good as where it lands — we audit page speed, message match, and form friction so paid clicks don\u2019t leak out the back door.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // SEO
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'seo-services',
+    name: 'SEO',
+    background: '#f0f7f4',
+    accent: '#0f9d58',
+    hero: {
+      before: 'Where search intent meets',
+      highlight: 'AI-driven precision',
+      after: '.',
+      copy: [
+        'We design intelligent SEO systems that place your brand at the exact moment decisions are made.',
+        'By combining search intent, technical precision, and AI-led insights, we move beyond rankings toward sustained visibility.',
+      ],
+      button: 'Talk to our SEO Expert Now',
+      note: 'Get your website audited today and receive a tailored SEO roadmap.',
+    },
+    images: ['/images/seo1_converted.png', '/images/seo2_converted.png', '/images/seo3_converted.png', '/images/seo4_converted.png'],
+    faqImages: ['/images/seo5_converted.png', '/images/seo6_converted.png', '/images/seo7_converted.png'],
+    features: [
+      {
+        title: 'A technical foundation that stops leaking rankings',
+        copy: [
+          'Crawl budget waste, broken internal links, duplicate content, and slow Core Web Vitals quietly cap how far content can rank. We fix the plumbing first so every other effort actually compounds.',
+          'Site architecture is restructured around topic clusters so Google understands what you\u2019re actually an authority on.',
+        ],
+        bullets: ['Full technical crawl & fix list', 'Core Web Vitals remediation', 'Topic-cluster site architecture'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free SEO Audit',
+      },
+      {
+        title: 'Content built to rank and convert, not just exist',
+        copy: [
+          'Every page is mapped to a real search intent and a business outcome — informational content earns links and authority, commercial pages are optimized to close.',
+          'We track ranking movement and organic conversions monthly, not just traffic volume.',
+        ],
+        bullets: ['Intent-mapped content calendar', 'On-page & schema optimisation', 'Authority-building link outreach'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our SEO Expert Now',
+      },
+    ],
+    faqTitle: 'SEO Agency in Mumbai',
+    faqCopy: 'Build durable organic visibility through technical health, useful content, and trusted authority.',
+    faqItems: [
+      { title: 'Technical crawl and indexation', content: 'We audit crawlability, sitemaps, canonicals, and site speed so Google can find and index your best pages without wasting crawl budget on the rest.' },
+      { title: 'Intent-led keyword planning', content: 'Keywords are grouped by what the searcher wants to do next, then mapped to the page type — blog, category, or product — best suited to answer it.' },
+      { title: 'Content and on-page optimisation', content: 'Titles, headers, internal links, and schema markup are tuned so search engines and readers both understand what a page is about within seconds.' },
+      { title: 'Authority and ranking growth', content: 'We build links and digital PR around content worth citing, then track keyword position and organic revenue monthly to prove the strategy is working.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // SOCIAL MEDIA MARKETING
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'social-media-marketing',
+    name: 'Social Media Marketing',
+    accent: '#E1306C',
+    hero: {
+      before: 'Build communities that',
+      highlight: 'drive real growth',
+      after: '.',
+      copy: ['We create strategic, insight-led social media experiences that help brands connect, engage, and convert.'],
+      button: 'Talk to our Social Media Expert Now',
+      note: 'Build a social presence your audience remembers.',
+    },
+    images: ['./assets/smm/1', './assets/smm/2', './assets/smm/3', './assets/smm/4', './assets/smm/5'],
+    features: [
+      {
+        title: 'A content system, not random daily posts',
+        copy: [
+          'We build recurring content pillars — educational, social-proof, behind-the-scenes, promotional — so every post has a job, and the calendar isn\u2019t reinvented from scratch every week.',
+          'Formats are chosen per platform: Reels and Shorts for reach, carousels for saves, Stories for daily touchpoints.',
+        ],
+        bullets: ['Platform-specific content pillars', 'Format strategy per channel', '4-week content calendars'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Social Audit',
+      },
+      {
+        title: 'Community management that actually drives sales',
+        copy: [
+          'Comments and DMs are treated as a sales channel, not an afterthought — responses are timed to keep engagement (and the algorithm) working in your favour.',
+          'We track saves, shares, and click-throughs alongside follower growth, since reach alone doesn\u2019t pay the bills.',
+        ],
+        bullets: ['Timely comment & DM management', 'Save/share-focused creative', 'Growth + conversion tracking'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Social Media Expert Now',
+      },
+    ],
+    faqTitle: 'Social Media Agency in Mumbai',
+    faqCopy: 'Turn audience attention into a consistent brand community and a measurable growth channel.',
+    faqItems: [
+      { title: 'Audience and platform strategy', content: 'We identify which platforms your actual buyers spend time on and build a presence there first, instead of spreading effort thin across every network.' },
+      { title: 'Content pillars and calendars', content: 'Recurring themes give every post a purpose — education, proof, culture, or offer — planned a month ahead so publishing stays consistent.' },
+      { title: 'Community engagement systems', content: 'Comments and DMs are monitored on a response-time SLA, since fast, genuine replies are what the algorithm and your customers both reward.' },
+      { title: 'Reach and conversion measurement', content: 'We report on saves, shares, profile visits, and link clicks — the signals that show content is actually moving people toward a purchase.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // GOOGLE ANALYTICS
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'google-analytics',
+    name: 'Google Analytics',
+    background: '#323232',
+    accent: '#FB8C32',
+    hero: {
+      before: 'Turn your data into',
+      highlight: 'decisions that grow',
+      after: '.',
+      copy: ['Accurate analytics gives your marketing the clarity it needs to perform. We build reliable measurement systems and actionable reporting.'],
+      button: 'Talk to our Analytics Expert Now',
+      note: 'Understand what is working and where your next opportunity lies.',
+    },
+    images: ['/images/Dashmeet.png', '/images/cro5_converted.png', '/images/cro6_converted.png', '/images/cro7_converted.png'],
+    features: [
+      {
+        title: 'A measurement plan before a single tag is fired',
+        copy: [
+          'We document the exact business questions your reporting needs to answer — which channel drives sign-ups, where checkout drops off — before touching GA4, so tracking is never an afterthought bolted on later.',
+          'Events, conversions, and audiences are configured to match that plan, not a generic default setup.',
+        ],
+        bullets: ['Business-question-first measurement plan', 'Custom GA4 events & conversions', 'Audience segmentation for remarketing'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Analytics Audit',
+      },
+      {
+        title: 'Dashboards your team will actually open',
+        copy: [
+          'We replace default GA4 reports with Looker Studio dashboards built around the 5-6 numbers that drive decisions — not fifty metrics nobody checks.',
+          'Data is validated against real transactions so leadership can trust the numbers, not double-check them.',
+        ],
+        bullets: ['Custom Looker Studio dashboards', 'Data accuracy validation', 'Cross-channel funnel visibility'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Analytics Expert Now',
+      },
+    ],
+    faqTitle: 'Google Analytics Agency in Mumbai',
+    faqCopy: 'Replace scattered numbers with a dependable measurement system your team can act on.',
+    faqItems: [
+      { title: 'Measurement plan and goals', content: 'We start by writing down the decisions your data needs to support, then design tracking backward from those goals instead of installing GA4 by default.' },
+      { title: 'GA4 property configuration', content: 'Properties, data streams, and conversion events are set up to match your actual funnel — sign-up, add-to-cart, checkout — not the out-of-the-box template.' },
+      { title: 'Events, funnels, and audiences', content: 'Custom events track the specific actions that matter to your business, rolled up into funnels that show exactly where users drop off.' },
+      { title: 'Dashboards and decision reporting', content: 'We build focused Looker Studio dashboards so stakeholders see the handful of numbers that actually drive a decision, refreshed automatically.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // AFFILIATE MARKETING
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'affiliate-marketing',
+    name: 'Affiliate Marketing',
+    accent: '#FB8C32',
+    background: '#fafbfc',
+    hero: {
+      before: 'Grow through',
+      highlight: 'trusted partnerships',
+      after: '.',
+      copy: ['Build a scalable affiliate network that brings qualified traffic, stronger credibility, and measurable revenue.'],
+      button: 'Talk to our Affiliate Expert Now',
+      note: 'Turn the right partnerships into a dependable growth channel.',
+    },
+    images: [
+      'https://ibraine.com/wp-content/uploads/2024/05/Group-77-2.png',
+      'https://ibraine.com/wp-content/uploads/2024/05/program-1.png',
+      'https://ibraine.com/wp-content/uploads/2024/05/affiliate-marketing-3.png',
+      'https://ibraine.com/wp-content/uploads/2024/05/networking-1.png',
+    ],
+    features: [
+      {
+        title: 'Partners recruited for fit, not just reach',
+        copy: [
+          'We vet publishers and creators against your actual customer profile and category — a large audience that doesn\u2019t match your buyer is wasted commission spend.',
+          'Onboarding includes clear creative guidelines and tracking links so partners can start driving sales in their first week, not their first month.',
+        ],
+        bullets: ['Category-fit partner vetting', 'Fast, guided onboarding', 'Ready-to-use creative & links'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Affiliate Audit',
+      },
+      {
+        title: 'Commission structures that protect your margin',
+        copy: [
+          'Payouts are modelled against your actual margins and AOV so growth in the channel never becomes growth you can\u2019t afford.',
+          'We monitor for coupon fraud, cookie-stuffing, and low-quality traffic so your budget goes to partners driving genuine, incremental sales.',
+        ],
+        bullets: ['Margin-safe commission modelling', 'Fraud & quality monitoring', 'Incremental-sale attribution'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Affiliate Expert Now',
+      },
+    ],
+    faqTitle: 'Affiliate Marketing Agency in Mumbai',
+    faqCopy: 'Create partner-led growth with clear incentives, quality controls, and transparent attribution.',
+    faqItems: [
+      { title: 'Partner and publisher discovery', content: 'We source affiliates whose audience actually overlaps with your buyers — niche bloggers, coupon sites, or creators — instead of chasing raw follower counts.' },
+      { title: 'Commission and offer design', content: 'Payout tiers are built around your margin so the program stays profitable even as top affiliates scale their traffic.' },
+      { title: 'Fraud and quality monitoring', content: 'Click patterns, coupon misuse, and cookie-stuffing are monitored continuously so you only pay for genuine, incremental sales.' },
+      { title: 'Partner performance optimisation', content: 'We rank affiliates by revenue quality, not just volume, and reinvest budget and support into the partners actually moving the needle.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // WEBSITE DESIGN / DEVELOPMENT
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'website-design',
+    name: 'Web Development',
+    accent: '#F58220',
+    hero: {
+      before: 'We design',
+      highlight: 'high-impact websites',
+      after: 'that turn visitors into loyal customers.',
+      copy: ['We build fast, responsive, and visually engaging websites tailored to your brand, designed to capture attention and drive real growth.'],
+      button: 'Talk to our Web Expert Now',
+      note: 'We’ll get your new website live quickly, ready to perform and deliver results.',
+    },
+    images: sharedImages,
+    features: [
+      {
+        title: 'Built around a conversion path, not just a look',
+        copy: [
+          'Before any design starts, we map the journey a visitor should take — from landing page to enquiry or checkout — so every section on the site earns its place instead of existing for decoration.',
+          'Wireframes are validated with you before development begins, so there are no expensive surprises at launch.',
+        ],
+        bullets: ['Conversion-path wireframing', 'Mobile-first responsive builds', 'Stakeholder sign-off before dev'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Website Audit',
+      },
+      {
+        title: 'Fast, scalable, and SEO-ready from day one',
+        copy: [
+          'Sites are built on clean, modern code with optimized images and lazy loading, so speed and Core Web Vitals aren\u2019t a fix-it-later problem.',
+          'We handle QA across devices and browsers, and set up basic on-page SEO before launch — not months after.',
+        ],
+        bullets: ['Performance-optimized code', 'Cross-device & browser QA', 'On-page SEO at launch'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Web Expert Now',
+      },
+    ],
+    faqTitle: 'Website Development Company in Mumbai',
+    faqCopy: 'Build a fast, credible website that supports your brand, search visibility, and business goals.',
+    faqItems: [
+      { title: 'Discovery and conversion planning', content: 'We map your visitor journey and business goals first, then design page flow and calls-to-action around getting people to actually take the next step.' },
+      { title: 'Responsive experience design', content: 'Every layout is designed mobile-first and tested across screen sizes, since most of your traffic will land on a phone before a desktop.' },
+      { title: 'Scalable front-end development', content: 'We build on component-based code so new pages, sections, or campaigns can be added later without rebuilding the site from scratch.' },
+      { title: 'Launch, QA, and optimisation', content: 'Before go-live we test load speed, forms, and cross-browser behaviour, then monitor real performance in the weeks after launch.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // UI/UX
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'ui-ux',
+    name: 'UI/UX Design',
+    accent: '#F58220',
+    hero: {
+      before: 'We craft',
+      highlight: 'digital experiences',
+      after: 'that users enjoy and businesses depend on.',
+      copy: ['We design intuitive, visually engaging, and conversion-driven experiences rooted in deep user insights and pixel-perfect precision.'],
+      button: 'Talk to our UI/UX Expert Now',
+      note: 'From wireframes to final design, we create seamless experiences.',
+    },
+    images: ['/images/ui1_converted.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'],
+    features: [
+      {
+        title: 'Research before pixels',
+        copy: [
+          'We study how your users actually behave — through interviews, session recordings, or competitor teardown — so design decisions solve real friction, not assumed friction.',
+          'Information architecture is mapped out before any screen is drawn, so navigation makes sense before it looks good.',
+        ],
+        bullets: ['User interviews & behaviour analysis', 'Information architecture mapping', 'Competitor UX teardown'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free UX Review',
+      },
+      {
+        title: 'Prototypes tested before a single line of code',
+        copy: [
+          'Interactive prototypes are usability-tested with real users so costly design flaws are caught in Figma, not after development.',
+          'Every screen ships with a documented handoff — spacing, states, and components — so nothing gets lost in translation to engineering.',
+        ],
+        bullets: ['Clickable prototype testing', 'Usability testing with real users', 'Developer-ready design handoff'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our UI/UX Expert Now',
+      },
+    ],
+    faqTitle: 'UI/UX Design Agency in Mumbai',
+    faqCopy: 'Design digital products around real user needs, clear journeys, and confident interactions.',
+    faqItems: [
+      { title: 'User research and discovery', content: 'We talk to real users and review behaviour data before designing anything, so decisions are grounded in how people actually use the product.' },
+      { title: 'Information architecture', content: 'Content and features are structured into a logical navigation system first, so users can find what they need without thinking about it.' },
+      { title: 'Interface and prototype design', content: 'High-fidelity screens and clickable prototypes let you and your users experience the flow before a single line of code is written.' },
+      { title: 'Usability testing and handoff', content: 'We run usability tests to catch confusion early, then deliver a fully documented design system so engineering builds it exactly as intended.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // GTM
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'gtm-integration',
+    name: 'Google Tag Manager',
+    background: '#eef4fb',
+    accent: '#0072BC',
+    hero: {
+      before: 'Precision tracking systems built',
+      highlight: 'for smarter decisions',
+      after: '.',
+      copy: ['We design advanced Google Tag Manager setups that give you control over tracking and turn every interaction into meaningful insight.'],
+      button: 'Talk to our GTM Expert Now',
+      note: 'Get your tags deployed, tested, and live without touching your website code.',
+    },
+    images: ['/images/gtm1_converted.png', '/images/gtm2_converted.png', '/images/gtm3_converted.png', '/images/gtm4_converted.png'],
+    faqImages: ['/images/gtm9_converted.png', '/images/gtm10_converted.png', '/images/gtm11_converted.png'],
+    features: [
+      {
+        title: 'A container built for your team, not just today\u2019s tags',
+        copy: [
+          'We design a clean naming convention and folder structure for triggers, tags, and variables, so future additions don\u2019t turn your container into an unmanageable mess.',
+          'A dataLayer plan is documented upfront, so new events (add-to-cart, form submits, video plays) can be added without a developer each time.',
+        ],
+        bullets: ['Structured naming conventions', 'Documented dataLayer plan', 'Self-serve future tag additions'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Tracking Audit',
+      },
+      {
+        title: 'Tested before it ever touches production',
+        copy: [
+          'Every tag is verified in GTM\u2019s preview mode and cross-checked in GA4/ Ads before publishing, so broken tracking never quietly costs you a month of clean data.',
+          'We set up version control and a rollback plan, so a bad publish is a two-minute fix, not a fire drill.',
+        ],
+        bullets: ['Preview-mode tag verification', 'Cross-platform event checks', 'Version control & rollback plan'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our GTM Expert Now',
+      },
+    ],
+    faqTitle: 'Google Tag Manager Agency in Mumbai',
+    faqCopy: 'Give your marketing team clean, flexible tracking without repeated development bottlenecks.',
+    faqItems: [
+      { title: 'Container and tag architecture', content: 'We organise tags, triggers, and variables with a clear naming system, so the container stays manageable as more tracking gets added over time.' },
+      { title: 'Trigger and dataLayer planning', content: 'We document exactly what data should push to the dataLayer for each user action, so new events can be tracked without touching site code.' },
+      { title: 'Cross-platform event tracking', content: 'The same event fires consistently into GA4, Meta, and Ads, so every platform is reporting on the same underlying user behaviour.' },
+      { title: 'Debugging and governance', content: 'We test every tag in preview mode before publishing and keep version history, so tracking issues are caught before they cost you data.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // CRO
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'cro',
+    name: 'CRO',
+    accent: '#0072BC',
+    hero: {
+      before: 'Turn more visitors into',
+      highlight: 'measurable conversions',
+      after: '.',
+      copy: ['We analyze behavior, test experiences, and remove friction so your website works harder for your business.'],
+      button: 'Talk to our CRO Expert Now',
+      note: 'Make every visit more valuable.',
+    },
+    images: ['/images/cro1_converted.png', '/images/cro2_converted.png', '/images/cro3_converted.png', '/images/cro4_converted.png'],
+    features: [
+      {
+        title: 'Diagnosis before design changes',
+        copy: [
+          'Heatmaps, session recordings, and funnel drop-off data tell us exactly where visitors hesitate or leave — we don\u2019t redesign a page just because it "feels dated."',
+          'Every hypothesis is written down with the expected impact before a test goes live, so we\u2019re learning something either way.',
+        ],
+        bullets: ['Heatmaps & session recordings', 'Funnel drop-off diagnosis', 'Written, testable hypotheses'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free CRO Audit',
+      },
+      {
+        title: 'Tests run to statistical significance, not gut feel',
+        copy: [
+          'A/B and multivariate tests run until results are statistically reliable, so a win actually holds up when rolled out to 100% of traffic.',
+          'Every test — win or lose — becomes a documented insight that shapes the next round, compounding results over time.',
+        ],
+        bullets: ['A/B & multivariate testing', 'Statistically validated results', 'Compounding insight documentation'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our CRO Expert Now',
+      },
+    ],
+    faqTitle: 'CRO Agency in Mumbai',
+    faqCopy: 'Improve the value of existing traffic by removing friction and learning from every experiment.',
+    faqItems: [
+      { title: 'Funnel and behaviour diagnosis', content: 'We use heatmaps, recordings, and analytics funnels to find the exact step where visitors lose interest, instead of guessing which page needs work.' },
+      { title: 'Hypothesis-led experiments', content: 'Every test starts with a written hypothesis and expected outcome, so results teach us something concrete about your users.' },
+      { title: 'Landing page improvements', content: 'We test changes to headlines, forms, and page layout against real conversion data, not personal design preference.' },
+      { title: 'Results and learning loops', content: 'Each experiment\u2019s outcome — win or lose — is documented and feeds directly into the next round of tests.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // CONTENT WRITING
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'content-writing',
+    name: 'Content Writing',
+    background: '#f0f4ff',
+    accent: '#6366f1',
+    hero: {
+      before: 'Strategic content built to',
+      highlight: 'attract, engage,',
+      after: 'and convert.',
+      copy: ['We create SEO-led, insight-driven content that positions your brand in front of the right audience and turns attention into growth.'],
+      button: 'Talk to our Content Expert Now',
+      note: 'Your first batch of content can be ready within days, not weeks.',
+    },
+    images: ['/images/case4.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'],
+    faqImages: ['/images/case2.png', '/images/case1.webp', '/images/web11_converted.png'],
+    features: [
+      {
+        title: 'Topics chosen by what people are actually searching',
+        copy: [
+          'We research real search demand and competitor content gaps before writing, so every piece targets a question your audience is genuinely asking.',
+          'A documented brand voice guide keeps every writer — internal or freelance — sounding consistently like you.',
+        ],
+        bullets: ['Search-demand topic research', 'Competitor content gap analysis', 'Documented brand voice guide'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Content Audit',
+      },
+      {
+        title: 'Written to rank, structured to convert',
+        copy: [
+          'Headers, internal links, and on-page SEO are built into the draft, not added afterward — so content is publish-ready and search-friendly from the first version.',
+          'We track which pieces actually drive traffic and enquiries, and double down on those formats.',
+        ],
+        bullets: ['SEO-structured drafts', 'Internal linking strategy', 'Performance-based content roadmap'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Content Expert Now',
+      },
+    ],
+    faqTitle: 'Content Writing Agency in Mumbai',
+    faqCopy: 'Create useful, search-ready content that earns attention, trust, and action.',
+    faqItems: [
+      { title: 'Audience and topic research', content: 'We research what your audience is actually searching and asking, then prioritise topics with real demand over what\u2019s easy to write.' },
+      { title: 'Editorial voice and structure', content: 'A documented style and tone guide keeps every article, page, or caption sounding consistently like your brand, regardless of who writes it.' },
+      { title: 'SEO content production', content: 'Headers, keywords, and internal links are built into every draft from the start, so content is search-ready the moment it publishes.' },
+      { title: 'Distribution and performance review', content: 'We track traffic, time-on-page, and enquiries per article, and use those numbers to guide what topics and formats we produce next.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // GRAPHIC DESIGN
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'graphic-design',
+    name: 'Graphic Design',
+    background: '#fff5f0',
+    accent: '#f97316',
+    hero: {
+      before: 'We turn',
+      highlight: 'visuals into impact',
+      after: 'with high-performing graphic design.',
+      copy: ['From intelligent visual concepts to conversion-focused creatives, we blend aesthetic excellence with performance-driven design.'],
+      button: 'Talk to our Design Expert Now',
+      note: 'We can deliver your first design concepts within 48 hours.',
+    },
+    images: ['/images/graphic1.png', '/images/web2_converted.webp', '/images/web4_converted.webp', '/images/web3_converted.webp'],
+    faqImages: ['/images/graphic5.png', '/images/case1.webp', '/images/web11_converted.png'],
+    features: [
+      {
+        title: 'A visual identity system, not a one-off logo',
+        copy: [
+          'Colour, type, and imagery guidelines are documented in a usable brand kit, so every future creative — from a business card to a billboard — stays recognisably yours.',
+          'We test creative variants for ad placements specifically, since a design that works on a website often fails as a scroll-stopping ad.',
+        ],
+        bullets: ['Documented brand identity kit', 'Platform-specific creative sizing', 'Ad-creative variant testing'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Design Review',
+      },
+      {
+        title: 'Designed against a brief, reviewed against results',
+        copy: [
+          'Every design starts from a clear creative brief tied to a business goal — awareness, clicks, or recall — not open-ended "make it pop" requests.',
+          'For performance creative, we track which visuals actually drive CTR and iterate the ones that don\u2019t.',
+        ],
+        bullets: ['Goal-driven creative briefs', 'Fast turnaround & revisions', 'CTR-based creative iteration'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Design Expert Now',
+      },
+    ],
+    faqTitle: 'Graphic Design Agency in Mumbai',
+    faqCopy: 'Build a recognisable visual system that communicates clearly across every brand touchpoint.',
+    faqItems: [
+      { title: 'Brand identity direction', content: 'We define colour, typography, and imagery style as a documented system, so your brand looks consistent whether it\u2019s a logo, a deck, or an ad.' },
+      { title: 'Platform-ready creative systems', content: 'Creative is built and resized correctly for each platform\u2019s specs from the start, instead of one design awkwardly stretched everywhere.' },
+      { title: 'Campaign and marketing collateral', content: 'From social posts to sales decks, every asset is built off the same brief and brand kit so campaigns feel cohesive, not patchworked.' },
+      { title: 'Creative consistency reviews', content: 'We periodically audit live assets against the brand kit to catch drift before an inconsistent creative goes out to your audience.' },
+    ],
+  }),
+ 
+  // ---------------------------------------------------------------- //
+  // VIDEO PRODUCTION
+  // ---------------------------------------------------------------- //
+  makeService({
+    slug: 'reels-videos-photos',
+    name: 'Video Production',
+    accent: '#e8c84a',
+    background: '#f0f4ff',
+    hero: {
+      before: 'High-impact',
+      highlight: 'video content',
+      after: 'designed to capture attention and drive action.',
+      copy: ['We create strategy-led, performance-driven videos that combine storytelling, production quality, and audience insight.'],
+      button: 'Talk to our Video Expert Now',
+      note: 'From concept to final cut, we deliver videos that convert.',
+    },
+    images: ['/images/video1_converted.png', '/images/video2_converted.png', '/images/video3_converted.jpg', '/images/video4_converted.png'],
+    faqImages: ['/images/video9_converted.png', '/images/video10_converted.png', '/images/video11_converted.png'],
+    features: [
+      {
+        title: 'Scripted for the first three seconds',
+        copy: [
+          'Every concept is built around a hook that survives the scroll — because most viewers decide whether to keep watching before the second sentence.',
+          'Storyboards and shot lists are approved before we film, so production days are efficient and on-brief.',
+        ],
+        bullets: ['Hook-first scripting', 'Approved storyboards & shot lists', 'On-location or studio production'],
+        images: sharedImages.slice(0, 2),
+        button: 'Get a Free Video Consultation',
+      },
+      {
+        title: 'Edited and delivered for where it\u2019s actually watched',
+        copy: [
+          'We cut separate versions for Reels, YouTube, and paid placements, since a 9:16 Reel edit and a 16:9 pre-roll ad need different pacing, captions, and length.',
+          'For paid video, we track watch-through rate and CTR, and iterate the edit — not just the media budget.',
+        ],
+        bullets: ['Platform-specific edits & aspect ratios', 'Caption & sound-off optimisation', 'Watch-time based iteration'],
+        images: sharedImages.slice(2, 4),
+        button: 'Talk to our Video Expert Now',
+      },
+    ],
+    faqTitle: 'Video Production Agency in Mumbai',
+    faqCopy: 'Make every frame purposeful with stories shaped for attention, recall, and measurable action.',
+    faqItems: [
+      { title: 'Concept and pre-production', content: 'We script around a strong first three seconds and lock a storyboard before filming, so the shoot day executes a clear plan instead of improvising.' },
+      { title: 'Production and art direction', content: 'Lighting, framing, and styling are directed to match your brand look, whether we\u2019re shooting on location or in a controlled studio setup.' },
+      { title: 'Editing, sound, and motion', content: 'Pacing, captions, and sound design are tailored per platform — a Reel and a YouTube pre-roll are cut differently because they\u2019re watched differently.' },
+      { title: 'Platform delivery and performance', content: 'We export the right aspect ratio and length for each placement, then track watch-through and CTR to refine future edits.' },
+    ],
+  }),
+ 
 ];
-
+ 
 export const servicePageBySlug = Object.fromEntries(servicePages.map((service) => [service.slug, service]));
 export default servicePages;
+ 
